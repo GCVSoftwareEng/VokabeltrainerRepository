@@ -1,10 +1,9 @@
 package ch.gcv.vokabeltrainer.application;
 
+import javax.naming.Context;
 
-import java.util.Locale;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-
+import profile.ProfileManager;
+import profile.UserProfile;
 import ch.gcv.vokabeltrainer.translation.TranslationManager;
 
 public class Main {
@@ -13,8 +12,10 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		TranslationManager tm = TranslationManager.getInstance();
-		tm.setLanguage("en");
+		tm.setLanguage("de");
 		System.out.println(tm.getString("Test.0"));
+		ProfileManager pm = ProfileManager.getInstance();
+		
 		
 	}
 
