@@ -8,11 +8,11 @@ import java.io.ObjectOutputStream;
 public class ProfileManager {
 
 	private static ProfileManager instance = null;
-	private static final String defaultContextFileName = "userList.context.sav";
-	private Context profile;
+	private static final String defaultFileExtension = ".profile";
+	private Profile profile;
 
 	public ProfileManager() {
-		this.profile = new Context();
+		this.profile = new Profile();
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class ProfileManager {
 	/**
 	 * Return context save medium.
 	 */
-	public Context getContext() {
+	public Profile getContext() {
 
 		return this.profile;
 
@@ -41,14 +41,14 @@ public class ProfileManager {
 	/**
 	 * Load the context save file.
 	 */
-	public Context load() {
+	public Profile load() {
 
 		try {
 
 			FileInputStream fis = new FileInputStream(
-					this.defaultContextFileName);
+					this.defaultFileExtension);
 			ObjectInputStream is = new ObjectInputStream(fis);
-			this.profile = (Context) is.readObject();
+			this.profile = (Profile) is.readObject();
 
 			is.close();
 
@@ -66,7 +66,7 @@ public class ProfileManager {
 
 		try {
 			FileOutputStream out = new FileOutputStream(
-					this.defaultContextFileName);
+					this.defaultFileExtension);
 			ObjectOutputStream oos = new ObjectOutputStream(out);
 			oos.writeObject(this.profile);
 			oos.flush();
