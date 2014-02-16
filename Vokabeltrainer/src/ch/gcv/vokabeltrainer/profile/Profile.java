@@ -1,6 +1,6 @@
 package ch.gcv.vokabeltrainer.profile;
 
-public class UserProfile implements java.io.Serializable{
+public class Profile implements java.io.Serializable{
 
 	
 	/**
@@ -11,14 +11,14 @@ public class UserProfile implements java.io.Serializable{
 	private String lastName;
 	
 	
-	public UserProfile(){
+	public Profile(){
 		
 		this.name = "chris";
 		this.lastName = "Frueh";
 		
 	}
 	
-	public UserProfile(String name, String lastName){
+	public Profile(String name, String lastName){
 		this.name = name;
 		this.lastName = lastName;
 		

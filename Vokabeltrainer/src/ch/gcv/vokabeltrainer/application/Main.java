@@ -3,7 +3,7 @@ package ch.gcv.vokabeltrainer.application;
 import javax.naming.Context;
 
 import ch.gcv.vokabeltrainer.profile.ProfileManager;
-import ch.gcv.vokabeltrainer.profile.UserProfile;
+import ch.gcv.vokabeltrainer.profile.Profile;
 import ch.gcv.vokabeltrainer.translation.TranslationManager;
 
 public class Main {

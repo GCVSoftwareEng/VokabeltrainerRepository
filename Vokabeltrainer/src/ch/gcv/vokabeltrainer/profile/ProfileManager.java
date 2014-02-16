@@ -9,10 +9,10 @@ public class ProfileManager {
 
 	private static ProfileManager instance = null;
 	private static final String defaultContextFileName = "userList.context.sav";
-	private Context context;
+	private Context profile;
 
 	public ProfileManager() {
-		this.context = new Context();
+		this.profile = new Context();
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class ProfileManager {
 	 */
 	public Context getContext() {
 
-		return this.context;
+		return this.profile;
 
 	}
 
@@ -48,14 +48,14 @@ public class ProfileManager {
 			FileInputStream fis = new FileInputStream(
 					this.defaultContextFileName);
 			ObjectInputStream is = new ObjectInputStream(fis);
-			this.context = (Context) is.readObject();
+			this.profile = (Context) is.readObject();
 
 			is.close();
 
 		} catch (Exception ex) {
 
 		}
-		return this.context;
+		return this.profile;
 
 	}
 
@@ -68,7 +68,7 @@ public class ProfileManager {
 			FileOutputStream out = new FileOutputStream(
 					this.defaultContextFileName);
 			ObjectOutputStream oos = new ObjectOutputStream(out);
-			oos.writeObject(this.context);
+			oos.writeObject(this.profile);
 			oos.flush();
 		} catch (Exception e) {
 			System.out.println("Problem serializing: " + e);
