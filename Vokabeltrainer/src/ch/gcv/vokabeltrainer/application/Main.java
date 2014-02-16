@@ -2,8 +2,8 @@ package ch.gcv.vokabeltrainer.application;
 
 import javax.naming.Context;
 
-import profile.ProfileManager;
-import profile.UserProfile;
+import ch.gcv.vokabeltrainer.profile.ProfileManager;
+import ch.gcv.vokabeltrainer.profile.UserProfile;
 import ch.gcv.vokabeltrainer.translation.TranslationManager;
 
 public class Main {

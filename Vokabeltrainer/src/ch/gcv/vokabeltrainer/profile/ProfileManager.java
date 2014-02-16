@@ -1,4 +1,4 @@
-package profile;
+package ch.gcv.vokabeltrainer.profile;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

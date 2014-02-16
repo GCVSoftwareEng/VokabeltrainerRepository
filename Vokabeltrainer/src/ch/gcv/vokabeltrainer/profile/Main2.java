@@ -1,4 +1,4 @@
-package profile;
+package ch.gcv.vokabeltrainer.profile;
 
 public class Main2 {
 
