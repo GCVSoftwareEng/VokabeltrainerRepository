@@ -1,4 +1,4 @@
-package ch;
+package ch.gcv.vokabeltrainer.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -25,7 +24,7 @@ import javax.swing.BoxLayout;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-public class Lunchwindow extends JFrame{
+public class testgui extends JFrame{
 
 	// textfield for welcome window
 	JTextArea welspace1 = new JTextArea();
@@ -51,18 +50,7 @@ public class Lunchwindow extends JFrame{
 	// menubar and menus
 	JMenuBar menuBar = new JMenuBar();
 	JMenu file = new JMenu("File");
-	JMenu language = new JMenu("Language",true);
-	JMenuItem newPro = new JMenuItem("New Profile");
-	JMenuItem loadPro = new JMenuItem("Load Profile");
-	JMenuItem newTopic = new JMenuItem("New Topic");
-	JMenuItem addCard = new JMenuItem("Add Card");
-	JMenuItem editCard = new JMenuItem("Edit Card");
-	JMenuItem removeCard = new JMenuItem("Remove Card");
-	JMenuItem exit = new JMenuItem("Exit");
-	JMenuItem german = new JMenuItem("Deutsch");
-	JMenuItem english = new JMenuItem("English");
-	JMenuItem italian = new JMenuItem("Italiano");
-	JMenuItem french = new JMenuItem("Français");
+	JMenu language = new JMenu ("Language",true);
 	
 	//panels
 	JPanel buttonsPanel = new JPanel();
@@ -73,7 +61,7 @@ public class Lunchwindow extends JFrame{
 	
 	
 	
-	public Lunchwindow() {
+	public testgui() {
 		super("Vokablentrainer");
 		guiInitalisation();
 	
@@ -102,17 +90,6 @@ public class Lunchwindow extends JFrame{
 		// build menubar
 		menuBar.add(file);
 		menuBar.add(language);
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(newTopic);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
-		file.add(exit);
-		language.add(german);
-		language.add(english);
-		language.add(italian);
-		language.add(french);
 		
 		//menubar definition
 //		menuBar.setSize(800,20);
@@ -183,7 +160,7 @@ public class Lunchwindow extends JFrame{
 	}
 	
 	public static void main(String args[]) {
-		Lunchwindow test = new Lunchwindow();
+		testgui test = new testgui();
 		test.guiInitalisation();
 	}
 }

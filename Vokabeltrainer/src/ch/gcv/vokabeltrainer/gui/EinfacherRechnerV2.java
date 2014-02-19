@@ -1,4 +1,4 @@
-package ch;
+package ch.gcv.vokabeltrainer.gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
