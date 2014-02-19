@@ -16,6 +16,7 @@ public class ProfileManager {
 	}
 
 	/**
+	 * new
 	 * Singleton for ContextManager.
 	 * 
 	 * @return instance.

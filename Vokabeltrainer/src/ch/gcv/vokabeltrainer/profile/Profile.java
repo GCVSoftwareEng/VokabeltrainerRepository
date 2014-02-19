@@ -4,7 +4,7 @@ public class Profile implements java.io.Serializable{
 
 	
 	/**
-	 * 
+	 * new
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;

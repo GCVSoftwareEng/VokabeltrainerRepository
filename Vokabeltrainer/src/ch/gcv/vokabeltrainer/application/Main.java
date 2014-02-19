@@ -8,6 +8,8 @@ import ch.gcv.vokabeltrainer.translation.TranslationManager;
 
 public class Main {
 
+	// new
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
