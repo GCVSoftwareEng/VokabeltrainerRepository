@@ -139,7 +139,7 @@ public class Lunchwindow extends JFrame{
 	     StyleConstants.setItalic(set,true);
 	     StyleConstants.setBold(set,true);
 	     welcome.setParagraphAttributes(set,true);
-	     welcome.setBackground(Color.cyan);
+	     welcome.setBackground(Color.WHITE);
 	     welcome.setBounds(20,10,750,30);
 	     welcome.setText("\n\n\nWillkommen beim Vokabulartrainer"
 	     		+ "\nWelcome to the vocabulary trainer"
