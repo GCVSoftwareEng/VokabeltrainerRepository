@@ -3,8 +3,6 @@ package ch.gcv.vokabeltrainer.model;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
-import ch.gcv.vokabeltrainer.profile.Profile;
-
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
  * Engineering
@@ -42,10 +40,10 @@ public class ProfileManager implements IProfileManager {
 			is.close();
 
 		} catch (Exception ex) {
-			throw new UnsupportedOperationException("Not implemented");
+			
 
 		}
-		return (IProfile) profile;
+		return this.profile;
 	}
 
 	// TODO should be implemented
