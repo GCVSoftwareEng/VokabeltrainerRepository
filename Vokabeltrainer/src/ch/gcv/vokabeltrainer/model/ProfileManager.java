@@ -1,78 +1,99 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import ch.gcv.vokabeltrainer.profile.Profile;
 
 /**
- * GCV Software Engineering
- * Product: Vokabeltrainer
- * Copyright: 2014 GCV Software Engineering 
- *
+ * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
+ * Engineering
+ * 
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfileManager  implements IProfileManager {
+public class ProfileManager implements IProfileManager {
 
-    private Profile profile;
-    private ProfileManager instance;
+	private Profile profile;
+	private static ProfileManager instance;
 
-	public ProfileManager(){
+	public ProfileManager() {
 		super();
 		this.profile = null; // TODO
 		this.instance = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
- 
 
-    /** 
-     * loadProfile implements IProfileManager.loadProfile
-	 * @param path // TODO 
-	 * @return IProfile  // TODO
+	/**
+	 * loadProfile implements IProfileManager.loadProfile
+	 * 
+	 * @param path
+	 *            // TODO
+	 * @return IProfile // TODO
 	 */
 	@Override
 	public IProfile loadProfile(String path) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
+		try {
 
-    /** 
-     * saveProfile implements IProfileManager.saveProfile
-	 * @param path // TODO 
-	 * @return boolean  // TODO
+			FileInputStream fis = new FileInputStream(path);
+			ObjectInputStream is = new ObjectInputStream(fis);
+			this.profile = (Profile) is.readObject();
+
+			is.close();
+
+		} catch (Exception ex) {
+			throw new UnsupportedOperationException("Not implemented");
+
+		}
+		return (IProfile) profile;
+	}
+
+	// TODO should be implemented
+
+	/**
+	 * saveProfile implements IProfileManager.saveProfile
+	 * 
+	 * @param path
+	 *            // TODO
+	 * @return boolean // TODO
 	 */
 	@Override
 	public boolean saveProfile(String path) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-    }
+	}
 
-    /** 
-     * getInstance implements IProfileManager.getInstance
-	 * @return IProfileManager  // TODO
+	/**
+	 * getInstance implements IProfileManager.getInstance
+	 * 
+	 * @return IProfileManager // TODO
 	 */
 	@Override
 	public IProfileManager getInstance() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-    }
+	}
 
-    /** 
-     * createProfile implements IProfileManager.createProfile
-	 * @return IProfile  // TODO
+	/**
+	 * createProfile implements IProfileManager.createProfile
+	 * 
+	 * @return IProfile // TODO
 	 */
 	@Override
 	public IProfile createProfile() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-    }
+	}
 
-    /** 
-     * getProfile implements IProfileManager.getProfile
-	 * @return IProfile  // TODO
+	/**
+	 * getProfile implements IProfileManager.getProfile
+	 * 
+	 * @return IProfile // TODO
 	 */
 	@Override
 	public IProfile getProfile() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-    }
+	}
 
 }
- 
