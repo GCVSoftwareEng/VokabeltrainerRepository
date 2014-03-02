@@ -10,10 +10,14 @@ import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
+
 
 public class BoxLayout extends JFrame{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton b1 = new JButton("1");
 	JButton b2 = new JButton("2");
 	JButton b3 = new JButton("3");

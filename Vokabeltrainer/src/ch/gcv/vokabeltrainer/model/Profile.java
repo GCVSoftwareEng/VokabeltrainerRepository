@@ -1,5 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 
 /**
  * GCV Software Engineering
