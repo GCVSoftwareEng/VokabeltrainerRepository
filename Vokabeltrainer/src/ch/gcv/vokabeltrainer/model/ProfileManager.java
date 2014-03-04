@@ -16,8 +16,6 @@ public class ProfileManager {
 
 	private Profile profile;
 	private static ProfileManager instance;
-	
-
 
 	public ProfileManager() {
 		super();
@@ -31,7 +29,6 @@ public class ProfileManager {
 	 *            // TODO
 	 * @return IProfile // TODO
 	 */
-	@Override
 	public IProfile loadProfile(String path) {
 		try {
 
@@ -57,7 +54,6 @@ public class ProfileManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	@Override
 	public boolean saveProfile(String path) {
 		try {
 			FileOutputStream out = new FileOutputStream(path);
@@ -89,7 +85,6 @@ public class ProfileManager {
 	 * 
 	 * @return IProfile // TODO
 	 */
-	@Override
 	public IProfile createProfile() {
 		return this.profile = new Profile();
 		
@@ -100,7 +95,6 @@ public class ProfileManager {
 	 * 
 	 * @return IProfile // TODO
 	 */
-	@Override
 	public IProfile getProfile() {
 		return this.profile;
 		
