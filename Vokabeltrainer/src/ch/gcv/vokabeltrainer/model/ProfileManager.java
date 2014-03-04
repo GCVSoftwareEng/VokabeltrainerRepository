@@ -1,7 +1,9 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -10,16 +12,16 @@ import java.io.ObjectInputStream;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfileManager implements IProfileManager {
+public class ProfileManager {
 
 	private Profile profile;
 	private static ProfileManager instance;
+	
+
 
 	public ProfileManager() {
 		super();
-		this.profile = null; // TODO
-		this.instance = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.profile = null;
 	}
 
 	/**
@@ -40,16 +42,11 @@ public class ProfileManager implements IProfileManager {
 			is.close();
 
 		} catch (Exception ex) {
-			
+			System.out.println("Problem serializing: " + ex);
 
 		}
 		return this.profile;
 	}
-	
-	
-	
-	
-	
 
 	// TODO should be implemented
 
@@ -62,8 +59,17 @@ public class ProfileManager implements IProfileManager {
 	 */
 	@Override
 	public boolean saveProfile(String path) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		try {
+			FileOutputStream out = new FileOutputStream(path);
+			ObjectOutputStream oos = new ObjectOutputStream(out);
+			oos.writeObject(this.profile);
+			oos.flush();
+			return true;
+		} catch (Exception e) {
+			System.out.println("Problem serializing: " + e);
+			return false;
+		}
+
 	}
 
 	/**
@@ -71,10 +77,11 @@ public class ProfileManager implements IProfileManager {
 	 * 
 	 * @return IProfileManager // TODO
 	 */
-	@Override
-	public IProfileManager getInstance() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	public static ProfileManager getInstance() {
+		if (ProfileManager.instance == null) {
+			ProfileManager.instance = new ProfileManager();
+		}
+		return ProfileManager.instance;
 	}
 
 	/**
@@ -84,8 +91,8 @@ public class ProfileManager implements IProfileManager {
 	 */
 	@Override
 	public IProfile createProfile() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.profile = new Profile();
+		
 	}
 
 	/**
@@ -95,8 +102,12 @@ public class ProfileManager implements IProfileManager {
 	 */
 	@Override
 	public IProfile getProfile() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.profile;
+		
 	}
 
 }
+
+
+
+

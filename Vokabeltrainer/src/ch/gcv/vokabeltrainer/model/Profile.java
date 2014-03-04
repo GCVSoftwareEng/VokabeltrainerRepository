@@ -35,9 +35,9 @@ public class Profile implements IProfile {
 
 	/**
 	 * deleteTopic implements IProfile.deleteTopic
-	 * 
+	 * This method delete the topic
 	 * @param topic
-	 *            // TODO
+	 * @return topic .getName   //CHF
 	 * 
 	 */
 
@@ -62,8 +62,8 @@ public class Profile implements IProfile {
 	 * getTopic implements IProfile.getTopic
 	 * This method is used to get a topic
 	 * @param name
-	 *            // TODO
-	 * @return ITopic // TODO
+	 *           
+	 * @return ITopic return the requested topic
 	 */
 	@Override
 	public ITopic getTopic(String name) {
