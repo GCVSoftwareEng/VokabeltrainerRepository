@@ -57,11 +57,10 @@ public class Profile implements IProfile {
 		ArrayList<ITopic> topicList = new ArrayList<ITopic>();
 		for (int i = 0; i < 50; i++) {
 			Topic t = new Topic();
-			t.
-			
-					
+			t.setName("giusiiiii #" + i);
+			topicList.add(t);
 		}
-		
+		return topicList;
 		
 		//return (ArrayList<ITopic>) this.topics.values(); //CHF
 	}

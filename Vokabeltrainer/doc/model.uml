@@ -312,7 +312,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2aHbQKGREeOT29RawPlywQ" name="getStatisticDateCreated">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_5Ji18KGREeOT29RawPlywQ" name="" type="_iD1-8KE_EeOG1caRZQD7IQ" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_W8epIKPVEeO_Y8fJ1DvbaQ" name="setTopic">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_W8epIKPVEeO_Y8fJ1DvbaQ" name="setName">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_dCkdoKPVEeO_Y8fJ1DvbaQ" name="name" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
     </ownedOperation>
   </packagedElement>
