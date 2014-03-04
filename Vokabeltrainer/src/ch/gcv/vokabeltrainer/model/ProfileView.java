@@ -69,7 +69,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
 		this.topic = new JTextPane();
-		this.scrollPane = new JScrollPane();
+		String inhalte[] = {"1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3"};
+		this.liste = new JList(inhalte);
+		
+		this.scrollPane = new JScrollPane(liste);
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
@@ -91,9 +94,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		file.add(exit);
 
 		menuBar.setBackground(Color.LIGHT_GRAY);
-
-		JScrollPane pane = new JScrollPane(liste);
-		pane.setBounds(50, 80, 400, 350);
+		
+		
+		
+		scrollPane.setBounds(50, 80, 400, 350);
 
 		plus.setBounds(400, 10, 51, 50);
 		// topic.setBounds(50, 10, 200, 50);
@@ -111,8 +115,9 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		topic.setBounds(50, 20, 200, 50);
 		topic.setText("Topic");
 
+		
 		super.setJMenuBar(menuBar);
-		super.add(pane);
+		super.add(scrollPane);
 		super.add(plus);
 		super.add(topic);
 
@@ -164,9 +169,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		}
 
 		// update the topic list
-		this.liste.setListData(presenter.getModel().getTopics().toArray());
+//		this.liste.setListData(presenter.getModel().getTopics().toArray());
 		
-
+		
+		
 	}
 
 	/**
