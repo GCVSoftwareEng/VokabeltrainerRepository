@@ -90,6 +90,13 @@
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_z7ZOUKO7EeO_Y8fJ1DvbaQ" name="languages" visibility="private" type="_kPldwKE_EeOG1caRZQD7IQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0yJ3MKO7EeO_Y8fJ1DvbaQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0yLFUKO7EeO_Y8fJ1DvbaQ" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_0yLsYKO7EeO_Y8fJ1DvbaQ">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DJMd4KH-EeOT29RawPlywQ" name="" client="_vmcBQKE_EeOG1caRZQD7IQ" supplier="_98S7MKH9EeOT29RawPlywQ" contract="_98S7MKH9EeOT29RawPlywQ"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_pZ-NAKIFEeOT29RawPlywQ" name="languageChanged" visibility="private"/>
   </packagedElement>
@@ -501,7 +508,7 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_RaWEwKH9EeOT29RawPlywQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_TOb4kKH9EeOT29RawPlywQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_zjHWUKH8EeOT29RawPlywQ" name="getInstance">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zjHWUKH8EeOT29RawPlywQ" name="getInstance" visibility="public" isStatic="true">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hp5eYKH9EeOT29RawPlywQ" name="" type="_om6ugKH8EeOT29RawPlywQ" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2wQnwKH8EeOT29RawPlywQ" name="createProfile" visibility="public">
@@ -532,7 +539,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_33PzEKH-EeOT29RawPlywQ" name="getLanguages">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_KB6zwKH_EeOT29RawPlywQ" name="" type="_kPldwKE_EeOG1caRZQD7IQ" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="__gGa0KH-EeOT29RawPlywQ" name="getInstance">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__gGa0KH-EeOT29RawPlywQ" name="getInstance" isStatic="true">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_POYRkKH_EeOT29RawPlywQ" name="" type="_98S7MKH9EeOT29RawPlywQ" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_mLiXkaIEEeOT29RawPlywQ" name="addListener">

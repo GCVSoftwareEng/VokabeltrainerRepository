@@ -176,6 +176,10 @@
         <element xmi:type="uml:Property" href="model.uml#_MRGgwKICEeOT29RawPlywQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_MRJkEaICEeOT29RawPlywQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_z8GY8KO7EeO_Y8fJ1DvbaQ" type="3012" fontName="Lucida Grande" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="model.uml#_z7ZOUKO7EeO_Y8fJ1DvbaQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_z8GY8aO7EeO_Y8fJ1DvbaQ"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_vmediKE_EeOG1caRZQD7IQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_vmediaE_EeOG1caRZQD7IQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_vmediqE_EeOG1caRZQD7IQ"/>
