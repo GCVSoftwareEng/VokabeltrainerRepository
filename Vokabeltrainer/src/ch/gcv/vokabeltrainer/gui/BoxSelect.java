@@ -41,15 +41,15 @@ public class BoxSelect extends JFrame{
 		
 		JTextPane boxname = new JTextPane();
 		
-		JButton boxButton1 = new JButton(new ImageIcon(getClass().getResource("box.jpg")));
+		JButton boxButton1 = new JButton(new ImageIcon(getClass().getResource("box.png")));
 		
-		JButton boxButton2 = new JButton(new ImageIcon(getClass().getResource("box.jpg")));
+		JButton boxButton2 = new JButton(new ImageIcon(getClass().getResource("box.png")));
 		
-		JButton boxButton3 = new JButton(new ImageIcon(getClass().getResource("box.jpg")));
+		JButton boxButton3 = new JButton(new ImageIcon(getClass().getResource("box.png")));
 		
-		JButton boxButton4 = new JButton(new ImageIcon(getClass().getResource("box.jpg")));
+		JButton boxButton4 = new JButton(new ImageIcon(getClass().getResource("box.png")));
 		
-		JButton boxButton5 = new JButton(new ImageIcon(getClass().getResource("box.jpg")));
+		JButton boxButton5 = new JButton(new ImageIcon(getClass().getResource("box.png")));
 		
 		JLabel boxLabel1 = new JLabel("Box 1");
 		JLabel boxLabel2 = new JLabel("Box 2");
@@ -103,6 +103,27 @@ public class BoxSelect extends JFrame{
 			boxButton4.setBounds(310, 250, 70, 70);
 			boxButton5.setBounds(405, 250, 70, 70);
 			
+			//layout definition
+			boxLabel1.setVisible(true);
+			boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
+			boxLabel1.setBounds(35, 200, 70, 45);
+			
+			boxLabel2.setVisible(true);
+			boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
+			boxLabel2.setBounds(130, 200, 70, 45);
+			
+			boxLabel3.setVisible(true);
+			boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
+			boxLabel3.setBounds(225, 200, 70, 45);
+			
+			boxLabel4.setVisible(true);
+			boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
+			boxLabel4.setBounds(320, 200, 70, 45);
+			
+			boxLabel5.setVisible(true);
+			boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
+			boxLabel5.setBounds(415, 200, 70, 45);
+			
 			
 			
 			 boxname.setEditable(false);
@@ -124,6 +145,11 @@ public class BoxSelect extends JFrame{
 			super.add(boxButton3);
 			super.add(boxButton4);
 			super.add(boxButton5);
+			super.add(boxLabel1);
+			super.add(boxLabel2);
+			super.add(boxLabel3);
+			super.add(boxLabel4);
+			super.add(boxLabel5);
 			
 			
 		}
