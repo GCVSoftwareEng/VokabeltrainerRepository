@@ -87,7 +87,6 @@ public class ProfileManager {
 	 */
 	public IProfile createProfile() {
 		return this.profile = new Profile();
-		
 	}
 
 	/**

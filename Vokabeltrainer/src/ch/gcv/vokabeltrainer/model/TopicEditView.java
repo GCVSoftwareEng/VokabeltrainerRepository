@@ -32,20 +32,21 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 
     /** 
      * getPresenter implements ITopicEditView.getPresenter
-	 *
+	 * @return TopicEditPresenter  // TODO
 	 */
 	@Override
-	public void getPresenter() {
+	public TopicEditPresenter getPresenter() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
 
     /** 
      * setPresenter implements ITopicEditView.setPresenter
+	 * @param presenter // TODO 
 	 *
 	 */
 	@Override
-	public void setPresenter() {
+	public void setPresenter(TopicEditPresenter presenter) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

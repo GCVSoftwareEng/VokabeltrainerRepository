@@ -99,6 +99,27 @@
     </ownedAttribute>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DJMd4KH-EeOT29RawPlywQ" name="" client="_vmcBQKE_EeOG1caRZQD7IQ" supplier="_98S7MKH9EeOT29RawPlywQ" contract="_98S7MKH9EeOT29RawPlywQ"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_pZ-NAKIFEeOT29RawPlywQ" name="languageChanged" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_0EVX0KPPEeO_Y8fJ1DvbaQ" name="getText">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_3eTkUKPPEeO_Y8fJ1DvbaQ" name="key" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5FngYKPPEeO_Y8fJ1DvbaQ" name="" type="_U5uuEKE_EeOG1caRZQD7IQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6YI4MKPPEeO_Y8fJ1DvbaQ" name="setLanguage">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_96mSUKPPEeO_Y8fJ1DvbaQ" name="language" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__CAmUKPPEeO_Y8fJ1DvbaQ" name="getLanguages">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CZQ2AKPQEeO_Y8fJ1DvbaQ" name="" type="_kPldwKE_EeOG1caRZQD7IQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DSoG8KPQEeO_Y8fJ1DvbaQ" name="getInstance">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_G8TjYKPQEeO_Y8fJ1DvbaQ" name="" type="_vmcBQKE_EeOG1caRZQD7IQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_IrMuIKPQEeO_Y8fJ1DvbaQ" name="addListener">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mtp28KPQEeO_Y8fJ1DvbaQ" name="listener" type="_5MFXsKIBEeOT29RawPlywQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_PaEZ4KPQEeO_Y8fJ1DvbaQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QElWgKPQEeO_Y8fJ1DvbaQ" name="removeListener">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_UjyFsKPQEeO_Y8fJ1DvbaQ" name="listener" type="_5MFXsKIBEeOT29RawPlywQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wp9IAKPQEeO_Y8fJ1DvbaQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_-UFE8KFAEeOG1caRZQD7IQ" clientDependency="_T2DlwKGbEeOT29RawPlywQ" name="Card">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ALDNoKFBEeOG1caRZQD7IQ" name="topic" visibility="private" type="_q0LMIKE_EeOG1caRZQD7IQ">
@@ -343,8 +364,12 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_8otnUKGYEeOT29RawPlywQ" name="IProfileView">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_OGEPAKGZEeOT29RawPlywQ" name="getPresenter"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_PEFWcKGZEeOT29RawPlywQ" name="setPresenter"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_OGEPAKGZEeOT29RawPlywQ" name="getPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_B4_P8KPPEeO_Y8fJ1DvbaQ" name="" type="_uFSaIKGYEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PEFWcKGZEeOT29RawPlywQ" name="setPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_EG8VQKPPEeO_Y8fJ1DvbaQ" name="presenter" type="_uFSaIKGYEeOT29RawPlywQ"/>
+    </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_QIVBsKGZEeOT29RawPlywQ" name="updateModelFromView"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_RQQ6IKGZEeOT29RawPlywQ" name="updateViewFromModel"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_Sk8OEKGZEeOT29RawPlywQ" name="open"/>
@@ -456,8 +481,12 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_pl3yEKGkEeOT29RawPlywQ" name="checkAnswer"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_K7vWIKGbEeOT29RawPlywQ" name="ICardView">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_sxvKwKGcEeOT29RawPlywQ" name="getPresenter"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_vq6-YKGcEeOT29RawPlywQ" name="setPresenter"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_sxvKwKGcEeOT29RawPlywQ" name="getPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_In-3gKPPEeO_Y8fJ1DvbaQ" name="" type="_ImYBQKGbEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_vq6-YKGcEeOT29RawPlywQ" name="setPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEq8YKPPEeO_Y8fJ1DvbaQ" name="presenter" type="_ImYBQKGbEeOT29RawPlywQ"/>
+    </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_zBQBAKGcEeOT29RawPlywQ" name="updateModelFromView"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_0HOKkKGcEeOT29RawPlywQ" name="updateViewFromModel"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2CrxsKGcEeOT29RawPlywQ" name="open"/>
@@ -577,8 +606,12 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_fcTYEKIHEeOT29RawPlywQ" name="cancel"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_w-U50KIGEeOT29RawPlywQ" name="ITopicEditView">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_NJKicKIIEeOT29RawPlywQ" name="getPresenter"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_N--wIKIIEeOT29RawPlywQ" name="setPresenter"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_NJKicKIIEeOT29RawPlywQ" name="getPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Q87wQKPPEeO_Y8fJ1DvbaQ" name="" type="_0P3jEKIGEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_N--wIKIIEeOT29RawPlywQ" name="setPresenter">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_TF3LoKPPEeO_Y8fJ1DvbaQ" name="presenter" type="_0P3jEKIGEeOT29RawPlywQ"/>
+    </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_PcpoAKIIEeOT29RawPlywQ" name="updateModelFromView"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_QzXjUKIIEeOT29RawPlywQ" name="updateViewFromModel"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_SgU0YKIIEeOT29RawPlywQ" name="open"/>

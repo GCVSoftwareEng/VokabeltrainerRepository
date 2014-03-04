@@ -10,8 +10,8 @@ package ch.gcv.vokabeltrainer.model;
  */
 public interface ICardView {
  
-	public void getPresenter();
-	public void setPresenter();
+	public ICardPresenter getPresenter();
+	public void setPresenter(ICardPresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

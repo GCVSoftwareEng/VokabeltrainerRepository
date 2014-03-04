@@ -40,8 +40,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 	 */
 	@Override
 	public void setModel(IProfile model) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.model = model;
     }
 
     /** 

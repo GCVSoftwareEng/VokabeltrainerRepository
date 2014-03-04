@@ -11,25 +11,25 @@ package ch.gcv.vokabeltrainer.model;
  */
 public class Card  implements ICard {
 
-    private String question;
-    private Date statisticDateCreated;
-    private int statisticCountRight;
-    private String answer;
     private int statisticCountWrong;
-    private int box;
-    private Topic topic;
+    private Date statisticDateCreated;
     private Date statisticDateLastLearned;
+    private String question;
+    private int statisticCountRight;
+    private int box;
+    private String answer;
+    private Topic topic;
 
 	public Card(){
 		super();
-		this.question = ""; // TODO
 		this.statisticDateCreated = null; // TODO
-		this.answer = ""; // TODO
-		this.statisticCountRight = 0; // TODO
 		this.statisticCountWrong = 0; // TODO
+		this.question = ""; // TODO
+		this.statisticDateLastLearned = null; // TODO
+		this.statisticCountRight = 0; // TODO
 		this.box = 0; // TODO
 		this.topic = null; // TODO
-		this.statisticDateLastLearned = null; // TODO
+		this.answer = ""; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
  

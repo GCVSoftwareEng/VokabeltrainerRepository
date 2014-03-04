@@ -12,18 +12,18 @@ package ch.gcv.vokabeltrainer.model;
 public class TopicPresenter  implements ITopicPresenter, ILanguageChangedListener, java.lang.Runnable {
 
     private Runnable onDeleteCard;
-    private ITopicView view;
-    private ITopic model;
     private Runnable onOpenCard;
     private Runnable onCreateCard;
+    private ITopicView view;
+    private ITopic model;
 
 	public TopicPresenter(){
 		super();
 		this.onDeleteCard = null; // TODO
-		this.model = null; // TODO
-		this.view = null; // TODO
-		this.onCreateCard = null; // TODO
 		this.onOpenCard = null; // TODO
+		this.onCreateCard = null; // TODO
+		this.view = null; // TODO
+		this.model = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
  

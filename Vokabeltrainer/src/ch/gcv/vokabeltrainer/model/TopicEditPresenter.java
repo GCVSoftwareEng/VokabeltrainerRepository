@@ -9,22 +9,32 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runnable, ILanguageChangedListener {
+public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEditPresenter, java.lang.Runnable {
 
-    private ITopicEditView view;
-    private Runnable onCancel;
     private Runnable onConfirm;
     private ITopic model;
+    private Runnable onCancel;
+    private ITopicEditView view;
 
 	public TopicEditPresenter(){
 		super();
-		this.view = null; // TODO
-		this.onCancel = null; // TODO
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
+		this.onCancel = null; // TODO
+		this.view = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
  
+
+    /** 
+     * languageChanged implements ILanguageChangedListener.languageChanged
+	 *
+	 */
+	@Override
+	public void languageChanged() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
+    }
 
     /** 
      * getModel implements ITopicEditPresenter.getModel
@@ -116,16 +126,6 @@ public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runna
 	 */
 	@Override
 	public void run() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
-
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
-	 */
-	@Override
-	public void languageChanged() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

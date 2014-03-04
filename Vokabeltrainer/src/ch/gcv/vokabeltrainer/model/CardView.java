@@ -32,20 +32,21 @@ public class CardView extends javax.swing.JFrame implements ICardView {
 
     /** 
      * getPresenter implements ICardView.getPresenter
-	 *
+	 * @return ICardPresenter  // TODO
 	 */
 	@Override
-	public void getPresenter() {
+	public ICardPresenter getPresenter() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
 
     /** 
      * setPresenter implements ICardView.setPresenter
+	 * @param presenter // TODO 
 	 *
 	 */
 	@Override
-	public void setPresenter() {
+	public void setPresenter(ICardPresenter presenter) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

@@ -10,8 +10,8 @@ package ch.gcv.vokabeltrainer.model;
  */
 public interface ITopicEditView {
  
-	public void getPresenter();
-	public void setPresenter();
+	public TopicEditPresenter getPresenter();
+	public void setPresenter(TopicEditPresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

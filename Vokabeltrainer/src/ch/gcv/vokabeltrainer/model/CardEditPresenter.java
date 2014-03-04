@@ -9,22 +9,42 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditPresenter  implements ICardEditPresenter, java.lang.Runnable, ILanguageChangedListener {
+public class CardEditPresenter  implements ILanguageChangedListener, java.lang.Runnable, ICardEditPresenter {
 
-    private Runnable onCancel;
-    private ICard model;
     private Runnable onConfirm;
     private ICardEditView view;
+    private Runnable onCancel;
+    private ICard model;
 
 	public CardEditPresenter(){
 		super();
-		this.onCancel = null; // TODO
-		this.model = null; // TODO
 		this.onConfirm = null; // TODO
 		this.view = null; // TODO
+		this.onCancel = null; // TODO
+		this.model = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
  
+
+    /** 
+     * languageChanged implements ILanguageChangedListener.languageChanged
+	 *
+	 */
+	@Override
+	public void languageChanged() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
+    }
+
+    /** 
+     * run implements java.lang.Runnable.run
+	 *
+	 */
+	@Override
+	public void run() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
+    }
 
     /** 
      * getModel implements ICardEditPresenter.getModel
@@ -106,26 +126,6 @@ public class CardEditPresenter  implements ICardEditPresenter, java.lang.Runnabl
 	 */
 	@Override
 	public void cancel() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
-
-    /** 
-     * run implements java.lang.Runnable.run
-	 *
-	 */
-	@Override
-	public void run() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
-
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
-	 */
-	@Override
-	public void languageChanged() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

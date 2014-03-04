@@ -1,8 +1,5 @@
 package ch.gcv.vokabeltrainer.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 /**
  * GCV Software Engineering
  * Product: Vokabeltrainer

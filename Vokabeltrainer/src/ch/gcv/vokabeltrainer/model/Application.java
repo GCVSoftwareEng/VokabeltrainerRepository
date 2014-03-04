@@ -25,8 +25,15 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 
+		// setup translation manager
+		TranslationManager tm = TranslationManager.getinstance();
+		// setup profile manager
+		ProfileManager pm = ProfileManager.getInstance();
+		
+		// setup and run the profile presenter
 		ProfilePresenter ps = new ProfilePresenter();
 		ProfileView pv = new ProfileView();
+		ps.setModel(pm.getProfile());
 		ps.setView(pv);
 		ps.run();
 

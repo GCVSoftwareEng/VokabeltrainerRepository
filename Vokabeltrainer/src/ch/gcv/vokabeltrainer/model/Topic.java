@@ -1,8 +1,5 @@
 package ch.gcv.vokabeltrainer.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 
 /**
  * GCV Software Engineering
@@ -14,17 +11,17 @@ import java.util.Date;
  */
 public class Topic  implements ITopic {
 
-    private Date statisticDateCreated;
     private int statisticMinutesLearned;
-    private String name;
     private ArrayList<Card> cards;
+    private String name;
+    private Date statisticDateCreated;
 
 	public Topic(){
 		super();
-		this.statisticDateCreated = null; // TODO
 		this.statisticMinutesLearned = 0; // TODO
-		this.name = ""; // TODO
 		this.cards = null; // TODO
+		this.name = ""; // TODO
+		this.statisticDateCreated = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
  
