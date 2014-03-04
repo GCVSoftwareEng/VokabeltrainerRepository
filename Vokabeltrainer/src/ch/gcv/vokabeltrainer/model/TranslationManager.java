@@ -53,16 +53,11 @@ public class TranslationManager {
 	 * @return String
 	 */
 	public String getText(String key) {
-
-		if (key.equals(bundle.getString(key))) {
-			return bundle.getString(key); // CHF
-		}
-
-		else {
+		try {
+			return bundle.getString(key);
+		} catch (Exception e) {
 			return key;
-
 		}
-
 	}
 
 	/**
@@ -113,8 +108,7 @@ public class TranslationManager {
 	 * @return boolean // TODO
 	 */
 	public boolean addListener(ILanguageChangedListener listener) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.languageChangedListeners.add(listener);
 	}
 
 	/**
@@ -127,14 +121,6 @@ public class TranslationManager {
 	public boolean removeListener(ILanguageChangedListener listener) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-	}
-
-	public static void main(String[] args) {
-
-		TranslationManager it = new TranslationManager();
-		getinstance();
-		it.setLanguage("de");
-		it.getText("tree");
 	}
 
 }
