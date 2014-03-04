@@ -19,12 +19,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 
 	public ProfilePresenter(){
 		super();
-		this.onOpenTopic = null; // TODO
-		this.view = null; // TODO
-		this.model = null; // TODO
-		this.onCreateTopic = null; // TODO
-		this.onDeleteTopic = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		
 	}
  
 
@@ -66,8 +61,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 	 */
 	@Override
 	public void setView(IProfileView view) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.view = view;
     }
 
     /** 
@@ -140,8 +134,10 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 	 */
 	@Override
 	public void run() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		    view.setPresenter(this);
+		    view.open();
+		    view.updateViewFromModel();
+	        
     }
 
     /** 

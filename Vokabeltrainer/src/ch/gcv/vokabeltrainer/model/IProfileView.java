@@ -10,8 +10,8 @@ package ch.gcv.vokabeltrainer.model;
  */
 public interface IProfileView {
  
-	public void getPresenter();
-	public void setPresenter();
+	public IProfilePresenter getPresenter();
+	public void setPresenter(IProfilePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

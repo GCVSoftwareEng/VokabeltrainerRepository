@@ -16,7 +16,7 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TranslationManager implements ITranslationManager {
+public class TranslationManager {
 
 	private static TranslationManager instance;
 	private ArrayList<ILanguageChangedListener> languageChangedListeners;
@@ -52,7 +52,6 @@ public class TranslationManager implements ITranslationManager {
 	 *            // CHF
 	 * @return String
 	 */
-	@Override
 	public String getText(String key) {
 		return bundle.getString(key); // CHF
 	}
@@ -64,7 +63,6 @@ public class TranslationManager implements ITranslationManager {
 	 *            // TODO CHF
 	 * 
 	 */
-	@Override
 	public void setLanguage(String language) {
 
 		String baseName = "ch.gcv.vokabeltrainer.model.messages"; //$NON-NLS-1$
@@ -82,7 +80,6 @@ public class TranslationManager implements ITranslationManager {
 	 * 
 	 * @return ArrayList<String> // TODO
 	 */
-	@Override
 	public ArrayList<String> getLanguages() {
 		return this.languages;
 	}
@@ -92,8 +89,7 @@ public class TranslationManager implements ITranslationManager {
 	 * 
 	 * @return ITranslationManager // TODO
 	 */
-	@Override
-	public ITranslationManager getInstance() {
+	public static TranslationManager getinstance() {
 		if (TranslationManager.instance == null) {
 			TranslationManager.instance = new TranslationManager();
 		}
@@ -107,7 +103,6 @@ public class TranslationManager implements ITranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	@Override
 	public boolean addListener(ILanguageChangedListener listener) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
@@ -120,7 +115,6 @@ public class TranslationManager implements ITranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	@Override
 	public boolean removeListener(ILanguageChangedListener listener) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");

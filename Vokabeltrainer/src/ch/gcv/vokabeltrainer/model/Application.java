@@ -1,33 +1,35 @@
 package ch.gcv.vokabeltrainer.model;
 
-
 /**
- * GCV Software Engineering
- * Product: Vokabeltrainer
- * Copyright: 2014 GCV Software Engineering 
- *
+ * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
+ * Engineering
+ * 
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Application   {
+public class Application {
 
-    public static final int boxCount; // TODO
+	public static final int boxCount = 5;
 
-	public Application(){
+	public Application() {
 		super();
 		throw new UnsupportedOperationException("Not implemented");
 	}
- 
-    /** 
-     * main
-	 * @param args // TODO 
-	 *
+
+	/**
+	 * main
+	 * 
+	 * @param args
+	 *            // TODO
+	 * 
 	 */
 	public static void main(String[] args) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
 
+		ProfilePresenter ps = new ProfilePresenter();
+		ProfileView pv = new ProfileView();
+		ps.setView(pv);
+		ps.run();
+
+	}
 
 }
- 
