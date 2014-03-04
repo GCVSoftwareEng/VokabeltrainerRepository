@@ -19,7 +19,7 @@ public class ProfileManager {
 
 	public ProfileManager() {
 		super();
-		this.profile = null;
+		this.profile = new Profile();
 	}
 
 	/**
@@ -31,16 +31,12 @@ public class ProfileManager {
 	 */
 	public IProfile loadProfile(String path) {
 		try {
-
 			FileInputStream fis = new FileInputStream(path);
 			ObjectInputStream is = new ObjectInputStream(fis);
 			this.profile = (Profile) is.readObject();
-
 			is.close();
-
 		} catch (Exception ex) {
 			System.out.println("Problem serializing: " + ex);
-
 		}
 		return this.profile;
 	}
@@ -65,7 +61,6 @@ public class ProfileManager {
 			System.out.println("Problem serializing: " + e);
 			return false;
 		}
-
 	}
 
 	/**
@@ -95,8 +90,7 @@ public class ProfileManager {
 	 * @return IProfile // TODO
 	 */
 	public IProfile getProfile() {
-		return this.profile;
-		
+		return this.profile;	
 	}
 
 }
