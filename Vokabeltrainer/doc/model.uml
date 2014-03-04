@@ -45,10 +45,27 @@
     </ownedAttribute>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="__dmx0KGNEeOT29RawPlywQ" name="" client="_q0LMIKE_EeOG1caRZQD7IQ" supplier="_sp5bMKGNEeOT29RawPlywQ" contract="_sp5bMKGNEeOT29RawPlywQ"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_r47NsKE_EeOG1caRZQD7IQ" clientDependency="_CeCBAKH-EeOT29RawPlywQ" name="ImportExportManager">
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_CeCBAKH-EeOT29RawPlywQ" name="" client="_r47NsKE_EeOG1caRZQD7IQ" supplier="_7SC7cKH9EeOT29RawPlywQ" contract="_7SC7cKH9EeOT29RawPlywQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_r47NsKE_EeOG1caRZQD7IQ" name="ImportExportManager">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Vl08EKPREeO_Y8fJ1DvbaQ" name="instance" visibility="private" isStatic="true" type="_r47NsKE_EeOG1caRZQD7IQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V5eQ0KPREeO_Y8fJ1DvbaQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V5e34KPREeO_Y8fJ1DvbaQ" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_V5fe8KPREeO_Y8fJ1DvbaQ">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6jbFsKPQEeO_Y8fJ1DvbaQ" name="exportTopic">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-K0qMKPQEeO_Y8fJ1DvbaQ" name="topic" type="_sp5bMKGNEeOT29RawPlywQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ax1vwKPREeO_Y8fJ1DvbaQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EyapQKPREeO_Y8fJ1DvbaQ" name="importTopic">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_HRU7sKPREeO_Y8fJ1DvbaQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_JC2jsKPREeO_Y8fJ1DvbaQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_OAHH4KPREeO_Y8fJ1DvbaQ" name="getInstance" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_U24LYKPREeO_Y8fJ1DvbaQ" name="" type="_r47NsKE_EeOG1caRZQD7IQ" direction="return"/>
+    </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_tCA8sKE_EeOG1caRZQD7IQ" clientDependency="_sJsRsKH8EeOT29RawPlywQ" name="ProfileManager">
+  <packagedElement xmi:type="uml:Class" xmi:id="_tCA8sKE_EeOG1caRZQD7IQ" name="ProfileManager">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_lwSwoKFBEeOG1caRZQD7IQ" name="profile" visibility="private" type="_uIutIKE_EeOG1caRZQD7IQ">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pZlLgKFBEeOG1caRZQD7IQ"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pZlLgaFBEeOG1caRZQD7IQ" value="1"/>
@@ -63,7 +80,23 @@
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_sJsRsKH8EeOT29RawPlywQ" name="" client="_tCA8sKE_EeOG1caRZQD7IQ" supplier="_om6ugKH8EeOT29RawPlywQ" contract="_om6ugKH8EeOT29RawPlywQ"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_d1FcgKPREeO_Y8fJ1DvbaQ" name="loadProfile">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_jDolAKPREeO_Y8fJ1DvbaQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lotJ0KPREeO_Y8fJ1DvbaQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eJ7rIKPREeO_Y8fJ1DvbaQ" name="saveProfile">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_tMtGwKPREeO_Y8fJ1DvbaQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_u9r8MKPREeO_Y8fJ1DvbaQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eiCpIKPREeO_Y8fJ1DvbaQ" name="getInstance" visibility="public" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1bDoQKPREeO_Y8fJ1DvbaQ" name="" type="_tCA8sKE_EeOG1caRZQD7IQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_e210cKPREeO_Y8fJ1DvbaQ" name="createProfile">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4aLEwKPREeO_Y8fJ1DvbaQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_fMSgAKPREeO_Y8fJ1DvbaQ" name="getProfile">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7wEpkKPREeO_Y8fJ1DvbaQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_uIutIKE_EeOG1caRZQD7IQ" clientDependency="_MfknwKGYEeOT29RawPlywQ" name="Profile">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_2KxQ8KE_EeOG1caRZQD7IQ" name="topics" visibility="private" type="_7S_vAKE_EeOG1caRZQD7IQ">
@@ -75,7 +108,7 @@
     </ownedAttribute>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_MfknwKGYEeOT29RawPlywQ" name="" client="_uIutIKE_EeOG1caRZQD7IQ" supplier="_IgVLAKGYEeOT29RawPlywQ" contract="_IgVLAKGYEeOT29RawPlywQ"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_vmcBQKE_EeOG1caRZQD7IQ" clientDependency="_DJMd4KH-EeOT29RawPlywQ" name="TranslationManager">
+  <packagedElement xmi:type="uml:Class" xmi:id="_vmcBQKE_EeOG1caRZQD7IQ" name="TranslationManager">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_qW3WUKFFEeOG1caRZQD7IQ" name="instance" visibility="private" type="_vmcBQKE_EeOG1caRZQD7IQ">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qvdcgKFFEeOG1caRZQD7IQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qvdcgaFFEeOG1caRZQD7IQ" value="1"/>
@@ -97,7 +130,6 @@
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DJMd4KH-EeOT29RawPlywQ" name="" client="_vmcBQKE_EeOG1caRZQD7IQ" supplier="_98S7MKH9EeOT29RawPlywQ" contract="_98S7MKH9EeOT29RawPlywQ"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_pZ-NAKIFEeOT29RawPlywQ" name="languageChanged" visibility="private"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_0EVX0KPPEeO_Y8fJ1DvbaQ" name="getText">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_3eTkUKPPEeO_Y8fJ1DvbaQ" name="key" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
@@ -109,7 +141,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="__CAmUKPPEeO_Y8fJ1DvbaQ" name="getLanguages">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_CZQ2AKPQEeO_Y8fJ1DvbaQ" name="" type="_kPldwKE_EeOG1caRZQD7IQ" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DSoG8KPQEeO_Y8fJ1DvbaQ" name="getInstance">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DSoG8KPQEeO_Y8fJ1DvbaQ" name="getInstance" isStatic="true">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_G8TjYKPQEeO_Y8fJ1DvbaQ" name="" type="_vmcBQKE_EeOG1caRZQD7IQ" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_IrMuIKPQEeO_Y8fJ1DvbaQ" name="addListener">
@@ -527,58 +559,6 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_QnzHwKGgEeOT29RawPlywQ" name="java.lang.Runnable">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_W8cVoKGgEeOT29RawPlywQ" name="run"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_om6ugKH8EeOT29RawPlywQ" name="IProfileManager">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_uwPdMKH8EeOT29RawPlywQ" name="loadProfile">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Kw0MAKH9EeOT29RawPlywQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NEllcKH9EeOT29RawPlywQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_yaiksKH8EeOT29RawPlywQ" name="saveProfile">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_RaWEwKH9EeOT29RawPlywQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_TOb4kKH9EeOT29RawPlywQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_zjHWUKH8EeOT29RawPlywQ" name="getInstance" visibility="public" isStatic="true">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hp5eYKH9EeOT29RawPlywQ" name="" type="_om6ugKH8EeOT29RawPlywQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_2wQnwKH8EeOT29RawPlywQ" name="createProfile" visibility="public">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_BIdxsKH9EeOT29RawPlywQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_5qwC8KH8EeOT29RawPlywQ" name="getProfile">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9bSVUKH8EeOT29RawPlywQ" name="" type="_IgVLAKGYEeOT29RawPlywQ" direction="return"/>
-    </ownedOperation>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_7SC7cKH9EeOT29RawPlywQ" name="IImportExportManager">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_NTK-kKH-EeOT29RawPlywQ" name="exportTopic">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eW5lUKH-EeOT29RawPlywQ" name="topic" type="_sp5bMKGNEeOT29RawPlywQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_hY8aAKH-EeOT29RawPlywQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_Nsy_gKH-EeOT29RawPlywQ" name="importTopic">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_mCDTIKH-EeOT29RawPlywQ" name="path" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nfBAYKH-EeOT29RawPlywQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
-    </ownedOperation>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_98S7MKH9EeOT29RawPlywQ" name="ITranslationManager">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_2sG1oKH-EeOT29RawPlywQ" name="getText">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CZJrkKH_EeOT29RawPlywQ" name="key" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FNbKAKH_EeOT29RawPlywQ" name="" type="_U5uuEKE_EeOG1caRZQD7IQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_3fTNIKH-EeOT29RawPlywQ" name="setLanguage">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ha8KcKH_EeOT29RawPlywQ" name="language" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_33PzEKH-EeOT29RawPlywQ" name="getLanguages">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_KB6zwKH_EeOT29RawPlywQ" name="" type="_kPldwKE_EeOG1caRZQD7IQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="__gGa0KH-EeOT29RawPlywQ" name="getInstance" isStatic="true">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_POYRkKH_EeOT29RawPlywQ" name="" type="_98S7MKH9EeOT29RawPlywQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_mLiXkaIEEeOT29RawPlywQ" name="addListener">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_tbXbUKIEEeOT29RawPlywQ" name="listener" type="_5MFXsKIBEeOT29RawPlywQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ySPDoKIEEeOT29RawPlywQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_p2EIkKIEEeOT29RawPlywQ" name="removeListener">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1HZS4KIEEeOT29RawPlywQ" name="listener" type="_5MFXsKIBEeOT29RawPlywQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_2vXWQKIEEeOT29RawPlywQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
-    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_5MFXsKIBEeOT29RawPlywQ" name="ILanguageChangedListener">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_-Ea_oKIBEeOT29RawPlywQ" name="languageChanged"/>
