@@ -19,7 +19,7 @@ public class ProfileManager {
 
 	public ProfileManager() {
 		super();
-		this.profile = new Profile();
+		this.profile = new Profile(); // init with an empty profile
 	}
 
 	/**

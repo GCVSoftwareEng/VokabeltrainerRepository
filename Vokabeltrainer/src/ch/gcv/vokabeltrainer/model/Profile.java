@@ -17,7 +17,6 @@ public class Profile implements IProfile {
 	public Profile() {
 		super();
 		this.topics = new HashMap<String, ITopic>(); // CHF
-	
 	}
 
 	/**
@@ -55,7 +54,16 @@ public class Profile implements IProfile {
 	 */
 	@Override
 	public ArrayList<ITopic> getTopics() {
-		return (ArrayList<ITopic>) this.topics.values(); //CHF
+		ArrayList<ITopic> topicList = new ArrayList<ITopic>();
+		for (int i = 0; i < 50; i++) {
+			Topic t = new Topic();
+			t.
+			
+					
+		}
+		
+		
+		//return (ArrayList<ITopic>) this.topics.values(); //CHF
 	}
 
 	/**

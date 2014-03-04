@@ -12,15 +12,15 @@ package ch.gcv.vokabeltrainer.model;
 public class Topic  implements ITopic {
 
     private int statisticMinutesLearned;
-    private ArrayList<Card> cards;
     private String name;
+    private ArrayList<Card> cards;
     private Date statisticDateCreated;
 
 	public Topic(){
 		super();
 		this.statisticMinutesLearned = 0; // TODO
-		this.cards = null; // TODO
 		this.name = ""; // TODO
+		this.cards = null; // TODO
 		this.statisticDateCreated = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -117,6 +117,17 @@ public class Topic  implements ITopic {
 	 */
 	@Override
 	public Date getStatisticDateCreated() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
+    }
+
+    /** 
+     * setTopic implements ITopic.setTopic
+	 * @param name // TODO 
+	 *
+	 */
+	@Override
+	public void setTopic(String name) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
