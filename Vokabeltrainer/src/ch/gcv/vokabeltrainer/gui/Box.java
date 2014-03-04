@@ -39,7 +39,7 @@ public class Box extends JFrame{
 		JMenuItem french = new JMenuItem("Français");
 		
 		private JList liste;
-		JButton plus = new JButton(new ImageIcon(getClass().getResource("back.png")));
+		JButton plus = new JButton(new ImageIcon(getClass().getResource("ch/gcv/vokabeltrainer/gui/res/plus.png")));
 		
 //		JLabel boxname = new JLabel("boxname");
 		
@@ -88,6 +88,7 @@ public class Box extends JFrame{
 
 			JScrollPane pane = new JScrollPane(liste);
 			pane.setBounds(50, 80, 400, 350);
+			
 			
 			plus.setBounds(20, 10, 51, 50);
 //			boxname.setBounds(50, 10, 200, 50);
