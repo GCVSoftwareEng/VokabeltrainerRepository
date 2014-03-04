@@ -39,7 +39,7 @@ public class TranslationManager {
 	 * 
 	 */
 	private void languageChanged() {
-		for (ILanguageChangedListener l : this.languageChangedListeners){
+		for (ILanguageChangedListener l : this.languageChangedListeners) {
 			l.languageChanged();
 		}
 	}
@@ -53,7 +53,16 @@ public class TranslationManager {
 	 * @return String
 	 */
 	public String getText(String key) {
-		return bundle.getString(key); // CHF
+
+		if (key.equals(bundle.getString(key))) {
+			return bundle.getString(key); // CHF
+		}
+
+		else {
+			return key;
+
+		}
+
 	}
 
 	/**
@@ -118,6 +127,14 @@ public class TranslationManager {
 	public boolean removeListener(ILanguageChangedListener listener) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
+	}
+
+	public static void main(String[] args) {
+
+		TranslationManager it = new TranslationManager();
+		getinstance();
+		it.setLanguage("de");
+		it.getText("tree");
 	}
 
 }
