@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -119,8 +120,18 @@ public class TranslationManager {
 	 * @return boolean // TODO
 	 */
 	public boolean removeListener(ILanguageChangedListener listener) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+
+		Iterator<ILanguageChangedListener> it = languageChangedListeners
+				.iterator();
+		while (it.hasNext()) {
+			ILanguageChangedListener langListener = it.next();
+			if (listener == langListener) {
+				it.remove();
+				return true;
+			}
+
+		}
+		return false;
 	}
 
 }
