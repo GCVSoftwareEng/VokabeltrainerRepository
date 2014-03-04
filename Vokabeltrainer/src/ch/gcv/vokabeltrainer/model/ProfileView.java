@@ -28,6 +28,11 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	private void initComponents() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
+		
+		
+		
+		
+		
     }
 
     /** 
@@ -67,6 +72,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	@Override
 	public void updateViewFromModel() {
 		// TODO should be implemented
+		this.swinlist = this.presenter.getModel().getTopics();
 		throw new UnsupportedOperationException("Not implemented");
     }
 
@@ -77,6 +83,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	@Override
 	public void open() {
 		// TODO should be implemented
+		this.initComponents();
 		throw new UnsupportedOperationException("Not implemented");
     }
 

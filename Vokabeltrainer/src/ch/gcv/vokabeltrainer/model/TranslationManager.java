@@ -1,5 +1,12 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+import ch.gcv.vokabeltrainer.model.TranslationManager;
+
 
 /**
  * GCV Software Engineering
@@ -11,14 +18,16 @@ package ch.gcv.vokabeltrainer.model;
  */
 public class TranslationManager  implements ITranslationManager {
 
-    private TranslationManager instance;
+    private static TranslationManager instance;
     private ArrayList<ILanguageChangedListener> languageChangedListeners;
+    
+    private ResourceBundle bundle; // CHF ADD
 
 	public TranslationManager(){
 		super();
-		this.instance = null; // TODO
-		this.languageChangedListeners = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.instance = null; // CHF
+		this.languageChangedListeners = null; // CHF
+		
 	}
  
     /** 
@@ -32,24 +41,33 @@ public class TranslationManager  implements ITranslationManager {
 
     /** 
      * getText implements ITranslationManager.getText
-	 * @param key // TODO 
-	 * @return String  // TODO
+     * This method give you a text.
+	 * @param key // CHF
+	 * @return String 
 	 */
 	@Override
 	public String getText(String key) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return bundle.getString(key);  // CHF
+		
     }
 
     /** 
      * setLanguage implements ITranslationManager.setLanguage
-	 * @param language // TODO 
+	 * @param language // TODO    CHF
 	 *
 	 */
 	@Override
 	public void setLanguage(String language) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+
+		String baseName = "ch.gcv.vokabeltrainer.model.messages"; //$NON-NLS-1$
+		Locale.setDefault(new Locale(language, language)); //$NON-NLS-1$ //$NON-NLS-2$
+		try {
+			bundle = ResourceBundle.getBundle(baseName);
+
+		} catch (MissingResourceException e) {
+			System.err.println(e);
+		}
+	
     }
 
     /** 
@@ -58,7 +76,10 @@ public class TranslationManager  implements ITranslationManager {
 	 */
 	@Override
 	public ArrayList<String> getLanguages() {
-		// TODO should be implemented
+		
+		return (ArrayList<String>);
+		
+		
 		throw new UnsupportedOperationException("Not implemented");
     }
 
@@ -68,8 +89,11 @@ public class TranslationManager  implements ITranslationManager {
 	 */
 	@Override
 	public ITranslationManager getInstance() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		
+			if (TranslationManager.instance == null) {
+				TranslationManager.instance = new TranslationManager();
+			}
+			return TranslationManager.instance;
     }
 
     /** 
@@ -93,6 +117,17 @@ public class TranslationManager  implements ITranslationManager {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
+	
+	
+	// test
+	
+	public static void main(String[] args) {
+		
+		TranslationManager t = new TranslationManager();
+		t.setLanguage("de");
+		
+    }
+	
 
 }
  

@@ -1,70 +1,74 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-
+import java.util.HashMap;
 
 /**
- * GCV Software Engineering
- * Product: Vokabeltrainer
- * Copyright: 2014 GCV Software Engineering 
- *
+ * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
+ * Engineering
+ * 
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Profile  implements IProfile {
+public class Profile implements IProfile {
 
-    private HashSet<String, Topic> topics;
+	private HashMap<String, ITopic> topics; // CHF
 
-	public Profile(){
+	public Profile() {
 		super();
-		this.topics = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.topics = new HashMap<String, ITopic>(); // CHF
+	
 	}
- 
 
-    /** 
-     * addTopic implements IProfile.addTopic
-	 * @param topic // TODO 
-	 *
+	/**
+	 * addTopic implements IProfile.addTopic
+	 * This method adds topic
+	 * @param topic The topic to add
+	 *            
+	 * 
 	 */
 	@Override
-	public void addTopic(ITopic topic) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
+	public ITopic addTopic(ITopic topic) {
+		return topics.put(topic.getName(), topic); // CHF
 
-    /** 
-     * deleteTopic implements IProfile.deleteTopic
-	 * @param topic // TODO 
-	 *
+	}
+
+	/**
+	 * deleteTopic implements IProfile.deleteTopic
+	 * 
+	 * @param topic
+	 *            // TODO
+	 * 
 	 */
-	@Override
-	public void deleteTopic(ITopic topic) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
 
-    /** 
-     * getTopics implements IProfile.getTopics
-	 * @return ArrayList<ITopic>  // TODO
+	@Override
+	public ITopic deleteTopic(ITopic topic) {
+		return this.topics.remove(topic.getName()); // CHF
+
+	}
+
+	/**
+	 * getTopics implements IProfile.getTopics
+	 * This method is used to retrive a list of topics
+	 * The topics will be displayed in a list
+	 * @return ArrayList<ITopic> 
 	 */
 	@Override
 	public ArrayList<ITopic> getTopics() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
+		return (ArrayList<ITopic>) this.topics.values(); //CHF
+	}
 
-    /** 
-     * getTopic implements IProfile.getTopic
-	 * @param name // TODO 
-	 * @return ITopic  // TODO
+	/**
+	 * getTopic implements IProfile.getTopic
+	 * This method is used to get a topic
+	 * @param name
+	 *            // TODO
+	 * @return ITopic // TODO
 	 */
 	@Override
 	public ITopic getTopic(String name) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
+		return this.topics.get(name);  // CHF
+		
+	}
 
 }
- 

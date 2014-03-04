@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public interface IProfile {
  
-	public void addTopic(ITopic topic);
-	public void deleteTopic(ITopic topic);
+	public ITopic addTopic(ITopic topic);
+	public ITopic deleteTopic(ITopic topic);
 	public ArrayList<ITopic> getTopics();
 	public ITopic getTopic(String name);
   

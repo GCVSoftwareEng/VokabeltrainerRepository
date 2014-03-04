@@ -45,6 +45,11 @@ public class ProfileManager implements IProfileManager {
 		}
 		return this.profile;
 	}
+	
+	
+	
+	
+	
 
 	// TODO should be implemented
 
