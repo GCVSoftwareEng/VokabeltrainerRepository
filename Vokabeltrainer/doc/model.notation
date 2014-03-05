@@ -1030,6 +1030,10 @@
         <element xmi:type="uml:Operation" href="model.uml#_ljtHsKGlEeOT29RawPlywQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ljuV0aGlEeOT29RawPlywQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_AUmn0KSaEeO_Y8fJ1DvbaQ" type="3007" fontName="Lucida Grande" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Operation" href="model.uml#_AUlZsKSaEeO_Y8fJ1DvbaQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AUmn0aSaEeO_Y8fJ1DvbaQ"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_ILajkaGbEeOT29RawPlywQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ILajkqGbEeOT29RawPlywQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ILajk6GbEeOT29RawPlywQ"/>

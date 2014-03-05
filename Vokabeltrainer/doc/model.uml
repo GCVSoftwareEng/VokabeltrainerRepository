@@ -499,6 +499,10 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ljtHsKGlEeOT29RawPlywQ" name="getTopic">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_nYPAYKGlEeOT29RawPlywQ" name="" type="_q0LMIKE_EeOG1caRZQD7IQ" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AUlZsKSaEeO_Y8fJ1DvbaQ" name="check">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ELwfkKSaEeO_Y8fJ1DvbaQ" name="" type="_2aNNkKFfEeOT2MbNYw6OiA" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_F2Uj8KSaEeO_Y8fJ1DvbaQ" name="answer" type="_U5uuEKE_EeOG1caRZQD7IQ"/>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_ImYBQKGbEeOT29RawPlywQ" name="ICardPresenter">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_8UcgIKGbEeOT29RawPlywQ" name="getModel">
