@@ -22,6 +22,7 @@ public interface ICard {
 	public int getBox();
 	public void setTopic(Topic topic);
 	public Topic getTopic();
+	public boolean check(String answer);
   
 }
  
