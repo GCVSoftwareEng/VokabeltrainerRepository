@@ -1,5 +1,7 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.util.Date;
+
 
 /**
  * GCV Software Engineering
@@ -19,6 +21,7 @@ public class Card  implements ICard {
     private int box;
     private String answer;
     private Topic topic;
+    
 
 	public Card(){
 		super();
@@ -30,7 +33,7 @@ public class Card  implements ICard {
 		this.box = 0; // TODO
 		this.topic = null; // TODO
 		this.answer = ""; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		
 	}
  
 
@@ -41,8 +44,7 @@ public class Card  implements ICard {
 	 */
 	@Override
 	public void setQuestion(String question) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.question = question;
     }
 
     /** 
@@ -62,8 +64,7 @@ public class Card  implements ICard {
 	 */
 	@Override
 	public String getQuestion() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.question;
     }
 
     /** 
@@ -123,8 +124,7 @@ public class Card  implements ICard {
 	 */
 	@Override
 	public void setBox(int box) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.box = box;
     }
 
     /** 
@@ -133,8 +133,7 @@ public class Card  implements ICard {
 	 */
 	@Override
 	public int getBox() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.box;
     }
 
     /** 
@@ -157,6 +156,8 @@ public class Card  implements ICard {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
+	
+
 
 }
  
