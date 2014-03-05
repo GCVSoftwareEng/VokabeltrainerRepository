@@ -22,10 +22,8 @@ public interface ITopic {
 	public int getStatisticMinutesLearned();
 	public Date getStatisticDateCreated();
 	public void setName(String name);
-<<<<<<< HEAD
-=======
 	public String getName();
->>>>>>> FETCH_HEAD
+
   
 }
  

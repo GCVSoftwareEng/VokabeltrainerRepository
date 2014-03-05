@@ -156,6 +156,16 @@ public class Card  implements ICard {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
+
+	 /** 
+     * getTopic implements ICard.check
+	 * @return boolean  // TODO
+	 */
+	@Override
+	public boolean check(String answer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 
