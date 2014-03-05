@@ -1,5 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * GCV Software Engineering
  * Product: Vokabeltrainer
@@ -19,7 +22,7 @@ public interface ITopic {
 	public ArrayList<Card> getCards(int box);
 	public int getStatisticMinutesLearned();
 	public Date getStatisticDateCreated();
-	public void setTopic(String name);
+	public void setName(String name);
   
 }
  
