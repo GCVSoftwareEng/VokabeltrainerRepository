@@ -11,7 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleConstants; 
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -20,7 +20,7 @@ import javax.swing.text.StyleConstants;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicView extends javax.swing.JFrame implements ITopicView {
+public class TopicView extends JFrame implements ITopicView {
 
 	private ITopicPresenter presenter;
 
