@@ -21,7 +21,7 @@ public interface ITopic {
 	public ArrayList<Card> getCards(int box);
 	public int getStatisticMinutesLearned();
 	public Date getStatisticDateCreated();
-	public void setTopic(String name);
+	public void setName(String name);
 	public String getName();
   
 }

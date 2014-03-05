@@ -15,7 +15,6 @@ import java.util.Random;
 public class Topic implements ITopic {
 
 	private ArrayList<Card> cards;
-	private ArrayList<Card> currentCards;
 	private int statisticMinutesLearned;
 	private Date statisticDateCreated;
 	private String name;
@@ -23,7 +22,6 @@ public class Topic implements ITopic {
 	public Topic() {
 		super();
 		this.cards = new ArrayList<Card>();
-		this.currentCards = new ArrayList<Card>();
 		this.statisticMinutesLearned = 0; // TODO
 		this.statisticDateCreated = null; // TODO
 		this.name = ""; // TODO
@@ -62,15 +60,17 @@ public class Topic implements ITopic {
 	@Override
 	public Card getRandomCard(int box) {
 		Card theCard = null;
+		ArrayList<Card> cardsForBox = new ArrayList<Card>();
+		cardsForBox = getCards(box);
+
 		Random random = new Random();
 		int min = 1;
-		int max = getCardCount(box);
+		int max = cardsForBox.size();
 		int rndNumb = random.nextInt(max - min + 1) + min;
 
 		for (int i = 0; i <= rndNumb; i++) {
 			if (i == rndNumb) {
-				theCard = currentCards.get(i - 1);
-				System.out.println(theCard.getQuestion());
+				theCard = cardsForBox.get(i - 1);
 			}
 		}
 		return theCard;
@@ -89,14 +89,13 @@ public class Topic implements ITopic {
 		Iterator<Card> it = cards.iterator();
 		while (it.hasNext()) {
 			Card theCard = it.next();
-			if (theCard != card) {
-				System.out.println("Card delete fail");
-				return false;
+			if (theCard == card) {
+				it.remove();
+				return true;
 			}
+			System.out.println("Card not found, next");
 		}
-		it.remove();
-		System.out.println("Card delete OK");
-		return true;
+		return false;
 	}
 
 	/**
@@ -121,15 +120,7 @@ public class Topic implements ITopic {
 	 */
 	@Override
 	public int getCardCount(int box) {
-		int count = 0;
-		for (Card boxCard : cards) {
-			if (boxCard.getBox() == box) {
-				currentCards.add(boxCard);
-				count += 1;
-			}
-		}
-		System.out.println("Box:" + box + " Count: " + count);
-		return count;
+		return this.getCards(box).size();
 	}
 
 	/**
@@ -139,8 +130,7 @@ public class Topic implements ITopic {
 	 */
 	@Override
 	public ArrayList<Card> getCards() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.cards;
 	}
 
 	/**
@@ -152,8 +142,14 @@ public class Topic implements ITopic {
 	 */
 	@Override
 	public ArrayList<Card> getCards(int box) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		ArrayList<Card> tempCards = new ArrayList<Card>();
+		for (Card curCard : cards) {
+			if (curCard.getBox() == box) {
+				tempCards.add(curCard);
+			}
+		}
+		System.out.println("Box:" + box + " Count: " + tempCards.size());
+		return tempCards;
 	}
 
 	/**
@@ -178,16 +174,6 @@ public class Topic implements ITopic {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
-	// /**
-	// *
-	// * @param name
-	// * // TODO
-	// *
-	// */
-	// public void setName(String name) {
-	//
-	// }
-
 	/**
 	 * setTopic implements ITopic.setTopic
 	 * 
@@ -196,20 +182,17 @@ public class Topic implements ITopic {
 	 * 
 	 */
 	@Override
-	public void setTopic(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
-	
-	
+
 	// TEST
 
 	public static void main(String[] args) {
 		Topic top = new Topic();
-		top.setTopic("Test");
+		top.setName("Test");
+
+		Card card = new Card();
 
 		Card card1 = new Card();
 		card1.setBox(1);
@@ -227,9 +210,10 @@ public class Topic implements ITopic {
 		top.addCard(card22);
 		top.addCard(card2);
 		top.addCard(card1);
+		top.deleteCard(card);
 
-		top.getRandomCard(2);
-		top.getCardCount(2);
+		System.out.println(top.getRandomCard(2).getQuestion());
+		//top.getCardCount(1);
 
 	}
 
