@@ -45,7 +45,7 @@ public class BoxLearn extends JFrame{
 		
 		JButton plus = new JButton(new ImageIcon(getClass().getResource("back.png")));
 		
-		JButton next = new JButton(new ImageIcon(getClass().getResource("next.gif")));
+		JButton next = new JButton(new ImageIcon(getClass().getResource("next.png")));
 		
 		JButton check = new JButton(new ImageIcon(getClass().getResource("check.png")));
 		
@@ -155,8 +155,8 @@ public class BoxLearn extends JFrame{
 			
 			
 			plus.setBounds(20, 10, 51, 50);
-			next.setBounds(225, 200, 75, 55);
-			check.setBounds(425, 200, 53, 53);
+			next.setBounds(175, 188, 145, 48);
+			check.setBounds(475, 185, 53, 53);
 //			topicname.setBounds(50, 10, 200, 50);
 //			topicname.setVisible(true);
 			
