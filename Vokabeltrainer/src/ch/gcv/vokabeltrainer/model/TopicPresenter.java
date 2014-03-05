@@ -66,8 +66,8 @@ public class TopicPresenter  implements ITopicPresenter, ILanguageChangedListene
 	 */
 	@Override
 	public void setView(ITopicView view) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		
+		this.view = view;
     }
 
     /** 

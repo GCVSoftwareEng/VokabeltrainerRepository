@@ -69,8 +69,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
 		this.topic = new JTextPane();
-		String inhalte[] = {"1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3"};
-		this.liste = new JList(inhalte);
 		
 		this.scrollPane = new JScrollPane(liste);
 
@@ -169,7 +167,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		}
 
 		// update the topic list
-//		this.liste.setListData(presenter.getModel().getTopics().toArray());
+		this.liste.setListData(presenter.getModel().getTopics().toArray());
 		
 		
 		

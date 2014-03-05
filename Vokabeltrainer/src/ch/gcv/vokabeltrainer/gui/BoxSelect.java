@@ -57,6 +57,18 @@ public class BoxSelect extends JFrame{
 		JLabel boxLabel4 = new JLabel("Box 4");
 		JLabel boxLabel5 = new JLabel("Box 5");
 		
+		JLabel cardCount1 = new JLabel("Cards:");
+		JLabel cardCount2 = new JLabel("Cards:");
+		JLabel cardCount3 = new JLabel("Cards:");
+		JLabel cardCount4 = new JLabel("Cards:");
+		JLabel cardCount5 = new JLabel("Cards:");
+		
+		JLabel card1ummber1 = new JLabel("100");
+		JLabel card1ummber2 = new JLabel("100");
+		JLabel card1ummber3 = new JLabel("100");
+		JLabel card1ummber4 = new JLabel("100");
+		JLabel card1ummber5 = new JLabel("100");
+		
 		
 	
 		public BoxSelect() {
@@ -97,32 +109,75 @@ public class BoxSelect extends JFrame{
 
 			
 			// button definition
-			boxButton1.setBounds(25, 250, 70, 70);
-			boxButton2.setBounds(120, 250, 70, 70);
-			boxButton3.setBounds(215, 250, 70, 70);
-			boxButton4.setBounds(310, 250, 70, 70);
-			boxButton5.setBounds(405, 250, 70, 70);
+			boxButton1.setBounds(25, 240, 70, 70);
+			boxButton2.setBounds(120, 240, 70, 70);
+			boxButton3.setBounds(215, 240, 70, 70);
+			boxButton4.setBounds(310, 240, 70, 70);
+			boxButton5.setBounds(405, 240, 70, 70);
 			
 			//layout definition
 			boxLabel1.setVisible(true);
 			boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
-			boxLabel1.setBounds(35, 200, 70, 45);
+			boxLabel1.setBounds(30, 170, 70, 20);
 			
 			boxLabel2.setVisible(true);
 			boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
-			boxLabel2.setBounds(130, 200, 70, 45);
+			boxLabel2.setBounds(125, 170, 70, 20);
 			
 			boxLabel3.setVisible(true);
 			boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
-			boxLabel3.setBounds(225, 200, 70, 45);
+			boxLabel3.setBounds(220, 170, 70, 20);
 			
 			boxLabel4.setVisible(true);
 			boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
-			boxLabel4.setBounds(320, 200, 70, 45);
+			boxLabel4.setBounds(315, 170, 70, 20);
 			
 			boxLabel5.setVisible(true);
 			boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
-			boxLabel5.setBounds(415, 200, 70, 45);
+			boxLabel5.setBounds(410, 170, 70, 20);
+			
+			
+			cardCount1.setVisible(true);
+			cardCount1.setFont(cardCount1.getFont().deriveFont(14));
+			cardCount1.setBounds(30, 195, 70, 20);
+			
+			cardCount2.setVisible(true);
+			cardCount2.setFont(cardCount2.getFont().deriveFont(14));
+			cardCount2.setBounds(125, 195, 70, 20);
+			
+			cardCount3.setVisible(true);
+			cardCount3.setFont(cardCount3.getFont().deriveFont(14));
+			cardCount3.setBounds(220, 195, 70, 20);
+			
+			cardCount4.setVisible(true);
+			cardCount4.setFont(cardCount4.getFont().deriveFont(14));
+			cardCount4.setBounds(315, 195, 70, 20);
+			
+			cardCount5.setVisible(true);
+			cardCount5.setFont(cardCount5.getFont().deriveFont(14));
+			cardCount5.setBounds(410, 195, 70, 20);
+			
+			card1ummber1.setVisible(true);
+			card1ummber1.setFont(card1ummber1.getFont().deriveFont(14));
+			card1ummber1.setBounds(45, 325, 70, 30);
+			
+			card1ummber2.setVisible(true);
+			card1ummber2.setFont(card1ummber2.getFont().deriveFont(14));
+			card1ummber2.setBounds(140, 325, 70, 30);
+			
+			card1ummber3.setVisible(true);
+			card1ummber3.setFont(card1ummber3.getFont().deriveFont(14));
+			card1ummber3.setBounds(235, 325, 70, 30);
+			
+			card1ummber4.setVisible(true);
+			card1ummber4.setFont(card1ummber4.getFont().deriveFont(14));
+			card1ummber4.setBounds(330, 325, 70, 30);
+			
+			card1ummber5.setVisible(true);
+			card1ummber5.setFont(card1ummber5.getFont().deriveFont(14));
+			card1ummber5.setBounds(425, 325, 70, 30);
+			
+			
 			
 			
 			
@@ -130,13 +185,13 @@ public class BoxSelect extends JFrame{
 		     SimpleAttributeSet set = new SimpleAttributeSet();
 		     StyleConstants.setAlignment(set,StyleConstants.ALIGN_LEFT);
 		     StyleConstants.setFontFamily(set,"Times New Roman");
-		     StyleConstants.setFontSize(set,30);
+		     StyleConstants.setFontSize(set,35);
 		     StyleConstants.setItalic(set,true);
 		     StyleConstants.setBold(set,true);
 		     boxname.setParagraphAttributes(set,true);
 		     boxname.setBackground(Color.WHITE);
-		     boxname.setBounds(225,20,200,50);
-		     boxname.setText("Box");
+		     boxname.setBounds(30,50,450,50);
+		     boxname.setText("Topicname");
 			
 			super.setJMenuBar(menuBar);
 			super.add(boxname);
@@ -150,6 +205,16 @@ public class BoxSelect extends JFrame{
 			super.add(boxLabel3);
 			super.add(boxLabel4);
 			super.add(boxLabel5);
+			super.add(cardCount1);
+			super.add(cardCount2);
+			super.add(cardCount3);
+			super.add(cardCount4);
+			super.add(cardCount5);
+			super.add(card1ummber1);
+			super.add(card1ummber2);
+			super.add(card1ummber3);
+			super.add(card1ummber4);
+			super.add(card1ummber5);
 			
 			
 		}
