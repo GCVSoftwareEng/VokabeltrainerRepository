@@ -74,6 +74,9 @@ public class CardView extends javax.swing.JFrame implements ICardView {
 		super.setVisible(true);
 		super.setLayout(null);
 
+		
+		this.answerField = new JTextField();  //CHF
+		
 		this.menuBar = new JMenuBar();
 		this.file = new JMenu("File");
 		this.language = new JMenu("Language", true);
@@ -122,13 +125,16 @@ public class CardView extends javax.swing.JFrame implements ICardView {
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
 		question.setBounds(15, 15, 150, 50);
-		question.setBackground(Color.LIGHT_GRAY);
+		question.setBackground(Color.LIGHT_GRAY);  			 
+	
 
 		// question word
 		questionWord.setVisible(true);
+		questionWord.setEnabled(false);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 15, 575, 50);
-		questionWord.setBackground(Color.LIGHT_GRAY);
+		questionWord.setBackground(Color.LIGHT_GRAY); 	
+		
 
 		// answerlabel
 		answer.setVisible(true);
@@ -188,6 +194,7 @@ public class CardView extends javax.swing.JFrame implements ICardView {
 		super.add(topicname);
 		super.add(boxnumber);
 		super.add(cardPanel);
+	
 		cardPanel.add(question);
 		cardPanel.add(questionWord);
 		cardPanel.add(answer);
@@ -283,4 +290,5 @@ public class CardView extends javax.swing.JFrame implements ICardView {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
+	
 }

@@ -22,7 +22,7 @@ public class CardEditPresenter  implements ILanguageChangedListener, java.lang.R
 		this.view = null; // TODO
 		this.onCancel = null; // TODO
 		this.model = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+	
 	}
  
 

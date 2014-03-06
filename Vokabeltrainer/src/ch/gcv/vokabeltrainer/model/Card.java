@@ -98,7 +98,7 @@ public class Card implements ICard {
 	/**
 	 * getStatisticDateLastLerned implements ICard.getStatisticDateLastLerned
 	 * 
-	 * @return Date // TODO
+	 * @return long // TODO
 	 */
 
 	public long getStatisticDateLastLerned() {
@@ -198,7 +198,7 @@ public class Card implements ICard {
 	 * 
 	 */
 
-	public void setTopicName(String name) { // change
+	public void setTopicName(String name) { // change to void setTopic
 		topic.setName(name);
 	}
 
