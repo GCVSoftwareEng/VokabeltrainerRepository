@@ -73,6 +73,7 @@ public class Topic implements ITopic {
 				theCard = cardsForBox.get(i - 1);
 			}
 		}
+		theCard.setStatisticDateLastLerned();
 		return theCard;
 	}
 
@@ -197,14 +198,17 @@ public class Topic implements ITopic {
 		Card card1 = new Card();
 		card1.setBox(1);
 		card1.setQuestion("Welche Fabe hat das Wasser?");
+		card1.setAnswer("blau");
 		// 1 in 1
 
 		Card card2 = new Card();
 		card2.setBox(2);
 		card2.setQuestion("Welche Farbe hat die Sonne?");
+		card2.setAnswer("gelb");
 		Card card22 = new Card();
 		card22.setBox(2);
 		card22.setQuestion("Welche Farbe hat der Himmel?");
+		card22.setAnswer("hellblau");
 		// 2 in 2
 
 		top.addCard(card22);
@@ -212,8 +216,21 @@ public class Topic implements ITopic {
 		top.addCard(card1);
 		top.deleteCard(card);
 
-		System.out.println(top.getRandomCard(2).getQuestion());
-		//top.getCardCount(1);
+		Card curCard = top.getRandomCard(2);
+		System.out.println(curCard.getQuestion());
+		// top.getCardCount(1);
+
+		curCard.setMyAnswer("helllau");
+		curCard.check(card22.getAnswer());
+		curCard.getStatisticDateCreated();
+		curCard.getStatisticDateLastLerned();
+
+		Card curCard2 = top.getRandomCard(2);
+		System.out.println(curCard2.getQuestion());
+		curCard2.setMyAnswer("hellblau");
+		curCard2.check(card22.getAnswer());
+		curCard2.getStatisticDateCreated();
+		curCard2.getStatisticDateLastLerned();
 
 	}
 

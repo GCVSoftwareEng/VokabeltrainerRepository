@@ -14,8 +14,8 @@ public interface ICard {
 	public void setAnswer(String answer);
 	public String getQuestion();
 	public String getAnswer();
-	public Date getStatisticDateLastLerned();
-	public Date getStatisticDateCreated();
+	public long getStatisticDateLastLerned();
+	public long getStatisticDateCreated();
 	public int getStatisticCountWrong();
 	public int getStatisticCountRight();
 	public void setBox(int box);
@@ -23,6 +23,9 @@ public interface ICard {
 	public void setTopic(Topic topic);
 	public Topic getTopic();
 	public boolean check(String answer);
+	public void setStatisticDateLastLerned();
+	public void setStatisticCountWrong();
+	public void setStatisticCountRight();
   
 }
  
