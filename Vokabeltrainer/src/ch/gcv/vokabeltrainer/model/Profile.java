@@ -55,7 +55,7 @@ public class Profile implements IProfile {
 	@Override
 	public ArrayList<ITopic> getTopics() {
 		ArrayList<ITopic> topicList = new ArrayList<ITopic>();
-		for (int i = 0; i < 3; i++) {									// CHF 
+		for (int i = 0; i < 50; i++) {								
 			Topic t = new Topic();
 			t.setName("giusiiiii #" + i);
 			topicList.add(t);

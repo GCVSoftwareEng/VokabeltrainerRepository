@@ -40,7 +40,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	private JMenuItem editCard;
 	private JMenuItem removeCard;
 	private JMenuItem exit;
-	private JList<Object> liste;
+	private JList liste;    
 	private JButton plus;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
