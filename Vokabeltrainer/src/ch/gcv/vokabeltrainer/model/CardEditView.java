@@ -32,7 +32,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView {
 	private JMenu language;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
-	private JMenuItem newtopicname;
 	private JMenuItem addCard;
 	private JMenuItem editCard;
 	private JMenuItem removeCard;
