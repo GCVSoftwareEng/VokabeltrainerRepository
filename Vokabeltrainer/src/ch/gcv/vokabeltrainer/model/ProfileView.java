@@ -98,8 +98,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		scrollPane.setBounds(50, 80, 400, 350);
 
 		plus.setBounds(400, 10, 51, 50);
-		// topic.setBounds(50, 10, 200, 50);
-		// topic.setVisible(true);
+		
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();

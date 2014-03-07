@@ -21,7 +21,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 
-public class BoxLearn extends JFrame{
+public class CardEditView extends JFrame{
 	
 		
 		// menubar and menus
@@ -43,19 +43,16 @@ public class BoxLearn extends JFrame{
 		JTextPane topicname = new JTextPane();
 		JTextPane boxnumber = new JTextPane();
 		
-		JButton plus = new JButton(new ImageIcon(getClass().getResource("back.png")));
 		
-		JButton next = new JButton(new ImageIcon(getClass().getResource("next.png")));
-		
+		JButton back = new JButton(new ImageIcon(getClass().getResource("back.png")));
+		JButton delete = new JButton(new ImageIcon(getClass().getResource("delete.png")));
 		JButton check = new JButton(new ImageIcon(getClass().getResource("check.png")));
 		
 		JLabel question = new JLabel("Question:");
 		JLabel answer = new JLabel("Answer:");
-		JLabel questionWord = new JLabel("Auto");
-		JLabel lastLearn = new JLabel("last learn:");
-		JLabel date = new JLabel("05.11.1990");
 		
 		JTextField answerField = new JTextField();
+		JTextField questionWord = new JTextField();
 		
 		JPanel cardPanel = new JPanel();
 		
@@ -63,7 +60,7 @@ public class BoxLearn extends JFrame{
 		
 		
 		
-		public BoxLearn() {
+		public CardEditView() {
 			super("Vokablentrainer");
 			guiInitalisation();
 		}
@@ -79,7 +76,7 @@ public class BoxLearn extends JFrame{
 			super.setVisible(true);
 			super.setLayout(null);
 			
-			cardPanel.setBackground(Color.LIGHT_GRAY);
+			cardPanel.setBackground(Color.WHITE);
 			cardPanel.setBounds(25, 120, 750, 300);
 			cardPanel.setVisible(true);
 			cardPanel.setLayout(null);
@@ -91,11 +88,7 @@ public class BoxLearn extends JFrame{
 			question.setBounds(15, 15, 150, 50);
 			question.setBackground(Color.LIGHT_GRAY);
 			
-			//question word
-			questionWord.setVisible(true);
-			questionWord.setFont(questionWord.getFont().deriveFont(20f));
-			questionWord.setBounds(170, 15, 575, 50);
-			questionWord.setBackground(Color.LIGHT_GRAY);
+			
 			
 			//answerlabel
 			answer.setVisible(true);
@@ -109,27 +102,11 @@ public class BoxLearn extends JFrame{
 			answerField.setFont(answerField.getFont().deriveFont(20f));
 			answerField.setBounds(170, 100, 575, 50);
 			
-			
-			//lastlearn label
-			lastLearn.setVisible(true);
-			lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-			lastLearn.setBounds(500, 270, 150, 20);
-			lastLearn.setBackground(Color.LIGHT_GRAY);
-			
-			//date label
-			date.setVisible(true);
-			date.setFont(date.getFont().deriveFont(10));
-			date.setBounds(650, 270, 80, 20);
-			date.setBackground(Color.LIGHT_GRAY);
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			questionWord.setEditable(true);
+			questionWord.setVisible(true);
+			questionWord.setFont(questionWord.getFont().deriveFont(20f));
+			questionWord.setBounds(170, 15, 575, 50);
+	
 			// build menubar
 			menuBar.add(file);
 			menuBar.add(language);
@@ -151,12 +128,9 @@ public class BoxLearn extends JFrame{
 
 			
 			
-			plus.setBounds(20, 10, 51, 50);
-			next.setBounds(175, 188, 145, 48);
-			check.setBounds(475, 185, 53, 53);
-//			topicname.setBounds(50, 10, 200, 50);
-//			topicname.setVisible(true);
-			
+			back.setBounds(20, 10, 51, 50);
+			check.setBounds(475, 220, 53, 53);
+			delete.setBounds(275, 220, 53, 53);
 			
 			
 			 topicname.setEditable(false);
@@ -182,9 +156,10 @@ public class BoxLearn extends JFrame{
 		     boxnumber.setBackground(Color.WHITE);
 		     boxnumber.setBounds(90,75,200,40);
 		     boxnumber.setText("Box: 1");
+		 
 			
 			super.setJMenuBar(menuBar);
-			super.add(plus);
+			super.add(back);
 			super.add(topicname);
 			super.add(boxnumber);
 			super.add(cardPanel);
@@ -192,10 +167,9 @@ public class BoxLearn extends JFrame{
 			cardPanel.add(questionWord);
 			cardPanel.add(answer);
 			cardPanel.add(answerField);
-			cardPanel.add(next);
 			cardPanel.add(check);
-			cardPanel.add(lastLearn);
-			cardPanel.add(date);
+			cardPanel.add(delete);
+
 			
 			
 			
@@ -203,7 +177,7 @@ public class BoxLearn extends JFrame{
 		}
 		
 		public static void main(String args[]) {
-			BoxLearn test = new BoxLearn();
+			CardEditView test = new CardEditView();
 			test.guiInitalisation();
 		}
 		
