@@ -170,7 +170,9 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	@Override
 	public void updateViewFromModel() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		// TODO topic.setText();
+		// TODO topicname.setText(text);
+		
 	}
 
 	/**

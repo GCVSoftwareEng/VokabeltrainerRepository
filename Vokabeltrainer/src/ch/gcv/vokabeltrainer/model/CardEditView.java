@@ -36,10 +36,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView {
 	private JMenuItem editCard;
 	private JMenuItem removeCard;
 	private JMenuItem exit;
-	private JMenuItem german;
-	private JMenuItem english;
-	private JMenuItem italian;
-	private JMenuItem french;
+
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
@@ -211,7 +208,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView {
 	@Override
 	public void updateModelFromView() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		// TODO answerField;
+		// TODO questionWord;
 	}
 
 	/**
@@ -221,7 +219,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView {
 	@Override
 	public void updateViewFromModel() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		// TODO question.setText(text);
+		// TODO answer.setText(text);
 	}
 
 	/**
