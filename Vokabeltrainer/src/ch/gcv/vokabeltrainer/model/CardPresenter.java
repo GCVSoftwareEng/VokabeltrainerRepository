@@ -15,9 +15,9 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable,
 
 	public CardPresenter() {
 		super();
-		this.view = null; // TODO
-		this.model = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.view = new CardView();
+		this.model = new Card();
+		
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable,
 	 */
 	@Override
 	public ICard getModel() {
-		// TODO should be implemented
+		this.model.getBox();
 		throw new UnsupportedOperationException("Not implemented");
 
 	}
@@ -53,8 +53,7 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable,
 	 */
 	@Override
 	public ICardView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**

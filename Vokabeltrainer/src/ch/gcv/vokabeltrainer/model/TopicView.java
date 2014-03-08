@@ -1,6 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,7 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants; 
+import javax.swing.text.StyleConstants;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -232,6 +234,36 @@ public class TopicView extends JFrame implements ITopicView {
 		super.add(card1ummber4);
 		super.add(card1ummber5);
 
+		boxButton1.addActionListener(new MyButtonListener());
+		boxButton2.addActionListener(new MyButtonListener());
+		boxButton3.addActionListener(new MyButtonListener());
+		boxButton4.addActionListener(new MyButtonListener());
+		boxButton5.addActionListener(new MyButtonListener());
+		back.addActionListener(new MyButtonListener());
+
+	}
+
+	class MyButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			if (e.getSource() == boxButton1) {
+				CardPresenter card = new CardPresenter();
+				card.getView();
+			} else if (e.getSource() == boxButton2) {
+
+			} else if (e.getSource() == boxButton3) {
+
+			} else if (e.getSource() == boxButton4) {
+
+			} else if (e.getSource() == boxButton5) {
+
+			} else if (e.getSource() == back) {
+
+			}
+		}
+
 	}
 
 	/**
@@ -301,4 +333,10 @@ public class TopicView extends JFrame implements ITopicView {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
+	public void main(String args[]) {
+
+		TopicView topV = new TopicView();
+		topV.initComponents();
+
+	}
 }

@@ -135,7 +135,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	@Override
 	public TopicEditPresenter getPresenter() {
 		
-		return this.presenter;
+		return (TopicEditPresenter) this.presenter;
 		
 	}
 
