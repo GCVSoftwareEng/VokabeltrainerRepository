@@ -3,6 +3,8 @@ package ch.gcv.vokabeltrainer.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 
 public class TopicEditView extends JFrame{
@@ -47,11 +51,16 @@ public class TopicEditView extends JFrame{
 		JLabel topicname = new JLabel("Topicname:");
 		
 		JTextPane topic = new JTextPane();
+		
+
 	
 		public TopicEditView() {
 			super("Vokablentrainer");
 			guiInitalisation();
 		}
+		
+		
+		
 		
 		
 		public void guiInitalisation(){
@@ -109,7 +118,7 @@ public class TopicEditView extends JFrame{
 		     StyleConstants.setBold(set,true);
 		     topic.setParagraphAttributes(set,true);
 		     topic.setBackground(Color.WHITE);
-		     topic.setBounds(90, 20, 400, 40);
+		     topic.setBounds(90, 20, 500, 40);
 		     topic.setText("Topic");
 			
 			super.setJMenuBar(menuBar);
@@ -119,8 +128,47 @@ public class TopicEditView extends JFrame{
 			super.add(topicname);
 			super.add(topicnameField);
 			
+//			add listener
+			back.addActionListener(new ButtonListener());
+			edit.addActionListener(new ButtonListener());
+			newPro.addActionListener(new MenubarListener());
+			german.addActionListener(new MenubarListener());
+			
 			
 		}
+		
+		class ButtonListener implements ActionListener{
+			
+			public void actionPerformed(ActionEvent e){
+				
+				if(e.getSource() == back){
+					Mainwindow main = new Mainwindow();
+					main.guiInitalisation();	
+				}
+				else if(e.getSource() == newPro){
+					
+					String text = topicnameField.getText();
+					topic.setText(text);
+				}
+				
+			}
+		}
+			
+		class MenubarListener implements ActionListener{
+				
+				public void actionPerformed(ActionEvent e){
+					
+					if(e.getSource() == file){
+						topic.setText("file");
+					}
+					else if(e.getSource() == german){
+						topic.setText("deutsch");
+					}
+					
+				}
+		}
+			
+		
 		
 		public static void main(String args[]) {
 			TopicEditView test = new TopicEditView();
