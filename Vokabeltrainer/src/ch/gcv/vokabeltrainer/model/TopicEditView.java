@@ -1,6 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -126,6 +128,17 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 		super.add(topicnameField);
 
 	}
+	
+	class ButtonListener implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e){
+			
+			if(e.getSource() == back){
+				
+			}
+		}
+
+		}
 
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
@@ -135,7 +148,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	@Override
 	public TopicEditPresenter getPresenter() {
 		
-		return this.presenter;
+		throw new UnsupportedOperationException("Not implemented");
 		
 	}
 
