@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants; 
 
+import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
@@ -22,7 +23,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicView extends JFrame implements ITopicView {
+public class TopicView extends JFrame implements ITopicView, ITranslatable {
 
 	private ITopicPresenter presenter;
 
@@ -302,5 +303,15 @@ public class TopicView extends JFrame implements ITopicView {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
+	
+	 /** 
+     * languageChanged implements ILanguageChangedListener.languageChanged
+	 *
+	 */
+	@Override
+	public void translate() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
+    }
 
 }

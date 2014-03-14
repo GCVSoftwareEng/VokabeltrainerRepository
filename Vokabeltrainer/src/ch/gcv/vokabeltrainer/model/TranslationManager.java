@@ -20,13 +20,13 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class TranslationManager {
 
 	private static TranslationManager instance;
-	private ArrayList<ILanguageChangedListener> languageChangedListeners;
+	private ArrayList<ITranslatable> languageChangedListeners;
 	private ArrayList<String> languages;
 	private ResourceBundle bundle; // CHF ADD
 
 	public TranslationManager() {
 		super();
-		this.languageChangedListeners = null; // CHF
+		this.languageChangedListeners = new ArrayList<ITranslatable>();
 		this.languages = new ArrayList<String>();
 		// TODO load available languages
 		this.languages.add("de");
@@ -40,8 +40,8 @@ public class TranslationManager {
 	 * 
 	 */
 	private void languageChanged() {
-		for (ILanguageChangedListener l : this.languageChangedListeners) {
-			l.languageChanged();
+		for (ITranslatable translatable : this.languageChangedListeners) {
+			translatable.translate();
 		}
 	}
 
@@ -77,6 +77,8 @@ public class TranslationManager {
 		} catch (MissingResourceException e) {
 			System.err.println(e); // TODO
 		}
+		
+		this.languageChanged();
 
 	}
 
@@ -108,7 +110,7 @@ public class TranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	public boolean addListener(ILanguageChangedListener listener) {
+	public boolean addListener(ITranslatable listener) {
 		return this.languageChangedListeners.add(listener);
 	}
 
@@ -119,12 +121,12 @@ public class TranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	public boolean removeListener(ILanguageChangedListener listener) {
+	public boolean removeListener(ITranslatable listener) {
 
-		Iterator<ILanguageChangedListener> it = languageChangedListeners
+		Iterator<ITranslatable> it = languageChangedListeners
 				.iterator();
 		while (it.hasNext()) {
-			ILanguageChangedListener langListener = it.next();
+			ITranslatable langListener = it.next();
 			if (listener == langListener) {
 				it.remove();
 				return true;

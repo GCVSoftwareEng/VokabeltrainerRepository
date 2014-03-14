@@ -16,6 +16,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicEditPresenter;
 
 /**
@@ -25,7 +27,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicEditPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicEditView extends javax.swing.JFrame implements ITopicEditView {
+public class TopicEditView extends javax.swing.JFrame implements ITopicEditView, ITranslatable {
 
 	private ITopicEditPresenter presenter;
 
@@ -172,7 +174,8 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 */
 	@Override
 	public void open() {
-		
+		TranslationManager.getinstance().addListener(this);
+		translate();
 		setVisible(true);
 		
 	}
@@ -183,6 +186,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 */
 	@Override
 	public void close() {
+		TranslationManager.getinstance().removeListener(this);
 		dispose();
 	}
 
@@ -192,5 +196,16 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
         this.presenter.confirm();
         this.close();
     }
+	
+
+    /** 
+     * languageChanged implements ILanguageChangedListener.languageChanged
+	 *
+	 */
+	@Override
+	public void translate() {
+		this.topic.setText(TranslationManager.getinstance().getText("topic"));
+    }
+	
 
 }

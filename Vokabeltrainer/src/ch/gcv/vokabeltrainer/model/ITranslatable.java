@@ -8,9 +8,9 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface IDatasourceListener {
+public interface ITranslatable {
  
-	public void datasourceChanged();
+	public void translate();
   
 }
  

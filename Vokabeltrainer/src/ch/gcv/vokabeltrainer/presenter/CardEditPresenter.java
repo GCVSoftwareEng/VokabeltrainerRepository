@@ -1,7 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
+import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.view.ICardEditView;
 
 
@@ -13,7 +13,7 @@ import ch.gcv.vokabeltrainer.view.ICardEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditPresenter  implements ILanguageChangedListener, java.lang.Runnable, ICardEditPresenter {
+public class CardEditPresenter  implements java.lang.Runnable, ICardEditPresenter {
 
     private Runnable onConfirm;
     private ICardEditView view;
@@ -30,15 +30,6 @@ public class CardEditPresenter  implements ILanguageChangedListener, java.lang.R
 	}
  
 
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
-	 */
-	@Override
-	public void languageChanged() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
 
     /** 
      * run implements java.lang.Runnable.run

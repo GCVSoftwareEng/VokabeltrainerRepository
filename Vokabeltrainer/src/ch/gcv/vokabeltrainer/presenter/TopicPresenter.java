@@ -1,6 +1,6 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
+import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.view.ITopicView;
 
@@ -13,7 +13,7 @@ import ch.gcv.vokabeltrainer.view.ITopicView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicPresenter  implements ITopicPresenter, ILanguageChangedListener, java.lang.Runnable {
+public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 
     private Runnable onDeleteCard;
     private Runnable onOpenCard;
@@ -147,15 +147,7 @@ public class TopicPresenter  implements ITopicPresenter, ILanguageChangedListene
 		throw new UnsupportedOperationException("Not implemented");
     }
 
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
-	 */
-	@Override
-	public void languageChanged() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
+   
 
     /** 
      * run implements java.lang.Runnable.run

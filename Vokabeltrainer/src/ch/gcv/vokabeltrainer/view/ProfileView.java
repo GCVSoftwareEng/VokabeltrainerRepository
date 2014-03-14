@@ -17,6 +17,7 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
 
@@ -27,7 +28,7 @@ import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfileView extends javax.swing.JFrame implements IProfileView {
+public class ProfileView extends javax.swing.JFrame implements IProfileView, ITranslatable {
 
 	private IProfilePresenter presenter;
 
@@ -165,14 +166,23 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	public void updateViewFromModel() {
 		// TODO should be implemented
 
+		this.language.removeAll();
 		// update language menu bar
 		ArrayList<String> languages = TranslationManager.getinstance()
 				.getLanguages();
 		Iterator<String> it = languages.iterator(); // iterator
 		while (it.hasNext()) {
 			JMenuItem lm = new JMenuItem(it.next());
+			
+			lm.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            	jMenuChooseLanguageActionPerformed(evt);
+	            }
+	        });
+			
 			this.language.add(lm);
 		}
+		
 
 		// update the topic list
 		this.liste.setListData(presenter.getModel().getTopics().toArray());
@@ -185,6 +195,8 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	 */
 	@Override
 	public void open() {
+		TranslationManager.getinstance().addListener(this);
+		translate();
 		setVisible(true);
 	}
 
@@ -194,7 +206,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	 */
 	@Override
 	public void close() {
-		// TODO should be implemented
+		TranslationManager.getinstance().removeListener(this);
 		throw new UnsupportedOperationException("Not implemented");
 	}
 	
@@ -202,5 +214,18 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 	private void jButtonCreateTopicActionPerformed(java.awt.event.ActionEvent evt) {
         getPresenter().createTopic();
     }
+	
+	private void jMenuChooseLanguageActionPerformed(java.awt.event.ActionEvent evt) {
+        TranslationManager.getinstance().setLanguage(evt.getActionCommand());
+    }
+
+
+	@Override
+	public void translate() {
+		// TODO Auto-generated method stub
+		this.language.setText(TranslationManager.getinstance().getText("language"));
+		this.file.setText(TranslationManager.getinstance().getText("file"));
+		this.topic.setText(TranslationManager.getinstance().getText("topic"));
+	}
 
 }

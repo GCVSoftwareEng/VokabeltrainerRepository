@@ -1,7 +1,5 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.IDatasourceListener;
-import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.Topic;
@@ -16,13 +14,14 @@ import ch.gcv.vokabeltrainer.view.IProfileView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable, ILanguageChangedListener, IDatasourceListener {
+public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable {
 
     private Runnable onOpenTopic;
     private IProfileView view;
     private IProfile model;
     private Runnable onCreateTopic;
     private Runnable onDeleteTopic;
+    
 
 	public ProfilePresenter(){
 		super();		
@@ -107,8 +106,8 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 	@Override
 	public void createTopic() {
 		TopicEditPresenter tep = new TopicEditPresenter();
+		tep.setOnConfirm(this);
 		tep.setModel(new Topic());
-		tep.setDatasourceListener(this);
 		tep.run();
     }
 
@@ -144,23 +143,6 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 		    view.open();
 		    view.updateViewFromModel();
     }
-
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
-	 */
-	@Override
-	public void languageChanged() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-    }
-
-
-	@Override
-	public void datasourceChanged() {
-		this.view.updateViewFromModel();
-	}
-
 
 }
  

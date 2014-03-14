@@ -1,6 +1,5 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.IDatasourceListener;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.view.ITopicEditView;
 
@@ -22,7 +21,6 @@ public interface ITopicEditPresenter {
 	public void setOnCancel(Runnable onCancel);
 	public void confirm();
 	public void cancel();
-	public void setDatasourceListener(IDatasourceListener listener);
   
 }
  

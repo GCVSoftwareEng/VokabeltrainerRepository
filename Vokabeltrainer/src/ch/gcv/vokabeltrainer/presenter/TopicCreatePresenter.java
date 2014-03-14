@@ -17,15 +17,14 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runnable {
+public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Runnable {
 
     private Runnable onConfirm;
     private ITopic model;
     private Runnable onCancel;
     private ITopicEditView view;
-    
 
-	public TopicEditPresenter(){
+	public TopicCreatePresenter(){
 		super();
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
@@ -35,6 +34,7 @@ public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runna
 	}
  
 
+   
 
     /** 
      * getModel implements ITopicEditPresenter.getModel
@@ -83,7 +83,8 @@ public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runna
 	 */
 	@Override
 	public void setOnConfirm(Runnable onConfirm) {
-		this.onConfirm = onConfirm;
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
     }
 
     /** 
@@ -105,9 +106,7 @@ public class TopicEditPresenter  implements ITopicEditPresenter, java.lang.Runna
 	public void confirm() {
 		// TODO should be implemented
 		IProfile profile =  ProfileManager.getInstance().getProfile();
-		profile.addTopic(this.model);	
-		this.onConfirm.run();
-		
+		profile.addTopic(this.model);
     }
 
     /** 
