@@ -1,4 +1,4 @@
-package ch.gcv.vokabeltrainer.gui;
+package ch.gcv.vokabeltrainer.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

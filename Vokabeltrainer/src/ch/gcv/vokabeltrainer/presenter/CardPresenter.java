@@ -1,4 +1,8 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.presenter;
+
+import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
+import ch.gcv.vokabeltrainer.view.ICardView;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -15,8 +19,8 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable,
 
 	public CardPresenter() {
 		super();
-		this.view = new CardView();
-		this.model = new Card();
+		this.view =null;
+		this.model = null;
 		
 	}
 

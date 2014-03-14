@@ -1,4 +1,4 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+
+import ch.gcv.vokabeltrainer.presenter.ITopicEditPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -57,19 +59,17 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 */
 	private void initComponents() {
 
-		this.menuBar = new JMenuBar();
-		this.file = new JMenu("File");
-		this.language = new JMenu("Language", true);
-		this.newPro = new JMenuItem("New Profile");
-		this.loadPro = new JMenuItem("Load Profile");
-		this.addCard = new JMenuItem("Add Card");
-		this.editCard = new JMenuItem("Edit Card");
-		this.removeCard = new JMenuItem("Remove Card");
-		this.exit = new JMenuItem("Exit");
 		this.back = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
 		this.edit = new JButton(new ImageIcon(getClass()
 				.getResource("edit.png")));
+		
+		this.edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButtonEditTopicActionPerformed(evt);
+            }
+        });
+	
 		this.topic = new JTextPane();
 		this.topicname = new JLabel();
 		this.topicnameField = new JTextField();
@@ -77,22 +77,11 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(true);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		super.setSize(600, 280);
-		super.setVisible(true);
 		super.setLayout(null);
 
-		// build menubar
-		menuBar.add(file);
-		menuBar.add(language);
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
-		file.add(exit);
-		menuBar.setBackground(Color.LIGHT_GRAY);
-
+		
 		// topicnamelabel
 		topicname.setVisible(true);
 		topicname.setFont(topicname.getFont().deriveFont(20f));
@@ -120,7 +109,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 		topic.setBounds(90, 20, 400, 40);
 		topic.setText("Topic");
 
-		super.setJMenuBar(menuBar);
 		super.add(back);
 		super.add(edit);
 		super.add(topic);
@@ -129,16 +117,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 
 	}
 	
-	class ButtonListener implements ActionListener{
-		
-		public void actionPerformed(ActionEvent e){
-			
-			if(e.getSource() == back){
-				
-			}
-		}
-
-		}
+	
 
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
@@ -146,13 +125,9 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 * @return TopicEditPresenter // TODO
 	 */
 	@Override
-	public TopicEditPresenter getPresenter() {
+	public ITopicEditPresenter getPresenter() {
 		
-<<<<<<< HEAD
-		return (TopicEditPresenter) this.presenter;
-=======
 		throw new UnsupportedOperationException("Not implemented");
->>>>>>> 8c4581d94f38d280350586d1e92f8ff1d31d80ad
 		
 	}
 
@@ -164,7 +139,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 * 
 	 */
 	@Override
-	public void setPresenter(TopicEditPresenter presenter) {
+	public void setPresenter(ITopicEditPresenter presenter) {
 		
 		this.presenter = presenter;
 		
@@ -176,8 +151,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.presenter.getModel().setName(this.topicnameField.getText());
 	}
 
 	/**
@@ -209,8 +183,14 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 	 */
 	@Override
 	public void close() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		dispose();
 	}
+
+	
+	private void jButtonEditTopicActionPerformed(java.awt.event.ActionEvent evt) {
+        this.updateModelFromView();
+        this.presenter.confirm();
+        this.close();
+    }
 
 }

@@ -1,4 +1,12 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.presenter;
+
+import ch.gcv.vokabeltrainer.model.IDatasourceListener;
+import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
+import ch.gcv.vokabeltrainer.model.IProfile;
+import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.ProfileManager;
+import ch.gcv.vokabeltrainer.view.ITopicEditView;
+import ch.gcv.vokabeltrainer.view.TopicEditView;
 
 
 /**
@@ -15,14 +23,15 @@ public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEdit
     private ITopic model;
     private Runnable onCancel;
     private ITopicEditView view;
+    private IDatasourceListener datasourcelistener;
 
 	public TopicEditPresenter(){
 		super();
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.view = new TopicEditView();
+		
 	}
  
 
@@ -42,8 +51,7 @@ public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEdit
 	 */
 	@Override
 	public ITopic getModel() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.model;
     }
 
     /** 
@@ -53,8 +61,7 @@ public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEdit
 	 */
 	@Override
 	public void setModel(ITopic topic) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.model = topic;
     }
 
     /** 
@@ -107,7 +114,9 @@ public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEdit
 	@Override
 	public void confirm() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		IProfile profile =  ProfileManager.getInstance().getProfile();
+		profile.addTopic(this.model);
+		this.datasourcelistener.datasourceChanged();	
     }
 
     /** 
@@ -126,9 +135,16 @@ public class TopicEditPresenter  implements ILanguageChangedListener, ITopicEdit
 	 */
 	@Override
 	public void run() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		  view.setPresenter(this);
+		  view.open();
+		  view.updateViewFromModel();
     }
+
+
+	@Override
+	public void setDatasourceListener(IDatasourceListener listener) {
+		this.datasourcelistener = listener;
+	}
 
 }
  

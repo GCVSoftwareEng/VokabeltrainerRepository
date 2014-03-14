@@ -1,4 +1,7 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.presenter;
+
+import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.view.ITopicView;
 
 /**
  * GCV Software Engineering

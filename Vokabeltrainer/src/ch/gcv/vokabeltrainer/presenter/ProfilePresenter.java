@@ -1,4 +1,11 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.presenter;
+
+import ch.gcv.vokabeltrainer.model.IDatasourceListener;
+import ch.gcv.vokabeltrainer.model.ILanguageChangedListener;
+import ch.gcv.vokabeltrainer.model.IProfile;
+import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Topic;
+import ch.gcv.vokabeltrainer.view.IProfileView;
 
 
 /**
@@ -9,7 +16,7 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable, ILanguageChangedListener {
+public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable, ILanguageChangedListener, IDatasourceListener {
 
     private Runnable onOpenTopic;
     private IProfileView view;
@@ -18,8 +25,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
     private Runnable onDeleteTopic;
 
 	public ProfilePresenter(){
-		super();
-		
+		super();		
 	}
  
 
@@ -100,8 +106,10 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 	 */
 	@Override
 	public void createTopic() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TopicEditPresenter tep = new TopicEditPresenter();
+		tep.setModel(new Topic());
+		tep.setDatasourceListener(this);
+		tep.run();
     }
 
     /** 
@@ -135,7 +143,6 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 		    view.setPresenter(this);
 		    view.open();
 		    view.updateViewFromModel();
-	        
     }
 
     /** 
@@ -147,6 +154,13 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable,
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
+
+
+	@Override
+	public void datasourceChanged() {
+		this.view.updateViewFromModel();
+	}
+
 
 }
  

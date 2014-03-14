@@ -54,15 +54,13 @@ public class Profile implements IProfile {
 	 */
 	@Override
 	public ArrayList<ITopic> getTopics() {
-		ArrayList<ITopic> topicList = new ArrayList<ITopic>();
-		for (int i = 0; i < 50; i++) {								
-			Topic t = new Topic();
-			t.setName("giusiiiii #" + i);
-			topicList.add(t);
-		}
-		return topicList;
+		ArrayList<ITopic> temp = new ArrayList<ITopic>();
 		
-		//return (ArrayList<ITopic>) this.topics.values(); //CHF
+		for (ITopic iTopic : this.topics.values()) {
+			temp.add(iTopic);
+		}
+		
+		return temp;
 	}
 
 	/**

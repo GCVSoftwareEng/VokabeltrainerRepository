@@ -241,4 +241,10 @@ public class Card implements ICard {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void setTopic(ch.gcv.vokabeltrainer.interfaces.Topic topic) {
+		// TODO Auto-generated method stub
+		
+	}
 }

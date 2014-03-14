@@ -8,10 +8,9 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface IImportExportManager {
+public interface IDatasourceListener {
  
-	public void exportTopic(ITopic topic,String path);
-	public boolean importTopic(String path);
+	public void datasourceChanged();
   
 }
  

@@ -1,4 +1,9 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.application;
+
+import ch.gcv.vokabeltrainer.model.ProfileManager;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
+import ch.gcv.vokabeltrainer.presenter.ProfilePresenter;
+import ch.gcv.vokabeltrainer.view.ProfileView;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -25,8 +30,6 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 
-		// setup translation manager
-		TranslationManager tm = TranslationManager.getinstance();
 		// setup profile manager
 		ProfileManager pm = ProfileManager.getInstance();
 		

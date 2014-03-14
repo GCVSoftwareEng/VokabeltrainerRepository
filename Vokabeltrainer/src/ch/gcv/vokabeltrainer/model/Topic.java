@@ -187,51 +187,12 @@ public class Topic implements ITopic {
 		this.name = name;
 	}
 
-	// TEST
-
-	public static void main(String[] args) {
-		Topic top = new Topic();
-		top.setName("Test");
-
-		Card card = new Card();
-
-		Card card1 = new Card();
-		card1.setBox(1);
-		card1.setQuestion("Welche Fabe hat das Wasser?");
-		card1.setAnswer("blau");
-		// 1 in 1
-
-		Card card2 = new Card();
-		card2.setBox(2);
-		card2.setQuestion("Welche Farbe hat die Sonne?");
-		card2.setAnswer("gelb");
-		Card card22 = new Card();
-		card22.setBox(2);
-		card22.setQuestion("Welche Farbe hat der Himmel?");
-		card22.setAnswer("hellblau");
-		// 2 in 2
-
-		top.addCard(card22);
-		top.addCard(card2);
-		top.addCard(card1);
-		top.deleteCard(card);
-
-		Card curCard = top.getRandomCard(2);
-		System.out.println(curCard.getQuestion());
-		// top.getCardCount(1);
-
-		curCard.setMyAnswer("helllau");
-		curCard.check(card22.getAnswer());
-		curCard.getStatisticDateCreated();
-		curCard.getStatisticDateLastLerned();
-
-		Card curCard2 = top.getRandomCard(2);
-		System.out.println(curCard2.getQuestion());
-		curCard2.setMyAnswer("hellblau");
-		curCard2.check(card22.getAnswer());
-		curCard2.getStatisticDateCreated();
-		curCard2.getStatisticDateLastLerned();
-
+	@Override
+	public String toString() {
+		return this.name;
 	}
+	
+	
+
 
 }

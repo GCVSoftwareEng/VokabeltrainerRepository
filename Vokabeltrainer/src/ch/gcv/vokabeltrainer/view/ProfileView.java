@@ -1,4 +1,4 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -17,7 +17,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.gui.Mainwindow;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
+import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -68,8 +69,16 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		this.exit = new JMenuItem("Exit");
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
-		this.topic = new JTextPane();
 		
+		this.plus.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            	jButtonCreateTopicActionPerformed(evt);
+	            }
+	        });
+		
+		
+		this.topic = new JTextPane();
+		this.liste = new JList();
 		this.scrollPane = new JScrollPane(liste);
 
 		// JFrame defination
@@ -167,11 +176,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 
 		// update the topic list
 		this.liste.setListData(presenter.getModel().getTopics().toArray());
-		
-		
-		
-		
-		
+	
 	}
 
 	/**
@@ -192,5 +197,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
+	
+	
+	private void jButtonCreateTopicActionPerformed(java.awt.event.ActionEvent evt) {
+        getPresenter().createTopic();
+    }
 
 }

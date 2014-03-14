@@ -1,4 +1,4 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
 
@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+
+import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
