@@ -1,6 +1,6 @@
 package ch.gcv.vokabeltrainer.view;
 
-import ch.gcv.vokabeltrainer.presenter.ICardEditPresenter;
+import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
 /**
  * GCV Software Engineering
@@ -12,8 +12,8 @@ import ch.gcv.vokabeltrainer.presenter.ICardEditPresenter;
  */
 public interface ICardEditView {
  
-	public ICardEditPresenter getPresenter();
-	public void setPresenter(ICardEditPresenter presenter);
+	public ICardCreatePresenter getPresenter();
+	public void setPresenter(ICardCreatePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

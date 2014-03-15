@@ -1,6 +1,6 @@
 package ch.gcv.vokabeltrainer.view;
 
-import ch.gcv.vokabeltrainer.presenter.ITopicEditPresenter;
+import ch.gcv.vokabeltrainer.presenter.ITopicCreatePresenter;
 
 /**
  * GCV Software Engineering
@@ -12,8 +12,8 @@ import ch.gcv.vokabeltrainer.presenter.ITopicEditPresenter;
  */
 public interface ITopicEditView {
  
-	public ITopicEditPresenter getPresenter();
-	public void setPresenter(ITopicEditPresenter presenter);
+	public ITopicCreatePresenter getPresenter();
+	public void setPresenter(ITopicCreatePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

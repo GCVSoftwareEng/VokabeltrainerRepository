@@ -17,7 +17,7 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Runnable {
+public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.Runnable {
 
     private Runnable onConfirm;
     private ITopic model;

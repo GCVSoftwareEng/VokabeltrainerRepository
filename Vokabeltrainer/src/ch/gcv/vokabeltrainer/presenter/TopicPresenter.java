@@ -3,7 +3,9 @@ package ch.gcv.vokabeltrainer.presenter;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
+import ch.gcv.vokabeltrainer.model.Topic;
 import ch.gcv.vokabeltrainer.view.ITopicView;
+import ch.gcv.vokabeltrainer.view.TopicView;
 
 
 /**
@@ -21,14 +23,11 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
     private Runnable onCreateCard;
     private ITopicView view;
     private ITopic model;
+    
 
 	public TopicPresenter(){
 		super();
-		this.onDeleteCard = null; // TODO
-		this.onOpenCard = null; // TODO
-		this.onCreateCard = null; // TODO
-		this.view = null; // TODO
-		this.model = null; // TODO
+		this.view = new TopicView();
 	}
  
 
@@ -38,7 +37,6 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public ITopic getModel() {
-		// TODO should be implemented
 		return this.model;
     }
 
@@ -49,7 +47,6 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public void setModel(ITopic model) {
-		// TODO should be implemented
 		this.model = model;
     }
 

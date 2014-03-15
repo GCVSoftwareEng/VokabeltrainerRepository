@@ -24,6 +24,7 @@ import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
+import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -101,10 +102,9 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if(e.getClickCount() == 2){
 					String name = liste.getSelectedValue().toString();
-					ITopic topic = ProfileManager.getInstance().getProfile().getTopic(name);
+					ITopic topic = getPresenter().getModel().getTopic(name);
 					getPresenter().openTopic(topic);
 				}
 			}

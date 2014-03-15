@@ -57,8 +57,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 
 	public TopicView() {
 		super();
-		this.presenter = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.initComponents();
 	}
 
 	/**

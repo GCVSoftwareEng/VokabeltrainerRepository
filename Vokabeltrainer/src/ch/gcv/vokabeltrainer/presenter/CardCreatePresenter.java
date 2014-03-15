@@ -13,14 +13,14 @@ import ch.gcv.vokabeltrainer.view.ICardEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditPresenter  implements java.lang.Runnable, ICardEditPresenter {
+public class CardCreatePresenter  implements java.lang.Runnable, ICardCreatePresenter {
 
     private Runnable onConfirm;
     private ICardEditView view;
     private Runnable onCancel;
     private ICard model;
 
-	public CardEditPresenter(){
+	public CardCreatePresenter(){
 		super();
 		this.onConfirm = null; // TODO
 		this.view = null; // TODO
