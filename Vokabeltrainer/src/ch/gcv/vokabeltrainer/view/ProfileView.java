@@ -163,7 +163,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	 */
 	@Override
 	public void updateModelFromView() {
-		
+
 	}
 
 	/**
@@ -224,6 +224,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"Vokabeltrainer profile", "profile");
 		chooser.setFileFilter(filter);
+
 		int returnVal = chooser.showOpenDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
@@ -233,17 +234,12 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		}
 	}
 
-	
-	
 	private void jMenuItemNewProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		this.getPresenter().createNewProfile();
 		updateViewFromModel();
 	}
 
-
-
-	
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -254,16 +250,20 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		int returnVal = chooser.showSaveDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
+			if (!path.toLowerCase().endsWith(".profile")) {
+				path = path + ".profile";
+			}
 			getPresenter().saveProfile(path);
 
 		}
 
 	}
-	
+
 	private void jMenuItemExitProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
-		this.dispose();;
+		this.dispose();
+		;
 
 	}
 
