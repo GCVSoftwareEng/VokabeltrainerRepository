@@ -1,5 +1,6 @@
 package ch.gcv.vokabeltrainer.presenter;
 
+import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.view.ICardView;
@@ -94,7 +95,10 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 
 	@Override
 	public void createCard() {
-		// TODO Auto-generated method stub
+		CardCreatePresenter tep = new CardCreatePresenter();
+		tep.setOnCancel(this);
+		tep.setModel(new Card());
+		tep.run();
 		
 	}
 
