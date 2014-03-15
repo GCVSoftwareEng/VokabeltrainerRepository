@@ -12,7 +12,6 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -80,6 +79,11 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			}
 		});
 		this.exit = new JMenuItem("Exit");
+		this.exit.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemExitProfileActionPerformed(evt);
+			}
+		});
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
 
@@ -255,6 +259,13 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			getPresenter().saveProfile(path);
 
 		}
+
+	}
+	
+	private void jMenuItemExitProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		this.dispose();;
 
 	}
 
