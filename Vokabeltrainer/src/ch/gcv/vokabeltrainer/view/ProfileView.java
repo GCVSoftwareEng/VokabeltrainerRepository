@@ -225,7 +225,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		// TODO Auto-generated method stub
 		this.language.setText(TranslationManager.getinstance().getText("language"));
 		this.file.setText(TranslationManager.getinstance().getText("file"));
-		this.topic.setText(TranslationManager.getinstance().getText("topic"));
+		this.topic.setText(TranslationManager.getinstance().getText("topics"));
 	}
 
 }

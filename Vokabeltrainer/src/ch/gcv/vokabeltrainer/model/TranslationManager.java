@@ -19,6 +19,7 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  */
 public class TranslationManager {
 
+	private static final String defaultLanguage = "en";
 	private static TranslationManager instance;
 	private ArrayList<ITranslatable> languageChangedListeners;
 	private ArrayList<String> languages;
@@ -33,6 +34,8 @@ public class TranslationManager {
 		this.languages.add("it");
 		this.languages.add("fr");
 		this.languages.add("en");
+		
+		this.setLanguage(defaultLanguage);
 	}
 
 	/**
