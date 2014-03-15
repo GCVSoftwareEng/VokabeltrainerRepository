@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Profile implements IProfile, Serializable{
 
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 133L;
 	private HashMap<String, ITopic> topics; // CHF
 
 	public Profile() {

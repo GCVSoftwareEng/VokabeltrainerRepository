@@ -123,6 +123,16 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 		ProfileManager.getInstance().saveProfile(path);
     }
 	
+	
+	/**
+	 * loadProfile implements IProfilePresenter.loadProfile
+	 */
+	@Override
+	public void loadProfile(String path) {
+		ProfileManager.getInstance().loadProfile(path);	
+	}
+
+	
 
     /** 
      * openTopic implements IProfilePresenter.openTopic
@@ -156,6 +166,8 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 		    view.open();
 		    view.updateViewFromModel();
     }
+
+
 
 }
  

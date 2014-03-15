@@ -16,7 +16,7 @@ import java.util.Random;
 public class Topic implements ITopic, Serializable {
 
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1211L;
 	private ArrayList<Card> cards;
 	private int statisticMinutesLearned;
 	private Date statisticDateCreated;

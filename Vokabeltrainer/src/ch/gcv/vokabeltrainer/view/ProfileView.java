@@ -73,6 +73,11 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			}
 		});
 		this.loadPro = new JMenuItem("Load Profile");
+		this.loadPro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemLoadProfileActionPerformed(evt);
+			}
+		});
 		this.newTopic = new JMenuItem("New Topic");
 		this.addCard = new JMenuItem("Add Card");
 		this.editCard = new JMenuItem("Edit Card");
@@ -160,8 +165,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		
 	}
 
 	/**
@@ -214,6 +218,25 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		TranslationManager.getinstance().removeListener(this);
 		throw new UnsupportedOperationException("Not implemented");
 	}
+	
+	
+	private void jMenuItemLoadProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer profile", "profile");
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().loadProfile(path);
+			
+		}
+
+	}
+	
+	
 
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -222,7 +245,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"Vokabeltrainer profile", "profile");
 		chooser.setFileFilter(filter);
-		int returnVal = chooser.showOpenDialog(null);
+		int returnVal = chooser.showSaveDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().saveProfile(path);

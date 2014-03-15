@@ -23,6 +23,7 @@ public interface IProfilePresenter {
 	public void setOnDeleteTopic();
 	public void createTopic();
 	public void saveProfile(String path);
+	public void loadProfile(String path);
 	public void openTopic(ITopic topic);
 	public void deleteTopic(ITopic topic);
   
