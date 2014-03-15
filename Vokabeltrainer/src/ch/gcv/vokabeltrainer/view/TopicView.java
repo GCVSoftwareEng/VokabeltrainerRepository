@@ -87,6 +87,11 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 				"box.png")));
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
+		this.addCard.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonCreateCardActionPerformed(evt);
+			}
+		});
 
 		this.topicname = new JTextPane();
 		this.boxLabel1 = new JLabel("Box: 1");
@@ -288,5 +293,15 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonCreateCardActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		getPresenter().createCard();
+	}
+	
 
 }
