@@ -119,7 +119,26 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	}
 	
+<<<<<<< HEAD:Vokabeltrainer/src/ch/gcv/vokabeltrainer/model/TopicEditView.java
+	class ButtonListener implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e){
+			
+			if(e.getSource() == back){
+				ProfileView profileView = new ProfileView();
+				profileView.initComponents();
+				
+			}
+			else if(e.getSource() == edit){
+				String text = topicnameField.getText();
+				topic.setText(text);
+			}
+		}
+
+		}
+=======
 	
+>>>>>>> FETCH_HEAD:Vokabeltrainer/src/ch/gcv/vokabeltrainer/view/TopicEditView.java
 
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter

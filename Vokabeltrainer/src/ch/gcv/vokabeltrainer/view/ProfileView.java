@@ -60,7 +60,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	 * initComponents
 	 * 
 	 */
-	private void initComponents() {
+	public void initComponents() {
 
 		this.menuBar = new JMenuBar();
 		this.file = new JMenu("File");
