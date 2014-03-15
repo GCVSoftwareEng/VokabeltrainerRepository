@@ -24,8 +24,7 @@ public interface ITopicPresenter {
 	public void openCard();
 	public void deleteCard();
 	public void learnTopic();
-	public void saveProfile(String path);
-	public void loadProfile(String path);
+	
   
 }
  

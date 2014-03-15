@@ -18,8 +18,6 @@ public interface ITopicView {
 	public void updateViewFromModel();
 	public void open();
 	public void close();
-	public void saveProfile(String path);
-	public void loadProfile(String path);
   
 }
  

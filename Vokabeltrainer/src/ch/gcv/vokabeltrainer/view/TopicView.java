@@ -29,14 +29,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 
 	private ITopicPresenter presenter;
 
-	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenu language;
-	private JMenuItem newPro;
-	private JMenuItem savePro;
-	private JMenuItem loadPro;
-	private JMenuItem exit;
-
 	private JTextPane topicname;
 
 	private JButton boxButton1;
@@ -44,7 +36,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JButton boxButton3;
 	private JButton boxButton4;
 	private JButton boxButton5;
-	private JButton back;
 
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
@@ -76,36 +67,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 */
 	private void initComponents() {
 
-		this.menuBar = new JMenuBar();
-		this.file = new JMenu("File");
-		this.language = new JMenu("Language", true);
-		this.newPro = new JMenuItem("New Profile");
-		this.newPro.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jMenuItemNewProfileActionPerformed(evt);
-			}
-		});
-		this.savePro = new JMenuItem("Save Profile");
-		this.savePro.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jMenuItemSaveProfileActionPerformed(evt);
-			}
-		});
-		this.loadPro = new JMenuItem("Load Profile");
-		this.loadPro.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jMenuItemLoadProfileActionPerformed(evt);
-			}
-		});
-		this.exit = new JMenuItem("Exit");
-		this.exit.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jMenuItemExitProfileActionPerformed(evt);
-			}
-		});;
 
-		this.back = new JButton(new ImageIcon(getClass()
-				.getResource("back.png")));
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
 		this.boxButton2 = new JButton(new ImageIcon(getClass().getResource(
@@ -134,13 +96,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.card1ummber4 = new JLabel();
 		this.card1ummber5 = new JLabel();
 
-		// menubar
-		menuBar.setBackground(Color.LIGHT_GRAY);
-		menuBar.add(file);
-		menuBar.add(language);
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(exit);
+		
 
 		// button definition
 		boxButton1.setBounds(25, 240, 70, 70);
@@ -223,7 +179,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		topicname.setText("Topicname");
 
 		// add to JFrame
-		super.setJMenuBar(menuBar);
 		super.add(topicname);
 		super.add(boxButton1);
 		super.add(boxButton2);
@@ -314,62 +269,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
-	
-	
-	
-	private void jMenuItemLoadProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
-
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(
-				"Vokabeltrainer profile", "profile");
-		chooser.setFileFilter(filter);
-		int returnVal = chooser.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			String path = chooser.getSelectedFile().getAbsolutePath();
-			getPresenter().loadProfile(path);
-			updateModelFromView();
-
-		}
-	}
-
-	
-	
-	private void jMenuItemNewProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
-
-		
-			ProfileView newPro = new ProfileView();
-			this.dispose();
-
-	}
-
-
-
-	
-	private void jMenuItemSaveProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
-
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(
-				"Vokabeltrainer profile", "profile");
-		chooser.setFileFilter(filter);
-		int returnVal = chooser.showSaveDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			String path = chooser.getSelectedFile().getAbsolutePath();
-			getPresenter().saveProfile(path);
-
-		}
-
-	}
-	
-	private void jMenuItemExitProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
-
-			this.dispose();
-
-	}
-
 	
 	
 	 /** 

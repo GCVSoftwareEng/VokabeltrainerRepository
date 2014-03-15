@@ -29,19 +29,9 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 
 	private ICardEditPresenter presenter;
 
-	// menubar and menus
-	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenu language;
-	private JMenuItem newPro;
-	private JMenuItem loadPro;
-	private JMenuItem exit;
-
-
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 
-	private JButton back;
 	private JButton delete;
 	private JButton check;
 
@@ -65,14 +55,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	private void initComponents() {
 
-		this.menuBar = new JMenuBar();
-		this.file = new JMenu("File");
-		this.language = new JMenu("Language", true);
-		this.newPro = new JMenuItem("New Profile");
-		this.loadPro = new JMenuItem("Load Profile");
-		this.exit = new JMenuItem("Exit");
-		this.back = new JButton(new ImageIcon(getClass()
-				.getResource("plus.png")));
 		this.check = new JButton(new ImageIcon(getClass().getResource(
 				"check.png")));
 		this.delete = new JButton(new ImageIcon(getClass().getResource(
@@ -93,13 +75,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		super.setVisible(true);
 		super.setLayout(null);
 
-		// build menubar
-		menuBar.add(file);
-		menuBar.add(language);
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(exit);
-		menuBar.setBackground(Color.LIGHT_GRAY);
 
 		cardPanel.setBackground(Color.WHITE);
 		cardPanel.setBounds(25, 120, 750, 300);
@@ -129,7 +104,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 15, 575, 50);
 
-		back.setBounds(20, 10, 51, 50);
+		
 		check.setBounds(475, 220, 53, 53);
 		delete.setBounds(275, 220, 53, 53);
 
@@ -157,8 +132,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		boxnumber.setBounds(90, 75, 200, 40);
 		boxnumber.setText("Box: 1");
 
-		super.setJMenuBar(menuBar);
-		super.add(back);
 		super.add(topicname);
 		super.add(boxnumber);
 		super.add(cardPanel);

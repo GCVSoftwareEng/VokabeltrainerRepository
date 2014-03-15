@@ -29,12 +29,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 
 	private ICardPresenter presenter;
 
-	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenu language;
-	private JMenuItem newPro;
-	private JMenuItem loadPro;
-	private JMenuItem exit;
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
@@ -76,12 +70,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		
 		this.answerField = new JTextField();  //CHF
 		
-		this.menuBar = new JMenuBar();
-		this.file = new JMenu("File");
-		this.language = new JMenu("Language", true);
-		this.newPro = new JMenuItem("New Profile");
-		this.loadPro = new JMenuItem("Load Profile");
-		this.exit = new JMenuItem("Exit");
 		this.cardPanel = new JPanel();
 
 		this.plus = new JButton(new ImageIcon(getClass()
@@ -100,13 +88,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 
-		// build menubar
-		menuBar.add(file);
-		menuBar.add(language);
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(exit);
-		menuBar.setBackground(Color.WHITE);
+		
 
 		cardPanel.setBackground(Color.LIGHT_GRAY);
 		cardPanel.setBounds(25, 120, 750, 300);
@@ -181,7 +163,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	     boxnumber.setBounds(90,75,200,40);
 	     boxnumber.setText("Box: 1");
 		
-		super.setJMenuBar(menuBar);
+	     
 		super.add(plus);
 		super.add(topicname);
 		super.add(boxnumber);
