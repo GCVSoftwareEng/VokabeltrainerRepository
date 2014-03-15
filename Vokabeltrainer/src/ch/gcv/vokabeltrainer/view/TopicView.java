@@ -13,7 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants; 
+import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
@@ -36,6 +36,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JButton boxButton3;
 	private JButton boxButton4;
 	private JButton boxButton5;
+	private JButton addCard;
 
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
@@ -66,6 +67,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 */
 	private void initComponents() {
 
+		// JFrame defination
+		super.setBackground(Color.WHITE);
+		super.setResizable(false);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super.setSize(500, 500);
+		super.setVisible(true);
+		super.setLayout(null);
 
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
@@ -77,6 +85,8 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 				"box.png")));
 		this.boxButton5 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.addCard = new JButton(new ImageIcon(getClass().getResource(
+				"plus.png")));
 
 		this.topicname = new JTextPane();
 		this.boxLabel1 = new JLabel("Box: 1");
@@ -95,14 +105,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.card1ummber4 = new JLabel();
 		this.card1ummber5 = new JLabel();
 
-		
-
 		// button definition
 		boxButton1.setBounds(25, 240, 70, 70);
 		boxButton2.setBounds(120, 240, 70, 70);
 		boxButton3.setBounds(215, 240, 70, 70);
 		boxButton4.setBounds(310, 240, 70, 70);
 		boxButton5.setBounds(405, 240, 70, 70);
+		addCard.setBounds(425, 50, 53, 50);
 
 		// layout definition
 		boxLabel1.setVisible(true);
@@ -174,11 +183,12 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		StyleConstants.setBold(set, true);
 		topicname.setParagraphAttributes(set, true);
 		topicname.setBackground(Color.WHITE);
-		topicname.setBounds(30, 50, 450, 50);
+		topicname.setBounds(30, 50, 390, 50);
 		topicname.setText("Topicname");
 
 		// add to JFrame
 		super.add(topicname);
+		super.add(addCard);
 		super.add(boxButton1);
 		super.add(boxButton2);
 		super.add(boxButton3);
@@ -268,20 +278,15 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
-	
-	
-	 /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
+
+	/**
+	 * languageChanged implements ILanguageChangedListener.languageChanged
+	 * 
 	 */
 	@Override
 	public void translate() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
-    }
-
-
+	}
 
 }
-
-

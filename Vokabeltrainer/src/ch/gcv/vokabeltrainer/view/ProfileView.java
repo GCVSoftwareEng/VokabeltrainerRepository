@@ -139,7 +139,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
-		super.setResizable(true);
+		super.setResizable(false);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setSize(500, 500);
 		super.setVisible(true);
