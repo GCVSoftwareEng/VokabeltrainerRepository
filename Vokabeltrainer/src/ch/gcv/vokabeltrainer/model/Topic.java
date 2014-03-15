@@ -40,9 +40,9 @@ public class Topic implements ITopic, Serializable {
 	 * @return boolean true or false, if it has worked
 	 */
 	@Override
-	public boolean addCard(Card card) {
+	public boolean addCard(ICard card) {
 		try {
-			cards.add(card);
+			cards.add((Card) card);                   // Cast to card
 			System.out.println("Add card OK");
 			return true;
 
@@ -194,7 +194,8 @@ public class Topic implements ITopic, Serializable {
 	public String toString() {
 		return this.name;
 	}
-	
+
+
 	
 
 

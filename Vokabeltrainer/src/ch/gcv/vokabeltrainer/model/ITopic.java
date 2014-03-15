@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public interface ITopic {
  
-	public boolean addCard(Card card);
+	public boolean addCard(ICard model); // change Card model to ICard model
 	public Card getRandomCard(int box);
 	public boolean deleteCard(Card card);
 	public int getCardCount(int box);
