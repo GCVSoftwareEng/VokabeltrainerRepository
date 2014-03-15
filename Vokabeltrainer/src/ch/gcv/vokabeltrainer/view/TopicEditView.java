@@ -119,7 +119,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	}
 	
-<<<<<<< HEAD:Vokabeltrainer/src/ch/gcv/vokabeltrainer/model/TopicEditView.java
 	class ButtonListener implements ActionListener{
 		
 		public void actionPerformed(ActionEvent e){
@@ -136,9 +135,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		}
 
 		}
-=======
-	
->>>>>>> FETCH_HEAD:Vokabeltrainer/src/ch/gcv/vokabeltrainer/view/TopicEditView.java
 
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
