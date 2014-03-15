@@ -57,7 +57,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JLabel card1ummber5;
 
 	public TopicView() {
-		super();
+		super("TopicView");
 		this.initComponents();
 	}
 
