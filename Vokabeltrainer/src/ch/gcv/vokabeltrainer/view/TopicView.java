@@ -4,12 +4,14 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants; 
 
@@ -31,6 +33,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JMenu file;
 	private JMenu language;
 	private JMenuItem newPro;
+	private JMenuItem savePro;
 	private JMenuItem loadPro;
 	private JMenuItem exit;
 
@@ -77,8 +80,29 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.file = new JMenu("File");
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
+		this.newPro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemNewProfileActionPerformed(evt);
+			}
+		});
+		this.savePro = new JMenuItem("Save Profile");
+		this.savePro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemSaveProfileActionPerformed(evt);
+			}
+		});
 		this.loadPro = new JMenuItem("Load Profile");
+		this.loadPro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemLoadProfileActionPerformed(evt);
+			}
+		});
 		this.exit = new JMenuItem("Exit");
+		this.exit.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemExitProfileActionPerformed(evt);
+			}
+		});;
 
 		this.back = new JButton(new ImageIcon(getClass()
 				.getResource("back.png")));
@@ -291,6 +315,63 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 	
+	
+	
+	private void jMenuItemLoadProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer profile", "profile");
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().loadProfile(path);
+			updateModelFromView();
+
+		}
+	}
+
+	
+	
+	private void jMenuItemNewProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		
+			ProfileView newPro = new ProfileView();
+			this.dispose();
+
+	}
+
+
+
+	
+	private void jMenuItemSaveProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer profile", "profile");
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showSaveDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().saveProfile(path);
+
+		}
+
+	}
+	
+	private void jMenuItemExitProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+			this.dispose();
+
+	}
+
+	
+	
 	 /** 
      * languageChanged implements ILanguageChangedListener.languageChanged
 	 *
@@ -301,4 +382,8 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		throw new UnsupportedOperationException("Not implemented");
     }
 
+
+
 }
+
+

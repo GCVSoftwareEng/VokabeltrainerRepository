@@ -19,6 +19,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
 
@@ -227,7 +228,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
-			updateModelFromView();
+			updateViewFromModel();
 
 		}
 	}
@@ -236,11 +237,8 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	
 	private void jMenuItemNewProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
-
-		
-			ProfileView newPro = new ProfileView();
-			this.dispose();
-
+		this.getPresenter().createNewProfile();
+		updateViewFromModel();
 	}
 
 

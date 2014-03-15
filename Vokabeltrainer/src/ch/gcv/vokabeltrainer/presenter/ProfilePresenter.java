@@ -129,7 +129,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	 */
 	@Override
 	public void loadProfile(String path) {
-		ProfileManager.getInstance().loadProfile(path);	
+		this.model = ProfileManager.getInstance().loadProfile(path);		
 	}
 
 	
@@ -166,6 +166,12 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 		    view.open();
 		    view.updateViewFromModel();
     }
+
+
+	@Override
+	public void createNewProfile() {
+		this.model = ProfileManager.getInstance().createProfile();
+	}
 
 
 

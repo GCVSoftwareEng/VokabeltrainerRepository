@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.ITopicView;
 
 
@@ -39,7 +40,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	@Override
 	public ITopic getModel() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.model;
     }
 
     /** 
@@ -50,7 +51,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	@Override
 	public void setModel(ITopic model) {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.model = model;
     }
 
     /** 
@@ -147,7 +148,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		throw new UnsupportedOperationException("Not implemented");
     }
 
-   
+	
 
     /** 
      * run implements java.lang.Runnable.run
@@ -156,8 +157,12 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	@Override
 	public void run() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		view.setPresenter(this);
+	    view.open();
+	    view.updateViewFromModel();
     }
+
+
 
 }
  

@@ -26,6 +26,7 @@ public interface IProfilePresenter {
 	public void loadProfile(String path);
 	public void openTopic(ITopic topic);
 	public void deleteTopic(ITopic topic);
+	public void createNewProfile();
   
 }
  
