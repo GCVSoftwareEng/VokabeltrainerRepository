@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -18,6 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
@@ -96,6 +98,43 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 
 		this.topic = new JTextPane();
 		this.liste = new JList();
+		this.liste.addMouseListener(new java.awt.event.MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if(e.getClickCount() == 2){
+					String name = liste.getSelectedValue().toString();
+					ITopic topic = ProfileManager.getInstance().getProfile().getTopic(name);
+					getPresenter().openTopic(topic);
+				}
+			}
+
+			
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		this.scrollPane = new JScrollPane(liste);
 
 		// JFrame defination
@@ -295,6 +334,8 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			java.awt.event.ActionEvent evt) {
 		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
 	}
+	
+
 
 	/**
 	 * This method choose the language.

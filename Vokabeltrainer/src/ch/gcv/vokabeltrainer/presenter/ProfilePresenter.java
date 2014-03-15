@@ -141,8 +141,9 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	 */
 	@Override
 	public void openTopic(ITopic topic) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TopicPresenter tp = new TopicPresenter();
+		tp.setModel(topic);
+		tp.run();
     }
 
     /** 

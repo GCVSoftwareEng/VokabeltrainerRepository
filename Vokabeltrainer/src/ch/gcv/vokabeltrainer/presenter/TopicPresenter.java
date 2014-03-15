@@ -29,7 +29,6 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		this.onCreateCard = null; // TODO
 		this.view = null; // TODO
 		this.model = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
 	}
  
 
