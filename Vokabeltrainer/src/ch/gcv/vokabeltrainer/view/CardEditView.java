@@ -33,8 +33,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 
-	private JButton delete;
-	private JButton check;
+	private JButton addCard;
 
 	private JLabel question;
 	private JLabel answer;
@@ -56,10 +55,14 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	private void initComponents() {
 
-		this.check = new JButton(new ImageIcon(getClass().getResource(
-				"check.png")));
-		this.delete = new JButton(new ImageIcon(getClass().getResource(
-				"delete.png")));
+		this.addCard = new JButton(new ImageIcon(getClass().getResource(
+				"plus.png")));
+		this.addCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButtonAddCardActionPerformed(evt);
+            }
+        });
+		
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.question = new JLabel();
@@ -106,8 +109,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		questionWord.setBounds(170, 15, 575, 50);
 
 		
-		check.setBounds(475, 220, 53, 53);
-		delete.setBounds(275, 220, 53, 53);
+		addCard.setBounds(375, 220, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -140,8 +142,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		cardPanel.add(questionWord);
 		cardPanel.add(answer);
 		cardPanel.add(answerField);
-		cardPanel.add(check);
-		cardPanel.add(delete);
+		cardPanel.add(addCard);
 
 	}
 
@@ -218,6 +219,12 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	public void translate() {
 		// TODO should be implemented
 		//throw new UnsupportedOperationException("Not implemented");
+    }
+	
+	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
+        this.updateModelFromView();
+        this.presenter.confirm();
+        this.close();
     }
 
 }
