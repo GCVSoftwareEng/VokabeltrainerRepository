@@ -216,7 +216,12 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		TranslationManager.getinstance().removeListener(this);
 		throw new UnsupportedOperationException("Not implemented");
 	}
-
+	
+/**
+ * This method load .profile data.
+ * 
+ * @param evt need a action event.
+ */
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -234,12 +239,22 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		}
 	}
 
+	/**
+	 * This method creates a new Profile
+	 * 
+	 */
 	private void jMenuItemNewProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		this.getPresenter().createNewProfile();
 		updateViewFromModel();
 	}
 
+	/**
+	 * This method save local a profile. You must enter a name.
+	 * 
+	 * @param evt needs a action event.
+	 *            
+	 */
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -259,11 +274,15 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 
 	}
 
+	/**
+	 * With this method, you can close the program.
+	 * 
+	 * @param evt needs a action event.
+	 */
 	private void jMenuItemExitProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
 		this.dispose();
-		;
 
 	}
 
@@ -277,6 +296,9 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
 	}
 
+	/**
+	 * This method choose the language.
+	 */
 	@Override
 	public void translate() {
 		// TODO Auto-generated method stub
