@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.Topic;
 import ch.gcv.vokabeltrainer.view.IProfileView;
 
@@ -15,6 +16,8 @@ import ch.gcv.vokabeltrainer.view.IProfileView;
  * @version 1.0
  */
 public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable {
+	
+
 
     private Runnable onOpenTopic;
     private IProfileView view;
@@ -110,6 +113,16 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 		tep.setModel(new Topic());
 		tep.run();
     }
+	
+	  /** 
+     * saveProfile implements IProfilePresenter.saveProfile
+	 *
+	 */
+	@Override
+	public void saveProfile(String path) {
+		ProfileManager.getInstance().saveProfile(path);
+    }
+	
 
     /** 
      * openTopic implements IProfilePresenter.openTopic

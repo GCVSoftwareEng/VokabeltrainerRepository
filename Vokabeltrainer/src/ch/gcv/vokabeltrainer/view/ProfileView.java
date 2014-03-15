@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -14,6 +15,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -28,7 +30,8 @@ import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfileView extends javax.swing.JFrame implements IProfileView, ITranslatable {
+public class ProfileView extends javax.swing.JFrame implements IProfileView,
+		ITranslatable {
 
 	private IProfilePresenter presenter;
 
@@ -37,12 +40,13 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 	private JMenu language;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
+	private JMenuItem savePro;
 	private JMenuItem newTopic;
 	private JMenuItem addCard;
 	private JMenuItem editCard;
 	private JMenuItem removeCard;
 	private JMenuItem exit;
-	private JList liste;    
+	private JList liste;
 	private JButton plus;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
@@ -62,6 +66,12 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		this.file = new JMenu("File");
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
+		this.savePro = new JMenuItem("Save Profile");
+		this.savePro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemSaveProfileActionPerformed(evt);
+			}
+		});
 		this.loadPro = new JMenuItem("Load Profile");
 		this.newTopic = new JMenuItem("New Topic");
 		this.addCard = new JMenuItem("Add Card");
@@ -70,14 +80,13 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		this.exit = new JMenuItem("Exit");
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
-		
+
 		this.plus.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	jButtonCreateTopicActionPerformed(evt);
-	            }
-	        });
-		
-		
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonCreateTopicActionPerformed(evt);
+			}
+		});
+
 		this.topic = new JTextPane();
 		this.liste = new JList();
 		this.scrollPane = new JScrollPane(liste);
@@ -95,6 +104,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		menuBar.add(language);
 		file.add(newPro);
 		file.add(loadPro);
+		file.add(savePro);
 		file.add(newTopic);
 		file.add(addCard);
 		file.add(editCard);
@@ -102,13 +112,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		file.add(exit);
 
 		menuBar.setBackground(Color.LIGHT_GRAY);
-		
-		
-		
+
 		scrollPane.setBounds(50, 80, 400, 350);
 
 		plus.setBounds(400, 10, 51, 50);
-		
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -122,7 +129,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		topic.setBounds(50, 20, 200, 50);
 		topic.setText("Topic");
 
-		
 		super.setJMenuBar(menuBar);
 		super.add(scrollPane);
 		super.add(plus);
@@ -173,20 +179,19 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		Iterator<String> it = languages.iterator(); // iterator
 		while (it.hasNext()) {
 			JMenuItem lm = new JMenuItem(it.next());
-			
+
 			lm.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	jMenuChooseLanguageActionPerformed(evt);
-	            }
-	        });
-			
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					jMenuChooseLanguageActionPerformed(evt);
+				}
+			});
+
 			this.language.add(lm);
 		}
-		
 
 		// update the topic list
 		this.liste.setListData(presenter.getModel().getTopics().toArray());
-	
+
 	}
 
 	/**
@@ -209,21 +214,38 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView, ITr
 		TranslationManager.getinstance().removeListener(this);
 		throw new UnsupportedOperationException("Not implemented");
 	}
-	
-	
-	private void jButtonCreateTopicActionPerformed(java.awt.event.ActionEvent evt) {
-        getPresenter().createTopic();
-    }
-	
-	private void jMenuChooseLanguageActionPerformed(java.awt.event.ActionEvent evt) {
-        TranslationManager.getinstance().setLanguage(evt.getActionCommand());
-    }
 
+	private void jMenuItemSaveProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer profile", "profile");
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().saveProfile(path);
+
+		}
+
+	}
+
+	private void jButtonCreateTopicActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		getPresenter().createTopic();
+	}
+
+	private void jMenuChooseLanguageActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
+	}
 
 	@Override
 	public void translate() {
 		// TODO Auto-generated method stub
-		this.language.setText(TranslationManager.getinstance().getText("language"));
+		this.language.setText(TranslationManager.getinstance().getText(
+				"language"));
 		this.file.setText(TranslationManager.getinstance().getText("file"));
 		this.topic.setText(TranslationManager.getinstance().getText("topics"));
 	}
