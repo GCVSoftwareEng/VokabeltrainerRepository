@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.Serializable;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -11,6 +12,7 @@ import java.util.HashMap;
  * @version 1.0
  */
 public class Profile implements IProfile {
+	  private static final long serialVersionUID = 2584203323009771108L;
 
 	private HashMap<String, ITopic> topics; // CHF
 
@@ -54,15 +56,13 @@ public class Profile implements IProfile {
 	 */
 	@Override
 	public ArrayList<ITopic> getTopics() {
-		ArrayList<ITopic> topicList = new ArrayList<ITopic>();
-		for (int i = 0; i < 50; i++) {								
-			Topic t = new Topic();
-			t.setName("giusiiiii #" + i);
-			topicList.add(t);
-		}
-		return topicList;
+		ArrayList<ITopic> temp = new ArrayList<ITopic>();
 		
-		//return (ArrayList<ITopic>) this.topics.values(); //CHF
+		for (ITopic iTopic : this.topics.values()) {
+			temp.add(iTopic);
+		}
+		
+		return temp;
 	}
 
 	/**
