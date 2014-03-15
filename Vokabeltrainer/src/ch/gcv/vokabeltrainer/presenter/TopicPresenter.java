@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.Card;
+import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
@@ -111,10 +112,10 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public void createCard() {
-			CardCreatePresenter tep = new CardCreatePresenter();
-			tep.setOnCancel(this);
-			tep.setModel(new Card());
-			tep.run();
+		CardCreatePresenter tep = new CardCreatePresenter();
+		tep.setOnConfirm(this);
+		tep.setModel(new Card());
+		tep.run();
 			
 		}
 
@@ -125,9 +126,11 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 *
 	 */
 	@Override
-	public void openCard() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	public void openCard(ICard card) {
+		
+		CardPresenter tp = new CardPresenter();
+		tp.setModel(card);
+		tp.run();
     }
 
     /** 

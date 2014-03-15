@@ -1,8 +1,13 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.IProfile;
+import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.ProfileManager;
+import ch.gcv.vokabeltrainer.view.CardEditView;
 import ch.gcv.vokabeltrainer.view.ICardEditView;
+import ch.gcv.vokabeltrainer.view.TopicEditView;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -11,8 +16,7 @@ import ch.gcv.vokabeltrainer.view.ICardEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardCreatePresenter implements java.lang.Runnable,
-		ICardCreatePresenter {
+public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePresenter {
 
 	private Runnable onConfirm;
 	private ICardEditView view;
@@ -21,6 +25,10 @@ public class CardCreatePresenter implements java.lang.Runnable,
 
 	public CardCreatePresenter() {
 		super();
+		this.onConfirm = null; // TODO
+		this.model = null; // TODO
+		this.onCancel = null; // TODO
+		this.view = new CardEditView();
 
 	}
 
@@ -42,8 +50,8 @@ public class CardCreatePresenter implements java.lang.Runnable,
 	 */
 	@Override
 	public ICard getModel() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		
+		return this.model;
 	}
 
 	/**
@@ -90,8 +98,7 @@ public class CardCreatePresenter implements java.lang.Runnable,
 	 */
 	@Override
 	public void setOnConfirm(Runnable onConfirm) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.onConfirm = onConfirm;
 	}
 
 	/**
@@ -103,8 +110,7 @@ public class CardCreatePresenter implements java.lang.Runnable,
 	 */
 	@Override
 	public void setOnCancel(Runnable onCancel) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.onCancel = onCancel;
 	}
 
 	/**
@@ -113,6 +119,9 @@ public class CardCreatePresenter implements java.lang.Runnable,
 	 */
 	@Override
 	public void confirm() {
+		//ITopic topic =  ProfileManager.getInstance().getTopic();
+		//topic.addCard(this.model);	
+		//this.onConfirm.run();
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}

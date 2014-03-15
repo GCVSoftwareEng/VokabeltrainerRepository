@@ -45,8 +45,8 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public void setModel(ICard model) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	
+		this.model = model;
 
 	}
 

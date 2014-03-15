@@ -1,5 +1,6 @@
 package ch.gcv.vokabeltrainer.presenter;
 
+import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.view.ITopicView;
 
@@ -21,7 +22,7 @@ public interface ITopicPresenter {
 	public void setOnOpenCard(Runnable onOpenCard);
 	public void setOnDeleteCard(Runnable onDeleteCard);
 	public void createCard();
-	public void openCard();
+	public void openCard(ICard card);
 	public void deleteCard();
 	public void learnTopic();
 	

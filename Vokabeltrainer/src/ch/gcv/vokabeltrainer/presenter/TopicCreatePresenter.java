@@ -72,8 +72,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.R
 	 */
 	@Override
 	public void setView(ITopicEditView view) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.view = view;
     }
 
     /** 
@@ -93,8 +92,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.R
 	 */
 	@Override
 	public void setOnCancel(Runnable onCancel) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.onCancel = onCancel;
     }
 
     /** 
