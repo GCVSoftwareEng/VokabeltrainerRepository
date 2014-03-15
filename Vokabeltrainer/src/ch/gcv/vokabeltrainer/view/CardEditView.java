@@ -35,9 +35,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	private JMenu language;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
-	private JMenuItem addCard;
-	private JMenuItem editCard;
-	private JMenuItem removeCard;
 	private JMenuItem exit;
 
 
@@ -73,9 +70,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
 		this.loadPro = new JMenuItem("Load Profile");
-		this.addCard = new JMenuItem("Add Card");
-		this.editCard = new JMenuItem("Edit Card");
-		this.removeCard = new JMenuItem("Remove Card");
 		this.exit = new JMenuItem("Exit");
 		this.back = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
@@ -104,9 +98,6 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		menuBar.add(language);
 		file.add(newPro);
 		file.add(loadPro);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
 		file.add(exit);
 		menuBar.setBackground(Color.LIGHT_GRAY);
 

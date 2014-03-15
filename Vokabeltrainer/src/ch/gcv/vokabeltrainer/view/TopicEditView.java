@@ -31,17 +31,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	private ITopicEditPresenter presenter;
 
-	// menubar and menus
-	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenu language;
-	private JMenuItem newPro;
-	private JMenuItem loadPro;
-	private JMenuItem addCard;
-	private JMenuItem editCard;
-	private JMenuItem removeCard;
-	private JMenuItem exit;
-
 	private JButton back;
 	private JButton edit;
 

@@ -34,10 +34,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	private JMenu language;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
-	private JMenuItem newTopic;
-	private JMenuItem addCard;
-	private JMenuItem editCard;
-	private JMenuItem removeCard;
 	private JMenuItem exit;
 
 	private JTextPane topicname;
@@ -85,10 +81,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
 		this.loadPro = new JMenuItem("Load Profile");
-		this.newTopic = new JMenuItem("New Topic");
-		this.addCard = new JMenuItem("Add Card");
-		this.editCard = new JMenuItem("Edit Card");
-		this.removeCard = new JMenuItem("Remove Card");
 		this.exit = new JMenuItem("Exit");
 		this.cardPanel = new JPanel();
 
@@ -113,9 +105,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		menuBar.add(language);
 		file.add(newPro);
 		file.add(loadPro);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
 		file.add(exit);
 		menuBar.setBackground(Color.WHITE);
 

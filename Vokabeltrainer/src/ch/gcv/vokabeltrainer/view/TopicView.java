@@ -32,11 +32,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JMenu language;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
-	private JMenuItem newTopic;
-	private JMenuItem newtopicname;
-	private JMenuItem addCard;
-	private JMenuItem editCard;
-	private JMenuItem removeCard;
 	private JMenuItem exit;
 
 	private JTextPane topicname;
@@ -83,10 +78,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
 		this.loadPro = new JMenuItem("Load Profile");
-		this.newTopic = new JMenuItem("New Topic");
-		this.addCard = new JMenuItem("Add Card");
-		this.editCard = new JMenuItem("Edit Card");
-		this.removeCard = new JMenuItem("Remove Card");
 		this.exit = new JMenuItem("Exit");
 
 		this.back = new JButton(new ImageIcon(getClass()
@@ -125,10 +116,6 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		menuBar.add(language);
 		file.add(newPro);
 		file.add(loadPro);
-		file.add(newtopicname);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
 		file.add(exit);
 
 		// button definition

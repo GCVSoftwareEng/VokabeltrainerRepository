@@ -41,10 +41,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
 	private JMenuItem savePro;
-	private JMenuItem newTopic;
-	private JMenuItem addCard;
-	private JMenuItem editCard;
-	private JMenuItem removeCard;
 	private JMenuItem exit;
 	private JList liste;
 	private JButton plus;
@@ -66,6 +62,11 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		this.file = new JMenu("File");
 		this.language = new JMenu("Language", true);
 		this.newPro = new JMenuItem("New Profile");
+		this.newPro.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemNewProfileActionPerformed(evt);
+			}
+		});
 		this.savePro = new JMenuItem("Save Profile");
 		this.savePro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,10 +79,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 				jMenuItemLoadProfileActionPerformed(evt);
 			}
 		});
-		this.newTopic = new JMenuItem("New Topic");
-		this.addCard = new JMenuItem("Add Card");
-		this.editCard = new JMenuItem("Edit Card");
-		this.removeCard = new JMenuItem("Remove Card");
 		this.exit = new JMenuItem("Exit");
 		this.plus = new JButton(new ImageIcon(getClass()
 				.getResource("plus.png")));
@@ -110,10 +107,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		file.add(newPro);
 		file.add(loadPro);
 		file.add(savePro);
-		file.add(newTopic);
-		file.add(addCard);
-		file.add(editCard);
-		file.add(removeCard);
 		file.add(exit);
 
 		menuBar.setBackground(Color.LIGHT_GRAY);
@@ -231,13 +224,22 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
-			
 		}
 
 	}
 	
 	
+	private void jMenuItemNewProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
 
+		
+			ProfileView newPro = new ProfileView();
+			this.dispose();
+
+	}
+
+
+	
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
