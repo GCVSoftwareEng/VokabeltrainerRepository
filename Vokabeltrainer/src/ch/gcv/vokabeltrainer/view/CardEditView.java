@@ -45,7 +45,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	JPanel cardPanel;
 
 	public CardEditView() {
-		super();
+		super("CardEditView");
 		initComponents();
 		
 	}

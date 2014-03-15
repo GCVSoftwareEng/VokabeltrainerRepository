@@ -51,7 +51,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	private JScrollPane scrollPane;
 
 	public ProfileView() {
-		super();
+		super("ProfileView");
 		this.initComponents();
 	}
 

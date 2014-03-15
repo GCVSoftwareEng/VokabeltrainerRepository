@@ -40,7 +40,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 	private JTextPane topic;
 
 	public TopicEditView() {
-		super();
+		super("TopicEditView");
 		this.initComponents();
 	}
 
@@ -67,7 +67,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
-		super.setResizable(true);
+		super.setResizable(false);
 		
 		super.setSize(600, 280);
 		super.setLayout(null);

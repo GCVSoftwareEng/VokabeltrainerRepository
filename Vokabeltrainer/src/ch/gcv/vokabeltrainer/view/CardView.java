@@ -49,7 +49,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	private JPanel cardPanel;
 
 	public CardView() {
-		super();
+		super("CardView");
 		this.presenter = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
