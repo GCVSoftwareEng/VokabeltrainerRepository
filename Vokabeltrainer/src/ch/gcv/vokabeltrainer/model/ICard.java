@@ -26,6 +26,7 @@ public interface ICard {
 	public void setStatisticDateLastLerned();
 	public void setStatisticCountWrong();
 	public void setStatisticCountRight();
+	public void setName(String text);
   
 }
  

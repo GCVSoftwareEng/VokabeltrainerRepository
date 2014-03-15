@@ -20,6 +20,7 @@ public class Card implements ICard {
 	private int box;
 	private String answer;
 	private Topic topic;
+	private String name;
 
 	String myAnswer;
 
@@ -246,5 +247,10 @@ public class Card implements ICard {
 	public void setTopic(ch.gcv.vokabeltrainer.interfaces.Topic topic) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setName(String name) {
+			this.name = name;		
 	}
 }

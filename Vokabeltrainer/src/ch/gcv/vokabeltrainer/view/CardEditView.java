@@ -16,6 +16,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
 /**
@@ -164,8 +165,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void setPresenter(ICardCreatePresenter presenter) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.presenter = presenter;
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateModelFromView() {
-		this.presenter.getModel().setName(this.topicnameField.getText());
+		this.presenter.getModel().setName(this.topicname.getText());
 	}
 
 	/**
@@ -194,8 +194,9 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void open() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().addListener(this);
+		//translate();
+		setVisible(true);
 	}
 
 	/**
@@ -216,7 +217,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	@Override
 	public void translate() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		//throw new UnsupportedOperationException("Not implemented");
     }
 
 }
