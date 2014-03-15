@@ -23,6 +23,7 @@ public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Run
     private ITopic model;
     private Runnable onCancel;
     private ITopicEditView view;
+    
 
 	public TopicCreatePresenter(){
 		super();
@@ -34,7 +35,6 @@ public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Run
 	}
  
 
-   
 
     /** 
      * getModel implements ITopicEditPresenter.getModel
@@ -83,8 +83,7 @@ public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Run
 	 */
 	@Override
 	public void setOnConfirm(Runnable onConfirm) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.onConfirm = onConfirm;
     }
 
     /** 
@@ -106,7 +105,9 @@ public class TopicCreatePresenter  implements ITopicEditPresenter, java.lang.Run
 	public void confirm() {
 		// TODO should be implemented
 		IProfile profile =  ProfileManager.getInstance().getProfile();
-		profile.addTopic(this.model);
+		profile.addTopic(this.model);	
+		this.onConfirm.run();
+		
     }
 
     /** 

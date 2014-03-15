@@ -108,7 +108,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	 */
 	@Override
 	public void createTopic() {
-		TopicEditPresenter tep = new TopicEditPresenter();
+		TopicCreatePresenter tep = new TopicCreatePresenter();
 		tep.setOnConfirm(this);
 		tep.setModel(new Topic());
 		tep.run();
