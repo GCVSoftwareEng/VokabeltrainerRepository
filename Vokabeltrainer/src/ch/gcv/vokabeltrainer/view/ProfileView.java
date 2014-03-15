@@ -165,7 +165,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	 */
 	@Override
 	public void updateModelFromView() {
-		
+
 	}
 
 	/**
@@ -218,8 +218,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		TranslationManager.getinstance().removeListener(this);
 		throw new UnsupportedOperationException("Not implemented");
 	}
-	
-	
+
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -231,12 +230,9 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
-			
+			updateModelFromView();
 		}
-
 	}
-	
-	
 
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
