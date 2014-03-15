@@ -32,10 +32,8 @@ public class Card implements ICard {
 		this.question = ""; // TODO
 		// this.statisticDateLastLearned = null; // TODO
 		this.statisticCountRight = 0; // TODO
-		this.box = 0; // TODO
-		this.topic = null; // TODO
-		this.answer = ""; // TODO
-
+		this.box = 1; // TODO
+		this.answer = ""; // TODOs
 		this.myAnswer = "";
 
 	}
@@ -239,15 +237,10 @@ public class Card implements ICard {
 
 	@Override
 	public void setTopic(Topic topic) {
-		// TODO Auto-generated method stub
+		this.topic = topic;
 
 	}
 
-	@Override
-	public void setTopic(ch.gcv.vokabeltrainer.interfaces.Topic topic) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setName(String name) {
