@@ -45,6 +45,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 
 	public CardEditView() {
 		super();
+		initComponents();
 		this.presenter = null; // TODO
 		throw new UnsupportedOperationException("Not implemented");
 	}
