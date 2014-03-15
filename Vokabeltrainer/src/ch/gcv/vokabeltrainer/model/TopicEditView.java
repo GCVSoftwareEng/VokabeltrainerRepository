@@ -134,7 +134,13 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView 
 		public void actionPerformed(ActionEvent e){
 			
 			if(e.getSource() == back){
+				ProfileView profileView = new ProfileView();
+				profileView.initComponents();
 				
+			}
+			else if(e.getSource() == edit){
+				String text = topicnameField.getText();
+				topic.setText(text);
 			}
 		}
 
