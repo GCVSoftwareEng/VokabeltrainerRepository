@@ -11,9 +11,10 @@ import java.io.Serializable;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Profile implements IProfile {
-	  private static final long serialVersionUID = 2584203323009771108L;
+public class Profile implements IProfile, Serializable{
 
+
+	private static final long serialVersionUID = 1L;
 	private HashMap<String, ITopic> topics; // CHF
 
 	public Profile() {

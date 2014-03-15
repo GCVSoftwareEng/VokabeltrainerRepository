@@ -1,5 +1,6 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -12,8 +13,10 @@ import java.util.Random;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Topic implements ITopic {
+public class Topic implements ITopic, Serializable {
 
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Card> cards;
 	private int statisticMinutesLearned;
 	private Date statisticDateCreated;
