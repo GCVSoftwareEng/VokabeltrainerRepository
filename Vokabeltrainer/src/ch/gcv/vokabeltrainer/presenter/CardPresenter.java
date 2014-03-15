@@ -93,14 +93,6 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
-	@Override
-	public void createCard() {
-		CardCreatePresenter tep = new CardCreatePresenter();
-		tep.setOnCancel(this);
-		tep.setModel(new Card());
-		tep.run();
-		
-	}
 
 	
 

@@ -16,6 +16,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
 
 /**
@@ -230,8 +231,9 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void open() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().addListener(this);
+		translate();
+		setVisible(true);
 	}
 
 	/**

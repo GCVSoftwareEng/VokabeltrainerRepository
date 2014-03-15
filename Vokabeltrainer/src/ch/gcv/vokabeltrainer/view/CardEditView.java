@@ -46,8 +46,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	public CardEditView() {
 		super();
 		initComponents();
-		this.presenter = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		
 	}
 
 	/**
@@ -175,9 +174,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO should be implemented
-		// TODO answerField;
-		// TODO questionWord;
+		this.presenter.getModel().setName(this.topicnameField.getText());
 	}
 
 	/**

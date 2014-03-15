@@ -18,6 +18,5 @@ public interface ICardPresenter {
 	public ICardView getView();
 	public void setView(ICardView view);
 	public void checkAnswer();
-    public void createCard();
 }
  
