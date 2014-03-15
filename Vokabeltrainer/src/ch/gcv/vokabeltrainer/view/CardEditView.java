@@ -46,6 +46,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	public CardEditView() {
 		super("CardEditView");
 		initComponents();
+		updateModelFromView();
 		
 	}
 
@@ -74,8 +75,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.setSize(800, 500);
+		super.setSize(800, 450);
 		super.setVisible(true);
 		super.setLayout(null);
 
@@ -120,8 +120,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		StyleConstants.setBold(set1, true);
 		topicname.setParagraphAttributes(set1, true);
 		topicname.setBackground(Color.WHITE);
-		topicname.setBounds(90, 20, 500, 40);
-		topicname.setText("Topicname");
+		topicname.setBounds(20, 20, 500, 40);
+		
 
 		boxnumber.setEditable(false);
 		SimpleAttributeSet set2 = new SimpleAttributeSet();
@@ -132,7 +132,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
 		boxnumber.setBackground(Color.WHITE);
-		boxnumber.setBounds(90, 75, 200, 40);
+		boxnumber.setBounds(20, 75, 200, 40);
 		boxnumber.setText("Box: 1");
 
 		super.add(topicname);
@@ -175,7 +175,9 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateModelFromView() {
-		this.presenter.getModel().setName(this.topicname.getText());
+//		this.presenter.getModel().setName(this.topicname.getText());
+//		this.topicname.setText(this.presenter.getModel().getTopic().getName());
+		topicname.setText("schwul");
 	}
 
 	/**
@@ -206,8 +208,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void close() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().removeListener(this);
+		dispose();
 	}
 	
 

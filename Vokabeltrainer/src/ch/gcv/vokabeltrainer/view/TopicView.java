@@ -299,7 +299,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonCreateCardActionPerformed(
-			java.awt.event.ActionEvent evt) {
+		java.awt.event.ActionEvent evt) {
 		getPresenter().createCard();
 	}
 	
