@@ -242,7 +242,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void close() {
-		// TODO should be implemented
+	
 		throw new UnsupportedOperationException("Not implemented");
 	}
 

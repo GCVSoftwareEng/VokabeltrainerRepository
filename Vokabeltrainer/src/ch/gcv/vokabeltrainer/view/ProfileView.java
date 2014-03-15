@@ -253,7 +253,6 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	@Override
 	public void close() {
 		TranslationManager.getinstance().removeListener(this);
-		throw new UnsupportedOperationException("Not implemented");
 	}
 	
 /**
