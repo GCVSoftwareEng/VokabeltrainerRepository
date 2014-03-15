@@ -3,6 +3,10 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -93,7 +97,7 @@ public class Mainwindow extends JFrame{
 //			topic.setBounds(50, 10, 200, 50);
 //			topic.setVisible(true);
 			
-			
+			liste.addMouseListener(new DoubleListener());
 			
 			 topic.setEditable(false);
 		     SimpleAttributeSet set = new SimpleAttributeSet();
@@ -115,9 +119,53 @@ public class Mainwindow extends JFrame{
 			
 		}
 		
+	class DoubleListener implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if(e.getClickCount() == 2){
+				System.out.println("funzt");
+			}
+			
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		}
+		
+		
+	
+		
+		
 		public static void main(String args[]) {
 			Mainwindow test = new Mainwindow();
 			test.guiInitalisation();
 		}
+		
+		
 		
 }
