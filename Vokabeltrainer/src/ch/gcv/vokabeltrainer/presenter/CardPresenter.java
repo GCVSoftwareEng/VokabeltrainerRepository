@@ -80,7 +80,8 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 		} else {
 			this.view.answerWrong();
 		}
-
+		this.model = this.model.getTopic().getRandomCard(this.model.getBox());
+		view.updateViewFromModel();
 	}
 
 	/**

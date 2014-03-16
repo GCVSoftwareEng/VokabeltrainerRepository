@@ -290,6 +290,7 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		boxname.setBackground(Color.RED);
 		boxnumber.setBackground(Color.RED);
 		answerField.setBackground(Color.RED);
+		this.resetBackground();
 	}
 
 	/**
@@ -304,8 +305,28 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		boxname.setBackground(Color.GREEN);
 		boxnumber.setBackground(Color.GREEN);
 		answerField.setBackground(Color.GREEN);
+		this.resetBackground();
 	}
 
+	
+	private void resetBackground(){
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.setBackground(Color.WHITE);
+		answerField.setEditable(true);
+		topicname.setBackground(Color.WHITE);
+		boxname.setBackground(Color.WHITE);
+		boxnumber.setBackground(Color.WHITE);
+		answerField.setBackground(Color.WHITE);
+		
+		// Todo: temp
+		this.answerField.setText("");
+	}
+	
 	/**
 	 * languageChanged implements ILanguageChangedListener.languageChanged
 	 * 
