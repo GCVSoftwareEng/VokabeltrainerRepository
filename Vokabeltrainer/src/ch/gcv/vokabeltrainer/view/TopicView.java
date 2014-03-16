@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
@@ -61,6 +62,8 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JLabel cardnummber3;
 	private JLabel cardnummber4;
 	private JLabel cardnummber5;
+	
+	private String faultPopUp;
 
 	public TopicView() {
 		super("TopicView");
@@ -154,6 +157,8 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.cardnummber3 = new JLabel();
 		this.cardnummber4 = new JLabel();
 		this.cardnummber5 = new JLabel();
+		
+		this.faultPopUp = new String();
 
 		// button definition
 		boxButton1.setBounds(25, 225, 70, 70);
@@ -377,6 +382,8 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		.setText(TranslationManager.getinstance().getText("Cards:"));
 		this.cardCount5
 		.setText(TranslationManager.getinstance().getText("Cards:"));
+		
+		this.faultPopUp = TranslationManager.getinstance().getText("No cards in selected box!");
 	}
 	
 	/**
@@ -384,7 +391,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox1ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().openCard(presenter.getModel().getRandomCard(1));
+		if(presenter.getModel().getCardCount(1).equals("0")){
+			JOptionPane.showMessageDialog(null, 
+                faultPopUp);
+		}
+		else{
+			getPresenter().openCard(presenter.getModel().getRandomCard(1));
+		}
 	}
 
 	
@@ -393,7 +406,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox2ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().openCard(presenter.getModel().getRandomCard(2));
+		if(presenter.getModel().getCardCount(2).equals("0")){
+			JOptionPane.showMessageDialog(null, 
+                faultPopUp);
+		}
+		else{
+			getPresenter().openCard(presenter.getModel().getRandomCard(2));
+		}
 	}
 
 	
@@ -403,7 +422,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox3ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().openCard(presenter.getModel().getRandomCard(3));
+		if(presenter.getModel().getCardCount(3).equals("0")){
+			JOptionPane.showMessageDialog(null, 
+                faultPopUp);
+		}
+		else{
+			getPresenter().openCard(presenter.getModel().getRandomCard(3));
+		}
 	}
 
 	
@@ -413,7 +438,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox4ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().openCard(presenter.getModel().getRandomCard(4));
+		if(presenter.getModel().getCardCount(4).equals("0")){
+			JOptionPane.showMessageDialog(null, 
+                faultPopUp);
+		}
+		else{
+			getPresenter().openCard(presenter.getModel().getRandomCard(4));
+		}
 	}
 	
 	
@@ -422,7 +453,13 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox5ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().openCard(presenter.getModel().getRandomCard(5));
+		if(presenter.getModel().getCardCount(5).equals("0")){
+			JOptionPane.showMessageDialog(null, 
+                faultPopUp);
+		}
+		else{
+			getPresenter().openCard(presenter.getModel().getRandomCard(5));
+		}
 	}
 
 	
