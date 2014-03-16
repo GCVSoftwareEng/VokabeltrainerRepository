@@ -25,6 +25,8 @@ public interface ITopicPresenter {
 	public void openCard(ICard card);
 	public void deleteCard();
 	public void learnTopic();
+	void learnTopic(ITopic topic); //CHF
+	void learnTopic(ICard card); //CHF
 	
   
 }

@@ -130,7 +130,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		
 		CardPresenter tp = new CardPresenter();
 		tp.setModel(card);
-		tp.run();
+		tp.run();//////////7
     }
 
     /** 
@@ -148,9 +148,8 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 *
 	 */
 	@Override
-	public void learnTopic() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	public void learnTopic(ICard card) {
+		
     }
 
 	
@@ -166,6 +165,22 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	    view.open();
 	    view.updateViewFromModel();
     }
+
+
+	@Override
+	public void learnTopic() {  //CHF
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void learnTopic(ITopic topic) {    //CHF
+		CardPresenter tep = new CardPresenter();
+		tep.setModel((ICard) topic);
+		
+		
+	}
 
 
 

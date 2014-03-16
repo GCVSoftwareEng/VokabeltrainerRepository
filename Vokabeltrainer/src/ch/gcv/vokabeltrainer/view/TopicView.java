@@ -77,14 +77,39 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonBox1ActionPerformed(evt);
+			}
+		});
 		this.boxButton2 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonBox2ActionPerformed(evt);
+			}
+		});
 		this.boxButton3 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonBox3ActionPerformed(evt);
+			}
+		});
 		this.boxButton4 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton4.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonBox4ActionPerformed(evt);
+			}
+		});
 		this.boxButton5 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton5.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonBox5ActionPerformed(evt);
+			}
+		});
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
 		this.addCard.addActionListener(new java.awt.event.ActionListener() {
@@ -298,10 +323,56 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * 
 	 * @param evt
 	 */
-	private void jButtonCreateCardActionPerformed(
-		java.awt.event.ActionEvent evt) {
-		getPresenter().createCard();
+	private void jButtonBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().learnTopic(presenter.getModel());
+	}
+
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonBox2ActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().learnTopic(presenter.getModel());
+	}
+
+	
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonBox3ActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().learnTopic();
+	}
+
+	
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonBox4ActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().learnTopic();
 	}
 	
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonBox5ActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().learnTopic();
+	}
+
+	
+
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonCreateCardActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().createCard();
+	}
 
 }

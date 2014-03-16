@@ -50,8 +50,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 
 	public CardView() {
 		super("CardView");
-		this.presenter = null; // TODO
-		throw new UnsupportedOperationException("Not implemented");
+		this.initComponents();
 	}
 
 	/**

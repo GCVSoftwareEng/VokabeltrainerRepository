@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.view.ICardView;
 
 /**

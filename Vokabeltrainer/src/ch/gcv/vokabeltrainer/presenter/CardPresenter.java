@@ -3,6 +3,7 @@ package ch.gcv.vokabeltrainer.presenter;
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.view.CardView;
 import ch.gcv.vokabeltrainer.view.ICardView;
 
 /**
@@ -19,8 +20,8 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 
 	public CardPresenter() {
 		super();
-		this.view =null;
-		this.model = null;
+		this.view = new CardView();
+		
 		
 	}
 
