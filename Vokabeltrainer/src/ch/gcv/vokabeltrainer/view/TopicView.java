@@ -224,31 +224,26 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		cardnummber1.setFont(cardnummber1.getFont().deriveFont(14));
 		cardnummber1.setBounds(45, 200, 70, 20);
 		cardnummber1.setOpaque(true);
-		cardnummber1.setText("100");
 
 		cardnummber2.setVisible(true);
 		cardnummber2.setFont(cardnummber2.getFont().deriveFont(14));
 		cardnummber2.setBounds(140, 200, 70, 20);
 		cardnummber2.setOpaque(true);
-		cardnummber2.setText("100");
 
 		cardnummber3.setVisible(true);
 		cardnummber3.setFont(cardnummber3.getFont().deriveFont(14));
 		cardnummber3.setBounds(235, 200, 70, 20);
 		cardnummber3.setOpaque(true);
-		cardnummber3.setText("100");
 
 		cardnummber4.setVisible(true);
 		cardnummber4.setFont(cardnummber4.getFont().deriveFont(14));
 		cardnummber4.setBounds(330, 200, 70, 20);
 		cardnummber4.setOpaque(true);
-		cardnummber4.setText("100");
 
 		cardnummber5.setVisible(true);
 		cardnummber5.setFont(cardnummber5.getFont().deriveFont(14));
 		cardnummber5.setBounds(425, 200, 70, 20);
 		cardnummber5.setOpaque(true);
-		cardnummber5.setText("100");
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -337,7 +332,11 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	public void updateViewFromModel() {
 
 		topicname.setText(presenter.getModel().getName());
-//		int temp = presenter.getModel().getCardCount(1);
+		cardnummber1.setText(presenter.getModel().getCardCount(1));
+		cardnummber2.setText(presenter.getModel().getCardCount(2));
+		cardnummber3.setText(presenter.getModel().getCardCount(3));
+		cardnummber4.setText(presenter.getModel().getCardCount(4));
+		cardnummber5.setText(presenter.getModel().getCardCount(5));
 	}
 
 	/**
