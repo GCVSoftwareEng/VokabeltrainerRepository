@@ -16,7 +16,7 @@ public interface ITopic {
 	public boolean addCard(ICard model); // change Card model to ICard model
 	public Card getRandomCard(int box);
 	public boolean deleteCard(Card card);
-	public int getCardCount(int box);
+	public String getCardCount(int box);   // change int to String
 	public ArrayList<Card> getCards();
 	public ArrayList<Card> getCards(int box);
 	public int getStatisticMinutesLearned();

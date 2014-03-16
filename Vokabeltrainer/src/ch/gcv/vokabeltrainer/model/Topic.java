@@ -123,8 +123,11 @@ public class Topic implements ITopic, Serializable {
 	 * @return int total card into the box
 	 */
 	@Override
-	public int getCardCount(int box) {
-		return this.getCards(box).size();
+	public String getCardCount(int box) {
+		
+		String size = Integer.toString(getCards(box).size());
+		
+		return size;
 	}
 
 	/**
