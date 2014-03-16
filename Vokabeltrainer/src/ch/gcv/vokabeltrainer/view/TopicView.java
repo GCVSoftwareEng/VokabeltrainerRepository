@@ -324,7 +324,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox1ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().learnTopic(presenter.getModel());
+		getPresenter().openCard(presenter.getModel().getRandomCard(1));
 	}
 
 	

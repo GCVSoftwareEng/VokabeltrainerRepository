@@ -45,9 +45,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 
 	public CardEditView() {
 		super("CardEditView");
-		initComponents();
-		updateModelFromView();
-		
+		initComponents();		
 	}
 
 	/**
@@ -153,8 +151,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public ICardCreatePresenter getPresenter() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.presenter;
 	}
 
 	/**
@@ -175,9 +172,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateModelFromView() {
-//		this.presenter.getModel().setName(this.topicname.getText());
-//		this.topicname.setText(this.presenter.getModel().getTopic().getName());
-		topicname.setText("schwul");
+		// TODO	
 	}
 
 	/**
@@ -186,9 +181,9 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateViewFromModel() {
-		// TODO should be implemented
-		// TODO question.setText(text);
-		// TODO answer.setText(text);
+		 this.topicname.setText(this.presenter.getModel().getTopic().getName());
+		 this.question.setText(this.presenter.getModel().getQuestion());
+		 this.answer.setText(this.presenter.getModel().getAnswer());
 	}
 
 	/**
@@ -198,7 +193,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	@Override
 	public void open() {
 		TranslationManager.getinstance().addListener(this);
-		//translate();
+		translate();
 		setVisible(true);
 	}
 
