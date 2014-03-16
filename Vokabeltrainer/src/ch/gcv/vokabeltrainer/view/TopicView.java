@@ -37,6 +37,11 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JButton boxButton4;
 	private JButton boxButton5;
 	private JButton addCard;
+	private JButton editBox1;
+	private JButton editBox2;
+	private JButton editBox3;
+	private JButton editBox4;
+	private JButton editBox5;
 
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
@@ -50,11 +55,11 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JLabel cardCount4;
 	private JLabel cardCount5;
 
-	private JLabel card1ummber1;
-	private JLabel card1ummber2;
-	private JLabel card1ummber3;
-	private JLabel card1ummber4;
-	private JLabel card1ummber5;
+	private JLabel cardnummber1;
+	private JLabel cardnummber2;
+	private JLabel cardnummber3;
+	private JLabel cardnummber4;
+	private JLabel cardnummber5;
 
 	public TopicView() {
 		super("TopicView");
@@ -117,6 +122,20 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 				jButtonCreateCardActionPerformed(evt);
 			}
 		});
+		this.editBox1 = new JButton(new ImageIcon(getClass().getResource(
+				"edit1.png")));
+		
+		this.editBox2 = new JButton(new ImageIcon(getClass().getResource(
+				"edit1.png")));
+		
+		this.editBox3 = new JButton(new ImageIcon(getClass().getResource(
+				"edit1.png")));
+		
+		this.editBox4 = new JButton(new ImageIcon(getClass().getResource(
+				"edit1.png")));
+		
+		this.editBox5 = new JButton(new ImageIcon(getClass().getResource(
+				"edit1.png")));
 
 		this.topicname = new JTextPane();
 		this.boxLabel1 = new JLabel("Box: 1");
@@ -129,11 +148,11 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.cardCount3 = new JLabel();
 		this.cardCount4 = new JLabel();
 		this.cardCount5 = new JLabel();
-		this.card1ummber1 = new JLabel();
-		this.card1ummber2 = new JLabel();
-		this.card1ummber3 = new JLabel();
-		this.card1ummber4 = new JLabel();
-		this.card1ummber5 = new JLabel();
+		this.cardnummber1 = new JLabel();
+		this.cardnummber2 = new JLabel();
+		this.cardnummber3 = new JLabel();
+		this.cardnummber4 = new JLabel();
+		this.cardnummber5 = new JLabel();
 
 		// button definition
 		boxButton1.setBounds(25, 240, 70, 70);
@@ -142,67 +161,89 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		boxButton4.setBounds(310, 240, 70, 70);
 		boxButton5.setBounds(405, 240, 70, 70);
 		addCard.setBounds(425, 50, 53, 50);
+		editBox1.setBounds(45, 380, 20, 20);
+		editBox2.setBounds(140, 380, 20, 20);
+		editBox3.setBounds(235, 380, 20, 50);
+		editBox4.setBounds(330, 380, 20, 50);
+		editBox5.setBounds(425, 380, 20, 20);
+
 
 		// layout definition
 		boxLabel1.setVisible(true);
 		boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
 		boxLabel1.setBounds(30, 170, 70, 20);
+		boxLabel1.setOpaque(true);
 
 		boxLabel2.setVisible(true);
 		boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
 		boxLabel2.setBounds(125, 170, 70, 20);
+		boxLabel2.setOpaque(true);
 
 		boxLabel3.setVisible(true);
 		boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
 		boxLabel3.setBounds(220, 170, 70, 20);
+		boxLabel3.setOpaque(true);
 
 		boxLabel4.setVisible(true);
 		boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
 		boxLabel4.setBounds(315, 170, 70, 20);
+		boxLabel4.setOpaque(true);
 
 		boxLabel5.setVisible(true);
 		boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
 		boxLabel5.setBounds(410, 170, 70, 20);
+		boxLabel5.setOpaque(true);
 
 		cardCount1.setVisible(true);
 		cardCount1.setFont(cardCount1.getFont().deriveFont(14));
 		cardCount1.setBounds(30, 195, 70, 20);
+		cardCount1.setOpaque(true);
 
 		cardCount2.setVisible(true);
 		cardCount2.setFont(cardCount2.getFont().deriveFont(14));
 		cardCount2.setBounds(125, 195, 70, 20);
+		cardCount2.setOpaque(true);
 
 		cardCount3.setVisible(true);
 		cardCount3.setFont(cardCount3.getFont().deriveFont(14));
 		cardCount3.setBounds(220, 195, 70, 20);
+		cardCount3.setOpaque(true);
 
 		cardCount4.setVisible(true);
 		cardCount4.setFont(cardCount4.getFont().deriveFont(14));
 		cardCount4.setBounds(315, 195, 70, 20);
+		cardCount4.setOpaque(true);
+
 
 		cardCount5.setVisible(true);
 		cardCount5.setFont(cardCount5.getFont().deriveFont(14));
 		cardCount5.setBounds(410, 195, 70, 20);
+		cardCount5.setOpaque(true);
 
-		card1ummber1.setVisible(true);
-		card1ummber1.setFont(card1ummber1.getFont().deriveFont(14));
-		card1ummber1.setBounds(45, 325, 70, 30);
+		cardnummber1.setVisible(true);
+		cardnummber1.setFont(cardnummber1.getFont().deriveFont(14));
+		cardnummber1.setBounds(45, 325, 70, 30);
+		cardnummber1.setOpaque(true);
 
-		card1ummber2.setVisible(true);
-		card1ummber2.setFont(card1ummber2.getFont().deriveFont(14));
-		card1ummber2.setBounds(140, 325, 70, 30);
+		cardnummber2.setVisible(true);
+		cardnummber2.setFont(cardnummber2.getFont().deriveFont(14));
+		cardnummber2.setBounds(140, 325, 70, 30);
+		cardnummber2.setOpaque(true);
 
-		card1ummber3.setVisible(true);
-		card1ummber3.setFont(card1ummber3.getFont().deriveFont(14));
-		card1ummber3.setBounds(235, 325, 70, 30);
+		cardnummber3.setVisible(true);
+		cardnummber3.setFont(cardnummber3.getFont().deriveFont(14));
+		cardnummber3.setBounds(235, 325, 70, 30);
+		cardnummber3.setOpaque(true);
 
-		card1ummber4.setVisible(true);
-		card1ummber4.setFont(card1ummber4.getFont().deriveFont(14));
-		card1ummber4.setBounds(330, 325, 70, 30);
+		cardnummber4.setVisible(true);
+		cardnummber4.setFont(cardnummber4.getFont().deriveFont(14));
+		cardnummber4.setBounds(330, 325, 70, 30);
+		cardnummber4.setOpaque(true);
 
-		card1ummber5.setVisible(true);
-		card1ummber5.setFont(card1ummber5.getFont().deriveFont(14));
-		card1ummber5.setBounds(425, 325, 70, 30);
+		cardnummber5.setVisible(true);
+		cardnummber5.setFont(cardnummber5.getFont().deriveFont(14));
+		cardnummber5.setBounds(425, 325, 70, 30);
+		cardnummber5.setOpaque(true);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -234,11 +275,16 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		super.add(cardCount3);
 		super.add(cardCount4);
 		super.add(cardCount5);
-		super.add(card1ummber1);
-		super.add(card1ummber2);
-		super.add(card1ummber3);
-		super.add(card1ummber4);
-		super.add(card1ummber5);
+		super.add(cardnummber1);
+		super.add(cardnummber2);
+		super.add(cardnummber3);
+		super.add(cardnummber4);
+		super.add(cardnummber5);
+		super.add(editBox1);
+		super.add(editBox2);
+		super.add(editBox3);
+		super.add(editBox4);
+		super.add(editBox5);
 
 	}
 

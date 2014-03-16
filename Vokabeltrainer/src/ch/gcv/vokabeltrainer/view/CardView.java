@@ -26,15 +26,14 @@ import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardView extends javax.swing.JFrame implements ICardView, ITranslatable {
+public class CardView extends javax.swing.JFrame implements ICardView,
+		ITranslatable {
 
 	private ICardPresenter presenter;
 
-
 	private JTextPane topicname;
 	private JTextPane boxnumber;
-
-	private JButton plus;
+	private JTextPane boxname;
 	private JButton next;
 	private JButton check;
 
@@ -46,7 +45,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 
 	private JTextField answerField;
 
-	private JPanel cardPanel;
+	// private JPanel cardPanel;
 
 	public CardView() {
 		super("CardView");
@@ -67,23 +66,19 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		super.setVisible(true);
 		super.setLayout(null);
 
-		
-		this.answerField = new JTextField();  //CHF
-		
-		this.cardPanel = new JPanel();
+		this.answerField = new JTextField(); // CHF
 
-		this.plus = new JButton(new ImageIcon(getClass()
-				.getResource("plus.png")));
+		// this.cardPanel = new JPanel();
+
 		this.check = new JButton(new ImageIcon(getClass().getResource(
 				"check.png")));
-		
-		
+
 		this.check.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonCheckActionPerformed(evt);
 			}
 		});
-		
+
 		this.next = new JButton(new ImageIcon(getClass()
 				.getResource("next.png")));
 
@@ -92,99 +87,104 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 		this.answer = new JLabel();
 		this.lastLearn = new JLabel();
 		this.date = new JLabel();
-		
+
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
+		this.boxname = new JTextPane();
 
-		
-
-		cardPanel.setBackground(Color.LIGHT_GRAY);
-		cardPanel.setBounds(25, 120, 750, 300);
-		cardPanel.setVisible(true);
-		cardPanel.setLayout(null);
+		// cardPanel.setBackground(Color.LIGHT_GRAY);
+		// cardPanel.setBounds(25, 120, 750, 300);
+		// cardPanel.setVisible(true);
+		// cardPanel.setLayout(null);
 
 		// questionlabel
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
-		question.setBounds(15, 15, 150, 50);
-		question.setBackground(Color.LIGHT_GRAY);  			 
-	
+		question.setBounds(15, 150, 150, 50);
+		question.setOpaque(true);
 
 		// question word
 		questionWord.setVisible(true);
 		questionWord.setEnabled(false);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
-		questionWord.setBounds(170, 15, 575, 50);
-		questionWord.setBackground(Color.LIGHT_GRAY); 	
-		
+		questionWord.setBounds(170, 150, 575, 50);
+		questionWord.setOpaque(true);
 
 		// answerlabel
 		answer.setVisible(true);
 		answer.setFont(answer.getFont().deriveFont(20f));
-		answer.setBounds(15, 100, 150, 50);
-		answer.setBackground(Color.LIGHT_GRAY);
-
+		answer.setBounds(15, 250, 150, 50);
+		answer.setOpaque(true);
 		// textfiel
 		answerField.setEditable(true);
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
-		answerField.setBounds(170, 100, 575, 50);
+		answerField.setBounds(170, 250, 575, 50);
 
 		// lastlearn label
 		lastLearn.setVisible(true);
 		lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-		lastLearn.setBounds(500, 270, 150, 20);
-		lastLearn.setBackground(Color.LIGHT_GRAY);
+		lastLearn.setBounds(500, 350, 150, 20);
+		lastLearn.setOpaque(true);
 
 		// date label
 		date.setVisible(true);
 		date.setFont(date.getFont().deriveFont(10));
-		date.setBounds(650, 270, 80, 20);
-		date.setBackground(Color.LIGHT_GRAY);
-		
+		date.setBounds(650, 350, 80, 20);
+		date.setOpaque(true);
+
 		// buttons
-		plus.setBounds(20, 10, 51, 50);
-		next.setBounds(175, 188, 145, 48);
-		check.setBounds(475, 185, 53, 53);
-		
+		next.setBounds(175, 400, 145, 48);
+		check.setBounds(475, 400, 53, 53);
+
 		topicname.setEditable(false);
-	     SimpleAttributeSet set1 = new SimpleAttributeSet();
-	     StyleConstants.setAlignment(set1,StyleConstants.ALIGN_LEFT);
-	     StyleConstants.setFontFamily(set1,"Times New Roman");
-	     StyleConstants.setFontSize(set1,30);
-	     StyleConstants.setItalic(set1,true);
-	     StyleConstants.setBold(set1,true);
-	     topicname.setParagraphAttributes(set1,true);
-	     topicname.setBackground(Color.WHITE);
-	     topicname.setBounds(90,20,500,40);
-	     topicname.setText("Topicname");
-	     
-	     boxnumber.setEditable(false);
-	     SimpleAttributeSet set2 = new SimpleAttributeSet();
-	     StyleConstants.setAlignment(set2,StyleConstants.ALIGN_LEFT);
-	     StyleConstants.setFontFamily(set2,"Times New Roman");
-	     StyleConstants.setFontSize(set2,23);
-	     StyleConstants.setItalic(set2,true);
-	     StyleConstants.setBold(set2,true);
-	     boxnumber.setParagraphAttributes(set2,true);
-	     boxnumber.setBackground(Color.WHITE);
-	     boxnumber.setBounds(90,75,200,40);
-	     boxnumber.setText("Box: 1");
+		SimpleAttributeSet set1 = new SimpleAttributeSet();
+		StyleConstants.setAlignment(set1, StyleConstants.ALIGN_LEFT);
+		StyleConstants.setFontFamily(set1, "Times New Roman");
+		StyleConstants.setFontSize(set1, 30);
+		StyleConstants.setItalic(set1, true);
+		StyleConstants.setBold(set1, true);
+		topicname.setParagraphAttributes(set1, true);
+		topicname.setOpaque(true);
+		topicname.setBounds(20, 20, 500, 40);
+		topicname.setText("Topicname");
+		topicname.setOpaque(true);
+
+		boxnumber.setEditable(false);
+		SimpleAttributeSet set2 = new SimpleAttributeSet();
+		StyleConstants.setAlignment(set2, StyleConstants.ALIGN_LEFT);
+		StyleConstants.setFontFamily(set2, "Times New Roman");
+		StyleConstants.setFontSize(set2, 23);
+		StyleConstants.setItalic(set2, true);
+		StyleConstants.setBold(set2, true);
+		boxnumber.setParagraphAttributes(set2, true);
+		boxnumber.setOpaque(true);
+		boxnumber.setBounds(73, 75, 30, 40);
+		boxnumber.setText("1");
 		
-	     
-		super.add(plus);
+		boxname.setEditable(false);
+		SimpleAttributeSet set3 = new SimpleAttributeSet();
+		StyleConstants.setAlignment(set3, StyleConstants.ALIGN_LEFT);
+		StyleConstants.setFontFamily(set3, "Times New Roman");
+		StyleConstants.setFontSize(set3, 23);
+		StyleConstants.setItalic(set3, true);
+		StyleConstants.setBold(set3, true);
+		boxname.setParagraphAttributes(set3, true);
+		boxname.setOpaque(true);
+		boxname.setBounds(20, 75, 50, 40);
+		
+
 		super.add(topicname);
 		super.add(boxnumber);
-		super.add(cardPanel);
-	
-		cardPanel.add(question);
-		cardPanel.add(questionWord);
-		cardPanel.add(answer);
-		cardPanel.add(answerField);
-		cardPanel.add(next);
-		cardPanel.add(check);
-		cardPanel.add(lastLearn);
-		cardPanel.add(date);
+		super.add(boxname);
+		super.add(question);
+		super.add(questionWord);
+		super.add(answer);
+		super.add(answerField);
+		super.add(next);
+		super.add(check);
+		super.add(lastLearn);
+		super.add(date);
 
 	}
 
@@ -227,7 +227,8 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	@Override
 	public void updateViewFromModel() {
 		this.topicname.setText(this.presenter.getModel().getTopic().getName());
-		this.boxnumber.setText(Integer.toString(this.presenter.getModel().getBox()));
+		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
+				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
 	}
 
@@ -268,21 +269,23 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	public void answerRight() {
 		super.setBackground(Color.GREEN);
 	}
-	
+
 	/**
 	 * languageChanged implements ILanguageChangedListener.languageChanged
 	 * 
 	 */
 	@Override
 	public void translate() {
-		// TODO should be implemented
+		this.question.setText(TranslationManager.getinstance().getText(
+				"Question:"));
+		this.answer
+				.setText(TranslationManager.getinstance().getText("Answer:"));
+		this.boxname
+		.setText(TranslationManager.getinstance().getText("Box:"));
 	}
 
-	
-	private void jButtonCheckActionPerformed(
-			java.awt.event.ActionEvent evt) {
+	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
-	
 }

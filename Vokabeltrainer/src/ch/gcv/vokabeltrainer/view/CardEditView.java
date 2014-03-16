@@ -32,6 +32,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
+	private JTextPane boxname;
 
 	private JButton addCard;
 
@@ -41,8 +42,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	private JTextField answerField;
 	private JTextField questionWord;
 
-	JPanel cardPanel;
-
+	
 	public CardEditView() {
 		super("CardEditView");
 		initComponents();		
@@ -64,11 +64,11 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
+		this.boxname = new JTextPane();
 		this.question = new JLabel();
 		this.answer = new JLabel();
 		this.questionWord = new JTextField();
 		this.answerField = new JTextField();
-		this.cardPanel = new JPanel();
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
@@ -78,36 +78,32 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		super.setLayout(null);
 
 
-		cardPanel.setBackground(Color.WHITE);
-		cardPanel.setBounds(25, 120, 750, 300);
-		cardPanel.setVisible(true);
-		cardPanel.setLayout(null);
-
 		// questionlabel
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
-		question.setBounds(15, 15, 150, 50);
-		question.setBackground(Color.LIGHT_GRAY);
+		question.setBounds(15, 150, 150, 50);
+		question.setOpaque(true);
 
 		// answerlabel
 		answer.setVisible(true);
 		answer.setFont(answer.getFont().deriveFont(20f));
-		answer.setBounds(15, 100, 150, 50);
-		answer.setBackground(Color.LIGHT_GRAY);
+		answer.setBounds(15, 250, 150, 50);
+		answer.setOpaque(true);
+		
 
 		// textfiel
 		answerField.setEditable(true);
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
-		answerField.setBounds(170, 100, 575, 50);
+		answerField.setBounds(170, 250, 575, 50);
 
 		questionWord.setEditable(true);
 		questionWord.setVisible(true);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
-		questionWord.setBounds(170, 15, 575, 50);
+		questionWord.setBounds(170, 150, 575, 50);
 
 		
-		addCard.setBounds(375, 220, 53, 53);
+		addCard.setBounds(375, 320, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -117,7 +113,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		StyleConstants.setItalic(set1, true);
 		StyleConstants.setBold(set1, true);
 		topicname.setParagraphAttributes(set1, true);
-		topicname.setBackground(Color.WHITE);
+		topicname.setOpaque(true);
 		topicname.setBounds(20, 20, 500, 40);
 		
 
@@ -129,18 +125,29 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		StyleConstants.setItalic(set2, true);
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
-		boxnumber.setBackground(Color.WHITE);
-		boxnumber.setBounds(20, 75, 200, 40);
-		boxnumber.setText("Box: 1");
+		boxnumber.setOpaque(true);
+		boxnumber.setBounds(73, 75, 30, 40);
+		boxnumber.setText("1");
+		
+		boxname.setEditable(false);
+		SimpleAttributeSet set3 = new SimpleAttributeSet();
+		StyleConstants.setAlignment(set3, StyleConstants.ALIGN_LEFT);
+		StyleConstants.setFontFamily(set3, "Times New Roman");
+		StyleConstants.setFontSize(set3, 23);
+		StyleConstants.setItalic(set3, true);
+		StyleConstants.setBold(set3, true);
+		boxname.setParagraphAttributes(set3, true);
+		boxname.setOpaque(true);
+		boxname.setBounds(20, 75, 50, 40);
 
 		super.add(topicname);
 		super.add(boxnumber);
-		super.add(cardPanel);
-		cardPanel.add(question);
-		cardPanel.add(questionWord);
-		cardPanel.add(answer);
-		cardPanel.add(answerField);
-		cardPanel.add(addCard);
+		super.add(boxname);
+		super.add(question);
+		super.add(questionWord);
+		super.add(answer);
+		super.add(answerField);
+		super.add(addCard);
 
 	}
 
@@ -216,7 +223,12 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	@Override
 	public void translate() {
 		// TODO should be implemented
-		//throw new UnsupportedOperationException("Not implemented");
+		this.question.setText(TranslationManager.getinstance().getText(
+				"Question:"));
+		this.answer.setText(TranslationManager.getinstance().getText(
+				"Answer:"));
+		this.boxname
+		.setText(TranslationManager.getinstance().getText("Box:"));
     }
 	
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
