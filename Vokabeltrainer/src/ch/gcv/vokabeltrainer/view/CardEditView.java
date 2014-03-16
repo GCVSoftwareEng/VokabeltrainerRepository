@@ -172,7 +172,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO	
+		this.presenter.getModel().setQuestion(this.questionWord.getText());
+		this.presenter.getModel().setAnswer(this.answerField.getText());
 	}
 
 	/**
@@ -182,8 +183,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	@Override
 	public void updateViewFromModel() {
 		 this.topicname.setText(this.presenter.getModel().getTopic().getName());
-		 this.question.setText(this.presenter.getModel().getQuestion());
-		 this.answer.setText(this.presenter.getModel().getAnswer());
+		 this.questionWord.setText(this.presenter.getModel().getQuestion());
+		 this.answerField.setText(this.presenter.getModel().getAnswer());
 	}
 
 	/**

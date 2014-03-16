@@ -18,6 +18,6 @@ public interface ICardPresenter {
 	public void setModel(ICard model);
 	public ICardView getView();
 	public void setView(ICardView view);
-	public void checkAnswer();
+	public void checkAnswer(String answer);
 }
  

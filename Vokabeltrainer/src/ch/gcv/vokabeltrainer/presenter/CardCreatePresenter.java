@@ -119,17 +119,7 @@ public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePrese
 	 */
 	@Override
 	public void confirm() {
-		ITopic topic =  ProfileManager.getInstance().getProfile().getTopic(model.getTopic().getName());
-		if(topic.addCard(this.model) == true){
-			this.onConfirm.run();
-		}
-		
-		
-		//ITopic topic =  ProfileManager.getInstance().getTopic();
-		//topic.addCard(this.model);	
-		//this.onConfirm.run();
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.model.getTopic().addCard(this.model);
 	}
 
 	/**

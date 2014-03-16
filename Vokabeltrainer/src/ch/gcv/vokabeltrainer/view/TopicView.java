@@ -333,7 +333,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox2ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().learnTopic(presenter.getModel());
+		getPresenter().openCard(presenter.getModel().getRandomCard(2));
 	}
 
 	
@@ -343,7 +343,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox3ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().learnTopic();
+		getPresenter().openCard(presenter.getModel().getRandomCard(3));
 	}
 
 	
@@ -353,7 +353,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox4ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().learnTopic();
+		getPresenter().openCard(presenter.getModel().getRandomCard(4));
 	}
 	
 	
@@ -362,7 +362,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	 * @param evt
 	 */
 	private void jButtonBox5ActionPerformed(java.awt.event.ActionEvent evt) {
-		getPresenter().learnTopic();
+		getPresenter().openCard(presenter.getModel().getRandomCard(5));
 	}
 
 	

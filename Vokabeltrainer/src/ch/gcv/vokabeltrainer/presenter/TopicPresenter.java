@@ -112,10 +112,13 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public void createCard() {
-		CardCreatePresenter tep = new CardCreatePresenter();
-		tep.setOnConfirm(this);
-		tep.setModel(new Card());
-		tep.run();
+		CardCreatePresenter ccp = new CardCreatePresenter();
+		ccp.setOnConfirm(this);
+		
+		ICard card = new Card();
+		card.setTopic((Topic) this.model);
+		ccp.setModel(card);
+		ccp.run();
 			
 		}
 
@@ -128,9 +131,9 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 	@Override
 	public void openCard(ICard card) {
 		
-		CardPresenter tp = new CardPresenter();
-		tp.setModel(card);
-		tp.run();//////////7
+		CardPresenter cp = new CardPresenter();
+		cp.setModel(card);
+		cp.run();
     }
 
     /** 

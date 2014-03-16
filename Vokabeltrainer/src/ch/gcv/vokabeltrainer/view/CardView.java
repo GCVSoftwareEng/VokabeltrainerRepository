@@ -76,6 +76,14 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 				.getResource("plus.png")));
 		this.check = new JButton(new ImageIcon(getClass().getResource(
 				"check.png")));
+		
+		
+		this.check.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonCheckActionPerformed(evt);
+			}
+		});
+		
 		this.next = new JButton(new ImageIcon(getClass()
 				.getResource("next.png")));
 
@@ -187,8 +195,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public ICardPresenter getPresenter() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.presenter;
 	}
 
 	/**
@@ -200,8 +207,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void setPresenter(ICardPresenter presenter) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.presenter = presenter;
 	}
 
 	/**
@@ -220,8 +226,9 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void updateViewFromModel() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.topicname.setText(this.presenter.getModel().getTopic().getName());
+		this.boxnumber.setText(Integer.toString(this.presenter.getModel().getBox()));
+		this.questionWord.setText(this.presenter.getModel().getQuestion());
 	}
 
 	/**
@@ -241,7 +248,6 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void close() {
-	
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -251,8 +257,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void answerWrong() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		super.setBackground(Color.RED);
 	}
 
 	/**
@@ -261,8 +266,7 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	 */
 	@Override
 	public void answerRight() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		super.setBackground(Color.GREEN);
 	}
 	
 	/**
@@ -272,7 +276,12 @@ public class CardView extends javax.swing.JFrame implements ICardView, ITranslat
 	@Override
 	public void translate() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	}
+
+	
+	private void jButtonCheckActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
 	
