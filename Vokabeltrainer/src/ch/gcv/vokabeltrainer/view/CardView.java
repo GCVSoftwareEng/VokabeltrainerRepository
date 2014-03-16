@@ -16,9 +16,13 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Topic;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
+import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
+import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -78,15 +82,15 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 		});
 
 		// this.cardPanel = new JPanel();
@@ -102,6 +106,11 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 
 		this.next = new JButton(new ImageIcon(getClass()
 				.getResource("next.png")));
+		this.next.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonNextActionPerformed(evt);
+			}
+		});
 
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
@@ -179,7 +188,7 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		boxnumber.setParagraphAttributes(set2, true);
 		boxnumber.setOpaque(true);
 		boxnumber.setBounds(73, 75, 30, 40);
-		
+
 		boxname.setEditable(false);
 		SimpleAttributeSet set3 = new SimpleAttributeSet();
 		StyleConstants.setAlignment(set3, StyleConstants.ALIGN_LEFT);
@@ -190,7 +199,6 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		boxname.setParagraphAttributes(set3, true);
 		boxname.setOpaque(true);
 		boxname.setBounds(20, 75, 50, 40);
-		
 
 		super.add(topicname);
 		super.add(boxnumber);
@@ -308,18 +316,21 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 				"Question:"));
 		this.answer
 				.setText(TranslationManager.getinstance().getText("Answer:"));
-		this.boxname
-		.setText(TranslationManager.getinstance().getText("Box:"));
+		this.boxname.setText(TranslationManager.getinstance().getText("Box:"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().checkAnswer(this.answerField.getText());
 	}
-	
+
+	private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {
+		
+		////////////////////////// next card iibaue
+	}
+
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER)
-		{
-			
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
 			getPresenter().checkAnswer(this.answerField.getText());
 		}
 	}
