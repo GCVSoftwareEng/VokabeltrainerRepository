@@ -3,6 +3,7 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -64,6 +65,26 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		this.topic = new JTextPane();
 		this.topicname = new JLabel();
 		this.topicnameField = new JTextField();
+		this.topicnameField.addKeyListener(new java.awt.event.KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				jTextFieldCheckKeyPerformed(e);
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
@@ -211,5 +232,13 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		this.topic.setText(TranslationManager.getinstance().getText("topic"));
     }
 	
+	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			this.updateModelFromView();
+	        this.presenter.confirm();
+	        this.close();
+		}
+	}
 
 }
