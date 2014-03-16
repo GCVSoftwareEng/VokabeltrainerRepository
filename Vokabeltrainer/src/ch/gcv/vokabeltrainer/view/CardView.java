@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -67,6 +68,26 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		super.setLayout(null);
 
 		this.answerField = new JTextField(); // CHF
+		this.answerField.addKeyListener(new java.awt.event.KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				jTextFieldCheckKeyPerformed(e);
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		// this.cardPanel = new JPanel();
 
@@ -147,8 +168,6 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		topicname.setParagraphAttributes(set1, true);
 		topicname.setOpaque(true);
 		topicname.setBounds(20, 20, 500, 40);
-		topicname.setText("Topicname");
-		topicname.setOpaque(true);
 
 		boxnumber.setEditable(false);
 		SimpleAttributeSet set2 = new SimpleAttributeSet();
@@ -160,7 +179,6 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		boxnumber.setParagraphAttributes(set2, true);
 		boxnumber.setOpaque(true);
 		boxnumber.setBounds(73, 75, 30, 40);
-		boxnumber.setText("1");
 		
 		boxname.setEditable(false);
 		SimpleAttributeSet set3 = new SimpleAttributeSet();
@@ -259,6 +277,11 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 	@Override
 	public void answerWrong() {
 		super.setBackground(Color.RED);
+		answerField.setEditable(false);
+		topicname.setBackground(Color.RED);
+		boxname.setBackground(Color.RED);
+		boxnumber.setBackground(Color.RED);
+		answerField.setBackground(Color.RED);
 	}
 
 	/**
@@ -268,6 +291,11 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 	@Override
 	public void answerRight() {
 		super.setBackground(Color.GREEN);
+		answerField.setEditable(false);
+		topicname.setBackground(Color.GREEN);
+		boxname.setBackground(Color.GREEN);
+		boxnumber.setBackground(Color.GREEN);
+		answerField.setBackground(Color.GREEN);
 	}
 
 	/**
@@ -286,6 +314,14 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().checkAnswer(this.answerField.getText());
+	}
+	
+	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			
+			getPresenter().checkAnswer(this.answerField.getText());
+		}
 	}
 
 }

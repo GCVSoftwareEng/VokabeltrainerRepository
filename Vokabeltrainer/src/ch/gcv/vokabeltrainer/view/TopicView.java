@@ -253,7 +253,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		StyleConstants.setItalic(set, true);
 		StyleConstants.setBold(set, true);
 		topicname.setParagraphAttributes(set, true);
-		topicname.setBackground(Color.WHITE);
+		topicname.setOpaque(true);
 		topicname.setBounds(30, 50, 390, 50);
 		topicname.setText("Topicname");
 
