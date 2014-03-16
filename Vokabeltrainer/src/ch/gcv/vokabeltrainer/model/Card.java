@@ -217,9 +217,9 @@ public class Card implements ICard {
 	 * @return boolean // TODO
 	 */
 	@Override
-	public boolean check(String String) {
+	public boolean check(String myAnswer) {
 		setStatisticDateLastLerned();
-		if (myAnswer == answer) {
+		if (myAnswer.equals(answer)) {
 			System.out.println("answer true");
 			setStatisticCountRight();
 			System.out.println("Count right: " + statisticCountRight);
