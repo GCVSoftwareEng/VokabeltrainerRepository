@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -69,6 +70,26 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		this.answer = new JLabel();
 		this.questionWord = new JTextField();
 		this.answerField = new JTextField();
+		this.answerField.addKeyListener(new java.awt.event.KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				jTextFieldCheckKeyPerformed(e);
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
@@ -227,14 +248,22 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 				"Question:"));
 		this.answer.setText(TranslationManager.getinstance().getText(
 				"Answer:"));
-		this.boxname
-		.setText(TranslationManager.getinstance().getText("Box:"));
+		this.boxname.setText(TranslationManager.getinstance().getText("Box:"));
     }
 	
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
         this.updateModelFromView();
         this.presenter.confirm();
         this.close();
+        
     }
+	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			this.updateModelFromView();
+	        this.presenter.confirm();
+	        this.close();
+		}
+	}
 
 }
