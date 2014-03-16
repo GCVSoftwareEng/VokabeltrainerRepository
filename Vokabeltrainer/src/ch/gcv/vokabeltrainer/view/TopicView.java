@@ -16,6 +16,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
@@ -76,7 +77,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.setSize(500, 500);
+		super.setSize(500, 400);
 		super.setVisible(true);
 		super.setLayout(null);
 
@@ -155,95 +156,99 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		this.cardnummber5 = new JLabel();
 
 		// button definition
-		boxButton1.setBounds(25, 240, 70, 70);
-		boxButton2.setBounds(120, 240, 70, 70);
-		boxButton3.setBounds(215, 240, 70, 70);
-		boxButton4.setBounds(310, 240, 70, 70);
-		boxButton5.setBounds(405, 240, 70, 70);
+		boxButton1.setBounds(25, 225, 70, 70);
+		boxButton2.setBounds(120, 225, 70, 70);
+		boxButton3.setBounds(215, 225, 70, 70);
+		boxButton4.setBounds(310, 225, 70, 70);
+		boxButton5.setBounds(405, 225, 70, 70);
 		addCard.setBounds(425, 50, 53, 50);
-		editBox1.setBounds(45, 380, 20, 20);
-		editBox2.setBounds(140, 380, 20, 20);
-		editBox3.setBounds(235, 380, 20, 50);
-		editBox4.setBounds(330, 380, 20, 50);
-		editBox5.setBounds(425, 380, 20, 20);
+		editBox1.setBounds(50, 305, 20, 20);
+		editBox2.setBounds(145, 305, 20, 20);
+		editBox3.setBounds(240, 305, 20, 20);
+		editBox4.setBounds(335, 305, 20, 20);
+		editBox5.setBounds(430, 305, 20, 20);
 
 
 		// layout definition
 		boxLabel1.setVisible(true);
 		boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
-		boxLabel1.setBounds(30, 170, 70, 20);
+		boxLabel1.setBounds(30, 150, 70, 20);
 		boxLabel1.setOpaque(true);
 
 		boxLabel2.setVisible(true);
 		boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
-		boxLabel2.setBounds(125, 170, 70, 20);
+		boxLabel2.setBounds(125, 150, 70, 20);
 		boxLabel2.setOpaque(true);
 
 		boxLabel3.setVisible(true);
 		boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
-		boxLabel3.setBounds(220, 170, 70, 20);
+		boxLabel3.setBounds(220, 150, 70, 20);
 		boxLabel3.setOpaque(true);
 
 		boxLabel4.setVisible(true);
 		boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
-		boxLabel4.setBounds(315, 170, 70, 20);
+		boxLabel4.setBounds(315, 150, 70, 20);
 		boxLabel4.setOpaque(true);
 
 		boxLabel5.setVisible(true);
 		boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
-		boxLabel5.setBounds(410, 170, 70, 20);
+		boxLabel5.setBounds(410, 150, 70, 20);
 		boxLabel5.setOpaque(true);
 
 		cardCount1.setVisible(true);
 		cardCount1.setFont(cardCount1.getFont().deriveFont(14));
-		cardCount1.setBounds(30, 195, 70, 20);
+		cardCount1.setBounds(30, 175, 70, 20);
 		cardCount1.setOpaque(true);
 
 		cardCount2.setVisible(true);
 		cardCount2.setFont(cardCount2.getFont().deriveFont(14));
-		cardCount2.setBounds(125, 195, 70, 20);
+		cardCount2.setBounds(125, 175, 70, 20);
 		cardCount2.setOpaque(true);
 
 		cardCount3.setVisible(true);
 		cardCount3.setFont(cardCount3.getFont().deriveFont(14));
-		cardCount3.setBounds(220, 195, 70, 20);
+		cardCount3.setBounds(220, 175, 70, 20);
 		cardCount3.setOpaque(true);
 
 		cardCount4.setVisible(true);
 		cardCount4.setFont(cardCount4.getFont().deriveFont(14));
-		cardCount4.setBounds(315, 195, 70, 20);
+		cardCount4.setBounds(315, 175, 70, 20);
 		cardCount4.setOpaque(true);
-
 
 		cardCount5.setVisible(true);
 		cardCount5.setFont(cardCount5.getFont().deriveFont(14));
-		cardCount5.setBounds(410, 195, 70, 20);
+		cardCount5.setBounds(410, 175, 70, 20);
 		cardCount5.setOpaque(true);
 
 		cardnummber1.setVisible(true);
 		cardnummber1.setFont(cardnummber1.getFont().deriveFont(14));
-		cardnummber1.setBounds(45, 325, 70, 30);
+		cardnummber1.setBounds(45, 200, 70, 20);
 		cardnummber1.setOpaque(true);
+		cardnummber1.setText("100");
 
 		cardnummber2.setVisible(true);
 		cardnummber2.setFont(cardnummber2.getFont().deriveFont(14));
-		cardnummber2.setBounds(140, 325, 70, 30);
+		cardnummber2.setBounds(140, 200, 70, 20);
 		cardnummber2.setOpaque(true);
+		cardnummber2.setText("100");
 
 		cardnummber3.setVisible(true);
 		cardnummber3.setFont(cardnummber3.getFont().deriveFont(14));
-		cardnummber3.setBounds(235, 325, 70, 30);
+		cardnummber3.setBounds(235, 200, 70, 20);
 		cardnummber3.setOpaque(true);
+		cardnummber3.setText("100");
 
 		cardnummber4.setVisible(true);
 		cardnummber4.setFont(cardnummber4.getFont().deriveFont(14));
-		cardnummber4.setBounds(330, 325, 70, 30);
+		cardnummber4.setBounds(330, 200, 70, 20);
 		cardnummber4.setOpaque(true);
+		cardnummber4.setText("100");
 
 		cardnummber5.setVisible(true);
 		cardnummber5.setFont(cardnummber5.getFont().deriveFont(14));
-		cardnummber5.setBounds(425, 325, 70, 30);
+		cardnummber5.setBounds(425, 200, 70, 20);
 		cardnummber5.setOpaque(true);
+		cardnummber5.setText("100");
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -332,7 +337,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	public void updateViewFromModel() {
 
 		topicname.setText(presenter.getModel().getName());
-
+//		int temp = presenter.getModel().getCardCount(1);
 	}
 
 	/**
@@ -343,6 +348,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	public void open() {
 
 		setVisible(true);
+		translate();
 	}
 
 	/**
@@ -362,7 +368,16 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	@Override
 	public void translate() {
 		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		this.cardCount1
+		.setText(TranslationManager.getinstance().getText("Cards:"));
+		this.cardCount2
+		.setText(TranslationManager.getinstance().getText("Cards:"));
+		this.cardCount3
+		.setText(TranslationManager.getinstance().getText("Cards:"));
+		this.cardCount4
+		.setText(TranslationManager.getinstance().getText("Cards:"));
+		this.cardCount5
+		.setText(TranslationManager.getinstance().getText("Cards:"));
 	}
 	
 	/**
