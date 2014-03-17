@@ -1,6 +1,5 @@
 package ch.gcv.vokabeltrainer.interfaces;
 
-import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
 
 /**
  * GCV Software Engineering
@@ -12,8 +11,8 @@ import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
  */
 public interface ProfileView {
  
-	public IProfilePresenter getPresenter();
-	public void setPresenter(IProfilePresenter presenter);
+	public ProfilePresenter getPresenter();
+	public void setPresenter(ProfilePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

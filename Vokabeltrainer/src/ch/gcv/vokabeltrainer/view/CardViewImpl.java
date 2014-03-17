@@ -17,13 +17,13 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.CardView;
+import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
-import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
-import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
+import ch.gcv.vokabeltrainer.presenter.TopicPresenterImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -35,7 +35,7 @@ import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
 public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		Translatable {
 
-	private ICardPresenter presenter;
+	private CardPresenter presenter;
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
@@ -220,7 +220,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 * @return ICardPresenter // TODO
 	 */
 	@Override
-	public ICardPresenter getPresenter() {
+	public CardPresenter getPresenter() {
 		return this.presenter;
 	}
 
@@ -232,7 +232,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 * 
 	 */
 	@Override
-	public void setPresenter(ICardPresenter presenter) {
+	public void setPresenter(CardPresenter presenter) {
 		this.presenter = presenter;
 	}
 

@@ -16,10 +16,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -30,7 +30,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  */
 public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 
-	private ITopicPresenter presenter;
+	private TopicPresenter presenter;
 
 	private JTextPane topicname;
 
@@ -278,7 +278,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 * @return ITopicPresenter // TODO
 	 */
 	@Override
-	public ITopicPresenter getPresenter() {
+	public TopicPresenter getPresenter() {
 
 		return this.presenter;
 
@@ -292,7 +292,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 * 
 	 */
 	@Override
-	public void setPresenter(ITopicPresenter presenter) {
+	public void setPresenter(TopicPresenter presenter) {
 
 		this.presenter = presenter;
 

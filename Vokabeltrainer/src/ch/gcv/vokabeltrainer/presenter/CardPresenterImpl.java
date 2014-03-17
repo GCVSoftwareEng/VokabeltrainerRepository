@@ -3,6 +3,7 @@ package ch.gcv.vokabeltrainer.presenter;
 import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.CardView;
+import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.CardImpl;
@@ -15,13 +16,13 @@ import ch.gcv.vokabeltrainer.view.CardViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardPresenter implements ICardPresenter, Presentable{
+public class CardPresenterImpl implements CardPresenter, Presentable{
 
 	private CardView view;
 	private Card model;
 	private Presentable onCheckCard;
 
-	public CardPresenter() {
+	public CardPresenterImpl() {
 		super();
 		this.view = new CardViewImpl();
 

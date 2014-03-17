@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 
+import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
 import ch.gcv.vokabeltrainer.interfaces.Profile;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
@@ -18,7 +19,7 @@ import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable {
+public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presentable {
 
     private Presentable onConfirm;
     private Topic model;
@@ -26,7 +27,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
     private TopicEditView view;
     
 
-	public TopicCreatePresenter(){
+	public TopicCreatePresenterImpl(){
 		super();
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO

@@ -1,6 +1,5 @@
 package ch.gcv.vokabeltrainer.interfaces;
 
-import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
  * GCV Software Engineering
@@ -12,8 +11,8 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  */
 public interface TopicView {
  
-	public ITopicPresenter getPresenter();
-	public void setPresenter(ITopicPresenter presenter);
+	public TopicPresenter getPresenter();
+	public void setPresenter(TopicPresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
@@ -19,7 +20,7 @@ import ch.gcv.vokabeltrainer.view.TopicViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicPresenter  implements ITopicPresenter, Presentable {
+public class TopicPresenterImpl  implements TopicPresenter, Presentable {
 
     private Presentable onDeleteCard;
     private Presentable onOpenCard;
@@ -28,7 +29,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
     private Topic model;
     
 
-	public TopicPresenter(){
+	public TopicPresenterImpl(){
 		super();
 		this.view = new TopicViewImpl();
 	}
@@ -113,7 +114,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 */
 	@Override
 	public void createCard() {
-		CardCreatePresenter ccp = new CardCreatePresenter();
+		CardCreatePresenterImpl ccp = new CardCreatePresenterImpl();
 		ccp.setOnConfirm(this);
 		
 		Card card = new CardImpl();
@@ -133,7 +134,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	@Override
 	public void openCard(Card card) {
 		
-		CardPresenter cp = new CardPresenter();
+		CardPresenterImpl cp = new CardPresenterImpl();
 		cp.setModel(card);
 		cp.setOnCheckCard(this);
 		cp.run();
@@ -182,7 +183,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 
 	@Override
 	public void learnTopic(Topic topic) {    //CHF
-		CardPresenter tep = new CardPresenter();
+		CardPresenterImpl tep = new CardPresenterImpl();
 		tep.setModel((Card) topic);
 		
 		

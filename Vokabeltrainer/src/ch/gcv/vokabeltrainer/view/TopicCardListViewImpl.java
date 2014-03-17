@@ -20,16 +20,16 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.ICard;
+import ch.gcv.vokabeltrainer.interfaces.ICardPresenter;
 import ch.gcv.vokabeltrainer.interfaces.ITopic;
+import ch.gcv.vokabeltrainer.interfaces.ITopicCardListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.ITopicCardListView;
+import ch.gcv.vokabeltrainer.interfaces.ITopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.Topic;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ITopicCardListPresenter;
-import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
-import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
 
 /**

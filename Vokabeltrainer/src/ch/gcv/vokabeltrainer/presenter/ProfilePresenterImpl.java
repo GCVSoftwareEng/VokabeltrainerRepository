@@ -1,5 +1,6 @@
 package ch.gcv.vokabeltrainer.presenter;
 
+import ch.gcv.vokabeltrainer.interfaces.ProfilePresenter;
 import ch.gcv.vokabeltrainer.interfaces.Profile;
 import ch.gcv.vokabeltrainer.interfaces.ProfileView;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
@@ -16,7 +17,7 @@ import ch.gcv.vokabeltrainer.model.TopicImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfilePresenter  implements IProfilePresenter, Presentable {
+public class ProfilePresenterImpl  implements ProfilePresenter, Presentable {
 	
 
 
@@ -27,7 +28,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
     private Presentable onDeleteTopic;
     
 
-	public ProfilePresenter(){
+	public ProfilePresenterImpl(){
 		super();		
 	}
  
@@ -109,7 +110,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 */
 	@Override
 	public void createTopic() {
-		TopicCreatePresenter tep = new TopicCreatePresenter();
+		TopicCreatePresenterImpl tep = new TopicCreatePresenterImpl();
 		tep.setOnConfirm(this);
 		tep.setModel(new TopicImpl());
 		tep.run();
@@ -142,7 +143,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 */
 	@Override
 	public void openTopic(Topic topic) {
-		TopicPresenter tp = new TopicPresenter();
+		TopicPresenterImpl tp = new TopicPresenterImpl();
 		tp.setModel(topic);
 		tp.run();
     }

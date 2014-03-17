@@ -1,9 +1,5 @@
-package ch.gcv.vokabeltrainer.presenter;
+package ch.gcv.vokabeltrainer.interfaces;
 
-import ch.gcv.vokabeltrainer.interfaces.Profile;
-import ch.gcv.vokabeltrainer.interfaces.ProfileView;
-import ch.gcv.vokabeltrainer.interfaces.Topic;
-import ch.gcv.vokabeltrainer.interfaces.Presentable;
 
 /**
  * GCV Software Engineering
@@ -13,7 +9,7 @@ import ch.gcv.vokabeltrainer.interfaces.Presentable;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface IProfilePresenter {
+public interface ProfilePresenter {
  
 	public Profile getModel();
 	public void setModel(Profile model);

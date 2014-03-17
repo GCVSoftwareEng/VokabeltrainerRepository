@@ -1,9 +1,5 @@
-package ch.gcv.vokabeltrainer.presenter;
+package ch.gcv.vokabeltrainer.interfaces;
 
-import ch.gcv.vokabeltrainer.interfaces.Card;
-import ch.gcv.vokabeltrainer.interfaces.CardView;
-import ch.gcv.vokabeltrainer.interfaces.Topic;
-import ch.gcv.vokabeltrainer.interfaces.Presentable;
 
 /**
  * GCV Software Engineering
@@ -13,7 +9,7 @@ import ch.gcv.vokabeltrainer.interfaces.Presentable;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface ICardPresenter {
+public interface CardPresenter {
  
 	public Card getModel();
 	public void setModel(Card model);

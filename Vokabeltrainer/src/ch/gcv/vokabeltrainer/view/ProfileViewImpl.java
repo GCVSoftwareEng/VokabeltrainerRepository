@@ -19,13 +19,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.interfaces.ProfilePresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.ProfileView;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
-import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -37,7 +37,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		Translatable {
 
-	private IProfilePresenter presenter;
+	private ProfilePresenter presenter;
 
 	private JMenuBar menuBar;
 	private JMenu file;
@@ -212,7 +212,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 * 
 	 */
 	@Override
-	public IProfilePresenter getPresenter() {
+	public ProfilePresenter getPresenter() {
 		return this.presenter;
 	}
 
@@ -221,7 +221,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 * 
 	 */
 	@Override
-	public void setPresenter(IProfilePresenter presenter) {
+	public void setPresenter(ProfilePresenter presenter) {
 		this.presenter = presenter;
 	}
 

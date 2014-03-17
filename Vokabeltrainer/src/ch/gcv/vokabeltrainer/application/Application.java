@@ -2,7 +2,7 @@ package ch.gcv.vokabeltrainer.application;
 
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ProfilePresenter;
+import ch.gcv.vokabeltrainer.presenter.ProfilePresenterImpl;
 import ch.gcv.vokabeltrainer.view.ProfileViewImpl;
 
 /**
@@ -34,7 +34,7 @@ public class Application {
 		ProfileManager pm = ProfileManager.getInstance();
 		
 		// setup and run the profile presenter
-		ProfilePresenter ps = new ProfilePresenter();
+		ProfilePresenterImpl ps = new ProfilePresenterImpl();
 		ProfileViewImpl pv = new ProfileViewImpl();
 		ps.setModel(pm.getProfile());
 		ps.setView(pv);

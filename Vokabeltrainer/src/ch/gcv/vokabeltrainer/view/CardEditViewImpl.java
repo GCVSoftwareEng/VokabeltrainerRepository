@@ -17,9 +17,9 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.CardEditView;
+import ch.gcv.vokabeltrainer.interfaces.CardCreatePresenter;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -30,7 +30,7 @@ import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
  */
 public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView, Translatable {
 
-	private ICardCreatePresenter presenter;
+	private CardCreatePresenter presenter;
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
@@ -183,7 +183,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 * @return ICardEditPresenter // TODO
 	 */
 	@Override
-	public ICardCreatePresenter getPresenter() {
+	public CardCreatePresenter getPresenter() {
 		return this.presenter;
 	}
 
@@ -195,7 +195,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 * 
 	 */
 	@Override
-	public void setPresenter(ICardCreatePresenter presenter) {
+	public void setPresenter(CardCreatePresenter presenter) {
 		this.presenter = presenter;
 	}
 

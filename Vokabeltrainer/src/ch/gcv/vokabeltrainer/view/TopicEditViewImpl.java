@@ -17,10 +17,10 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.ITopicCreatePresenter;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -31,7 +31,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicCreatePresenter;
  */
 public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditView, Translatable {
 
-	private ITopicCreatePresenter presenter;
+	private TopicCreatePresenter presenter;
 
 
 	private JButton edit;
@@ -135,7 +135,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 	 * @return TopicEditPresenter // TODO
 	 */
 	@Override
-	public ITopicCreatePresenter getPresenter() {
+	public TopicCreatePresenter getPresenter() {
 		
 		throw new UnsupportedOperationException("Not implemented");
 		
@@ -149,7 +149,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 	 * 
 	 */
 	@Override
-	public void setPresenter(ITopicCreatePresenter presenter) {
+	public void setPresenter(TopicCreatePresenter presenter) {
 		
 		this.presenter = presenter;
 		
