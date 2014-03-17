@@ -66,7 +66,6 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setSize(800, 500);
 		super.setVisible(true);
 		super.setLayout(null);
