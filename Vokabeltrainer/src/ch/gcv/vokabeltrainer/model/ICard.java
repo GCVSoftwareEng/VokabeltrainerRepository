@@ -19,13 +19,11 @@ public interface ICard {
 	public int getStatisticCountWrong();
 	public int getStatisticCountRight();
 	public void setBox(int box);
+	public void moveUp();
 	public int getBox();
 	public void setTopic(Topic topic);
 	public Topic getTopic();
 	public boolean check(String answer);
-	public void setStatisticDateLastLerned();
-	public void setStatisticCountWrong();
-	public void setStatisticCountRight();
 	public void setName(String text);
 
   

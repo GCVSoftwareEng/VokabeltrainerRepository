@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.IPresentable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.view.ICardView;
 
@@ -19,5 +20,7 @@ public interface ICardPresenter {
 	public ICardView getView();
 	public void setView(ICardView view);
 	public void checkAnswer(String answer);
+	public void setOnCheckCard(IPresentable presenter);
+
 }
  

@@ -3,6 +3,8 @@ package ch.gcv.vokabeltrainer.model;
 import java.text.DateFormat;
 import java.util.Date;
 
+import ch.gcv.vokabeltrainer.application.Application;
+
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
  * Engineering
@@ -83,18 +85,6 @@ public class Card implements ICard {
 	}
 
 	/**
-	 * getStatisticDateLastLerned implements ICard.setStatisticDateLastLerned
-	 * This method sets the current date.
-	 * 
-	 * // ???????
-	 */
-	@Override
-	public void setStatisticDateLastLerned() {
-		this.statisticDateLastLearned = new java.util.Date().getTime();
-
-	}
-
-	/**
 	 * getStatisticDateLastLerned implements ICard.getStatisticDateLastLerned
 	 * 
 	 * @return long // TODO
@@ -125,16 +115,6 @@ public class Card implements ICard {
 	}
 
 	/**
-	 * getStatisticCountWrong implements ICard.setStatisticCountWrong. This
-	 * method set the count wrong +1.
-	 * 
-	 */
-	@Override
-	public void setStatisticCountWrong() {
-		this.statisticCountWrong += 1;
-	}
-
-	/**
 	 * getStatisticCountWrong implements ICard.getStatisticCountWrong This
 	 * method give you the wrong count.
 	 * 
@@ -143,17 +123,6 @@ public class Card implements ICard {
 	@Override
 	public int getStatisticCountWrong() {
 		return statisticCountWrong;
-	}
-
-	/**
-	 * getStatisticCountRight implements ICard.getStatisticCountRight This
-	 * method set the right count.
-	 * 
-	 * 
-	 */
-	@Override
-	public void setStatisticCountRight() {
-		this.statisticCountRight += 1;
 	}
 
 	/**
@@ -177,6 +146,21 @@ public class Card implements ICard {
 	@Override
 	public void setBox(int box) {
 		this.box = box;
+	}
+
+	/**
+	 * moveUpBox implements ICard.moveUp This method moves the card to the next
+	 * higher box.
+	 * 
+	 * @param box
+	 *            number
+	 * 
+	 */
+	@Override
+	public void moveUp() {
+		if (this.box < Application.boxCount) {
+			this.box +=1;
+		}
 	}
 
 	/**
@@ -218,15 +202,17 @@ public class Card implements ICard {
 	 */
 	@Override
 	public boolean check(String myAnswer) {
-		setStatisticDateLastLerned();
+		this.statisticDateLastLearned = new java.util.Date().getTime();
 		if (myAnswer.equals(answer)) {
+			this.statisticCountRight += 1;
+			this.moveUp();
 			System.out.println("answer true");
-			setStatisticCountRight();
 			System.out.println("Count right: " + statisticCountRight);
 			return true;
 		}
 		System.out.println("answer false");
-		setStatisticCountWrong();
+		this.statisticCountWrong += 1;
+		this.setBox(1);
 		System.out.println("Count wrong " + statisticCountWrong);
 		return false;
 	}
@@ -241,9 +227,8 @@ public class Card implements ICard {
 
 	}
 
-
 	@Override
 	public void setName(String name) {
-			this.name = name;		
+		this.name = name;
 	}
 }

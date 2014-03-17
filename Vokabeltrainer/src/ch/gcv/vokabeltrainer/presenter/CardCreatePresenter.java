@@ -120,6 +120,7 @@ public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePrese
 	@Override
 	public void confirm() {
 		this.model.getTopic().addCard(this.model);
+		this.onConfirm.run();
 	}
 
 	/**

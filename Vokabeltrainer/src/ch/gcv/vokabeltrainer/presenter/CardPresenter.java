@@ -1,7 +1,9 @@
 package ch.gcv.vokabeltrainer.presenter;
 
+import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.IPresentable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.view.CardView;
 import ch.gcv.vokabeltrainer.view.ICardView;
@@ -13,10 +15,11 @@ import ch.gcv.vokabeltrainer.view.ICardView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardPresenter implements ICardPresenter, java.lang.Runnable {
+public class CardPresenter implements ICardPresenter, IPresentable{
 
 	private ICardView view;
 	private ICard model;
+	private IPresentable onCheckCard;
 
 	public CardPresenter() {
 		super();
@@ -75,13 +78,29 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 	 */
 	@Override
 	public void checkAnswer(String answer) {
+		int curBox = this.model.getBox();
 		if (this.model.check(answer)) {
 			this.view.answerRight();
 		} else {
 			this.view.answerWrong();
 		}
-		this.model = this.model.getTopic().getRandomCard(this.model.getBox());
-		view.updateViewFromModel();
+		
+		Card nextCard = null;
+		int boxToCheck = curBox;
+		while (nextCard == null){
+			nextCard = this.model.getTopic().getRandomCard(boxToCheck);
+			boxToCheck +=1;
+			if (boxToCheck > Application.boxCount){
+				boxToCheck = 1;
+			}
+		}
+		
+		this.model = nextCard;
+		
+		
+		this.onCheckCard.refresh();
+		this.run();
+		
 	}
 
 	/**
@@ -94,5 +113,20 @@ public class CardPresenter implements ICardPresenter, java.lang.Runnable {
 		view.open();
 		view.updateViewFromModel();
 	}
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		view.updateViewFromModel();
+		
+	}
+
+	@Override
+	public void setOnCheckCard(IPresentable presenter) {
+		// TODO Auto-generated method stub
+		this.onCheckCard = presenter;
+	}
+
+	
 
 }

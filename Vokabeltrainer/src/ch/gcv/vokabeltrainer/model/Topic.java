@@ -15,7 +15,6 @@ import java.util.Random;
  */
 public class Topic implements ITopic, Serializable {
 
-
 	private static final long serialVersionUID = 1211L;
 	private ArrayList<Card> cards;
 	private int statisticMinutesLearned;
@@ -42,7 +41,7 @@ public class Topic implements ITopic, Serializable {
 	@Override
 	public boolean addCard(ICard card) {
 		try {
-			cards.add((Card) card);                   // Cast to card
+			cards.add((Card) card); // Cast to card
 			System.out.println("Add card OK");
 			return true;
 
@@ -65,19 +64,21 @@ public class Topic implements ITopic, Serializable {
 		Card theCard = null;
 		ArrayList<Card> cardsForBox = new ArrayList<Card>();
 		cardsForBox = getCards(box);
+		if (cardsForBox.size() > 0) {
+			Random random = new Random();
+			int min = 1;
+			int max = cardsForBox.size();
+			int rndNumb = random.nextInt(max - min + 1) + min;
 
-		Random random = new Random();
-		int min = 1;
-		int max = cardsForBox.size();
-		int rndNumb = random.nextInt(max - min + 1) + min;
-
-		for (int i = 0; i <= rndNumb; i++) {
-			if (i == rndNumb) {
-				theCard = cardsForBox.get(i - 1);
+			for (int i = 0; i <= rndNumb; i++) {
+				if (i == rndNumb) {
+					theCard = cardsForBox.get(i - 1);
+				}
 			}
+			return theCard;
 		}
-		theCard.setStatisticDateLastLerned();
-		return theCard;
+		return null;
+		
 	}
 
 	/**
@@ -124,9 +125,9 @@ public class Topic implements ITopic, Serializable {
 	 */
 	@Override
 	public String getCardCount(int box) {
-		
+
 		String size = Integer.toString(getCards(box).size());
-		
+
 		return size;
 	}
 
@@ -197,9 +198,5 @@ public class Topic implements ITopic, Serializable {
 	public String toString() {
 		return this.name;
 	}
-
-
-	
-
 
 }

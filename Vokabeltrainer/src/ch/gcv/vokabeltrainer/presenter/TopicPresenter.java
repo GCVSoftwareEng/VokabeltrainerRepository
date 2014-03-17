@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.IPresentable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
@@ -18,7 +19,7 @@ import ch.gcv.vokabeltrainer.view.TopicView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
+public class TopicPresenter  implements ITopicPresenter, IPresentable {
 
     private Runnable onDeleteCard;
     private Runnable onOpenCard;
@@ -118,6 +119,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		ICard card = new Card();
 		card.setTopic((Topic) this.model);
 		ccp.setModel(card);
+		ccp.setOnConfirm(this);
 		ccp.run();
 			
 		}
@@ -133,6 +135,7 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		
 		CardPresenter cp = new CardPresenter();
 		cp.setModel(card);
+		cp.setOnCheckCard(this);
 		cp.run();
     }
 
@@ -183,6 +186,13 @@ public class TopicPresenter  implements ITopicPresenter, java.lang.Runnable {
 		tep.setModel((ICard) topic);
 		
 		
+	}
+
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		view.updateViewFromModel();
 	}
 
 
