@@ -187,7 +187,7 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
 		boxnumber.setOpaque(true);
-		boxnumber.setBounds(73, 75, 30, 40);
+		boxnumber.setBounds(95, 75, 30, 40);
 
 		boxname.setEditable(false);
 		SimpleAttributeSet set3 = new SimpleAttributeSet();
@@ -198,7 +198,7 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		StyleConstants.setBold(set3, true);
 		boxname.setParagraphAttributes(set3, true);
 		boxname.setOpaque(true);
-		boxname.setBounds(20, 75, 50, 40);
+		boxname.setBounds(20, 75, 75, 40);
 
 		super.add(topicname);
 		super.add(boxnumber);
@@ -334,10 +334,10 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 	@Override
 	public void translate() {
 		this.question.setText(TranslationManager.getinstance().getText(
-				"Question:"));
+				"question"));
 		this.answer
-				.setText(TranslationManager.getinstance().getText("Answer:"));
-		this.boxname.setText(TranslationManager.getinstance().getText("Box:"));
+				.setText(TranslationManager.getinstance().getText("answer"));
+		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {

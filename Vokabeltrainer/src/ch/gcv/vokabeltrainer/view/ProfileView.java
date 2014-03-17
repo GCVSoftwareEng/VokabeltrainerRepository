@@ -346,6 +346,10 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 				"language"));
 		this.file.setText(TranslationManager.getinstance().getText("file"));
 		this.topic.setText(TranslationManager.getinstance().getText("topics"));
+		this.newPro.setText(TranslationManager.getinstance().getText("newPro"));
+		this.loadPro.setText(TranslationManager.getinstance().getText("loadPro"));
+		this.savePro.setText(TranslationManager.getinstance().getText("savePro"));
+		this.exit.setText(TranslationManager.getinstance().getText("exit"));
 	}
 
 }

@@ -2,20 +2,24 @@ package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.Topic;
@@ -37,6 +41,9 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 
 	private ITopicCardListPresenter presenter;
 
+	private JList liste;
+	private JTextPane topic;
+	private JScrollPane scrollPane;
 
 	// private JPanel cardPanel;
 	public TopicCardListView() {
@@ -48,9 +55,78 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 	 * initComponents
 	 * 
 	 */
-	private void initComponents() {
+	public void initComponents() {
+
+		this.topic = new JTextPane();
+		this.liste = new JList();
+		this.liste.addMouseListener(new java.awt.event.MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 2){
+					String name = liste.getSelectedValue().toString();
+					getPresenter().getView().open();
+					
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		this.scrollPane = new JScrollPane(liste);
+
+		// JFrame defination
+		super.setBackground(Color.WHITE);
+		super.setResizable(false);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super.setSize(500, 500);
+		super.setVisible(true);
+		super.setLayout(null);
+
+		
+
+		scrollPane.setBounds(50, 80, 400, 350);
+
+	
+
+		topic.setEditable(false);
+		SimpleAttributeSet set = new SimpleAttributeSet();
+		StyleConstants.setAlignment(set, StyleConstants.ALIGN_LEFT);
+		StyleConstants.setFontFamily(set, "Times New Roman");
+		StyleConstants.setFontSize(set, 30);
+		StyleConstants.setItalic(set, true);
+		StyleConstants.setBold(set, true);
+		topic.setParagraphAttributes(set, true);
+		topic.setBackground(Color.WHITE);
+		topic.setBounds(50, 20, 200, 50);
+		topic.setText("Topic");
+
+		super.add(scrollPane);
+		super.add(topic);
 
 	}
+
 
 	/**
 	 * getPresenter implements ICardListView.getPresenter
@@ -90,6 +166,9 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 	@Override
 	public void updateViewFromModel() {
 	
+		topic.setText(presenter.getModel().getName());
+		
+		this.liste.setListData(presenter.getModel().getCards().toArray());
 	}
 
 	/**
@@ -122,6 +201,5 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 	public void translate() {
 
 	}
-
 
 }
