@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
  * Engineering
@@ -14,12 +16,12 @@ import java.io.ObjectOutputStream;
  */
 public class ProfileManager {
 
-	private Profile profile;
+	private ProfileImpl profile;
 	private static ProfileManager instance;
 
 	public ProfileManager() {
 		super();
-		this.profile = new Profile(); // init with an empty profile
+		this.profile = new ProfileImpl(); // init with an empty profile
 	}
 
 	/**
@@ -29,11 +31,11 @@ public class ProfileManager {
 	 *            // TODO
 	 * @return IProfile // TODO
 	 */
-	public IProfile loadProfile(String path) {
+	public Profile loadProfile(String path) {
 		try {
 			FileInputStream fis = new FileInputStream(path);
 			ObjectInputStream is = new ObjectInputStream(fis);
-			this.profile = (Profile) is.readObject();
+			this.profile = (ProfileImpl) is.readObject();
 			is.close();
 		} catch (Exception ex) {
 			System.out.println("Problem serializing: " + ex);
@@ -80,8 +82,8 @@ public class ProfileManager {
 	 * 
 	 * @return IProfile // TODO
 	 */
-	public IProfile createProfile() {
-		return this.profile = new Profile();
+	public Profile createProfile() {
+		return this.profile = new ProfileImpl();
 	}
 
 	/**
@@ -89,7 +91,7 @@ public class ProfileManager {
 	 * 
 	 * @return IProfile // TODO
 	 */
-	public IProfile getProfile() {
+	public Profile getProfile() {
 		return this.profile;	
 	}
 

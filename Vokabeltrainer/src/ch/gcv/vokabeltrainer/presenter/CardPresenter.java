@@ -1,12 +1,12 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.application.Application;
-import ch.gcv.vokabeltrainer.model.Card;
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.Presentable;
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.view.CardView;
-import ch.gcv.vokabeltrainer.view.ICardView;
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.CardView;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
+import ch.gcv.vokabeltrainer.model.CardImpl;
+import ch.gcv.vokabeltrainer.view.CardViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -17,13 +17,13 @@ import ch.gcv.vokabeltrainer.view.ICardView;
  */
 public class CardPresenter implements ICardPresenter, Presentable{
 
-	private ICardView view;
-	private ICard model;
+	private CardView view;
+	private Card model;
 	private Presentable onCheckCard;
 
 	public CardPresenter() {
 		super();
-		this.view = new CardView();
+		this.view = new CardViewImpl();
 
 	}
 
@@ -33,7 +33,7 @@ public class CardPresenter implements ICardPresenter, Presentable{
 	 * @return ICard // TODO
 	 */
 	@Override
-	public ICard getModel() {
+	public Card getModel() {
 		return this.model;
 	}
 
@@ -45,7 +45,7 @@ public class CardPresenter implements ICardPresenter, Presentable{
 	 * 
 	 */
 	@Override
-	public void setModel(ICard model) {
+	public void setModel(Card model) {
 		this.model = model;
 	}
 
@@ -55,7 +55,7 @@ public class CardPresenter implements ICardPresenter, Presentable{
 	 * @return ICardView // TODO
 	 */
 	@Override
-	public ICardView getView() {
+	public CardView getView() {
 		return this.view;
 	}
 
@@ -67,7 +67,7 @@ public class CardPresenter implements ICardPresenter, Presentable{
 	 * 
 	 */
 	@Override
-	public void setView(ICardView view) {
+	public void setView(CardView view) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -85,7 +85,7 @@ public class CardPresenter implements ICardPresenter, Presentable{
 			this.view.answerWrong();
 		}
 		
-		Card nextCard = null;
+		CardImpl nextCard = null;
 		int boxToCheck = curBox;
 		while (nextCard == null){
 			nextCard = this.model.getTopic().getRandomCard(boxToCheck);

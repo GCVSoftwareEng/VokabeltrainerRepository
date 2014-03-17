@@ -1,6 +1,6 @@
-package ch.gcv.vokabeltrainer.view;
+package ch.gcv.vokabeltrainer.interfaces;
 
-import ch.gcv.vokabeltrainer.presenter.ITopicCardListPresenter;
+import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
 /**
  * GCV Software Engineering
@@ -10,10 +10,10 @@ import ch.gcv.vokabeltrainer.presenter.ITopicCardListPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface ITopicCardListView {
+public interface CardEditView {
  
-	public ITopicCardListPresenter getPresenter();
-	public void setPresenter(ITopicCardListPresenter presenter);
+	public ICardCreatePresenter getPresenter();
+	public void setPresenter(ICardCreatePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();

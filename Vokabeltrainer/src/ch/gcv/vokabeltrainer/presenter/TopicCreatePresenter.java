@@ -1,13 +1,13 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.model.IProfile;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.view.ITopicEditView;
-import ch.gcv.vokabeltrainer.view.TopicEditView;
+import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
 
 
 /**
@@ -21,9 +21,9 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
 public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable {
 
     private Presentable onConfirm;
-    private ITopic model;
+    private Topic model;
     private Presentable onCancel;
-    private ITopicEditView view;
+    private TopicEditView view;
     
 
 	public TopicCreatePresenter(){
@@ -31,7 +31,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = new TopicEditView();
+		this.view = new TopicEditViewImpl();
 		
 	}
  
@@ -42,7 +42,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 	 * @return ITopic  // TODO
 	 */
 	@Override
-	public ITopic getModel() {
+	public Topic getModel() {
 		return this.model;
     }
 
@@ -52,7 +52,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 	 *
 	 */
 	@Override
-	public void setModel(ITopic topic) {
+	public void setModel(Topic topic) {
 		this.model = topic;
     }
 
@@ -61,7 +61,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 	 * @return ITopicEditView  // TODO
 	 */
 	@Override
-	public ITopicEditView getView() {
+	public TopicEditView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -72,7 +72,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 	 *
 	 */
 	@Override
-	public void setView(ITopicEditView view) {
+	public void setView(TopicEditView view) {
 		this.view = view;
     }
 
@@ -103,7 +103,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable
 	@Override
 	public void confirm() {
 		// TODO should be implemented
-		IProfile profile =  ProfileManager.getInstance().getProfile();
+		Profile profile =  ProfileManager.getInstance().getProfile();
 		profile.addTopic(this.model);	
 		this.onConfirm.run();
 		

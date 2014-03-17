@@ -1,4 +1,4 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.interfaces;
 
 /**
  * GCV Software Engineering
@@ -8,9 +8,9 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface Presentable extends Runnable {
+public interface Translatable {
  
-	public void refresh();
-	
+	public void translate();
+  
 }
  

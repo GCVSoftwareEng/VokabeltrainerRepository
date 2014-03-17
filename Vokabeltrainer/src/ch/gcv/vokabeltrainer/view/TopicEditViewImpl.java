@@ -17,7 +17,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.Translatable;
+import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicCreatePresenter;
 
@@ -28,7 +29,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicCreatePresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicEditView extends javax.swing.JFrame implements ITopicEditView, Translatable {
+public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditView, Translatable {
 
 	private ITopicCreatePresenter presenter;
 
@@ -40,7 +41,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	private JTextPane topic;
 
-	public TopicEditView() {
+	public TopicEditViewImpl() {
 		super("TopicEditView");
 		this.initComponents();
 	}

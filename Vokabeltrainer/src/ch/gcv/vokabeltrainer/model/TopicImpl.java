@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Random;
 
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
  * Engineering
@@ -13,17 +16,17 @@ import java.util.Random;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Topic implements ITopic, Serializable {
+public class TopicImpl implements Topic, Serializable {
 
 	private static final long serialVersionUID = 1211L;
-	private ArrayList<Card> cards;
+	private ArrayList<CardImpl> cards;
 	private int statisticMinutesLearned;
 	private Date statisticDateCreated;
 	private String name;
 
-	public Topic() {
+	public TopicImpl() {
 		super();
-		this.cards = new ArrayList<Card>();
+		this.cards = new ArrayList<CardImpl>();
 		this.statisticMinutesLearned = 0; // TODO
 		this.statisticDateCreated = null; // TODO
 		this.name = ""; // TODO
@@ -39,9 +42,9 @@ public class Topic implements ITopic, Serializable {
 	 * @return boolean true or false, if it has worked
 	 */
 	@Override
-	public boolean addCard(ICard card) {
+	public boolean addCard(Card card) {
 		try {
-			cards.add((Card) card); // Cast to card
+			cards.add((CardImpl) card); // Cast to card
 			System.out.println("Add card OK");
 			return true;
 
@@ -60,9 +63,9 @@ public class Topic implements ITopic, Serializable {
 	 * @return Card // TODO
 	 */
 	@Override
-	public Card getRandomCard(int box) {
-		Card theCard = null;
-		ArrayList<Card> cardsForBox = new ArrayList<Card>();
+	public CardImpl getRandomCard(int box) {
+		CardImpl theCard = null;
+		ArrayList<CardImpl> cardsForBox = new ArrayList<CardImpl>();
 		cardsForBox = getCards(box);
 		if (cardsForBox.size() > 0) {
 			Random random = new Random();
@@ -90,10 +93,10 @@ public class Topic implements ITopic, Serializable {
 	 * @return boolean true or false if it has deleted
 	 */
 	@Override
-	public boolean deleteCard(Card card) {
-		Iterator<Card> it = cards.iterator();
+	public boolean deleteCard(CardImpl card) {
+		Iterator<CardImpl> it = cards.iterator();
 		while (it.hasNext()) {
-			Card theCard = it.next();
+			CardImpl theCard = it.next();
 			if (theCard == card) {
 				it.remove();
 				return true;
@@ -137,7 +140,7 @@ public class Topic implements ITopic, Serializable {
 	 * @return ArrayList<Card> // TODO
 	 */
 	@Override
-	public ArrayList<Card> getCards() {
+	public ArrayList<CardImpl> getCards() {
 		return this.cards;
 	}
 
@@ -149,9 +152,9 @@ public class Topic implements ITopic, Serializable {
 	 * @return ArrayList<Card> // TODO
 	 */
 	@Override
-	public ArrayList<Card> getCards(int box) {
-		ArrayList<Card> tempCards = new ArrayList<Card>();
-		for (Card curCard : cards) {
+	public ArrayList<CardImpl> getCards(int box) {
+		ArrayList<CardImpl> tempCards = new ArrayList<CardImpl>();
+		for (CardImpl curCard : cards) {
 			if (curCard.getBox() == box) {
 				tempCards.add(curCard);
 			}

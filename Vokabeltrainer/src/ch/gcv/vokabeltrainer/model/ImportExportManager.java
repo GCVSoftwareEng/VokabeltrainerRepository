@@ -1,5 +1,7 @@
 package ch.gcv.vokabeltrainer.model;
 
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+
 
 /**
  * GCV Software Engineering
@@ -25,7 +27,7 @@ public class ImportExportManager   {
 	 * @param path // TODO 
 	 *
 	 */
-	public void exportTopic(ITopic topic,String path) {
+	public void exportTopic(Topic topic,String path) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

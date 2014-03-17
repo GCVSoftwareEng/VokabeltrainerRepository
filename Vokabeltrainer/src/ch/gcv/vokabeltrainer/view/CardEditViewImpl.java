@@ -16,7 +16,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.Translatable;
+import ch.gcv.vokabeltrainer.interfaces.CardEditView;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
@@ -27,7 +28,7 @@ import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditView extends javax.swing.JFrame implements ICardEditView, Translatable {
+public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView, Translatable {
 
 	private ICardCreatePresenter presenter;
 
@@ -45,7 +46,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, T
 	private JTextField questionWord;
 
 	
-	public CardEditView() {
+	public CardEditViewImpl() {
 		super("CardEditView");
 		initComponents();		
 	}

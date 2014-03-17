@@ -2,17 +2,17 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import java.util.ArrayList;
 
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.IProfile;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.model.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.CardEditView;
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.view.CardEditView;
+import ch.gcv.vokabeltrainer.view.CardEditViewImpl;
 import ch.gcv.vokabeltrainer.view.TopicCardListView;
-import ch.gcv.vokabeltrainer.view.ICardEditView;
-import ch.gcv.vokabeltrainer.view.ITopicCardListView;
-import ch.gcv.vokabeltrainer.view.TopicEditView;
+import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -24,9 +24,9 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
 public class TopicCardListPresenter implements Presentable, ITopicCardListPresenter {
 
 	private Presentable onConfirm;
-	private ITopicCardListView view;
+	private TopicCardListView view;
 	private Presentable onCancel;
-	private ITopic model;
+	private Topic model;
 
 	public TopicCardListPresenter() {
 		super();
@@ -54,7 +54,7 @@ public class TopicCardListPresenter implements Presentable, ITopicCardListPresen
 	 * @return ICard // TODO
 	 */
 	@Override
-	public ITopic getModel() {
+	public Topic getModel() {
 		
 		return this.model;
 	}
@@ -67,7 +67,7 @@ public class TopicCardListPresenter implements Presentable, ITopicCardListPresen
 	 * 
 	 */
 	@Override
-	public void setModel(ITopic model) {
+	public void setModel(Topic model) {
 		this.model = model;
 	}
 
@@ -77,7 +77,7 @@ public class TopicCardListPresenter implements Presentable, ITopicCardListPresen
 	 * @return ICardEditView // TODO
 	 */
 	@Override
-	public ITopicCardListView getView() {
+	public TopicCardListView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -90,18 +90,18 @@ public class TopicCardListPresenter implements Presentable, ITopicCardListPresen
 	 * 
 	 */
 	@Override
-	public void setView(ITopicCardListView view) {
+	public void setView(TopicCardListView view) {
 		this.view = view;
 	}
 
 	@Override
-	public boolean deleteCard(ICard card) {
+	public boolean deleteCard(Card card) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean editCard(ICard card) {
+	public boolean editCard(Card card) {
 		// TODO Auto-generated method stub
 		return false;
 	}

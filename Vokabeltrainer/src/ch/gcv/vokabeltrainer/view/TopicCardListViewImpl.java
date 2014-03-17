@@ -19,11 +19,13 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.interfaces.ICard;
+import ch.gcv.vokabeltrainer.interfaces.ITopic;
+import ch.gcv.vokabeltrainer.interfaces.ITopicCardListView;
+import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.Topic;
-import ch.gcv.vokabeltrainer.model.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicCardListPresenter;
 import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
@@ -37,7 +39,7 @@ import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCardListView extends javax.swing.JFrame implements ITopicCardListView,
+public class TopicCardListViewImpl extends javax.swing.JFrame implements TopicCardListView,
 		Translatable {
 
 	private ITopicCardListPresenter presenter;
@@ -48,7 +50,7 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 	private JButton delete;
 
 	// private JPanel cardPanel;
-	public TopicCardListView() {
+	public TopicCardListViewImpl() {
 		super("CardListView");
 		this.initComponents();
 	}

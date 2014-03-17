@@ -3,7 +3,7 @@ package ch.gcv.vokabeltrainer.application;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ProfilePresenter;
-import ch.gcv.vokabeltrainer.view.ProfileView;
+import ch.gcv.vokabeltrainer.view.ProfileViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -35,7 +35,7 @@ public class Application {
 		
 		// setup and run the profile presenter
 		ProfilePresenter ps = new ProfilePresenter();
-		ProfileView pv = new ProfileView();
+		ProfileViewImpl pv = new ProfileViewImpl();
 		ps.setModel(pm.getProfile());
 		ps.setView(pv);
 		ps.run();

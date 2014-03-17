@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.Serializable;
 
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
  * Engineering
@@ -11,15 +14,15 @@ import java.io.Serializable;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Profile implements IProfile, Serializable{
+public class ProfileImpl implements Profile, Serializable{
 
 
 	private static final long serialVersionUID = 133L;
-	private HashMap<String, ITopic> topics; // CHF
+	private HashMap<String, Topic> topics; // CHF
 
-	public Profile() {
+	public ProfileImpl() {
 		super();
-		this.topics = new HashMap<String, ITopic>(); // CHF
+		this.topics = new HashMap<String, Topic>(); // CHF
 	}
 
 	/**
@@ -30,7 +33,7 @@ public class Profile implements IProfile, Serializable{
 	 * 
 	 */
 	@Override
-	public ITopic addTopic(ITopic topic) {
+	public Topic addTopic(Topic topic) {
 		return topics.put(topic.getName(), topic); // CHF
 
 	}
@@ -44,7 +47,7 @@ public class Profile implements IProfile, Serializable{
 	 */
 
 	@Override
-	public ITopic deleteTopic(ITopic topic) {
+	public Topic deleteTopic(Topic topic) {
 		return this.topics.remove(topic.getName()); // CHF
 
 	}
@@ -56,10 +59,10 @@ public class Profile implements IProfile, Serializable{
 	 * @return ArrayList<ITopic> 
 	 */
 	@Override
-	public ArrayList<ITopic> getTopics() {
-		ArrayList<ITopic> temp = new ArrayList<ITopic>();
+	public ArrayList<Topic> getTopics() {
+		ArrayList<Topic> temp = new ArrayList<Topic>();
 		
-		for (ITopic iTopic : this.topics.values()) {
+		for (Topic iTopic : this.topics.values()) {
 			temp.add(iTopic);
 		}
 		
@@ -74,7 +77,7 @@ public class Profile implements IProfile, Serializable{
 	 * @return ITopic return the requested topic
 	 */
 	@Override
-	public ITopic getTopic(String name) {
+	public Topic getTopic(String name) {
 		return this.topics.get(name);  // CHF
 		
 	}

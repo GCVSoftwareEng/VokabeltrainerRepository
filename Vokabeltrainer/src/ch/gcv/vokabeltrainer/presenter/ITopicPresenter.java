@@ -1,9 +1,9 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Presentable;
-import ch.gcv.vokabeltrainer.view.ITopicView;
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.TopicView;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
 
 /**
  * GCV Software Engineering
@@ -15,19 +15,19 @@ import ch.gcv.vokabeltrainer.view.ITopicView;
  */
 public interface ITopicPresenter {
  
-	public ITopic getModel();
-	public void setModel(ITopic model);
-	public ITopicView getView();
-	public void setView(ITopicView view);
+	public Topic getModel();
+	public void setModel(Topic model);
+	public TopicView getView();
+	public void setView(TopicView view);
 	public void setOnCreateCard(Presentable onCreateCard);
 	public void setOnOpenCard(Presentable onOpenCard);
 	public void setOnDeleteCard(Presentable onDeleteCard);
 	public void createCard();
-	public void openCard(ICard card);
+	public void openCard(Card card);
 	public void deleteCard();
 	public void learnTopic();
-	void learnTopic(ITopic topic); //CHF
-	void learnTopic(ICard card); //CHF
+	void learnTopic(Topic topic); //CHF
+	void learnTopic(Card card); //CHF
 	
   
 }

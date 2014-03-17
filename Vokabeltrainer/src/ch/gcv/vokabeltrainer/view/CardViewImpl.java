@@ -16,9 +16,10 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.model.Topic;
+import ch.gcv.vokabeltrainer.interfaces.CardView;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
+import ch.gcv.vokabeltrainer.model.TopicImpl;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
 import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
@@ -31,7 +32,7 @@ import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardView extends javax.swing.JFrame implements ICardView,
+public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		Translatable {
 
 	private ICardPresenter presenter;
@@ -52,7 +53,7 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 
 	// private JPanel cardPanel;
 
-	public CardView() {
+	public CardViewImpl() {
 		super("CardView");
 		this.initComponents();
 	}

@@ -1,11 +1,11 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.IProfile;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.ProfileView;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.model.Topic;
-import ch.gcv.vokabeltrainer.view.IProfileView;
+import ch.gcv.vokabeltrainer.model.TopicImpl;
 
 
 /**
@@ -21,8 +21,8 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 
 
     private Presentable onOpenTopic;
-    private IProfileView view;
-    private IProfile model;
+    private ProfileView view;
+    private Profile model;
     private Presentable onCreateTopic;
     private Presentable onDeleteTopic;
     
@@ -37,7 +37,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 * @return IProfile  // TODO
 	 */
 	@Override
-	public IProfile getModel() {
+	public Profile getModel() {
 		return this.model;
     }
 
@@ -47,7 +47,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void setModel(IProfile model) {
+	public void setModel(Profile model) {
 		this.model = model;
     }
 
@@ -56,7 +56,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 * @return IProfileView  // TODO
 	 */
 	@Override
-	public IProfileView getView() {
+	public ProfileView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -67,7 +67,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void setView(IProfileView view) {
+	public void setView(ProfileView view) {
 		this.view = view;
     }
 
@@ -111,7 +111,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	public void createTopic() {
 		TopicCreatePresenter tep = new TopicCreatePresenter();
 		tep.setOnConfirm(this);
-		tep.setModel(new Topic());
+		tep.setModel(new TopicImpl());
 		tep.run();
     }
 	
@@ -141,7 +141,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void openTopic(ITopic topic) {
+	public void openTopic(Topic topic) {
 		TopicPresenter tp = new TopicPresenter();
 		tp.setModel(topic);
 		tp.run();
@@ -153,7 +153,7 @@ public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void deleteTopic(ITopic topic) {
+	public void deleteTopic(Topic topic) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }

@@ -1,14 +1,14 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.IProfile;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.model.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.CardEditView;
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.view.CardEditView;
-import ch.gcv.vokabeltrainer.view.ICardEditView;
-import ch.gcv.vokabeltrainer.view.TopicEditView;
+import ch.gcv.vokabeltrainer.view.CardEditViewImpl;
+import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -20,16 +20,16 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
 public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 
 	private Presentable onConfirm;
-	private ICardEditView view;
+	private CardEditView view;
 	private Presentable onCancel;
-	private ICard model;
+	private Card model;
 
 	public CardCreatePresenter() {
 		super();
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = new CardEditView();
+		this.view = new CardEditViewImpl();
 
 	}
 
@@ -50,7 +50,7 @@ public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 	 * @return ICard // TODO
 	 */
 	@Override
-	public ICard getModel() {
+	public Card getModel() {
 		
 		return this.model;
 	}
@@ -63,7 +63,7 @@ public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 	 * 
 	 */
 	@Override
-	public void setModel(ICard model) {
+	public void setModel(Card model) {
 		this.model = model;
 	}
 
@@ -73,7 +73,7 @@ public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 	 * @return ICardEditView // TODO
 	 */
 	@Override
-	public ICardEditView getView() {
+	public CardEditView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -86,7 +86,7 @@ public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 	 * 
 	 */
 	@Override
-	public void setView(ICardEditView view) {
+	public void setView(CardEditView view) {
 		this.view = view;
 	}
 

@@ -1,9 +1,9 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.IProfile;
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Presentable;
-import ch.gcv.vokabeltrainer.view.IProfileView;
+import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.ProfileView;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
 
 /**
  * GCV Software Engineering
@@ -15,18 +15,18 @@ import ch.gcv.vokabeltrainer.view.IProfileView;
  */
 public interface IProfilePresenter {
  
-	public IProfile getModel();
-	public void setModel(IProfile model);
-	public IProfileView getView();
-	public void setView(IProfileView view);
+	public Profile getModel();
+	public void setModel(Profile model);
+	public ProfileView getView();
+	public void setView(ProfileView view);
 	public void setOnCreateTopic(Presentable onCreateTopic);
 	public void setOnOpenTopic(Presentable onOpenTopic);
 	public void setOnDeleteTopic();
 	public void createTopic();
 	public void saveProfile(String path);
 	public void loadProfile(String path);
-	public void openTopic(ITopic topic);
-	public void deleteTopic(ITopic topic);
+	public void openTopic(Topic topic);
+	public void deleteTopic(Topic topic);
 	public void createNewProfile();
   
 }

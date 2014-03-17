@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import ch.gcv.vokabeltrainer.application.Application;
+import ch.gcv.vokabeltrainer.interfaces.Card;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -12,7 +13,7 @@ import ch.gcv.vokabeltrainer.application.Application;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class Card implements ICard {
+public class CardImpl implements Card {
 
 	private int statisticCountWrong;
 	private long statisticDateCreated;
@@ -21,12 +22,12 @@ public class Card implements ICard {
 	private int statisticCountRight;
 	private int box;
 	private String answer;
-	private Topic topic;
+	private TopicImpl topic;
 	private String name;
 
 	String myAnswer;
 
-	public Card() {
+	public CardImpl() {
 		super();
 		this.statisticDateCreated = new java.util.Date().getTime();
 
@@ -192,7 +193,7 @@ public class Card implements ICard {
 	 * @return Topic // TODO
 	 */
 	@Override
-	public Topic getTopic() {
+	public TopicImpl getTopic() {
 		return this.topic;
 	}
 
@@ -223,7 +224,7 @@ public class Card implements ICard {
 	}
 
 	@Override
-	public void setTopic(Topic topic) {
+	public void setTopic(TopicImpl topic) {
 		this.topic = topic;
 
 	}

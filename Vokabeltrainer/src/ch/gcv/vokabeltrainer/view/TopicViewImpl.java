@@ -16,7 +16,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.Translatable;
+import ch.gcv.vokabeltrainer.interfaces.TopicView;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
 
@@ -27,7 +28,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicView extends JFrame implements ITopicView, Translatable {
+public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 
 	private ITopicPresenter presenter;
 
@@ -61,7 +62,7 @@ public class TopicView extends JFrame implements ITopicView, Translatable {
 
 	private String noCardsInBox;
 
-	public TopicView() {
+	public TopicViewImpl() {
 		super("TopicView");
 		this.initComponents();
 	}

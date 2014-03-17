@@ -19,8 +19,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.Translatable;
+import ch.gcv.vokabeltrainer.interfaces.ProfileView;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
@@ -33,7 +34,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfileView extends javax.swing.JFrame implements IProfileView,
+public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		Translatable {
 
 	private IProfilePresenter presenter;
@@ -53,7 +54,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	private JTextPane topic;
 	private JScrollPane scrollPane;
 
-	public ProfileView() {
+	public ProfileViewImpl() {
 		super("ProfileView");
 		this.initComponents();
 	}
@@ -128,7 +129,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount() == 2){
 					String name = liste.getSelectedValue().toString();
-					ITopic topic = getPresenter().getModel().getTopic(name);
+					Topic topic = getPresenter().getModel().getTopic(name);
 					getPresenter().openTopic(topic);
 				}
 			}
@@ -365,7 +366,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		String name = liste.getSelectedValue().toString();
-		ITopic topic = getPresenter().getModel().getTopic(name);
+		Topic topic = getPresenter().getModel().getTopic(name);
 		getPresenter().deleteTopic(topic);
 		
 	}

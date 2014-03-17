@@ -1,4 +1,6 @@
-package ch.gcv.vokabeltrainer.model;
+package ch.gcv.vokabeltrainer.interfaces;
+
+import ch.gcv.vokabeltrainer.model.TopicImpl;
 
 /**
  * GCV Software Engineering
@@ -8,7 +10,7 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface ICard {
+public interface Card {
  
 	public void setQuestion(String question);
 	public void setAnswer(String answer);
@@ -21,8 +23,8 @@ public interface ICard {
 	public void setBox(int box);
 	public void moveUp();
 	public int getBox();
-	public void setTopic(Topic topic);
-	public Topic getTopic();
+	public void setTopic(TopicImpl topic);
+	public TopicImpl getTopic();
 	public boolean check(String answer);
 	public void setName(String text);
 

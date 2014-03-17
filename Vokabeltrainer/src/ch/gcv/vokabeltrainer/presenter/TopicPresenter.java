@@ -1,14 +1,14 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.model.Card;
-import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.Presentable;
-import ch.gcv.vokabeltrainer.model.Translatable;
-import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.TopicView;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.interfaces.Translatable;
+import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.model.Topic;
-import ch.gcv.vokabeltrainer.view.ITopicView;
-import ch.gcv.vokabeltrainer.view.TopicView;
+import ch.gcv.vokabeltrainer.model.TopicImpl;
+import ch.gcv.vokabeltrainer.view.TopicViewImpl;
 
 
 /**
@@ -24,13 +24,13 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
     private Presentable onDeleteCard;
     private Presentable onOpenCard;
     private Presentable onCreateCard;
-    private ITopicView view;
-    private ITopic model;
+    private TopicView view;
+    private Topic model;
     
 
 	public TopicPresenter(){
 		super();
-		this.view = new TopicView();
+		this.view = new TopicViewImpl();
 	}
  
 
@@ -39,7 +39,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 * @return ITopic  // TODO
 	 */
 	@Override
-	public ITopic getModel() {
+	public Topic getModel() {
 		return this.model;
     }
 
@@ -49,7 +49,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void setModel(ITopic model) {
+	public void setModel(Topic model) {
 		this.model = model;
     }
 
@@ -58,7 +58,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 * @return ITopicView  // TODO
 	 */
 	@Override
-	public ITopicView getView() {
+	public TopicView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -69,7 +69,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void setView(ITopicView view) {
+	public void setView(TopicView view) {
 		
 		this.view = view;
     }
@@ -116,8 +116,8 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 		CardCreatePresenter ccp = new CardCreatePresenter();
 		ccp.setOnConfirm(this);
 		
-		ICard card = new Card();
-		card.setTopic((Topic) this.model);
+		Card card = new CardImpl();
+		card.setTopic((TopicImpl) this.model);
 		ccp.setModel(card);
 		ccp.setOnConfirm(this);
 		ccp.run();
@@ -131,7 +131,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void openCard(ICard card) {
+	public void openCard(Card card) {
 		
 		CardPresenter cp = new CardPresenter();
 		cp.setModel(card);
@@ -154,7 +154,7 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void learnTopic(ICard card) {
+	public void learnTopic(Card card) {
 		
     }
 
@@ -181,9 +181,9 @@ public class TopicPresenter  implements ITopicPresenter, Presentable {
 
 
 	@Override
-	public void learnTopic(ITopic topic) {    //CHF
+	public void learnTopic(Topic topic) {    //CHF
 		CardPresenter tep = new CardPresenter();
-		tep.setModel((ICard) topic);
+		tep.setModel((Card) topic);
 		
 		
 	}
