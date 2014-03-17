@@ -4,7 +4,7 @@ import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.Presentable;
-import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Translatable;
 import ch.gcv.vokabeltrainer.view.CardView;
 import ch.gcv.vokabeltrainer.view.ICardView;
 

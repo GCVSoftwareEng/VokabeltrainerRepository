@@ -23,6 +23,7 @@ import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.Topic;
+import ch.gcv.vokabeltrainer.model.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ITopicCardListPresenter;
 import ch.gcv.vokabeltrainer.presenter.ICardPresenter;
@@ -37,7 +38,7 @@ import ch.gcv.vokabeltrainer.presenter.TopicPresenter;
  * @version 1.0
  */
 public class TopicCardListView extends javax.swing.JFrame implements ITopicCardListView,
-		ITranslatable {
+		Translatable {
 
 	private ITopicCardListPresenter presenter;
 

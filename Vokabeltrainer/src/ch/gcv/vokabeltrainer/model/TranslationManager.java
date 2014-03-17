@@ -21,13 +21,13 @@ public class TranslationManager {
 
 	private static final String defaultLanguage = "en";
 	private static TranslationManager instance;
-	private ArrayList<ITranslatable> languageChangedListeners;
+	private ArrayList<Translatable> languageChangedListeners;
 	private ArrayList<String> languages;
 	private ResourceBundle bundle; // CHF ADD
 
 	public TranslationManager() {
 		super();
-		this.languageChangedListeners = new ArrayList<ITranslatable>();
+		this.languageChangedListeners = new ArrayList<Translatable>();
 		this.languages = new ArrayList<String>();
 		// TODO load available languages
 		this.languages.add("de");
@@ -43,7 +43,7 @@ public class TranslationManager {
 	 * 
 	 */
 	private void languageChanged() {
-		for (ITranslatable translatable : this.languageChangedListeners) {
+		for (Translatable translatable : this.languageChangedListeners) {
 			translatable.translate();
 		}
 	}
@@ -113,7 +113,7 @@ public class TranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	public boolean addListener(ITranslatable listener) {
+	public boolean addListener(Translatable listener) {
 		return this.languageChangedListeners.add(listener);
 	}
 
@@ -124,12 +124,12 @@ public class TranslationManager {
 	 *            // TODO
 	 * @return boolean // TODO
 	 */
-	public boolean removeListener(ITranslatable listener) {
+	public boolean removeListener(Translatable listener) {
 
-		Iterator<ITranslatable> it = languageChangedListeners
+		Iterator<Translatable> it = languageChangedListeners
 				.iterator();
 		while (it.hasNext()) {
-			ITranslatable langListener = it.next();
+			Translatable langListener = it.next();
 			if (listener == langListener) {
 				it.remove();
 				return true;

@@ -20,7 +20,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.model.ITopic;
-import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Translatable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.IProfilePresenter;
@@ -34,7 +34,7 @@ import ch.gcv.vokabeltrainer.presenter.ITopicPresenter;
  * @version 1.0
  */
 public class ProfileView extends javax.swing.JFrame implements IProfileView,
-		ITranslatable {
+		Translatable {
 
 	private IProfilePresenter presenter;
 

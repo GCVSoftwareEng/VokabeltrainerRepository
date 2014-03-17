@@ -16,7 +16,7 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
 
@@ -27,7 +27,7 @@ import ch.gcv.vokabeltrainer.presenter.ICardCreatePresenter;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditView extends javax.swing.JFrame implements ICardEditView, ITranslatable {
+public class CardEditView extends javax.swing.JFrame implements ICardEditView, Translatable {
 
 	private ICardCreatePresenter presenter;
 

@@ -8,7 +8,7 @@ package ch.gcv.vokabeltrainer.model;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface ITranslatable {
+public interface Translatable {
  
 	public void translate();
   
