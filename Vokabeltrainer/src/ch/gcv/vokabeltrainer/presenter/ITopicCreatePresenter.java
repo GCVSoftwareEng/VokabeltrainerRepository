@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.view.ITopicEditView;
 
 /**
@@ -17,8 +18,8 @@ public interface ITopicCreatePresenter {
 	public void setModel(ITopic topic);
 	public ITopicEditView getView();
 	public void setView(ITopicEditView view);
-	public void setOnConfirm(Runnable onConfirm);
-	public void setOnCancel(Runnable onCancel);
+	public void setOnConfirm(Presentable onConfirm);
+	public void setOnCancel(Presentable onCancel);
 	public void confirm();
 	public void cancel();
   

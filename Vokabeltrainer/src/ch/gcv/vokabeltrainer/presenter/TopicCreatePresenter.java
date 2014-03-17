@@ -4,6 +4,7 @@ package ch.gcv.vokabeltrainer.presenter;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.ITopicEditView;
 import ch.gcv.vokabeltrainer.view.TopicEditView;
@@ -17,11 +18,11 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.Runnable {
+public class TopicCreatePresenter  implements ITopicCreatePresenter, Presentable {
 
-    private Runnable onConfirm;
+    private Presentable onConfirm;
     private ITopic model;
-    private Runnable onCancel;
+    private Presentable onCancel;
     private ITopicEditView view;
     
 
@@ -81,7 +82,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.R
 	 *
 	 */
 	@Override
-	public void setOnConfirm(Runnable onConfirm) {
+	public void setOnConfirm(Presentable onConfirm) {
 		this.onConfirm = onConfirm;
     }
 
@@ -91,7 +92,7 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.R
 	 *
 	 */
 	@Override
-	public void setOnCancel(Runnable onCancel) {
+	public void setOnCancel(Presentable onCancel) {
 		this.onCancel = onCancel;
     }
 
@@ -129,6 +130,13 @@ public class TopicCreatePresenter  implements ITopicCreatePresenter, java.lang.R
 		  view.updateViewFromModel();
     }
 
+
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

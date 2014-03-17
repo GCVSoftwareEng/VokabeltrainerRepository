@@ -2,7 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.IPresentable;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
@@ -19,11 +19,11 @@ import ch.gcv.vokabeltrainer.view.TopicView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicPresenter  implements ITopicPresenter, IPresentable {
+public class TopicPresenter  implements ITopicPresenter, Presentable {
 
-    private Runnable onDeleteCard;
-    private Runnable onOpenCard;
-    private Runnable onCreateCard;
+    private Presentable onDeleteCard;
+    private Presentable onOpenCard;
+    private Presentable onCreateCard;
     private ITopicView view;
     private ITopic model;
     
@@ -80,7 +80,7 @@ public class TopicPresenter  implements ITopicPresenter, IPresentable {
 	 *
 	 */
 	@Override
-	public void setOnCreateCard(Runnable onCreateCard) {
+	public void setOnCreateCard(Presentable onCreateCard) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -91,7 +91,7 @@ public class TopicPresenter  implements ITopicPresenter, IPresentable {
 	 *
 	 */
 	@Override
-	public void setOnOpenCard(Runnable onOpenCard) {
+	public void setOnOpenCard(Presentable onOpenCard) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -102,7 +102,7 @@ public class TopicPresenter  implements ITopicPresenter, IPresentable {
 	 *
 	 */
 	@Override
-	public void setOnDeleteCard(Runnable onDeleteCard) {
+	public void setOnDeleteCard(Presentable onDeleteCard) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -194,6 +194,9 @@ public class TopicPresenter  implements ITopicPresenter, IPresentable {
 		// TODO Auto-generated method stub
 		view.updateViewFromModel();
 	}
+
+
+	
 
 
 

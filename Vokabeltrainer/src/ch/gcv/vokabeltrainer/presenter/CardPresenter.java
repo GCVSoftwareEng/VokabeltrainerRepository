@@ -3,7 +3,7 @@ package ch.gcv.vokabeltrainer.presenter;
 import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.model.Card;
 import ch.gcv.vokabeltrainer.model.ICard;
-import ch.gcv.vokabeltrainer.model.IPresentable;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
 import ch.gcv.vokabeltrainer.view.CardView;
 import ch.gcv.vokabeltrainer.view.ICardView;
@@ -15,11 +15,11 @@ import ch.gcv.vokabeltrainer.view.ICardView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardPresenter implements ICardPresenter, IPresentable{
+public class CardPresenter implements ICardPresenter, Presentable{
 
 	private ICardView view;
 	private ICard model;
-	private IPresentable onCheckCard;
+	private Presentable onCheckCard;
 
 	public CardPresenter() {
 		super();
@@ -122,7 +122,7 @@ public class CardPresenter implements ICardPresenter, IPresentable{
 	}
 
 	@Override
-	public void setOnCheckCard(IPresentable presenter) {
+	public void setOnCheckCard(Presentable presenter) {
 		// TODO Auto-generated method stub
 		this.onCheckCard = presenter;
 	}

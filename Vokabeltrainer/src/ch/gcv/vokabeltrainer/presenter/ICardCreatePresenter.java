@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.view.ICardEditView;
 
 /**
@@ -17,8 +18,8 @@ public interface ICardCreatePresenter {
 	public void setModel(ICard model);
 	public ICardEditView getView();
 	public void setView(ICardEditView view);
-	public void setOnConfirm(Runnable onConfirm);
-	public void setOnCancel(Runnable onCancel);
+	public void setOnConfirm(Presentable onConfirm);
+	public void setOnCancel(Presentable onCancel);
 	public void confirm();
 	public void cancel();
   

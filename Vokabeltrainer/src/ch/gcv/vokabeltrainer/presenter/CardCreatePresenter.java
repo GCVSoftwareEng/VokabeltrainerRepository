@@ -4,6 +4,7 @@ import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.CardEditView;
 import ch.gcv.vokabeltrainer.view.ICardEditView;
@@ -16,11 +17,11 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePresenter {
+public class CardCreatePresenter implements Presentable, ICardCreatePresenter {
 
-	private Runnable onConfirm;
+	private Presentable onConfirm;
 	private ICardEditView view;
-	private Runnable onCancel;
+	private Presentable onCancel;
 	private ICard model;
 
 	public CardCreatePresenter() {
@@ -97,7 +98,7 @@ public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePrese
 	 * 
 	 */
 	@Override
-	public void setOnConfirm(Runnable onConfirm) {
+	public void setOnConfirm(Presentable onConfirm) {
 		this.onConfirm = onConfirm;
 	}
 
@@ -109,7 +110,7 @@ public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePrese
 	 * 
 	 */
 	@Override
-	public void setOnCancel(Runnable onCancel) {
+	public void setOnCancel(Presentable onCancel) {
 		this.onCancel = onCancel;
 	}
 
@@ -131,6 +132,12 @@ public class CardCreatePresenter implements java.lang.Runnable, ICardCreatePrese
 	public void cancel() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
+	}
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

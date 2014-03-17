@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.view.IProfileView;
 
 /**
@@ -18,8 +19,8 @@ public interface IProfilePresenter {
 	public void setModel(IProfile model);
 	public IProfileView getView();
 	public void setView(IProfileView view);
-	public void setOnCreateTopic(Runnable onCreateTopic);
-	public void setOnOpenTopic(Runnable onOpenTopic);
+	public void setOnCreateTopic(Presentable onCreateTopic);
+	public void setOnOpenTopic(Presentable onOpenTopic);
 	public void setOnDeleteTopic();
 	public void createTopic();
 	public void saveProfile(String path);

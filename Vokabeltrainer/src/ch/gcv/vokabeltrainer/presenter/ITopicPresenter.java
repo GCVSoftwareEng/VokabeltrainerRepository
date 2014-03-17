@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.view.ITopicView;
 
 /**
@@ -18,9 +19,9 @@ public interface ITopicPresenter {
 	public void setModel(ITopic model);
 	public ITopicView getView();
 	public void setView(ITopicView view);
-	public void setOnCreateCard(Runnable onCreateCard);
-	public void setOnOpenCard(Runnable onOpenCard);
-	public void setOnDeleteCard(Runnable onDeleteCard);
+	public void setOnCreateCard(Presentable onCreateCard);
+	public void setOnOpenCard(Presentable onOpenCard);
+	public void setOnDeleteCard(Presentable onDeleteCard);
 	public void createCard();
 	public void openCard(ICard card);
 	public void deleteCard();

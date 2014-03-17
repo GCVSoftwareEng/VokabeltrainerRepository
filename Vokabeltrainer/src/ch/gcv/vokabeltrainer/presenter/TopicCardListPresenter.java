@@ -6,6 +6,7 @@ import ch.gcv.vokabeltrainer.model.ICard;
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
 import ch.gcv.vokabeltrainer.model.ITranslatable;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.CardEditView;
 import ch.gcv.vokabeltrainer.view.TopicCardListView;
@@ -20,11 +21,11 @@ import ch.gcv.vokabeltrainer.view.TopicEditView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCardListPresenter implements java.lang.Runnable, ITopicCardListPresenter {
+public class TopicCardListPresenter implements Presentable, ITopicCardListPresenter {
 
-	private Runnable onConfirm;
+	private Presentable onConfirm;
 	private ITopicCardListView view;
-	private Runnable onCancel;
+	private Presentable onCancel;
 	private ITopic model;
 
 	public TopicCardListPresenter() {
@@ -103,6 +104,12 @@ public class TopicCardListPresenter implements java.lang.Runnable, ITopicCardLis
 	public boolean editCard(ICard card) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

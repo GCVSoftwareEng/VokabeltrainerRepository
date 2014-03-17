@@ -2,6 +2,7 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.model.IProfile;
 import ch.gcv.vokabeltrainer.model.ITopic;
+import ch.gcv.vokabeltrainer.model.Presentable;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.Topic;
 import ch.gcv.vokabeltrainer.view.IProfileView;
@@ -15,15 +16,15 @@ import ch.gcv.vokabeltrainer.view.IProfileView;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable {
+public class ProfilePresenter  implements IProfilePresenter, Presentable {
 	
 
 
-    private Runnable onOpenTopic;
+    private Presentable onOpenTopic;
     private IProfileView view;
     private IProfile model;
-    private Runnable onCreateTopic;
-    private Runnable onDeleteTopic;
+    private Presentable onCreateTopic;
+    private Presentable onDeleteTopic;
     
 
 	public ProfilePresenter(){
@@ -76,7 +77,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	 *
 	 */
 	@Override
-	public void setOnCreateTopic(Runnable onCreateTopic) {
+	public void setOnCreateTopic(Presentable onCreateTopic) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -87,7 +88,7 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	 *
 	 */
 	@Override
-	public void setOnOpenTopic(Runnable onOpenTopic) {
+	public void setOnOpenTopic(Presentable onOpenTopic) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -173,6 +174,15 @@ public class ProfilePresenter  implements IProfilePresenter, java.lang.Runnable 
 	public void createNewProfile() {
 		this.model = ProfileManager.getInstance().createProfile();
 	}
+
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 
