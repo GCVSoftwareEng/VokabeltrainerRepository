@@ -39,11 +39,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 	private JButton boxButton4;
 	private JButton boxButton5;
 	private JButton addCard;
-	private JButton editBox1;
-	private JButton editBox2;
-	private JButton editBox3;
-	private JButton editBox4;
-	private JButton editBox5;
+	private JButton editBox;
 
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
@@ -80,7 +76,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
 		
-		super.setSize(500, 400);
+		super.setSize(500, 350);
 		super.setVisible(true);
 		super.setLayout(null);
 
@@ -126,25 +122,10 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 				jButtonCreateCardActionPerformed(evt);
 			}
 		});
-		this.editBox1 = new JButton(new ImageIcon(getClass().getResource(
+		this.editBox = new JButton(new ImageIcon(getClass().getResource(
 				"edit1.png")));
-		this.editBox1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonCreateTopicActionPerformed(evt);
-			}
-		});
+		
 
-		this.editBox2 = new JButton(new ImageIcon(getClass().getResource(
-				"edit1.png")));
-
-		this.editBox3 = new JButton(new ImageIcon(getClass().getResource(
-				"edit1.png")));
-
-		this.editBox4 = new JButton(new ImageIcon(getClass().getResource(
-				"edit1.png")));
-
-		this.editBox5 = new JButton(new ImageIcon(getClass().getResource(
-				"edit1.png")));
 
 		this.topicname = new JTextPane();
 		this.boxLabel1 = new JLabel("Box: 1");
@@ -171,12 +152,9 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		boxButton3.setBounds(215, 225, 70, 70);
 		boxButton4.setBounds(310, 225, 70, 70);
 		boxButton5.setBounds(405, 225, 70, 70);
-		addCard.setBounds(425, 50, 53, 50);
-		editBox1.setBounds(50, 305, 20, 20);
-		editBox2.setBounds(145, 305, 20, 20);
-		editBox3.setBounds(240, 305, 20, 20);
-		editBox4.setBounds(335, 305, 20, 20);
-		editBox5.setBounds(430, 305, 20, 20);
+		addCard.setBounds(425, 60, 31, 30);
+		editBox.setBounds(460, 60, 30, 30);
+		
 
 		// layout definition
 		boxLabel1.setVisible(true);
@@ -289,11 +267,7 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		super.add(cardnummber3);
 		super.add(cardnummber4);
 		super.add(cardnummber5);
-		super.add(editBox1);
-		super.add(editBox2);
-		super.add(editBox3);
-		super.add(editBox4);
-		super.add(editBox5);
+		super.add(editBox);
 
 	}
 
@@ -457,8 +431,5 @@ public class TopicView extends JFrame implements ITopicView, ITranslatable {
 		getPresenter().createCard();
 	}
 
-	private void jButtonEditTopicActionPerformed(java.awt.event.ActionEvent evt) {
-        this.updateModelFromView();
-        this.presenter.confirm();
-    }
+	
 }

@@ -44,6 +44,7 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 	private JList liste;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
+	private JButton delete;
 
 	// private JPanel cardPanel;
 	public TopicCardListView() {
@@ -64,6 +65,7 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount() == 2){
 					String name = liste.getSelectedValue().toString();
+					ICard card = getPresenter().getModel().getCards(); //TODO get card muess card zrugliefere
 					getPresenter().getView().open();
 					
 					
@@ -94,12 +96,19 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 				
 			}
 		});
+		this.delete = new JButton(new ImageIcon(getClass()
+				.getResource("delete.png")));
+
+		this.delete.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonDeleteTopicActionPerformed(evt);
+			}
+		});
 		this.scrollPane = new JScrollPane(liste);
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setSize(500, 500);
 		super.setVisible(true);
 		super.setLayout(null);
@@ -107,6 +116,8 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 		
 
 		scrollPane.setBounds(50, 80, 400, 350);
+		
+		delete.setBounds(440, 20, 30, 30);
 
 	
 
@@ -124,6 +135,7 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 
 		super.add(scrollPane);
 		super.add(topic);
+		super.add(delete);
 
 	}
 
@@ -202,4 +214,11 @@ public class TopicCardListView extends javax.swing.JFrame implements ITopicCardL
 
 	}
 
+	private void jButtonDeleteTopicActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		String name = liste.getSelectedValue().toString();
+		ICard card = getPresenter().getModel().getCards()
+		getPresenter().deleteCard(card);
+		
+	}
 }

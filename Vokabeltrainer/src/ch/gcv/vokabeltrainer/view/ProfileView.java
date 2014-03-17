@@ -44,9 +44,12 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
 	private JMenuItem savePro;
+	private JMenuItem exportCards;
+	private JMenuItem importCards;
 	private JMenuItem exit;
 	private JList liste;
 	private JButton plus;
+	private JButton delete;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
 
@@ -62,27 +65,39 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 	public void initComponents() {
 
 		this.menuBar = new JMenuBar();
-		this.file = new JMenu("File");
+		this.file = new JMenu();
 		this.language = new JMenu("Language", true);
-		this.newPro = new JMenuItem("New Profile");
+		this.newPro = new JMenuItem();
 		this.newPro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemNewProfileActionPerformed(evt);
 			}
 		});
-		this.savePro = new JMenuItem("Save Profile");
+		this.savePro = new JMenuItem();
 		this.savePro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemSaveProfileActionPerformed(evt);
 			}
 		});
-		this.loadPro = new JMenuItem("Load Profile");
+		this.loadPro = new JMenuItem();
 		this.loadPro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemLoadProfileActionPerformed(evt);
 			}
 		});
-		this.exit = new JMenuItem("Exit");
+		this.importCards = new JMenuItem();
+		this.importCards.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemImportProfileActionPerformed(evt);
+			}
+		});
+		this.exportCards = new JMenuItem();
+		this.exportCards.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemExportProfileActionPerformed(evt);
+			}
+		});
+		this.exit = new JMenuItem();
 		this.exit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemExitProfileActionPerformed(evt);
@@ -97,6 +112,15 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 			}
 		});
 
+		this.delete = new JButton(new ImageIcon(getClass()
+				.getResource("delete.png")));
+
+		this.delete.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonDeleteTopicActionPerformed(evt);
+			}
+		});
+		
 		this.topic = new JTextPane();
 		this.liste = new JList();
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {
@@ -151,13 +175,16 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		file.add(newPro);
 		file.add(loadPro);
 		file.add(savePro);
+		file.add(importCards);
+		file.add(exportCards);
 		file.add(exit);
 
 		menuBar.setBackground(Color.LIGHT_GRAY);
 
 		scrollPane.setBounds(50, 80, 400, 350);
 
-		plus.setBounds(400, 10, 51, 50);
+		plus.setBounds(400, 20, 31, 30);
+		delete.setBounds(440, 20, 30, 30);
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -174,6 +201,7 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		super.setJMenuBar(menuBar);
 		super.add(scrollPane);
 		super.add(plus);
+		super.add(delete);
 		super.add(topic);
 
 	}
@@ -334,8 +362,24 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
 	}
 	
+	private void jButtonDeleteTopicActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		String name = liste.getSelectedValue().toString();
+		ITopic topic = getPresenter().getModel().getTopic(name);
+		getPresenter().deleteTopic(topic);
+		
+	}
 
+	private void jMenuItemImportProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
 
+	}
+	
+	private void jMenuItemExportProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
+	}
+	
 	/**
 	 * This method choose the language.
 	 */
@@ -350,6 +394,8 @@ public class ProfileView extends javax.swing.JFrame implements IProfileView,
 		this.loadPro.setText(TranslationManager.getinstance().getText("loadPro"));
 		this.savePro.setText(TranslationManager.getinstance().getText("savePro"));
 		this.exit.setText(TranslationManager.getinstance().getText("exit"));
+		this.importCards.setText(TranslationManager.getinstance().getText("importCard"));
+		this.exportCards.setText(TranslationManager.getinstance().getText("exportCard"));
 	}
 
 }

@@ -96,6 +96,7 @@ public class Card implements ICard {
 		System.out.println("Last lerned: "
 				+ df.format(statisticDateLastLearned) + " "
 				+ dfM.format(statisticDateLastLearned) + " Uhr");
+		
 		return this.statisticDateLastLearned;
 
 	}

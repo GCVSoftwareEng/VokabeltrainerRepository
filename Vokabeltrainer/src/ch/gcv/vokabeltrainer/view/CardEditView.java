@@ -36,6 +36,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 	private JTextPane boxname;
 
 	private JButton addCard;
+	
 
 	private JLabel question;
 	private JLabel answer;
@@ -62,6 +63,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
             	jButtonAddCardActionPerformed(evt);
             }
         });
+		
+		
 		
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
@@ -94,7 +97,7 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		super.setSize(800, 450);
+		super.setSize(800, 380);
 		super.setVisible(true);
 		super.setLayout(null);
 
@@ -124,7 +127,8 @@ public class CardEditView extends javax.swing.JFrame implements ICardEditView, I
 		questionWord.setBounds(170, 150, 575, 50);
 
 		
-		addCard.setBounds(375, 320, 53, 53);
+		addCard.setBounds(755, 260, 31, 30);
+		
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();

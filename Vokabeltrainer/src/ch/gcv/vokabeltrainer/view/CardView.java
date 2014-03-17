@@ -153,18 +153,18 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		// lastlearn label
 		lastLearn.setVisible(true);
 		lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-		lastLearn.setBounds(500, 350, 150, 20);
+		lastLearn.setBounds(550, 320, 150, 20);
 		lastLearn.setOpaque(true);
 
 		// date label
 		date.setVisible(true);
 		date.setFont(date.getFont().deriveFont(10));
-		date.setBounds(650, 350, 80, 20);
+		date.setBounds(710, 320, 80, 20);
 		date.setOpaque(true);
 
 		// buttons
-		next.setBounds(175, 400, 145, 48);
-		check.setBounds(475, 400, 53, 53);
+		next.setBounds(175, 380, 145, 48);
+		check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -255,6 +255,10 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
+		
+		long temp = this.presenter.getModel().getStatisticDateLastLerned();
+		this.date.setText(Long.toString(this.presenter.getModel().getStatisticDateLastLerned()));
+		
 	}
 
 	/**
@@ -337,6 +341,8 @@ public class CardView extends javax.swing.JFrame implements ICardView,
 		this.answer
 				.setText(TranslationManager.getinstance().getText("answer"));
 		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
+		
+		this.lastLearn.setText(TranslationManager.getinstance().getText("lastLearn"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {

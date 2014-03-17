@@ -32,7 +32,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	private ITopicCreatePresenter presenter;
 
-	private JButton back;
+
 	private JButton edit;
 
 	private JTextField topicnameField;
@@ -51,8 +51,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 	 */
 	private void initComponents() {
 
-		this.back = new JButton(new ImageIcon(getClass()
-				.getResource("plus.png")));
+	
 		this.edit = new JButton(new ImageIcon(getClass()
 				.getResource("edit.png")));
 		
@@ -89,7 +88,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		
 		super.setSize(600, 280);
 		super.setLayout(null);
 
@@ -106,7 +104,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		topicnameField.setFont(topicnameField.getFont().deriveFont(20f));
 		topicnameField.setBounds(20, 130, 490, 50);
 
-		back.setBounds(20, 10, 51, 50);
+		
 		edit.setBounds(520, 130, 51, 50);
 
 		topic.setEditable(false);
@@ -118,10 +116,10 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 		StyleConstants.setBold(set, true);
 		topic.setParagraphAttributes(set, true);
 		topic.setBackground(Color.WHITE);
-		topic.setBounds(90, 20, 400, 40);
+		topic.setBounds(10, 20, 400, 40);
 		topic.setText("Topic");
 
-		super.add(back);
+		
 		super.add(edit);
 		super.add(topic);
 		super.add(topicname);
@@ -129,23 +127,7 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 
 	}
 	
-	class ButtonListener implements ActionListener{
-		
-		public void actionPerformed(ActionEvent e){
-			
-			if(e.getSource() == back){
-				ProfileView profileView = new ProfileView();
-				profileView.initComponents();
-				
-			}
-			else if(e.getSource() == edit){
-				String text = topicnameField.getText();
-				topic.setText(text);
-			}
-		}
-
-		}
-
+	
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
 	 * 
@@ -187,9 +169,6 @@ public class TopicEditView extends javax.swing.JFrame implements ITopicEditView,
 	 */
 	@Override
 	public void updateViewFromModel() {
-		// TODO should be implemented
-		// TODO topic.setText();
-		// TODO topicname.setText(text);
 		
 	}
 
