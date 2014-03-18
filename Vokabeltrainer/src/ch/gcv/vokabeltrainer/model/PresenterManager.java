@@ -44,10 +44,15 @@ public class PresenterManager {
 	
 	public void stopAll(){
 		
+		ArrayList<Presentable> temp = new ArrayList<Presentable>();
 		for (Presentable obj : this.presentables) {
 			obj.stop();
+			temp.add(obj);
 		}
 		
+		for (Presentable obj : temp) {
+			this.presentables.remove(obj);
+		}
 	}
 	
 	
