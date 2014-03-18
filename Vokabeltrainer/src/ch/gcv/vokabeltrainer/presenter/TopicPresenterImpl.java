@@ -145,9 +145,9 @@ public class TopicPresenterImpl  implements TopicPresenter, Presentable {
 	 *
 	 */
 	@Override
-	public void deleteCard() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+	public void deleteTopic(Topic topic) {
+		TopicImpl tip = new TopicImpl();
+		this.model = null;
     }
 
     /** 
@@ -194,6 +194,13 @@ public class TopicPresenterImpl  implements TopicPresenter, Presentable {
 	public void refresh() {
 		// TODO Auto-generated method stub
 		view.updateViewFromModel();
+	}
+
+
+	@Override
+	public void deleteCard() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

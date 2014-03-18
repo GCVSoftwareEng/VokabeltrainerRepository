@@ -1,6 +1,7 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.io.Serializable;
+import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -104,6 +105,16 @@ public class TopicImpl implements Topic, Serializable {
 			System.out.println("Card not found, next");
 		}
 		return false;
+	}
+	
+	public boolean deleteCardList(String name){
+		if(name.equals(cards)){
+			
+			cards = null;
+			return true;
+		}
+		return false;
+		
 	}
 
 	/**

@@ -23,7 +23,6 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	private Presentable onOpenTopic;
 	private ProfileView view;
 	private Profile model;
-	private JTextPane topic;
 	private Presentable onCreateTopic;
 	private Presentable onDeleteTopic;
 
@@ -141,13 +140,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 		this.model = ProfileManager.getInstance().loadProfile(path);
 	}
 
-	public void exportTopic(String path) {
-		ImportExportManager.getInstance().exportTopic(topic, path);
-	}
-	
-	public void importProfile(String path){
-		this.topic = ImportExportManager.getInstance().importTopic(path);
-	}
+
 
 	/**
 	 * openTopic implements IProfilePresenter.openTopic
@@ -172,8 +165,9 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 */
 	@Override
 	public void deleteTopic(Topic topic) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		TopicPresenterImpl tp = new TopicPresenterImpl();
+		tp.deleteTopic(topic);
+		
 	}
 
 	/**

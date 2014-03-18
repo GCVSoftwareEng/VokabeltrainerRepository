@@ -127,12 +127,10 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 		this.topic = new JTextPane();
 		this.liste = new JList();
-		
-		
-		
+
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {		
+			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
 					String name = liste.getSelectedValue().toString();
 					Topic topic = getPresenter().getModel().getTopic(name);
@@ -364,6 +362,9 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 			java.awt.event.ActionEvent evt) {
 		getPresenter().createTopic();
 	}
+	
+
+	
 
 	private void jMenuChooseLanguageActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -398,12 +399,10 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 	private void jMenuItemExportProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
-		
-	
+
 		String name = liste.getSelectedValue().toString();
-		if (name != "" && name != null){
-			
-			
+		if (name != "" && name != null) {
+
 			JFileChooser chooser = new JFileChooser();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter(
 					"Vokabeltrainer topic", "topic");
@@ -414,17 +413,13 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 				if (!path.toLowerCase().endsWith(".topic")) {
 					path = path + ".topic";
 				}
-				
-				getPresenter().exportTopic(name,path);
-					
-			
+
+				getPresenter().exportTopic(name, path);
+
 			}
 
-			
-			
 		}
-		
-		
+
 	}
 
 	/**
