@@ -46,6 +46,7 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements TopicCa
 	 */
 	public void initComponents() {
 
+		this.getContentPane().setBackground(Color.WHITE);
 		this.topic = new JTextPane();
 		this.liste = new JList();
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {

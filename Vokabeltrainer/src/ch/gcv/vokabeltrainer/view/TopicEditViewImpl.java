@@ -52,7 +52,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 	 */
 	private void initComponents() {
 
-	
+		this.getContentPane().setBackground(Color.WHITE);
 		this.edit = new JButton(new ImageIcon(getClass()
 				.getResource("edit.png")));
 		

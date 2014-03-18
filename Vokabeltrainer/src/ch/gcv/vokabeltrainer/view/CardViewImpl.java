@@ -67,6 +67,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	private void initComponents() {
 
 		// JFrame defination
+		this.getContentPane().setBackground(Color.WHITE);
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
 		super.setSize(800, 500);

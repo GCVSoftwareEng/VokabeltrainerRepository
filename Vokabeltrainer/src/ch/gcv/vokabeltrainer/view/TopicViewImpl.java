@@ -76,6 +76,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private void initComponents() {
 
 		// JFrame defination
+		this.getContentPane().setBackground(Color.WHITE);
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
 

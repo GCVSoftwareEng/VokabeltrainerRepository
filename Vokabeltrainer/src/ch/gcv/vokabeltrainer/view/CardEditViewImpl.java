@@ -57,6 +57,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 */
 	private void initComponents() {
 
+		this.getContentPane().setBackground(Color.WHITE);
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
 		this.addCard.addActionListener(new java.awt.event.ActionListener() {
