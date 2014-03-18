@@ -75,7 +75,7 @@ public class TranslationManager {
 	public void setLanguage(String language) {
 
 		String baseName = "ch.gcv.vokabeltrainer.model.messages"; //$NON-NLS-1$
-		Locale.setDefault(new Locale(language, language)); //$NON-NLS-1$ //$NON-NLS-2$
+		Locale.setDefault(new Locale(language)); //$NON-NLS-1$ //$NON-NLS-2$
 		try {
 			bundle = ResourceBundle.getBundle(baseName);
 		} catch (MissingResourceException e) {
