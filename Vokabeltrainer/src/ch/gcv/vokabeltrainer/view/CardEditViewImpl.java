@@ -108,13 +108,13 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
 		question.setBounds(15, 150, 150, 50);
-		question.setOpaque(true);
+		question.setBackground(Color.WHITE);
 
 		// answerlabel
 		answer.setVisible(true);
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
-		answer.setOpaque(true);
+		answer.setBackground(Color.WHITE);
 		
 
 		// textfiel
@@ -122,13 +122,13 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
-		answerField.setOpaque(true);
+		answerField.setBackground(Color.WHITE);
 
 		questionWord.setEditable(true);
 		questionWord.setVisible(true);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
-		questionWord.setOpaque(true);
+		questionWord.setBackground(Color.WHITE);
 		
 		addCard.setBounds(755, 260, 31, 30);
 		
@@ -141,7 +141,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		StyleConstants.setItalic(set1, true);
 		StyleConstants.setBold(set1, true);
 		topicname.setParagraphAttributes(set1, true);
-		topicname.setOpaque(true);
+		topicname.setBackground(Color.WHITE);
 		topicname.setBounds(20, 20, 500, 40);
 		
 
@@ -153,7 +153,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		StyleConstants.setItalic(set2, true);
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
-		boxnumber.setOpaque(true);
+		boxnumber.setBackground(Color.WHITE);
 		boxnumber.setBounds(95, 75, 30, 40);
 		boxnumber.setText("1");
 		
@@ -165,7 +165,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		StyleConstants.setItalic(set3, true);
 		StyleConstants.setBold(set3, true);
 		boxname.setParagraphAttributes(set3, true);
-		boxname.setOpaque(true);
+		boxname.setBackground(Color.WHITE);
 		boxname.setBounds(20, 75, 75, 40);
 
 		super.add(topicname);

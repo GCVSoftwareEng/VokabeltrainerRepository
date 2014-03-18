@@ -127,38 +127,38 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
 		question.setBounds(15, 150, 150, 50);
-		question.setOpaque(true);
+		question.setBackground(Color.WHITE);
 
 		// question word
 		questionWord.setVisible(true);
 		questionWord.setEnabled(false);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
-		questionWord.setOpaque(true);
+		questionWord.setBackground(Color.WHITE);
 
 		// answerlabel
 		answer.setVisible(true);
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
-		answer.setOpaque(true);
+		answer.setBackground(Color.WHITE);
 		// textfiel
 		answerField.setEditable(true);
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
-		answerField.setOpaque(true);
+		answerField.setBackground(Color.WHITE);
 
 		// lastlearn label
 		lastLearn.setVisible(true);
 		lastLearn.setFont(lastLearn.getFont().deriveFont(10));
 		lastLearn.setBounds(550, 320, 150, 20);
-		lastLearn.setOpaque(true);
+		lastLearn.setBackground(Color.WHITE);
 
 		// date label
 		date.setVisible(true);
 		date.setFont(date.getFont().deriveFont(10));
 		date.setBounds(710, 320, 80, 20);
-		date.setOpaque(true);
+		date.setBackground(Color.WHITE);
 
 		// buttons
 		check.setBounds(475, 380, 53, 53);
@@ -171,7 +171,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		StyleConstants.setItalic(set1, true);
 		StyleConstants.setBold(set1, true);
 		topicname.setParagraphAttributes(set1, true);
-		topicname.setOpaque(true);
+		topicname.setBackground(Color.WHITE);
 		topicname.setBounds(20, 20, 500, 40);
 
 		boxnumber.setEditable(false);
@@ -182,7 +182,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		StyleConstants.setItalic(set2, true);
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
-		boxnumber.setOpaque(true);
+		boxnumber.setBackground(Color.WHITE);
 		boxnumber.setBounds(95, 75, 30, 40);
 
 		boxname.setEditable(false);
@@ -193,7 +193,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		StyleConstants.setItalic(set3, true);
 		StyleConstants.setBold(set3, true);
 		boxname.setParagraphAttributes(set3, true);
-		boxname.setOpaque(true);
+		boxname.setBackground(Color.WHITE);
 		boxname.setBounds(20, 75, 75, 40);
 
 		super.add(topicname);

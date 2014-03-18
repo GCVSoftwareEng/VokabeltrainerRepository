@@ -201,7 +201,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		topic.setBackground(Color.WHITE);
 		topic.setBounds(50, 20, 200, 50);
 		topic.setText("Topic");
-		topic.setOpaque(true);
+		setBackground(Color.WHITE);
 
 		super.setJMenuBar(menuBar);
 		super.add(scrollPane);

@@ -168,77 +168,77 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		boxLabel1.setVisible(true);
 		boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
 		boxLabel1.setBounds(30, 150, 70, 20);
-		boxLabel1.setOpaque(true);
+		boxLabel1.setBackground(Color.WHITE);
 
 		boxLabel2.setVisible(true);
 		boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
 		boxLabel2.setBounds(125, 150, 70, 20);
-		boxLabel2.setOpaque(true);
+		boxLabel2.setBackground(Color.WHITE);
 
 		boxLabel3.setVisible(true);
 		boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
 		boxLabel3.setBounds(220, 150, 70, 20);
-		boxLabel3.setOpaque(true);
+		boxLabel3.setBackground(Color.WHITE);
 
 		boxLabel4.setVisible(true);
 		boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
 		boxLabel4.setBounds(315, 150, 70, 20);
-		boxLabel4.setOpaque(true);
+		boxLabel4.setBackground(Color.WHITE);
 
 		boxLabel5.setVisible(true);
 		boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
 		boxLabel5.setBounds(410, 150, 70, 20);
-		boxLabel5.setOpaque(true);
+		boxLabel5.setBackground(Color.WHITE);
 
 		cardCount1.setVisible(true);
 		cardCount1.setFont(cardCount1.getFont().deriveFont(14));
 		cardCount1.setBounds(30, 175, 70, 20);
-		cardCount1.setOpaque(true);
+		cardCount1.setBackground(Color.WHITE);
 
 		cardCount2.setVisible(true);
 		cardCount2.setFont(cardCount2.getFont().deriveFont(14));
 		cardCount2.setBounds(125, 175, 70, 20);
-		cardCount2.setOpaque(true);
+		cardCount2.setBackground(Color.WHITE);
 
 		cardCount3.setVisible(true);
 		cardCount3.setFont(cardCount3.getFont().deriveFont(14));
 		cardCount3.setBounds(220, 175, 70, 20);
-		cardCount3.setOpaque(true);
+		cardCount3.setBackground(Color.WHITE);
 
 		cardCount4.setVisible(true);
 		cardCount4.setFont(cardCount4.getFont().deriveFont(14));
 		cardCount4.setBounds(315, 175, 70, 20);
-		cardCount4.setOpaque(true);
+		cardCount4.setBackground(Color.WHITE);
 
 		cardCount5.setVisible(true);
 		cardCount5.setFont(cardCount5.getFont().deriveFont(14));
 		cardCount5.setBounds(410, 175, 70, 20);
-		cardCount5.setOpaque(true);
+		cardCount5.setBackground(Color.WHITE);
 
 		cardnummber1.setVisible(true);
 		cardnummber1.setFont(cardnummber1.getFont().deriveFont(14));
 		cardnummber1.setBounds(45, 200, 70, 20);
-		cardnummber1.setOpaque(true);
+		cardnummber1.setBackground(Color.WHITE);
 
 		cardnummber2.setVisible(true);
 		cardnummber2.setFont(cardnummber2.getFont().deriveFont(14));
 		cardnummber2.setBounds(140, 200, 70, 20);
-		cardnummber2.setOpaque(true);
+		cardnummber2.setBackground(Color.WHITE);
 
 		cardnummber3.setVisible(true);
 		cardnummber3.setFont(cardnummber3.getFont().deriveFont(14));
 		cardnummber3.setBounds(235, 200, 70, 20);
-		cardnummber3.setOpaque(true);
+		cardnummber3.setBackground(Color.WHITE);
 
 		cardnummber4.setVisible(true);
 		cardnummber4.setFont(cardnummber4.getFont().deriveFont(14));
 		cardnummber4.setBounds(330, 200, 70, 20);
-		cardnummber4.setOpaque(true);
+		cardnummber4.setBackground(Color.WHITE);
 
 		cardnummber5.setVisible(true);
 		cardnummber5.setFont(cardnummber5.getFont().deriveFont(14));
 		cardnummber5.setBounds(425, 200, 70, 20);
-		cardnummber5.setOpaque(true);
+		cardnummber5.setBackground(Color.WHITE);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -248,7 +248,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		StyleConstants.setItalic(set, true);
 		StyleConstants.setBold(set, true);
 		topicname.setParagraphAttributes(set, true);
-		topicname.setOpaque(true);
+		topicname.setBackground(Color.WHITE);
 		topicname.setBounds(30, 50, 390, 50);
 		topicname.setText("Topicname");
 
