@@ -294,7 +294,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		boxname.setBackground(Color.RED);
 		boxnumber.setBackground(Color.RED);
 		answerField.setBackground(Color.RED);
-		this.resetBackground();
+		resetBackground();
 	}
 
 	/**
@@ -312,8 +312,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		this.resetBackground();
 	}
 
-	
-	private void resetBackground(){
+	private void resetBackground() {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -326,11 +325,11 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		boxname.setBackground(Color.WHITE);
 		boxnumber.setBackground(Color.WHITE);
 		answerField.setBackground(Color.WHITE);
-		
+
 		// Todo: temp
 		this.answerField.setText("");
 	}
-	
+
 	/**
 	 * languageChanged implements ILanguageChangedListener.languageChanged
 	 * 
@@ -351,8 +350,8 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	}
 
 	private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {
-		
-		////////////////////////// next card iibaue
+
+		// //////////////////////// next card iibaue
 	}
 
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
