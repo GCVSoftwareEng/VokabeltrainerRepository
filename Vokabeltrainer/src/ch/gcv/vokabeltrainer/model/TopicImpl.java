@@ -107,15 +107,6 @@ public class TopicImpl implements Topic, Serializable {
 		return false;
 	}
 	
-	public boolean deleteCardList(String name){
-		if(name.equals(cards)){
-			
-			cards = null;
-			return true;
-		}
-		return false;
-		
-	}
 
 	/**
 	 * getName implements ITopic.getName This method give you the name of the
