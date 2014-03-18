@@ -1,5 +1,6 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -13,8 +14,12 @@ import ch.gcv.vokabeltrainer.interfaces.Card;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardImpl implements Card {
+public class CardImpl implements Card, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 949831L;
 	private int statisticCountWrong;
 	private long statisticDateCreated;
 	private long statisticDateLastLearned;
