@@ -66,6 +66,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	public void initComponents() {
 
+		this.getContentPane().setBackground(Color.WHITE); // Huere pisser de Giusi
 		this.menuBar = new JMenuBar();
 		this.file = new JMenu();
 		this.language = new JMenu("Language", true);
