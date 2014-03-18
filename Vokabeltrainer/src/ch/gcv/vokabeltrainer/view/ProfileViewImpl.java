@@ -376,6 +376,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		String name = liste.getSelectedValue().toString();
 		Topic topic = getPresenter().getModel().getTopic(name);
 		getPresenter().deleteTopic(topic);
+		this.updateViewFromModel();
 
 	}
 

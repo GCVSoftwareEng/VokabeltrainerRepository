@@ -165,9 +165,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 */
 	@Override
 	public void deleteTopic(Topic topic) {
-		TopicPresenterImpl tp = new TopicPresenterImpl();
-		tp.deleteTopic(topic);
-		
+		this.model.deleteTopic(topic);
 	}
 
 	/**
