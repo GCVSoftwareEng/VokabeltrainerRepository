@@ -1,6 +1,8 @@
 package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
@@ -13,6 +15,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.Timer;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -40,7 +43,6 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-	private JButton next;
 	private JButton check;
 
 	private JLabel question;
@@ -104,14 +106,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 			}
 		});
 
-		this.next = new JButton(new ImageIcon(getClass()
-				.getResource("next.png")));
-		this.next.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonNextActionPerformed(evt);
-			}
-		});
-
+		
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
 		this.answer = new JLabel();
@@ -164,7 +159,6 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		date.setOpaque(true);
 
 		// buttons
-		next.setBounds(175, 380, 145, 48);
 		check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
@@ -207,7 +201,6 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		super.add(next);
 		super.add(check);
 		super.add(lastLearn);
 		super.add(date);
@@ -256,10 +249,11 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
-		
+
 		long temp = this.presenter.getModel().getStatisticDateLastLerned();
-		this.date.setText(Long.toString(this.presenter.getModel().getStatisticDateLastLerned()));
-		
+		this.date.setText(Long.toString(this.presenter.getModel()
+				.getStatisticDateLastLerned()));
+
 	}
 
 	/**
@@ -279,7 +273,8 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 */
 	@Override
 	public void close() {
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().removeListener(this);
+		dispose();
 	}
 
 	/**
@@ -288,13 +283,9 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 */
 	@Override
 	public void answerWrong() {
-		super.setBackground(Color.RED);
 		answerField.setEditable(false);
-		topicname.setBackground(Color.RED);
-		boxname.setBackground(Color.RED);
-		boxnumber.setBackground(Color.RED);
 		answerField.setBackground(Color.RED);
-		resetBackground();
+		showSolution();
 	}
 
 	/**
@@ -303,31 +294,29 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 */
 	@Override
 	public void answerRight() {
-		super.setBackground(Color.GREEN);
 		answerField.setEditable(false);
-		topicname.setBackground(Color.GREEN);
-		boxname.setBackground(Color.GREEN);
-		boxnumber.setBackground(Color.GREEN);
 		answerField.setBackground(Color.GREEN);
-		this.resetBackground();
+		new Timer(500, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				((Timer)evt.getSource()).stop();
+				answerField.setEditable(true);
+				answerField.setBackground(Color.WHITE);
+				answerField.setText("");
+				presenter.nextCard();
+			}
+		}).start();	
 	}
 
-	private void resetBackground() {
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		super.setBackground(Color.WHITE);
-		answerField.setEditable(true);
-		topicname.setBackground(Color.WHITE);
-		boxname.setBackground(Color.WHITE);
-		boxnumber.setBackground(Color.WHITE);
-		answerField.setBackground(Color.WHITE);
-
-		// Todo: temp
-		this.answerField.setText("");
+	private void showSolution() {
+			new Timer(500, new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent evt) {
+					((Timer)evt.getSource()).stop();
+					answerField.setBackground(Color.WHITE);
+					answerField.setText(presenter.getModel().getAnswer());
+				}
+			}).start();	
 	}
 
 	/**
@@ -338,27 +327,33 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	public void translate() {
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
-		this.answer
-				.setText(TranslationManager.getinstance().getText("answer"));
-		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
-		
-		this.lastLearn.setText(TranslationManager.getinstance().getText("lastLearn"));
+		this.answer.setText(TranslationManager.getinstance().getText("answer"));
+		this.boxname.setText(TranslationManager.getinstance()
+				.getText("boxname"));
+
+		this.lastLearn.setText(TranslationManager.getinstance().getText(
+				"lastLearn"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
-	private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {
-
-		// //////////////////////// next card iibaue
-	}
-
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-			getPresenter().checkAnswer(this.answerField.getText());
+			if (this.answerField.isEditable()){
+				this.presenter.checkAnswer(this.answerField.getText());
+			} else {
+				answerField.setText("");
+				this.presenter.nextCard();
+				answerField.setEditable(true);
+			}
 		}
+	}
+
+	@Override
+	public void cardChanged() {
+		updateViewFromModel();
 	}
 
 }

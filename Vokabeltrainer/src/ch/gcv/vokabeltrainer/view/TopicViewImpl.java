@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -41,6 +42,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private JButton boxButton5;
 	private JButton addCard;
 	private JButton editBox;
+	private JCheckBox beatTheClockCheckBox;
 
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
@@ -76,44 +78,49 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		// JFrame defination
 		super.setBackground(Color.WHITE);
 		super.setResizable(false);
-		
+
 		super.setSize(500, 350);
 		super.setVisible(true);
 		super.setLayout(null);
 
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton1.setActionCommand("1");
 		this.boxButton1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonBox1ActionPerformed(evt);
+				jButtonBoxActionPerformed(evt);
 			}
 		});
 		this.boxButton2 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton2.setActionCommand("2");
 		this.boxButton2.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonBox2ActionPerformed(evt);
+				jButtonBoxActionPerformed(evt);
 			}
 		});
 		this.boxButton3 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton3.setActionCommand("3");
 		this.boxButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonBox3ActionPerformed(evt);
+				jButtonBoxActionPerformed(evt);
 			}
 		});
 		this.boxButton4 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton4.setActionCommand("4");
 		this.boxButton4.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonBox4ActionPerformed(evt);
+				jButtonBoxActionPerformed(evt);
 			}
 		});
 		this.boxButton5 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
+		this.boxButton5.setActionCommand("5");
 		this.boxButton5.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonBox5ActionPerformed(evt);
+				jButtonBoxActionPerformed(evt);
 			}
 		});
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
@@ -125,8 +132,8 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		});
 		this.editBox = new JButton(new ImageIcon(getClass().getResource(
 				"edit1.png")));
-		
 
+		this.beatTheClockCheckBox = new JCheckBox("challengeMode");
 
 		this.topicname = new JTextPane();
 		this.boxLabel1 = new JLabel("Box: 1");
@@ -155,7 +162,6 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		boxButton5.setBounds(405, 225, 70, 70);
 		addCard.setBounds(425, 60, 31, 30);
 		editBox.setBounds(460, 60, 30, 30);
-		
 
 		// layout definition
 		boxLabel1.setVisible(true);
@@ -245,6 +251,9 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		topicname.setBounds(30, 50, 390, 50);
 		topicname.setText("Topicname");
 
+		// checkbox
+		beatTheClockCheckBox.setBounds(0, 0, 200, 20);
+
 		// add to JFrame
 		super.add(topicname);
 		super.add(addCard);
@@ -269,6 +278,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		super.add(cardnummber4);
 		super.add(cardnummber5);
 		super.add(editBox);
+		super.add(beatTheClockCheckBox);
 
 	}
 
@@ -316,11 +326,12 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	public void updateViewFromModel() {
 
 		topicname.setText(presenter.getModel().getName());
-		cardnummber1.setText(presenter.getModel().getCardCount(1));
-		cardnummber2.setText(presenter.getModel().getCardCount(2));
-		cardnummber3.setText(presenter.getModel().getCardCount(3));
-		cardnummber4.setText(presenter.getModel().getCardCount(4));
-		cardnummber5.setText(presenter.getModel().getCardCount(5));
+		cardnummber1.setText(Integer.toString(presenter.getModel().getCardCount(1)));
+		cardnummber2.setText(Integer.toString(presenter.getModel().getCardCount(2)));
+		cardnummber3.setText(Integer.toString(presenter.getModel().getCardCount(3)));
+		cardnummber4.setText(Integer.toString(presenter.getModel().getCardCount(4)));
+		cardnummber5.setText(Integer.toString(presenter.getModel().getCardCount(5)));
+	
 	}
 
 	/**
@@ -341,6 +352,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	@Override
 	public void close() {
 		TranslationManager.getinstance().removeListener(this);
+		dispose();
 	}
 
 	/**
@@ -361,66 +373,30 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.cardCount5.setText(TranslationManager.getinstance().getText(
 				"cards"));
 
-		this.noCardsInBox = TranslationManager.getinstance().getText("noCardsInBox");
+		this.beatTheClockCheckBox.setText(TranslationManager.getinstance()
+				.getText("beatTheClock"));
+
+		this.noCardsInBox = TranslationManager.getinstance().getText(
+				"noCardsInBox");
 	}
 
 	/**
 	 * 
 	 * @param evt
 	 */
-	private void jButtonBox1ActionPerformed(java.awt.event.ActionEvent evt) {
-		if (presenter.getModel().getCardCount(1).equals("0")) {
-			JOptionPane.showMessageDialog(null, noCardsInBox);
-		} else {
-			getPresenter().openCard(presenter.getModel().getRandomCard(1));
-		}
-	}
+	private void jButtonBoxActionPerformed(java.awt.event.ActionEvent evt) {
+		int box = Integer.parseInt(evt.getActionCommand());
 
-	/**
-	 * 
-	 * @param evt
-	 */
-	private void jButtonBox2ActionPerformed(java.awt.event.ActionEvent evt) {
-		if (presenter.getModel().getCardCount(2).equals("0")) {
+		if (presenter.getModel().getCardCount(box) == 0) {
 			JOptionPane.showMessageDialog(null, noCardsInBox);
 		} else {
-			getPresenter().openCard(presenter.getModel().getRandomCard(2));
-		}
-	}
+			if (beatTheClockCheckBox.isSelected()) {
+				getPresenter().startChallenge(presenter.getModel().getRandomCard(box));
+			} else {
+				getPresenter()
+						.openCard(presenter.getModel().getRandomCard(box));
+			}
 
-	/**
-	 * 
-	 * @param evt
-	 */
-	private void jButtonBox3ActionPerformed(java.awt.event.ActionEvent evt) {
-		if (presenter.getModel().getCardCount(3).equals("0")) {
-			JOptionPane.showMessageDialog(null, noCardsInBox);
-		} else {
-			getPresenter().openCard(presenter.getModel().getRandomCard(3));
-		}
-	}
-
-	/**
-	 * 
-	 * @param evt
-	 */
-	private void jButtonBox4ActionPerformed(java.awt.event.ActionEvent evt) {
-		if (presenter.getModel().getCardCount(4).equals("0")) {
-			JOptionPane.showMessageDialog(null, noCardsInBox);
-		} else {
-			getPresenter().openCard(presenter.getModel().getRandomCard(4));
-		}
-	}
-
-	/**
-	 * 
-	 * @param evt
-	 */
-	private void jButtonBox5ActionPerformed(java.awt.event.ActionEvent evt) {
-		if (presenter.getModel().getCardCount(5).equals("0")) {
-			JOptionPane.showMessageDialog(null, noCardsInBox);
-		} else {
-			getPresenter().openCard(presenter.getModel().getRandomCard(5));
 		}
 	}
 
@@ -432,5 +408,4 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		getPresenter().createCard();
 	}
 
-	
 }

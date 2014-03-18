@@ -1,7 +1,10 @@
 package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,9 +16,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.Timer;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.interfaces.CardChallengePresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardChallengeView;
 import ch.gcv.vokabeltrainer.interfaces.CardView;
 import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
@@ -32,17 +38,18 @@ import ch.gcv.vokabeltrainer.presenter.TopicPresenterImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardChallengeViewImpl extends javax.swing.JFrame implements CardView,
-		Translatable {
+public class CardChallengeViewImpl extends javax.swing.JFrame implements
+		CardChallengeView, Translatable {
 
-	private CardPresenter presenter;
+	private CardChallengePresenter presenter;
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-	private JButton next;
 	private JButton check;
 
+	private JLabel lastTime;
+	private JLabel curTime;
 	private JLabel question;
 	private JLabel answer;
 	private JLabel questionWord;
@@ -50,11 +57,14 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	private JLabel date;
 
 	private JTextField answerField;
+	
+	private Timer timer;
+	
 
 	// private JPanel cardPanel;
 
 	public CardChallengeViewImpl() {
-		super("CardView");
+		super("CardChallengeView");
 		this.initComponents();
 	}
 
@@ -104,13 +114,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 			}
 		});
 
-		this.next = new JButton(new ImageIcon(getClass()
-				.getResource("next.png")));
-		this.next.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonNextActionPerformed(evt);
-			}
-		});
+		this.lastTime = new JLabel("lastTime");
+		this.curTime = new JLabel("curTime");
 
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
@@ -126,6 +131,18 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		// cardPanel.setBounds(25, 120, 750, 300);
 		// cardPanel.setVisible(true);
 		// cardPanel.setLayout(null);
+
+		// lastTimelabel
+		lastTime.setVisible(true);
+		lastTime.setFont(question.getFont().deriveFont(15f));
+		lastTime.setBounds(650, 20, 100, 20);
+		lastTime.setOpaque(true);
+		
+		// curTimeLabel
+		curTime.setVisible(true);
+		curTime.setFont(question.getFont().deriveFont(20f));
+		curTime.setBounds(650, 40, 100, 20);
+		curTime.setOpaque(true);
 
 		// questionlabel
 		question.setVisible(true);
@@ -164,7 +181,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		date.setOpaque(true);
 
 		// buttons
-		next.setBounds(175, 380, 145, 48);
 		check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
@@ -200,6 +216,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		boxname.setOpaque(true);
 		boxname.setBounds(20, 75, 75, 40);
 
+		super.add(lastTime);
+		super.add(curTime);
 		super.add(topicname);
 		super.add(boxnumber);
 		super.add(boxname);
@@ -207,11 +225,20 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		super.add(next);
 		super.add(check);
 		super.add(lastLearn);
 		super.add(date);
 
+		// timer
+		this.timer = new Timer(1, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				long actTime = new Date().getTime();
+				long delta = actTime - presenter.getCardShown(); 
+				curTime.setText(Long.toString(delta)+" ms");
+			}
+		});
+		
 	}
 
 	/**
@@ -220,7 +247,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	 * @return ICardPresenter // TODO
 	 */
 	@Override
-	public CardPresenter getPresenter() {
+	public CardChallengePresenter getPresenter() {
 		return this.presenter;
 	}
 
@@ -232,7 +259,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	 * 
 	 */
 	@Override
-	public void setPresenter(CardPresenter presenter) {
+	public void setPresenter(CardChallengePresenter presenter) {
 		this.presenter = presenter;
 	}
 
@@ -256,10 +283,14 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
-		
+
 		long temp = this.presenter.getModel().getStatisticDateLastLerned();
-		this.date.setText(Long.toString(this.presenter.getModel().getStatisticDateLastLerned()));
+		this.date.setText(Long.toString(this.presenter.getModel()
+				.getStatisticDateLastLerned()));
 		
+		this.lastTime.setText(Long.toString(this.presenter.getModel().getSpentTime()) + " ms");
+		this.curTime.setText(0 + " ms");
+
 	}
 
 	/**
@@ -271,6 +302,27 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 		TranslationManager.getinstance().addListener(this);
 		translate();
 		setVisible(true);
+		
+		this.answerField.setEditable(false);
+		new Timer(1000, new ActionListener() {
+			int count = 3;
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				answerField.setText("Ready in: " + Integer.toString(count));
+				if (count <= -1){
+					((Timer) evt.getSource()).stop();
+					presenter.nextCard();
+					answerField.setText("");
+					answerField.setEditable(true);
+					timer.start();
+				}
+				count -=1;
+			}
+		}).start();
+
+		
+		
+		
 	}
 
 	/**
@@ -279,7 +331,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	 */
 	@Override
 	public void close() {
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().removeListener(this);
+		dispose();
 	}
 
 	/**
@@ -288,11 +341,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	 */
 	@Override
 	public void answerWrong() {
-		super.setBackground(Color.RED);
 		answerField.setEditable(false);
-		topicname.setBackground(Color.RED);
-		boxname.setBackground(Color.RED);
-		boxnumber.setBackground(Color.RED);
 		answerField.setBackground(Color.RED);
 		resetBackground();
 	}
@@ -302,32 +351,35 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	 * 
 	 */
 	@Override
-	public void answerRight() {
-		super.setBackground(Color.GREEN);
+	public void answerRightFast() {
 		answerField.setEditable(false);
-		topicname.setBackground(Color.GREEN);
-		boxname.setBackground(Color.GREEN);
-		boxnumber.setBackground(Color.GREEN);
 		answerField.setBackground(Color.GREEN);
 		this.resetBackground();
 	}
 
-	private void resetBackground() {
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		super.setBackground(Color.WHITE);
-		answerField.setEditable(true);
-		topicname.setBackground(Color.WHITE);
-		boxname.setBackground(Color.WHITE);
-		boxnumber.setBackground(Color.WHITE);
-		answerField.setBackground(Color.WHITE);
+	/**
+	 * answerRight implements ICardView.answerRight
+	 * 
+	 */
+	@Override
+	public void answerRightSlow() {
+		answerField.setEditable(false);
+		answerField.setBackground(Color.ORANGE);
+		this.resetBackground();
+	}
 
-		// Todo: temp
-		this.answerField.setText("");
+	
+	private void resetBackground() {
+		new Timer(500, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				((Timer) evt.getSource()).stop();
+				answerField.setEditable(true);
+				answerField.setBackground(Color.WHITE);
+				answerField.setText("");
+				presenter.nextCard();
+			}
+		}).start();
 	}
 
 	/**
@@ -338,27 +390,30 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements CardVie
 	public void translate() {
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
-		this.answer
-				.setText(TranslationManager.getinstance().getText("answer"));
-		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
-		
-		this.lastLearn.setText(TranslationManager.getinstance().getText("lastLearn"));
+		this.answer.setText(TranslationManager.getinstance().getText("answer"));
+		this.boxname.setText(TranslationManager.getinstance()
+				.getText("boxname"));
+
+		this.lastLearn.setText(TranslationManager.getinstance().getText(
+				"lastLearn"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
+		timer.stop();
 		getPresenter().checkAnswer(this.answerField.getText());
-	}
-
-	private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {
-
-		// //////////////////////// next card iibaue
 	}
 
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
+			timer.stop();
 			getPresenter().checkAnswer(this.answerField.getText());
 		}
+	}
+
+	@Override
+	public void cardChanged() {
+		updateViewFromModel();
+		timer.start();
 	}
 
 }

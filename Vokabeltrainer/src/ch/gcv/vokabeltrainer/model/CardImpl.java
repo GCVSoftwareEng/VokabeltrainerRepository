@@ -29,6 +29,7 @@ public class CardImpl implements Card, Serializable{
 	private String answer;
 	private TopicImpl topic;
 	private String name;
+	private long spentTime;
 
 	String myAnswer;
 
@@ -208,9 +209,9 @@ public class CardImpl implements Card, Serializable{
 	 * @return boolean // TODO
 	 */
 	@Override
-	public boolean check(String myAnswer) {
+	public boolean check(String answer) {
 		this.statisticDateLastLearned = new java.util.Date().getTime();
-		if (myAnswer.equals(answer)) {
+		if (answer.equals(this.answer)) {
 			this.statisticCountRight += 1;
 			this.moveUp();
 			System.out.println("answer true");
@@ -224,10 +225,6 @@ public class CardImpl implements Card, Serializable{
 		return false;
 	}
 
-	public void setMyAnswer(String name) {
-		this.myAnswer = name;
-	}
-
 	@Override
 	public void setTopic(TopicImpl topic) {
 		this.topic = topic;
@@ -238,4 +235,15 @@ public class CardImpl implements Card, Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public void setSpentTime(long time) {
+		this.spentTime = time;	
+	}
+	
+	@Override
+	public long getSpentTime() {
+		return this.spentTime;
+	}
+	
 }

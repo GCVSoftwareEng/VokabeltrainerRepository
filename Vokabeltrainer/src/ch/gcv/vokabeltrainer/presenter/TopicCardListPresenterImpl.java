@@ -5,6 +5,7 @@ import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
+import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
 
 /**
@@ -27,7 +28,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
 		this.view = new TopicCardListViewImpl();
-
+		PresenterManager.getInstance().add(this);
 	}
 
 	/**
@@ -105,6 +106,9 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 		
 	}
 
-
+	@Override
+	public void stop() {
+		this.view.close();
+	}
 
 }

@@ -7,6 +7,7 @@ import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.CardImpl;
+import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
 import ch.gcv.vokabeltrainer.view.TopicViewImpl;
@@ -32,6 +33,7 @@ public class TopicPresenterImpl  implements TopicPresenter, Presentable {
 	public TopicPresenterImpl(){
 		super();
 		this.view = new TopicViewImpl();
+		PresenterManager.getInstance().add(this);
 	}
  
 
@@ -141,6 +143,19 @@ public class TopicPresenterImpl  implements TopicPresenter, Presentable {
     }
 
     /** 
+     * openCard implements ITopicPresenter.openCard
+	 *
+	 */
+	@Override
+	public void startChallenge(Card card) {
+		
+		CardChallengePresenterImpl cp = new CardChallengePresenterImpl();
+		cp.setModel(card);
+		cp.setOnCheckCard(this);
+		cp.run();
+    }
+	
+    /** 
      * deleteCard implements ITopicPresenter.deleteCard
 	 *
 	 */
@@ -203,7 +218,10 @@ public class TopicPresenterImpl  implements TopicPresenter, Presentable {
 		
 	}
 
-
+	@Override
+	public void stop() {
+		this.view.close();
+	}
 	
 
 

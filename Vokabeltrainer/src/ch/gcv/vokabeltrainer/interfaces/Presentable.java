@@ -11,6 +11,7 @@ package ch.gcv.vokabeltrainer.interfaces;
 public interface Presentable extends Runnable {
  
 	public void refresh();
+	public void stop();
 	
 }
  

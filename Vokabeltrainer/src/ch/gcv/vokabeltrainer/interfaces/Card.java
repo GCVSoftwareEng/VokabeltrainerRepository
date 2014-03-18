@@ -27,6 +27,8 @@ public interface Card {
 	public TopicImpl getTopic();
 	public boolean check(String answer);
 	public void setName(String text);
+	public void setSpentTime(long time);
+	public long getSpentTime();
 
   
 }

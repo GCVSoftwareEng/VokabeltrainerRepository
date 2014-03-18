@@ -9,15 +9,16 @@ package ch.gcv.vokabeltrainer.interfaces;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface CardPresenter {
+public interface CardChallengePresenter {
  
 	public Card getModel();
 	public void setModel(Card model);
-	public CardView getView();
-	public void setView(CardView view);
+	public CardChallengeView getView();
+	public void setView(CardChallengeView view);
 	public void checkAnswer(String answer);
 	public void setOnCheckCard(Presentable presenter);
 	public void nextCard();
+	public long getCardShown();
 
 }
  

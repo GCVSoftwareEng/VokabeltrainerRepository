@@ -203,7 +203,8 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements TopicCa
 	 */
 	@Override
 	public void close() {
-		throw new UnsupportedOperationException("Not implemented");
+		TranslationManager.getinstance().removeListener(this);
+		dispose();
 	}
 
 	

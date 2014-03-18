@@ -1,13 +1,18 @@
 package ch.gcv.vokabeltrainer.presenter;
 
+import java.util.Date;
+
 import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.CardChallengePresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardChallengeView;
 import ch.gcv.vokabeltrainer.interfaces.CardView;
 import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
+import ch.gcv.vokabeltrainer.view.CardChallengeViewImpl;
 import ch.gcv.vokabeltrainer.view.CardViewImpl;
 
 /**
@@ -17,16 +22,17 @@ import ch.gcv.vokabeltrainer.view.CardViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardPresenterImpl implements CardPresenter, Presentable{
+public class CardChallengePresenterImpl implements CardChallengePresenter, Presentable{
 
-	private CardView view;
+	private CardChallengeView view;
 	private Card model;
 	private Presentable onCheckCard;
 	private int curBox;
+	private long cardShown;
 
-	public CardPresenterImpl() {
+	public CardChallengePresenterImpl() {
 		super();
-		this.view = new CardViewImpl();
+		this.view = new CardChallengeViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
 
@@ -58,7 +64,7 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	 * @return ICardView // TODO
 	 */
 	@Override
-	public CardView getView() {
+	public CardChallengeView getView() {
 		return this.view;
 	}
 
@@ -70,7 +76,7 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	 * 
 	 */
 	@Override
-	public void setView(CardView view) {
+	public void setView(CardChallengeView view) {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -81,14 +87,24 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	 */
 	@Override
 	public void checkAnswer(String answer) {
+		long curTime = new Date().getTime();
+		long spentTime = curTime - this.cardShown;
 		curBox = this.model.getBox();
 		if (this.model.check(answer)) {
-			this.view.answerRight();
+			if (this.model.getSpentTime() < spentTime){
+				this.view.answerRightSlow();
+			} else{
+				this.view.answerRightFast();
+			}
+			
+			this.model.setSpentTime(spentTime);
+			
 		} else {
 			this.view.answerWrong();
 		}
 		this.onCheckCard.refresh();
 	}
+
 
 	/**
 	 * run implements java.lang.Runnable.run
@@ -126,6 +142,7 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 			}
 		}	
 		this.model = nextCard;	
+		this.cardShown = new Date().getTime();
 		this.view.cardChanged();
 	}
 	
@@ -133,6 +150,14 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	public void stop() {
 		this.view.close();
 	}
+
+	@Override
+	public long getCardShown() {
+		return this.cardShown;
+	}
+
+	
+
 	
 
 }

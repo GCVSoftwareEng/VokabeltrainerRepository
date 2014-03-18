@@ -11,14 +11,16 @@ package ch.gcv.vokabeltrainer.interfaces;
  */
 public interface CardChallengeView {
  
-	public CardPresenter getPresenter();
-	public void setPresenter(CardPresenter presenter);
+	public CardChallengePresenter getPresenter();
+	public void setPresenter(CardChallengePresenter presenter);
 	public void updateModelFromView();
 	public void updateViewFromModel();
 	public void open();
 	public void close();
 	public void answerWrong();
-	public void answerRight();
+	public void answerRightFast();
+	public void answerRightSlow();
+	public void cardChanged();
   
 }
  

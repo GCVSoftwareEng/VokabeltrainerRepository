@@ -7,6 +7,7 @@ import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
+import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
 
@@ -33,7 +34,7 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
 		this.view = new TopicEditViewImpl();
-		
+		PresenterManager.getInstance().add(this);
 	}
  
 
@@ -139,6 +140,10 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
 		
 	}
 
+	@Override
+	public void stop() {
+		this.view.close();
+	}
 
 }
  

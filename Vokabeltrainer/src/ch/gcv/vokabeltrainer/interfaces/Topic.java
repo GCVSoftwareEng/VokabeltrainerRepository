@@ -18,7 +18,7 @@ public interface Topic {
 	public boolean addCard(Card model); // change Card model to ICard model
 	public CardImpl getRandomCard(int box);
 	public boolean deleteCard(CardImpl card);
-	public String getCardCount(int box);   // change int to String
+	public int getCardCount(int box);   // change int to String
 	public ArrayList<CardImpl> getCards();
 	public ArrayList<CardImpl> getCards(int box);
 	public int getStatisticMinutesLearned();

@@ -129,11 +129,8 @@ public class TopicImpl implements Topic, Serializable {
 	 * @return int total card into the box
 	 */
 	@Override
-	public String getCardCount(int box) {
-
-		String size = Integer.toString(getCards(box).size());
-
-		return size;
+	public int getCardCount(int box) {
+		return  getCards(box).size();	
 	}
 
 	/**

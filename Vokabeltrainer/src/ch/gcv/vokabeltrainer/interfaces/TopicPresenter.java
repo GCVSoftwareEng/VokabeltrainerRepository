@@ -25,6 +25,7 @@ public interface TopicPresenter {
 	void learnTopic(Topic topic); //CHF
 	void learnTopic(Card card); //CHF
 	void deleteTopic(Topic topic); // CHF
+	void startChallenge(Card card);
 	
   
 }

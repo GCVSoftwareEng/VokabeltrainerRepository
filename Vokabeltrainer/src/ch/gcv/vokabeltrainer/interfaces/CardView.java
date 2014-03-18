@@ -19,6 +19,7 @@ public interface CardView {
 	public void close();
 	public void answerWrong();
 	public void answerRight();
+	public void cardChanged();
   
 }
  

@@ -8,6 +8,7 @@ import ch.gcv.vokabeltrainer.interfaces.ProfileView;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.model.ImportExportManager;
+import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
 
@@ -137,6 +138,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 */
 	@Override
 	public void loadProfile(String path) {
+		PresenterManager.getInstance().stopAll();
 		this.model = ProfileManager.getInstance().loadProfile(path);
 	}
 
@@ -181,6 +183,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 
 	@Override
 	public void createNewProfile() {
+		PresenterManager.getInstance().stopAll();
 		this.model = ProfileManager.getInstance().createProfile();
 	}
 
@@ -204,6 +207,11 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 		Topic topic = ImportExportManager.getInstance().importTopic(path);
 		this.model.addTopic(topic);
 		
+	}
+	
+	@Override
+	public void stop() {
+		this.view.close();
 	}
 
 }
