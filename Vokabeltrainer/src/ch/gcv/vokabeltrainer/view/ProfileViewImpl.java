@@ -24,6 +24,7 @@ import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
 import ch.gcv.vokabeltrainer.interfaces.ProfileView;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
+import ch.gcv.vokabeltrainer.model.ImportExportManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 
@@ -93,11 +94,13 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 			}
 		});
 		this.exportCards = new JMenuItem();
+
 		this.exportCards.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemExportProfileActionPerformed(evt);
 			}
 		});
+
 		this.exit = new JMenuItem();
 		this.exit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,51 +116,52 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 			}
 		});
 
-		this.delete = new JButton(new ImageIcon(getClass()
-				.getResource("delete.png")));
+		this.delete = new JButton(new ImageIcon(getClass().getResource(
+				"delete.png")));
 
 		this.delete.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonDeleteTopicActionPerformed(evt);
 			}
 		});
-		
+
 		this.topic = new JTextPane();
 		this.liste = new JList();
+		
+		
+		
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount() == 2){
+			public void mouseClicked(MouseEvent e) {		
+				if (e.getClickCount() == 2) {
 					String name = liste.getSelectedValue().toString();
 					Topic topic = getPresenter().getModel().getTopic(name);
 					getPresenter().openTopic(topic);
 				}
 			}
 
-			
-
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		this.scrollPane = new JScrollPane(liste);
@@ -283,12 +287,13 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	public void close() {
 		TranslationManager.getinstance().removeListener(this);
 	}
-	
-/**
- * This method load .profile data.
- * 
- * @param evt need a action event.
- */
+
+	/**
+	 * This method load .profile data.
+	 * 
+	 * @param evt
+	 *            need a action event.
+	 */
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -319,8 +324,9 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	/**
 	 * This method save local a profile. You must enter a name.
 	 * 
-	 * @param evt needs a action event.
-	 *            
+	 * @param evt
+	 *            needs a action event.
+	 * 
 	 */
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -344,7 +350,8 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	/**
 	 * With this method, you can close the program.
 	 * 
-	 * @param evt needs a action event.
+	 * @param evt
+	 *            needs a action event.
 	 */
 	private void jMenuItemExitProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -362,25 +369,64 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 			java.awt.event.ActionEvent evt) {
 		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
 	}
-	
+
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		String name = liste.getSelectedValue().toString();
 		Topic topic = getPresenter().getModel().getTopic(name);
 		getPresenter().deleteTopic(topic);
-		
+
 	}
 
 	private void jMenuItemImportProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
-	}
-	
-	private void jMenuItemExportProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer topic", "topic");
+		chooser.setFileFilter(filter);
+
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().importTopic(path);
+			updateViewFromModel();
+
+		}
 
 	}
+
+	private void jMenuItemExportProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		
 	
+		String name = liste.getSelectedValue().toString();
+		if (name != "" && name != null){
+			
+			
+			JFileChooser chooser = new JFileChooser();
+			FileNameExtensionFilter filter = new FileNameExtensionFilter(
+					"Vokabeltrainer topic", "topic");
+			chooser.setFileFilter(filter);
+			int returnVal = chooser.showSaveDialog(null);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				String path = chooser.getSelectedFile().getAbsolutePath();
+				if (!path.toLowerCase().endsWith(".topic")) {
+					path = path + ".topic";
+				}
+				
+				getPresenter().exportTopic(name,path);
+					
+			
+			}
+
+			
+			
+		}
+		
+		
+	}
+
 	/**
 	 * This method choose the language.
 	 */
@@ -392,11 +438,15 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		this.file.setText(TranslationManager.getinstance().getText("file"));
 		this.topic.setText(TranslationManager.getinstance().getText("topics"));
 		this.newPro.setText(TranslationManager.getinstance().getText("newPro"));
-		this.loadPro.setText(TranslationManager.getinstance().getText("loadPro"));
-		this.savePro.setText(TranslationManager.getinstance().getText("savePro"));
+		this.loadPro.setText(TranslationManager.getinstance()
+				.getText("loadPro"));
+		this.savePro.setText(TranslationManager.getinstance()
+				.getText("savePro"));
 		this.exit.setText(TranslationManager.getinstance().getText("exit"));
-		this.importCards.setText(TranslationManager.getinstance().getText("importCard"));
-		this.exportCards.setText(TranslationManager.getinstance().getText("exportCard"));
+		this.importCards.setText(TranslationManager.getinstance().getText(
+				"importCard"));
+		this.exportCards.setText(TranslationManager.getinstance().getText(
+				"exportCard"));
 	}
 
 }

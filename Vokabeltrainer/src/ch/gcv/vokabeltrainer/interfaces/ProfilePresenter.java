@@ -21,6 +21,8 @@ public interface ProfilePresenter {
 	public void createTopic();
 	public void saveProfile(String path);
 	public void loadProfile(String path);
+	public void exportTopic(String name, String path);
+	public void importTopic(String path);
 	public void openTopic(Topic topic);
 	public void deleteTopic(Topic topic);
 	public void createNewProfile();
