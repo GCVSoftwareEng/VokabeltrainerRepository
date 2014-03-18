@@ -135,7 +135,6 @@ public class TranslationManager {
 				it.remove();
 				return true;
 			}
-
 		}
 		return false;
 	}

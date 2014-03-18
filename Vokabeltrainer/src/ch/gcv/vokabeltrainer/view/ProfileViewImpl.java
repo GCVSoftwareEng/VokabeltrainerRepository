@@ -297,13 +297,20 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
+		// JFileChooser-Objekt erstellen
 		JFileChooser chooser = new JFileChooser();
+		// Filter um uns auf bestimmte Dateiendungen zu beschraenken.
+		// Zeigt dann auch nur diese Dateien an beim Oeffnen.
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				//Beschreibung der Datei            Endung der Datei
 				"Vokabeltrainer profile", "profile");
+		// Filter wird dem JFileChooser hinzugefuegt.
 		chooser.setFileFilter(filter);
-
-		int returnVal = chooser.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
+		//Dialog zum Oeffnen von Dateien Anzeigen. // anstatt null parameter koennte man anzeige von pics implementieren.
+		int returnVal = chooser.showOpenDialog(null); // open gleich öffen sonst save = speichern
+		//Abfrage ob auf oeffen geklickt wurde
+		if (returnVal == JFileChooser.APPROVE_OPTION) { // bei "Abbrechen" CANCEL_OPTION
+			// Profil gem pfad laden.
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
 			updateViewFromModel();
@@ -335,7 +342,8 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"Vokabeltrainer profile", "profile");
 		chooser.setFileFilter(filter);
-		int returnVal = chooser.showSaveDialog(null);
+		// Dialog abgeändert mit showDialog anstatt showSaveDialog
+		int returnVal = chooser.showDialog(null,"Speichere Profil");
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			if (!path.toLowerCase().endsWith(".profile")) {
