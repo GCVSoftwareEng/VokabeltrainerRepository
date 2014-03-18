@@ -119,6 +119,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 		topic.setBackground(Color.WHITE);
 		topic.setBounds(10, 20, 400, 40);
 		topic.setText("Topic");
+		topic.setOpaque(true);
 
 		
 		super.add(edit);

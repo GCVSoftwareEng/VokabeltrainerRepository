@@ -145,6 +145,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
+		answerField.setOpaque(true);
 
 		// lastlearn label
 		lastLearn.setVisible(true);

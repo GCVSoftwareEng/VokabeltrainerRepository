@@ -162,11 +162,13 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
 		answer.setOpaque(true);
+		
 		// textfiel
 		answerField.setEditable(true);
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
+		answerField.setOpaque(true);
 
 		// lastlearn label
 		lastLearn.setVisible(true);

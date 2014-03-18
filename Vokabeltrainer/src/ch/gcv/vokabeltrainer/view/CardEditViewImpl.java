@@ -121,12 +121,13 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		answerField.setVisible(true);
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
+		answerField.setOpaque(true);
 
 		questionWord.setEditable(true);
 		questionWord.setVisible(true);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
-
+		questionWord.setOpaque(true);
 		
 		addCard.setBounds(755, 260, 31, 30);
 		
