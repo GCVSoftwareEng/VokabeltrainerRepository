@@ -485,5 +485,15 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		getPresenter().moveAllCardsToFirstBox();
 	}
 	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jMenuOpenStatisticActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().openStatistic();
+	}
+	
+	
+	
 
 }

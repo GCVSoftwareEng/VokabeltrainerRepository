@@ -24,6 +24,7 @@ public interface TopicPresenter {
 	public void startChallenge(Card card);
 	public void editCards();
 	public void moveAllCardsToFirstBox();
+	public void openStatistic();
   
 }
  

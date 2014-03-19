@@ -8,6 +8,7 @@ import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
+import ch.gcv.vokabeltrainer.view.TopicStatistikListViewImpl;
 import ch.gcv.vokabeltrainer.view.TopicViewImpl;
 
 /**
@@ -203,6 +204,13 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 			card.setBox(1);
 		}
 		this.view.updateViewFromModel();
+	}
+
+	@Override
+	public void openStatistic() {
+		TopicStatistikListView tslv = new TopicStatistikListViewImpl();
+		
+		
 	}
 
 }
