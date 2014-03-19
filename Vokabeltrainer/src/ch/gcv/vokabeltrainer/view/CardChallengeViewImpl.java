@@ -235,7 +235,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	/**
 	 * getPresenter implements ICardView.getPresenter
 	 * 
-	 * @return ICardPresenter // TODO
+	 * @return ICardPresenter a presenter
 	 */
 	@Override
 	public CardChallengePresenter getPresenter() {
@@ -246,8 +246,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 * setPresenter implements ICardView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
-	 * 
+	 *            needs a CardChallengePresenter
 	 */
 	@Override
 	public void setPresenter(CardChallengePresenter presenter) {
@@ -359,6 +358,9 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.resetBackground();
 	}
 
+	/**
+	 * This method reset Background
+	 */
 	private void resetBackground() {
 		new Timer(500, new ActionListener() {
 			@Override
@@ -392,28 +394,30 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 * This method check the answerField text and stop the timer.
 	 * 
 	 * @param evt
+	 *            needs a action event.
 	 */
-	
+
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		timer.stop();
 		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
 	/**
-	 * This method implements the Enter key.
+	 * This method implements the Enter key as a button.
 	 * 
 	 * @param e
+	 *            needs a key event.
 	 */
-	
+
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			timer.stop();
 			getPresenter().checkAnswer(this.answerField.getText());
 		}
 	}
-	
+
 	/**
-	 * This method change the Card and start the timer.
+	 * This method open the updateViewFromModel() and the timer.start()
 	 */
 
 	@Override

@@ -171,7 +171,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	/**
 	 * getPresenter implements ICardEditView.getPresenter
 	 * 
-	 * @return ICardEditPresenter // TODO
+	 * @return ICardEditPresenter a presenter
 	 */
 	@Override
 	public CardCreatePresenter getPresenter() {
@@ -251,7 +251,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	/**
 	 * This method update your vokabeltrainer with the right language.
 	 * 
-	 * @param evt
+	 * @param evt needs a action event.
 	 */
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
 		this.updateModelFromView();
@@ -259,7 +259,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	}
 
 	/**
-	 * This method implements the Enter key.
+	 * This method implements the Enter key as a button.
 	 * 
 	 * @param e
 	 */

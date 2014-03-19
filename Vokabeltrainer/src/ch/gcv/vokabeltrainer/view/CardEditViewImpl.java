@@ -171,7 +171,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements
 	/**
 	 * getPresenter implements ICardEditView.getPresenter
 	 * 
-	 * @return ICardEditPresenter // TODO
+	 * @return ICardEditPresenter a presenter
 	 */
 	@Override
 	public CardEditPresenter getPresenter() {
@@ -181,9 +181,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements
 	/**
 	 * setPresenter implements ICardEditView.setPresenter
 	 * 
-	 * @param presenter
-	 *            // TODO
-	 * 
+	 * @param presenter needs a CardEditPresenter
 	 */
 	@Override
 	public void setPresenter(CardEditPresenter presenter) {
@@ -249,7 +247,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements
 	/**
 	 * This method update your view.
 	 * 
-	 * @param evt
+	 * @param evt needs a action event.
 	 */
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
 		this.updateModelFromView();
@@ -259,9 +257,9 @@ public class CardEditViewImpl extends javax.swing.JFrame implements
 	}
 
 	/**
-	 * This method implements the Enter key.
+	 * This method implements the Enter key as a button.
 	 * 
-	 * @param e
+	 * @param e needs a key event.
 	 */
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {

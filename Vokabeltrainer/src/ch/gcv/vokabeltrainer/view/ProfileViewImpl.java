@@ -293,31 +293,27 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		TranslationManager.getinstance().removeListener(this);
 	}
 
-	
 	/**
-     * This method load .profile data.
-     *
-      * @param evt
-     *            need a action event.
-     */
-     private void jMenuItemLoadProfileActionPerformed(
-                  java.awt.event.ActionEvent evt) {
-           JFileChooser chooser = new JFileChooser();
-           FileNameExtensionFilter filter = new FileNameExtensionFilter(
-           "Vokabeltrainer profile", "profile");
+	 * This method load .profile data.
+	 * 
+	 * @param evt
+	 *            need a action event.
+	 */
+	private void jMenuItemLoadProfileActionPerformed(
+			java.awt.event.ActionEvent evt) {
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Vokabeltrainer profile", "profile");
 
-           chooser.setFileFilter(filter);
-           int returnVal = chooser.showOpenDialog(null);
-           if (returnVal == JFileChooser.APPROVE_OPTION) {
-                  String path = chooser.getSelectedFile().getAbsolutePath();
-                  getPresenter().loadProfile(path);
-                  updateViewFromModel();
-           }
-     }
-	
-	
-	
-	
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String path = chooser.getSelectedFile().getAbsolutePath();
+			getPresenter().loadProfile(path);
+			updateViewFromModel();
+		}
+	}
+
 	/**
 	 * This method creates a new Profile
 	 * 
@@ -386,16 +382,28 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 	}
 
+	/**
+	 * 
+	 * @param evt
+	 */
 	private void jButtonCreateTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		getPresenter().createTopic();
 	}
 
+	/**
+	 * 
+	 * @param evt needs a action event.
+	 */
 	private void jMenuChooseLanguageActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		TranslationManager.getinstance().setLanguage(evt.getActionCommand());
 	}
 
+	/**
+	 * 
+	 * @param evt needs a action event.
+	 */
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		if (liste.getSelectedValue() != null) {
@@ -406,6 +414,12 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		}
 
 	}
+
+	/**
+	 * 
+	 * 
+	 * @param evt needs a action event.
+	 */
 
 	private void jMenuItemImportProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -425,6 +439,12 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 	}
 
+	/**
+	 * 
+	 * 
+	 * @param evt needs a action event.
+	 */
+
 	private void jMenuItemExportProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
@@ -441,13 +461,9 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 				if (!path.toLowerCase().endsWith(".topic")) {
 					path = path + ".topic";
 				}
-
 				getPresenter().exportTopic(name, path);
-
 			}
-
 		}
-
 	}
 
 	/**
@@ -455,7 +471,6 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	@Override
 	public void translate() {
-		// TODO Auto-generated method stub
 		this.language.setText(TranslationManager.getinstance().getText(
 				"language"));
 		this.profileMenu.setText(TranslationManager.getinstance().getText(
