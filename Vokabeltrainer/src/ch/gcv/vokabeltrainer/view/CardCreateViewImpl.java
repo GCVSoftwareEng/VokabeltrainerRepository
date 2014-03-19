@@ -3,8 +3,6 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -27,20 +25,19 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class CardCreateViewImpl extends javax.swing.JFrame implements
 		CardCreateView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private CardCreatePresenter presenter;
-
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-
-	private JButton addCard;
-
 	private JLabel question;
 	private JLabel answer;
-
 	private JTextField answerField;
 	private JTextField questionWord;
-
+	
 	public CardCreateViewImpl() {
 		super("CardEditView");
 		initComponents();
@@ -53,13 +50,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	private void initComponents() {
 
 		this.getContentPane().setBackground(Color.WHITE);
-		this.addCard = new JButton(new ImageIcon(getClass().getResource(
-				"plus.png")));
-		this.addCard.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonAddCardActionPerformed(evt);
-			}
-		});
 
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
@@ -77,14 +67,10 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-
 			}
 
 		});
@@ -120,8 +106,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
 		questionWord.setBackground(Color.WHITE);
-
-		addCard.setBounds(755, 260, 31, 30);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -164,7 +148,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		super.add(addCard);
 
 	}
 
@@ -182,7 +165,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 * setPresenter implements ICardEditView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -240,7 +222,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-		// TODO should be implemented
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));
@@ -248,15 +229,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 				.getText("boxname"));
 	}
 
-	/**
-	 * This method update your vokabeltrainer with the right language.
-	 * 
-	 * @param evt needs a action event.
-	 */
-	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
-		this.updateModelFromView();
-		this.presenter.confirm();
-	}
 
 	/**
 	 * This method implements the Enter key as a button.
