@@ -181,12 +181,21 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 		}
 
 	}
+	
 
+	/**
+	 * 
+	 */
 	@Override
 	public TopicCardListPresenter getPresenter() {
 		return this.presenter;
 	}
 
+	/**
+	 * This method set a presenter
+	 * 
+	 * @param needs a TopicCardListPresenter
+	 */
 	@Override
 	public void setPresenter(TopicCardListPresenter presenter) {
 		this.presenter = presenter;

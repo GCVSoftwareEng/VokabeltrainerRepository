@@ -35,9 +35,20 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
+<<<<<<< HEAD
 	private JLabel question;
 	private JLabel answer;
 	private JLabel questionWord;
+=======
+	// private JButton check;
+
+	private JLabel question;
+	private JLabel answer;
+	private JLabel questionWord;
+	// private JLabel lastLearn;
+	// private JLabel date;
+
+>>>>>>> FETCH_HEAD
 	private JTextField answerField;
 
 	public CardViewImpl() {
@@ -78,9 +89,29 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 
 		});
 
+<<<<<<< HEAD
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
 		this.answer = new JLabel();
+=======
+		// this.cardPanel = new JPanel();
+
+		// this.check = new JButton(new ImageIcon(getClass().getResource(
+		// "check.png")));
+
+		// this.check.addActionListener(new java.awt.event.ActionListener() {
+		// public void actionPerformed(java.awt.event.ActionEvent evt) {
+		// jButtonCheckActionPerformed(evt);
+		// }
+		// });
+
+		this.question = new JLabel();
+		this.questionWord = new JLabel();
+		this.answer = new JLabel();
+		// this.lastLearn = new JLabel();
+		// this.date = new JLabel();
+
+>>>>>>> FETCH_HEAD
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.boxname = new JTextPane();
@@ -109,6 +140,24 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		answerField.setBounds(170, 250, 575, 50);
 		answerField.setBackground(Color.WHITE);
 
+<<<<<<< HEAD
+=======
+		// lastlearn label
+		// lastLearn.setVisible(true);
+		// lastLearn.setFont(lastLearn.getFont().deriveFont(10));
+		// lastLearn.setBounds(550, 320, 150, 20);
+		// lastLearn.setBackground(Color.WHITE);
+
+		// date label
+		// date.setVisible(true);
+		// date.setFont(date.getFont().deriveFont(10));
+		// date.setBounds(710, 320, 80, 20);
+		// date.setBackground(Color.WHITE);
+
+		// buttons
+		// check.setBounds(475, 380, 53, 53);
+
+>>>>>>> FETCH_HEAD
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
 		StyleConstants.setAlignment(set1, StyleConstants.ALIGN_LEFT);
@@ -149,13 +198,23 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
+<<<<<<< HEAD
 
+=======
+		// super.add(check);
+		// super.add(lastLearn);
+		// super.add(date);
+>>>>>>> FETCH_HEAD
 	}
 
 	/**
 	 * getPresenter implements ICardView.getPresenter
 	 * 
+<<<<<<< HEAD
 	 * @return ICardPresenter 
+=======
+	 * @return ICardPresenter return a presenter
+>>>>>>> FETCH_HEAD
 	 */
 	@Override
 	public CardPresenter getPresenter() {
@@ -166,7 +225,11 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 * setPresenter implements ICardView.setPresenter
 	 * 
 	 * @param presenter
+<<<<<<< HEAD
 	 * 
+=======
+	 *            needs a CardPresenter
+>>>>>>> FETCH_HEAD
 	 */
 	@Override
 	public void setPresenter(CardPresenter presenter) {
@@ -192,6 +255,14 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
+<<<<<<< HEAD
+=======
+
+		// long temp = this.presenter.getModel().getStatisticDateLastLerned();
+		// this.date.setText(Long.toString(this.presenter.getModel()
+		// .getStatisticDateLastLerned()));
+
+>>>>>>> FETCH_HEAD
 	}
 
 	/**
@@ -246,6 +317,9 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		}).start();
 	}
 
+	/**
+	 * 
+	 */
 	private void showSolution() {
 		new Timer(500, new ActionListener() {
 			@Override
@@ -269,7 +343,27 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
+<<<<<<< HEAD
+=======
 	}
+
+	/**
+	 * 
+	 * 
+	 * @param evt
+	 *            needs a action event.
+	 */
+	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().checkAnswer(this.answerField.getText());
+>>>>>>> FETCH_HEAD
+	}
+
+	/**
+	 * 
+	 * 
+	 * @param e
+	 *            needs a key event.
+	 */
 
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -282,6 +376,10 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 			}
 		}
 	}
+
+	/**
+	 * This method open the updateViewFromModel
+	 */
 
 	@Override
 	public void cardChanged() {

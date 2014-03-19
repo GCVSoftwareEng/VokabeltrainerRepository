@@ -188,7 +188,11 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	/**
 	 * getPresenter implements ICardView.getPresenter
 	 * 
+<<<<<<< HEAD
 	 * @return ICardPresenter 
+=======
+	 * @return ICardPresenter a presenter
+>>>>>>> FETCH_HEAD
 	 */
 	@Override
 	public CardChallengePresenter getPresenter() {
@@ -199,7 +203,11 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 * setPresenter implements ICardView.setPresenter
 	 * 
 	 * @param presenter
+<<<<<<< HEAD
 	 * 
+=======
+	 *            needs a CardChallengePresenter
+>>>>>>> FETCH_HEAD
 	 */
 	@Override
 	public void setPresenter(CardChallengePresenter presenter) {
@@ -306,6 +314,9 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.resetBackground();
 	}
 
+	/**
+	 * This method reset Background
+	 */
 	private void resetBackground() {
 		new Timer(500, new ActionListener() {
 			@Override
@@ -332,7 +343,31 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
 
+<<<<<<< HEAD
+=======
+		// this.lastLearn.setText(TranslationManager.getinstance().getText(
+		// "lastLearn"));
 	}
+
+	/**
+	 * This method check the answerField text and stop the timer.
+	 * 
+	 * @param evt
+	 *            needs a action event.
+	 */
+
+	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
+		timer.stop();
+		getPresenter().checkAnswer(this.answerField.getText());
+>>>>>>> FETCH_HEAD
+	}
+
+	/**
+	 * This method implements the Enter key as a button.
+	 * 
+	 * @param e
+	 *            needs a key event.
+	 */
 
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -340,6 +375,10 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 			getPresenter().checkAnswer(this.answerField.getText());
 		}
 	}
+
+	/**
+	 * This method open the updateViewFromModel() and the timer.start()
+	 */
 
 	@Override
 	public void cardChanged() {

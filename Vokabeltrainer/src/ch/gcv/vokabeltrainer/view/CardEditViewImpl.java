@@ -3,6 +3,8 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -10,8 +12,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.interfaces.CardCreatePresenter;
-import ch.gcv.vokabeltrainer.interfaces.CardCreateView;
+import ch.gcv.vokabeltrainer.interfaces.CardEditPresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardEditView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 
@@ -22,33 +24,24 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardCreateViewImpl extends javax.swing.JFrame implements
-		CardCreateView, Translatable {
+public class CardEditViewImpl extends javax.swing.JFrame implements
+		CardEditView, Translatable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private CardCreatePresenter presenter;
+	private CardEditPresenter presenter;
+
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-<<<<<<< HEAD
-=======
 
 	private JButton addCard;
 
->>>>>>> FETCH_HEAD
 	private JLabel question;
 	private JLabel answer;
+
 	private JTextField answerField;
 	private JTextField questionWord;
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> FETCH_HEAD
-	public CardCreateViewImpl() {
+	public CardEditViewImpl() {
 		super("CardEditView");
 		initComponents();
 	}
@@ -60,9 +53,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	private void initComponents() {
 
 		this.getContentPane().setBackground(Color.WHITE);
-<<<<<<< HEAD
-		
-=======
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
 		this.addCard.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +61,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 			}
 		});
 
->>>>>>> FETCH_HEAD
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.boxname = new JTextPane();
@@ -87,22 +76,15 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 			}
 
 			@Override
-<<<<<<< HEAD
-			public void keyReleased(KeyEvent arg0) {				
-=======
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
 
->>>>>>> FETCH_HEAD
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-<<<<<<< HEAD
-=======
 				// TODO Auto-generated method stub
 
->>>>>>> FETCH_HEAD
 			}
 
 		});
@@ -138,12 +120,8 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
 		questionWord.setBackground(Color.WHITE);
-<<<<<<< HEAD
-		
-=======
 
 		addCard.setBounds(755, 260, 31, 30);
->>>>>>> FETCH_HEAD
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -186,31 +164,27 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
+		super.add(addCard);
 
 	}
 
 	/**
 	 * getPresenter implements ICardEditView.getPresenter
 	 * 
-<<<<<<< HEAD
-	 * @return ICardEditPresenter
-=======
 	 * @return ICardEditPresenter a presenter
->>>>>>> FETCH_HEAD
 	 */
 	@Override
-	public CardCreatePresenter getPresenter() {
+	public CardEditPresenter getPresenter() {
 		return this.presenter;
 	}
 
 	/**
 	 * setPresenter implements ICardEditView.setPresenter
 	 * 
-	 * @param presenter
-	 * 
+	 * @param presenter needs a CardEditPresenter
 	 */
 	@Override
-	public void setPresenter(CardCreatePresenter presenter) {
+	public void setPresenter(CardEditPresenter presenter) {
 		this.presenter = presenter;
 	}
 
@@ -233,8 +207,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		this.topicname.setText(this.presenter.getModel().getTopic().getName());
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
 		this.answerField.setText(this.presenter.getModel().getAnswer());
-
-		this.questionWord.requestFocus();
 	}
 
 	/**
@@ -264,41 +236,36 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-		this.setTitle(TranslationManager.getinstance().getText("create"));
+		// TODO should be implemented
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
-<<<<<<< HEAD
-		this.answer.setText(TranslationManager.getinstance().getText(
-				"answer"));
-		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
-    }
-	
-=======
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
 	}
 
 	/**
-	 * This method update your vokabeltrainer with the right language.
+	 * This method update your view.
 	 * 
 	 * @param evt needs a action event.
 	 */
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
 		this.updateModelFromView();
 		this.presenter.confirm();
+		this.close();
+
 	}
 
 	/**
 	 * This method implements the Enter key as a button.
 	 * 
-	 * @param e
+	 * @param e needs a key event.
 	 */
->>>>>>> FETCH_HEAD
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			this.updateModelFromView();
 			this.presenter.confirm();
+			this.close();
 		}
 	}
 
