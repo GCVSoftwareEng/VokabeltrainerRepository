@@ -184,11 +184,11 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.beatTheClockCheckBox = new JCheckBox("challengeMode");
 
 		this.topicname = new JTextPane();
-		this.boxLabel1 = new JLabel("Box: 1");
-		this.boxLabel2 = new JLabel("Box: 2");
-		this.boxLabel3 = new JLabel("Box: 3");
-		this.boxLabel4 = new JLabel("Box: 4");
-		this.boxLabel5 = new JLabel("Box: 5");
+		this.boxLabel1 = new JLabel();
+		this.boxLabel2 = new JLabel();
+		this.boxLabel3 = new JLabel();
+		this.boxLabel4 = new JLabel();
+		this.boxLabel5 = new JLabel();
 		this.cardCount1 = new JLabel();
 		this.cardCount2 = new JLabel();
 		this.cardCount3 = new JLabel();
@@ -444,6 +444,11 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.openStatistic.setText(TranslationManager.getinstance().getText("open"));
 		
 	
+		this.boxLabel1.setText(TranslationManager.getinstance().getText("box")+" 1");
+		this.boxLabel2.setText(TranslationManager.getinstance().getText("box")+" 2");
+		this.boxLabel3.setText(TranslationManager.getinstance().getText("box")+" 3");
+		this.boxLabel4.setText(TranslationManager.getinstance().getText("box")+" 4");
+		this.boxLabel5.setText(TranslationManager.getinstance().getText("box")+" 5");
 		
 	}
 

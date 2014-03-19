@@ -182,6 +182,7 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 		if (this.statisticPresenter != null){
 			this.statisticPresenter.refresh();
 		}
+		
 	}
 
 	@Override
