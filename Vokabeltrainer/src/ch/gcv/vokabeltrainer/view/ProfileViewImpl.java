@@ -257,18 +257,20 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		// update language menu bar
 		ArrayList<String> languages = TranslationManager.getinstance()
 				.getLanguages();
-		Iterator<String> it = languages.iterator(); // iterator
-		while (it.hasNext()) {
-			JMenuItem lm = new JMenuItem(it.next());
+		
+		for (String language : languages) {
+			JMenuItem lm = new JMenuItem(TranslationManager.getinstance().getText(language));
+			lm.setActionCommand(language);
 
 			lm.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent evt) {
 					jMenuChooseLanguageActionPerformed(evt);
 				}
 			});
-
-			this.language.add(lm);
+			this.language.add(lm);			
 		}
+		
+		
 
 		// update the topic list
 		this.liste.setListData(presenter.getModel().getTopics().toArray());

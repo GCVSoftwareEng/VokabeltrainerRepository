@@ -34,9 +34,11 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private JTextPane topicname;
 	private JMenuBar menuBar;
 	private JMenu cardsMenu;
+	private JMenu statisticMenu;
 	private JMenuItem moveAllCardsToFirstBox;
 	private JMenuItem createCards;
 	private JMenuItem showCards;
+	private JMenuItem openStatistic;
 	
 	private JButton boxButton1;
 	private JButton boxButton2;
@@ -89,6 +91,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		
 		this.menuBar = new JMenuBar();
 		this.cardsMenu = new JMenu();
+		this.statisticMenu = new JMenu();
 		
 
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
@@ -154,22 +157,29 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.createCards = new JMenuItem();
 		this.createCards.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonCreateCardActionPerformed(evt);
+				jMenuCreateCardActionPerformed(evt);
 			}
 		});
 		this.showCards = new JMenuItem();
 		this.showCards.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonEditBoxActionPerformed(evt);
+				jMenuEditBoxActionPerformed(evt);
 			}
 		});
-
+		this.openStatistic = new JMenuItem();
+		this.openStatistic.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuOpenStatisticActionPerformed(evt);
+			}
+		});
+		
 		// build menubar
 		menuBar.add(cardsMenu);
 		cardsMenu.add(createCards);
 		cardsMenu.add(showCards);
 		cardsMenu.add(moveAllCardsToFirstBox);
-		
+		menuBar.add(statisticMenu);
+		statisticMenu.add(openStatistic);
 		
 		this.beatTheClockCheckBox = new JCheckBox("challengeMode");
 
@@ -455,7 +465,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 * 
 	 * @param evt
 	 */
-	private void jButtonCreateCardActionPerformed(java.awt.event.ActionEvent evt) {
+	private void jMenuCreateCardActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().createCard();
 	}
 	
@@ -463,7 +473,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 * 
 	 * @param evt
 	 */
-	private void jButtonEditBoxActionPerformed(java.awt.event.ActionEvent evt) {
+	private void jMenuEditBoxActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().editCards();
 	}
 	

@@ -27,12 +27,10 @@ public class TranslationManager {
 		super();
 		this.languageChangedListeners = new ArrayList<Translatable>();
 		this.languages = new ArrayList<String>();
-		// TODO load available languages
 		this.languages.add("de");
-		this.languages.add("it");
-		this.languages.add("fr");
 		this.languages.add("en");
-		
+		this.languages.add("fr");
+		this.languages.add("it");
 		this.setLanguage(defaultLanguage);
 	}
 
@@ -51,7 +49,6 @@ public class TranslationManager {
 	 * text.
 	 * 
 	 * @param key
-	 *            // CHF
 	 * @return String
 	 */
 	public String getText(String key) {
@@ -66,7 +63,6 @@ public class TranslationManager {
 	 * setLanguage implements ITranslationManager.setLanguage
 	 * 
 	 * @param language
-	 *            // TODO CHF
 	 * 
 	 */
 	public void setLanguage(String language) {
@@ -76,17 +72,15 @@ public class TranslationManager {
 		try {
 			bundle = ResourceBundle.getBundle(baseName);
 		} catch (MissingResourceException e) {
-			System.err.println(e); // TODO
+			System.err.println(e); 
 		}
-		
 		this.languageChanged();
-
 	}
 
 	/**
 	 * getLanguages implements ITranslationManager.getLanguages
 	 * 
-	 * @return ArrayList<String> // TODO
+	 * @return ArrayList<String> 
 	 */
 	public ArrayList<String> getLanguages() {
 		return this.languages;
@@ -95,7 +89,7 @@ public class TranslationManager {
 	/**
 	 * getInstance implements ITranslationManager.getInstance
 	 * 
-	 * @return ITranslationManager // TODO
+	 * @return ITranslationManager
 	 */
 	public static TranslationManager getinstance() {
 		if (TranslationManager.instance == null) {
@@ -108,8 +102,7 @@ public class TranslationManager {
 	 * addListener implements ITranslationManager.addListener
 	 * 
 	 * @param listener
-	 *            // TODO
-	 * @return boolean // TODO
+	 * @return boolean
 	 */
 	public boolean addListener(Translatable listener) {
 		return this.languageChangedListeners.add(listener);
@@ -119,11 +112,9 @@ public class TranslationManager {
 	 * removeListener implements ITranslationManager.removeListener
 	 * 
 	 * @param listener
-	 *            // TODO
-	 * @return boolean // TODO
+	 * @return boolean
 	 */
 	public boolean removeListener(Translatable listener) {
-
 		Iterator<Translatable> it = languageChangedListeners
 				.iterator();
 		while (it.hasNext()) {

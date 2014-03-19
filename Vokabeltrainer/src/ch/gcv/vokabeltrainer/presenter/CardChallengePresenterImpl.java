@@ -130,11 +130,17 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	public void nextCard(){
 		CardImpl nextCard = null;
 		int boxToCheck = this.curBox;
+		boolean firstLoop = true;
 		while (nextCard == null){
 			nextCard = this.model.getTopic().getRandomCard(boxToCheck);
-			boxToCheck +=1;
+			if (firstLoop){
+				boxToCheck = 0;
+				firstLoop = false;
+			} else {
+				boxToCheck +=1;
+			}
 			if (boxToCheck > Application.boxCount){
-				boxToCheck = 1;
+				break;//boxToCheck = 1;
 			}
 		}	
 		this.model = nextCard;	
