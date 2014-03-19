@@ -35,20 +35,19 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-	//private JButton check;
+	// private JButton check;
 
 	private JLabel lastTime;
 	private JLabel curTime;
 	private JLabel question;
 	private JLabel answer;
 	private JLabel questionWord;
-	//private JLabel lastLearn;
-	//private JLabel date;
+	// private JLabel lastLearn;
+	// private JLabel date;
 
 	private JTextField answerField;
-	
+
 	private Timer timer;
-	
 
 	// private JPanel cardPanel;
 
@@ -64,7 +63,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	private void initComponents() {
 
 		// JFrame defination
-		Color backgroundColor = new Color(255,248,168);
+		Color backgroundColor = new Color(255, 248, 168);
 		this.getContentPane().setBackground(backgroundColor);
 		super.setBackground(backgroundColor);
 		super.setResizable(false);
@@ -96,14 +95,14 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 
 		// this.cardPanel = new JPanel();
 
-		//this.check = new JButton(new ImageIcon(getClass().getResource(
-		//		"check.png")));
+		// this.check = new JButton(new ImageIcon(getClass().getResource(
+		// "check.png")));
 
-		//this.check.addActionListener(new java.awt.event.ActionListener() {
-		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
-		//		jButtonCheckActionPerformed(evt);
-		//	}
-		//});
+		// this.check.addActionListener(new java.awt.event.ActionListener() {
+		// public void actionPerformed(java.awt.event.ActionEvent evt) {
+		// jButtonCheckActionPerformed(evt);
+		// }
+		// });
 
 		this.lastTime = new JLabel("lastTime");
 		this.curTime = new JLabel("curTime");
@@ -111,8 +110,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
 		this.answer = new JLabel();
-		//this.lastLearn = new JLabel();
-		//this.date = new JLabel();
+		// this.lastLearn = new JLabel();
+		// this.date = new JLabel();
 
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
@@ -128,7 +127,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		lastTime.setFont(question.getFont().deriveFont(15f));
 		lastTime.setBounds(650, 20, 100, 20);
 		lastTime.setBackground(backgroundColor);
-		
+
 		// curTimeLabel
 		curTime.setVisible(true);
 		curTime.setFont(question.getFont().deriveFont(20f));
@@ -152,7 +151,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
 		answer.setBackground(backgroundColor);
-		
+
 		// textfiel
 		answerField.setEditable(true);
 		answerField.setVisible(true);
@@ -161,19 +160,19 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		answerField.setBackground(Color.WHITE);
 
 		// lastlearn label
-		//lastLearn.setVisible(true);
-		//lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-		//lastLearn.setBounds(550, 320, 150, 20);
-		//lastLearn.setBackground(Color.WHITE);
+		// lastLearn.setVisible(true);
+		// lastLearn.setFont(lastLearn.getFont().deriveFont(10));
+		// lastLearn.setBounds(550, 320, 150, 20);
+		// lastLearn.setBackground(Color.WHITE);
 
 		// date label
-		//date.setVisible(true);
-		//date.setFont(date.getFont().deriveFont(10));
-		//date.setBounds(710, 320, 80, 20);
-		//date.setBackground(Color.WHITE);
+		// date.setVisible(true);
+		// date.setFont(date.getFont().deriveFont(10));
+		// date.setBounds(710, 320, 80, 20);
+		// date.setBackground(Color.WHITE);
 
 		// buttons
-		//check.setBounds(475, 380, 53, 53);
+		// check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -217,20 +216,20 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		//super.add(check);
-		//super.add(lastLearn);
-		//super.add(date);
+		// super.add(check);
+		// super.add(lastLearn);
+		// super.add(date);
 
 		// timer
 		this.timer = new Timer(1, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				long actTime = new Date().getTime();
-				long delta = actTime - presenter.getCardShown(); 
-				curTime.setText(Long.toString(delta)+" ms");
+				long delta = actTime - presenter.getCardShown();
+				curTime.setText(Long.toString(delta) + " ms");
 			}
 		});
-		
+
 	}
 
 	/**
@@ -276,11 +275,12 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
 
-		//long temp = this.presenter.getModel().getStatisticDateLastLerned();
-		//this.date.setText(Long.toString(this.presenter.getModel()
-		//		.getStatisticDateLastLerned()));
-		
-		this.lastTime.setText(Long.toString(this.presenter.getModel().getSpentTime()) + " ms");
+		// long temp = this.presenter.getModel().getStatisticDateLastLerned();
+		// this.date.setText(Long.toString(this.presenter.getModel()
+		// .getStatisticDateLastLerned()));
+
+		this.lastTime.setText(Long.toString(this.presenter.getModel()
+				.getSpentTime()) + " ms");
 		this.curTime.setText(0 + " ms");
 
 	}
@@ -294,14 +294,15 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		TranslationManager.getinstance().addListener(this);
 		translate();
 		setVisible(true);
-		
+
 		this.answerField.setEditable(false);
 		new Timer(1000, new ActionListener() {
 			int count = 3;
+
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				answerField.setText("Ready in: " + Integer.toString(count));
-				if (count <= -1){
+				if (count <= -1) {
 					((Timer) evt.getSource()).stop();
 					presenter.nextCard();
 					answerField.setText("");
@@ -309,13 +310,10 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 					answerField.requestFocus();
 					timer.start();
 				}
-				count -=1;
+				count -= 1;
 			}
 		}).start();
 
-		
-		
-		
 	}
 
 	/**
@@ -361,7 +359,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.resetBackground();
 	}
 
-	
 	private void resetBackground() {
 		new Timer(500, new ActionListener() {
 			@Override
@@ -387,8 +384,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
 
-		//this.lastLearn.setText(TranslationManager.getinstance().getText(
-		//		"lastLearn"));
+		// this.lastLearn.setText(TranslationManager.getinstance().getText(
+		// "lastLearn"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
