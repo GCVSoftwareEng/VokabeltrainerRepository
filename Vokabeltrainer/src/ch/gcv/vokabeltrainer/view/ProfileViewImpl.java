@@ -114,21 +114,20 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 				jButtonCreateTopicActionPerformed(evt);
 			}
 		});
-		
+
 		this.deleteTopic = new JMenuItem();
 		this.deleteTopic.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonDeleteTopicActionPerformed(evt);
 			}
 		});
-		
+
 		this.exit = new JMenuItem();
 		this.exit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemExitProfileActionPerformed(evt);
 			}
 		});
-	
 
 		this.topic = new JTextPane();
 		this.liste = new JList();
@@ -181,7 +180,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		menuBar.add(profileMenu);
 		menuBar.add(topics);
 		menuBar.add(language);
-		
+
 		profileMenu.add(newPro);
 		profileMenu.add(loadPro);
 		profileMenu.add(savePro);
@@ -192,12 +191,10 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		topics.add(exportCards);
 		topics.add(createTopic);
 		topics.add(deleteTopic);
-		
-		
+
 		menuBar.setBackground(Color.LIGHT_GRAY);
 
 		scrollPane.setBounds(50, 80, 400, 350);
-
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -257,9 +254,10 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		// update language menu bar
 		ArrayList<String> languages = TranslationManager.getinstance()
 				.getLanguages();
-		
+
 		for (String language : languages) {
-			JMenuItem lm = new JMenuItem(TranslationManager.getinstance().getText(language));
+			JMenuItem lm = new JMenuItem(TranslationManager.getinstance()
+					.getText(language));
 			lm.setActionCommand(language);
 
 			lm.addActionListener(new java.awt.event.ActionListener() {
@@ -267,10 +265,8 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 					jMenuChooseLanguageActionPerformed(evt);
 				}
 			});
-			this.language.add(lm);			
+			this.language.add(lm);
 		}
-		
-		
 
 		// update the topic list
 		this.liste.setListData(presenter.getModel().getTopics().toArray());
@@ -305,25 +301,16 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
-
-		// JFileChooser-Objekt erstellen
 		JFileChooser chooser = new JFileChooser();
-		// Filter um uns auf bestimmte Dateiendungen zu beschraenken.
-		// Zeigt dann auch nur diese Dateien an beim Oeffnen.
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
-				//Beschreibung der Datei            Endung der Datei
-				"Vokabeltrainer profile", "profile");
-		// Filter wird dem JFileChooser hinzugefuegt.
+		"Vokabeltrainer profile", "profile");
+
 		chooser.setFileFilter(filter);
-		//Dialog zum Oeffnen von Dateien Anzeigen. // anstatt null parameter koennte man anzeige von pics implementieren.
-		int returnVal = chooser.showOpenDialog(null); // open gleich öffen sonst save = speichern
-		//Abfrage ob auf oeffen geklickt wurde
-		if (returnVal == JFileChooser.APPROVE_OPTION) { // bei "Abbrechen" CANCEL_OPTION
-			// Profil gem pfad laden.
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
 			updateViewFromModel();
-
 		}
 	}
 
@@ -347,12 +334,14 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
-			if (getPresenter().saveProfile()== false){
-				this.jMenuItemSaveProfileAsActionPerformed(null);;
-			};
+		if (getPresenter().saveProfile() == false) {
+			this.jMenuItemSaveProfileAsActionPerformed(null);
+			;
+		}
+		;
 
 	}
-	
+
 	/**
 	 * This method save local a profile. You must enter a name.
 	 * 
@@ -368,7 +357,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 				"Vokabeltrainer profile", "profile");
 		chooser.setFileFilter(filter);
 		// Dialog abgeändert mit showDialog anstatt showSaveDialog
-		int returnVal = chooser.showDialog(null,"Speichere Profil");
+		int returnVal = chooser.showDialog(null, "Speichere Profil");
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			if (!path.toLowerCase().endsWith(".profile")) {
@@ -397,9 +386,6 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 			java.awt.event.ActionEvent evt) {
 		getPresenter().createTopic();
 	}
-	
-
-	
 
 	private void jMenuChooseLanguageActionPerformed(
 			java.awt.event.ActionEvent evt) {
@@ -466,23 +452,21 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		// TODO Auto-generated method stub
 		this.language.setText(TranslationManager.getinstance().getText(
 				"language"));
-		this.profileMenu.setText(TranslationManager.getinstance().getText("profile"));
+		this.profileMenu.setText(TranslationManager.getinstance().getText(
+				"profile"));
 		this.topic.setText(TranslationManager.getinstance().getText("topics"));
 		this.newPro.setText(TranslationManager.getinstance().getText("new"));
-		this.loadPro.setText(TranslationManager.getinstance()
-				.getText("load"));
-		this.savePro.setText(TranslationManager.getinstance()
-				.getText("save"));
-		this.saveProAs.setText(TranslationManager.getinstance()
-				.getText("saveAs"));
+		this.loadPro.setText(TranslationManager.getinstance().getText("load"));
+		this.savePro.setText(TranslationManager.getinstance().getText("save"));
+		this.saveProAs.setText(TranslationManager.getinstance().getText(
+				"saveAs"));
 		this.exit.setText(TranslationManager.getinstance().getText("exit"));
 		this.importCards.setText(TranslationManager.getinstance().getText(
 				"import"));
 		this.exportCards.setText(TranslationManager.getinstance().getText(
 				"export"));
-		this.topics.setText(TranslationManager.getinstance().getText(
-				"topic"));
-		
+		this.topics.setText(TranslationManager.getinstance().getText("topic"));
+
 		this.createTopic.setText(TranslationManager.getinstance().getText(
 				"create"));
 		this.deleteTopic.setText(TranslationManager.getinstance().getText(
