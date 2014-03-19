@@ -2,7 +2,12 @@ package ch.gcv.vokabeltrainer.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.util.Date;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
@@ -12,6 +17,8 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
@@ -27,11 +34,8 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 		TopicStatisticListView, Translatable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private TopicStatisticListPresenter presenter;
+
 	private JTextPane topic;
 	private JScrollPane scrollPane;
 	private final JTable table = new JTable() {
@@ -47,7 +51,8 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 
 	// private JPanel cardPanel;
 	public TopicStatisticListViewImpl() {
-		super("CardStatisticListView");
+		super("CardStatistikListView");
+		
 		this.initComponents();
 	}
 
@@ -59,7 +64,45 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 
 		this.getContentPane().setBackground(Color.WHITE);
 		this.topic = new JTextPane();
+		// this.liste.addMouseListener(new java.awt.event.MouseListener() {
+		// @Override
+		// public void mouseClicked(MouseEvent e) {
+		// if(e.getClickCount() == 2){
+		// String name = liste.getSelectedValue().toString();
+		//
+		//
+		// }
+		// }
+		//
+		// @Override
+		// public void mouseEntered(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mouseExited(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mousePressed(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mouseReleased(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		// });
 	
+		
+
+		
+
 		this.scrollPane = new JScrollPane(table);
 		table.setPreferredScrollableViewportSize(new Dimension(400, 0));
 
@@ -103,7 +146,7 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void updateModelFromView() {
-		throw new UnsupportedOperationException("Not implemented");
+
 	}
 
 	/**
@@ -112,8 +155,10 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void updateViewFromModel() {
+
 		topic.setText(presenter.getModel().getName());
 		setTableContent();
+		
 	}
 
 	/**
@@ -143,7 +188,6 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-		this.setTitle(TranslationManager.getinstance().getText("statistic"));
 		updateViewFromModel();
 	}
 
@@ -182,8 +226,10 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 				countRight};
 
 		TableModel model = new DefaultTableModel(data, columnNames);
-		this.table.setModel(model);		
+		this.table.setModel(model);
+		
 		
 	}
 	
+
 }

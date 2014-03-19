@@ -3,6 +3,8 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -25,29 +27,20 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class CardCreateViewImpl extends javax.swing.JFrame implements
 		CardCreateView, Translatable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private CardCreatePresenter presenter;
+
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-<<<<<<< HEAD
-=======
 
 	private JButton addCard;
 
->>>>>>> FETCH_HEAD
 	private JLabel question;
 	private JLabel answer;
+
 	private JTextField answerField;
 	private JTextField questionWord;
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> FETCH_HEAD
 	public CardCreateViewImpl() {
 		super("CardEditView");
 		initComponents();
@@ -60,9 +53,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	private void initComponents() {
 
 		this.getContentPane().setBackground(Color.WHITE);
-<<<<<<< HEAD
-		
-=======
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
 		this.addCard.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +61,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 			}
 		});
 
->>>>>>> FETCH_HEAD
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.boxname = new JTextPane();
@@ -87,22 +76,15 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 			}
 
 			@Override
-<<<<<<< HEAD
-			public void keyReleased(KeyEvent arg0) {				
-=======
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
 
->>>>>>> FETCH_HEAD
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-<<<<<<< HEAD
-=======
 				// TODO Auto-generated method stub
 
->>>>>>> FETCH_HEAD
 			}
 
 		});
@@ -138,12 +120,8 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
 		questionWord.setBackground(Color.WHITE);
-<<<<<<< HEAD
-		
-=======
 
 		addCard.setBounds(755, 260, 31, 30);
->>>>>>> FETCH_HEAD
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -186,17 +164,14 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
+		super.add(addCard);
 
 	}
 
 	/**
 	 * getPresenter implements ICardEditView.getPresenter
 	 * 
-<<<<<<< HEAD
-	 * @return ICardEditPresenter
-=======
 	 * @return ICardEditPresenter a presenter
->>>>>>> FETCH_HEAD
 	 */
 	@Override
 	public CardCreatePresenter getPresenter() {
@@ -207,6 +182,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 * setPresenter implements ICardEditView.setPresenter
 	 * 
 	 * @param presenter
+	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -264,16 +240,9 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-		this.setTitle(TranslationManager.getinstance().getText("create"));
+		// TODO should be implemented
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
-<<<<<<< HEAD
-		this.answer.setText(TranslationManager.getinstance().getText(
-				"answer"));
-		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
-    }
-	
-=======
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
@@ -294,7 +263,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 * 
 	 * @param e
 	 */
->>>>>>> FETCH_HEAD
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			this.updateModelFromView();

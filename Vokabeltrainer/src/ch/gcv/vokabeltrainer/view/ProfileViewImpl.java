@@ -3,7 +3,9 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -32,11 +34,8 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		Translatable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private ProfilePresenter presenter;
+
 	private JMenuBar menuBar;
 	private JMenu profileMenu;
 	private JMenu language;
@@ -51,6 +50,8 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	private JMenuItem deleteTopic;
 	private JMenuItem exit;
 	private JList liste;
+	private JButton plus;
+	private JButton delete;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
 
@@ -143,18 +144,26 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
 			}
 		});
 		this.scrollPane = new JScrollPane(liste);
@@ -239,6 +248,8 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	@Override
 	public void updateViewFromModel() {
+		// TODO should be implemented
+
 		this.language.removeAll();
 		// update language menu bar
 		ArrayList<String> languages = TranslationManager.getinstance()
@@ -325,7 +336,9 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 		if (getPresenter().saveProfile() == false) {
 			this.jMenuItemSaveProfileAsActionPerformed(null);
+			;
 		}
+		;
 
 	}
 
@@ -343,7 +356,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"Vokabeltrainer profile", "profile");
 		chooser.setFileFilter(filter);
-
+		// Dialog abgeändert mit showDialog anstatt showSaveDialog
 		int returnVal = chooser.showDialog(null, "Speichere Profil");
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String path = chooser.getSelectedFile().getAbsolutePath();
@@ -458,10 +471,6 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	@Override
 	public void translate() {
-<<<<<<< HEAD
-		this.setTitle(TranslationManager.getinstance().getText("profile"));
-=======
->>>>>>> FETCH_HEAD
 		this.language.setText(TranslationManager.getinstance().getText(
 				"language"));
 		this.profileMenu.setText(TranslationManager.getinstance().getText(
