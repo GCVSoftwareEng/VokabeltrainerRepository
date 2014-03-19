@@ -459,6 +459,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("profile"));
 		this.language.setText(TranslationManager.getinstance().getText(
 				"language"));
 		this.profileMenu.setText(TranslationManager.getinstance().getText(

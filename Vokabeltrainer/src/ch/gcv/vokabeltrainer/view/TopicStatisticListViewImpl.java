@@ -141,6 +141,7 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("statistic"));
 		updateViewFromModel();
 	}
 

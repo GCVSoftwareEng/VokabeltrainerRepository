@@ -267,6 +267,7 @@ public class CardViewImpl extends javax.swing.JFrame implements CardView,
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("card"));
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));

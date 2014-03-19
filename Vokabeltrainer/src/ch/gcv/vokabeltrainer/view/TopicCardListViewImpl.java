@@ -165,7 +165,7 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-
+		super.setTitle(TranslationManager.getinstance().getText("cards"));
 		this.cardsMenu.setText(TranslationManager.getinstance()
 				.getText("cards"));
 		this.deleteCards.setText(TranslationManager.getinstance().getText(

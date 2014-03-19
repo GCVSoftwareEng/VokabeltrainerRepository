@@ -222,6 +222,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("create"));
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));

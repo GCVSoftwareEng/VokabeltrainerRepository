@@ -384,6 +384,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("topic"));
 		this.cardCount1.setText(TranslationManager.getinstance().getText(
 				"cards"));
 		this.cardCount2.setText(TranslationManager.getinstance().getText(

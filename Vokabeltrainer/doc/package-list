@@ -1,0 +1,5 @@
+ch.gcv.vokabeltrainer.application
+ch.gcv.vokabeltrainer.interfaces
+ch.gcv.vokabeltrainer.model
+ch.gcv.vokabeltrainer.presenter
+ch.gcv.vokabeltrainer.view

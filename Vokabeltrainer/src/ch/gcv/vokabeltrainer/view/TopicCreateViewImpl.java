@@ -176,6 +176,7 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	 */
 	@Override
 	public void translate() {
+		super.setTitle(TranslationManager.getinstance().getText("topic"));
 		this.topic.setText(TranslationManager.getinstance().getText("createTopic"));
     }
 	
