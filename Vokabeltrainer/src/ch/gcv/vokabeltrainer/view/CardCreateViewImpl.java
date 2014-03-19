@@ -11,8 +11,8 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.interfaces.CardEditPresenter;
-import ch.gcv.vokabeltrainer.interfaces.CardEditView;
+import ch.gcv.vokabeltrainer.interfaces.CardCreatePresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardCreateView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 
@@ -23,9 +23,9 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView, Translatable {
+public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreateView, Translatable {
 
-	private CardEditPresenter presenter;
+	private CardCreatePresenter presenter;
 
 	private JTextPane topicname;
 	private JTextPane boxnumber;
@@ -41,7 +41,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	private JTextField questionWord;
 
 	
-	public CardEditViewImpl() {
+	public CardCreateViewImpl() {
 		super("CardEditView");
 		initComponents();		
 	}
@@ -180,7 +180,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 * @return ICardEditPresenter // TODO
 	 */
 	@Override
-	public CardEditPresenter getPresenter() {
+	public CardCreatePresenter getPresenter() {
 		return this.presenter;
 	}
 
@@ -192,7 +192,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 * 
 	 */
 	@Override
-	public void setPresenter(CardEditPresenter presenter) {
+	public void setPresenter(CardCreatePresenter presenter) {
 		this.presenter = presenter;
 	}
 
@@ -215,6 +215,8 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		 this.topicname.setText(this.presenter.getModel().getTopic().getName());
 		 this.questionWord.setText(this.presenter.getModel().getQuestion());
 		 this.answerField.setText(this.presenter.getModel().getAnswer());
+		 
+		 this.questionWord.requestFocus();
 	}
 
 	/**
@@ -255,16 +257,13 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
         this.updateModelFromView();
-        this.presenter.confirm();
-        this.close();
-        
+        this.presenter.confirm();       
     }
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
 			this.updateModelFromView();
 	        this.presenter.confirm();
-	        this.close();
 		}
 	}
 

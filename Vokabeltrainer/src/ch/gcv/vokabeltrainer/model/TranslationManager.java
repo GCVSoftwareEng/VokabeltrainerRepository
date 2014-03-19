@@ -1,15 +1,12 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
-import ch.gcv.vokabeltrainer.model.TranslationManager;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software

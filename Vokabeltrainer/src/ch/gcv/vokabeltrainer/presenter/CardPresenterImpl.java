@@ -2,10 +2,9 @@ package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.interfaces.Card;
-import ch.gcv.vokabeltrainer.interfaces.CardView;
 import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
-import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.view.CardViewImpl;

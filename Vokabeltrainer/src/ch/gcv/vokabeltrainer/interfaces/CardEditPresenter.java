@@ -9,12 +9,12 @@ package ch.gcv.vokabeltrainer.interfaces;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface CardCreatePresenter {
+public interface CardEditPresenter {
  
 	public Card getModel();
 	public void setModel(Card model);
-	public CardCreateView getView();
-	public void setView(CardCreateView view);
+	public CardEditView getView();
+	public void setView(CardEditView view);
 	public void setOnConfirm(Presentable onConfirm);
 	public void setOnCancel(Presentable onCancel);
 	public void confirm();

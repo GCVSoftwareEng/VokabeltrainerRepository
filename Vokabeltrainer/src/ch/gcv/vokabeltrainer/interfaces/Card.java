@@ -23,7 +23,7 @@ public interface Card {
 	public void setBox(int box);
 	public void moveUp();
 	public int getBox();
-	public void setTopic(TopicImpl topic);
+	public void setTopic(Topic topic);
 	public TopicImpl getTopic();
 	public boolean check(String answer);
 	public void setName(String text);

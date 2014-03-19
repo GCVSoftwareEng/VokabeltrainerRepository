@@ -21,12 +21,9 @@ public interface TopicPresenter {
 	public void createCard();
 	public void openCard(Card card);
 	public void deleteCard();
-	public void learnTopic();
-	void learnTopic(Topic topic); //CHF
-	void learnTopic(Card card); //CHF
-	void deleteTopic(Topic topic); // CHF
-	void startChallenge(Card card);
-	
+	public void startChallenge(Card card);
+	public void editCards();
+	public void moveAllCardsToFirstBox();
   
 }
  

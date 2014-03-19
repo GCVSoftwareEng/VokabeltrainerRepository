@@ -54,8 +54,7 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements TopicCa
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount() == 2){
 					String name = liste.getSelectedValue().toString();
-					Card card = getPresenter().getModel().getCards(); //TODO get card muess card zrugliefere
-					getPresenter().getView().open();
+					
 					
 				}
 			}
@@ -185,20 +184,18 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements TopicCa
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		String name = liste.getSelectedValue().toString();
-		Card card = getPresenter().getModel().getCards();
-		getPresenter().deleteCard(card);
+		
 		
 	}
 
 	@Override
 	public TopicCardListPresenter getPresenter() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.presenter;
 	}
 
 	@Override
 	public void setPresenter(TopicCardListPresenter presenter) {
-		// TODO Auto-generated method stub
+		this.presenter = presenter;
 		
 	}
 }

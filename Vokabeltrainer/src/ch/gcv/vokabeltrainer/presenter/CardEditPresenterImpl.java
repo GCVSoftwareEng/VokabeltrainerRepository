@@ -1,12 +1,11 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 import ch.gcv.vokabeltrainer.interfaces.Card;
+import ch.gcv.vokabeltrainer.interfaces.CardEditPresenter;
+import ch.gcv.vokabeltrainer.interfaces.CardEditView;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
-import ch.gcv.vokabeltrainer.interfaces.Topic;
-import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
-import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
+import ch.gcv.vokabeltrainer.view.CardEditViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -15,19 +14,19 @@ import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCardListPresenterImpl implements Presentable, TopicCardListPresenter {
+public class CardEditPresenterImpl implements Presentable, CardEditPresenter {
 
 	private Presentable onConfirm;
-	private TopicCardListView view;
+	private CardEditView view;
 	private Presentable onCancel;
-	private Topic model;
+	private Card model;
 
-	public TopicCardListPresenterImpl() {
+	public CardEditPresenterImpl() {
 		super();
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = new TopicCardListViewImpl();
+		this.view = new CardEditViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
 
@@ -48,7 +47,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	 * @return ICard // TODO
 	 */
 	@Override
-	public Topic getModel() {
+	public Card getModel() {
 		
 		return this.model;
 	}
@@ -61,7 +60,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	 * 
 	 */
 	@Override
-	public void setModel(Topic model) {
+	public void setModel(Card model) {
 		this.model = model;
 	}
 
@@ -71,7 +70,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	 * @return ICardEditView // TODO
 	 */
 	@Override
-	public TopicCardListView getView() {
+	public CardEditView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
@@ -84,20 +83,52 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	 * 
 	 */
 	@Override
-	public void setView(TopicCardListView view) {
+	public void setView(CardEditView view) {
 		this.view = view;
 	}
 
+	/**
+	 * setOnConfirm implements ICardEditPresenter.setOnConfirm
+	 * 
+	 * @param onConfirm
+	 *            // TODO
+	 * 
+	 */
 	@Override
-	public boolean deleteCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
+	public void setOnConfirm(Presentable onConfirm) {
+		this.onConfirm = onConfirm;
 	}
 
+	/**
+	 * setOnCancel implements ICardEditPresenter.setOnCancel
+	 * 
+	 * @param onCancel
+	 *            // TODO
+	 * 
+	 */
 	@Override
-	public boolean editCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
+	public void setOnCancel(Presentable onCancel) {
+		this.onCancel = onCancel;
+	}
+
+	/**
+	 * confirm implements ICardEditPresenter.confirm
+	 * 
+	 */
+	@Override
+	public void confirm() {
+		this.model.getTopic().addCard(this.model);
+		this.onConfirm.run();
+	}
+
+	/**
+	 * cancel implements ICardEditPresenter.cancel
+	 * 
+	 */
+	@Override
+	public void cancel() {
+		// TODO should be implemented
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
@@ -105,7 +136,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void stop() {
 		this.view.close();

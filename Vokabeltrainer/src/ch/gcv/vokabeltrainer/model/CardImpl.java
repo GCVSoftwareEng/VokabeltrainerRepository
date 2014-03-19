@@ -2,7 +2,6 @@ package ch.gcv.vokabeltrainer.model;
 
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.util.Date;
 
 import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.interfaces.Card;

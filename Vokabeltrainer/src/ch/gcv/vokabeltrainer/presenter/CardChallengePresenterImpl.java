@@ -6,14 +6,10 @@ import ch.gcv.vokabeltrainer.application.Application;
 import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.CardChallengePresenter;
 import ch.gcv.vokabeltrainer.interfaces.CardChallengeView;
-import ch.gcv.vokabeltrainer.interfaces.CardView;
-import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
-import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.view.CardChallengeViewImpl;
-import ch.gcv.vokabeltrainer.view.CardViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software

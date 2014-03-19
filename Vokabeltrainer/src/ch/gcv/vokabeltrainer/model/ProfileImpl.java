@@ -1,8 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.io.Serializable;
 
 import ch.gcv.vokabeltrainer.interfaces.Profile;
 import ch.gcv.vokabeltrainer.interfaces.Topic;

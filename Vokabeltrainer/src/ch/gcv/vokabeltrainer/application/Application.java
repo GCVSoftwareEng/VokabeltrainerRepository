@@ -1,7 +1,6 @@
 package ch.gcv.vokabeltrainer.application;
 
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.model.TranslationManager;
 import ch.gcv.vokabeltrainer.presenter.ProfilePresenterImpl;
 import ch.gcv.vokabeltrainer.view.ProfileViewImpl;
 

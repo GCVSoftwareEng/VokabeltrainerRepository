@@ -1,12 +1,10 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import javax.swing.JTextPane;
-
-import ch.gcv.vokabeltrainer.interfaces.ProfilePresenter;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Profile;
+import ch.gcv.vokabeltrainer.interfaces.ProfilePresenter;
 import ch.gcv.vokabeltrainer.interfaces.ProfileView;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
-import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.model.ImportExportManager;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;

@@ -1,12 +1,11 @@
 package ch.gcv.vokabeltrainer.presenter;
 
 
-import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
+import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Profile;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
+import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
-import ch.gcv.vokabeltrainer.interfaces.Presentable;
-import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
 import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;

@@ -1,7 +1,6 @@
 package ch.gcv.vokabeltrainer.model;
 
 import java.io.Serializable;
-import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;

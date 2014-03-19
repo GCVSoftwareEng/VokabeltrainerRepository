@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -13,7 +12,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -34,14 +32,19 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private TopicPresenter presenter;
 
 	private JTextPane topicname;
-
+	private JMenuBar menuBar;
+	private JMenu cardsMenu;
+	private JMenuItem moveAllCardsToFirstBox;
+	private JMenuItem createCards;
+	private JMenuItem showCards;
+	
 	private JButton boxButton1;
 	private JButton boxButton2;
 	private JButton boxButton3;
 	private JButton boxButton4;
 	private JButton boxButton5;
-	private JButton addCard;
-	private JButton editBox;
+	//private JButton addCard;
+	//private JButton editBox;
 	private JCheckBox beatTheClockCheckBox;
 
 	private JLabel boxLabel1;
@@ -83,6 +86,10 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		super.setSize(500, 350);
 		super.setVisible(true);
 		super.setLayout(null);
+		
+		this.menuBar = new JMenuBar();
+		this.cardsMenu = new JMenu();
+		
 
 		this.boxButton1 = new JButton(new ImageIcon(getClass().getResource(
 				"box.png")));
@@ -124,16 +131,46 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 				jButtonBoxActionPerformed(evt);
 			}
 		});
-		this.addCard = new JButton(new ImageIcon(getClass().getResource(
-				"plus.png")));
-		this.addCard.addActionListener(new java.awt.event.ActionListener() {
+		//this.addCard = new JButton(new ImageIcon(getClass().getResource(
+		//		"plus.png")));
+		//this.addCard.addActionListener(new java.awt.event.ActionListener() {
+		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
+		//		
+		//	}
+		//});
+		//this.editBox = new JButton(new ImageIcon(getClass().getResource(
+		//		"edit1.png")));
+		//this.editBox.addActionListener(new java.awt.event.ActionListener() {
+		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
+		//		
+		//	}
+		//});
+		this.moveAllCardsToFirstBox = new JMenuItem();
+		this.moveAllCardsToFirstBox.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuMoveAllCardsToFirstBoxActionPerformed(evt);
+			}
+		});
+		this.createCards = new JMenuItem();
+		this.createCards.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonCreateCardActionPerformed(evt);
 			}
 		});
-		this.editBox = new JButton(new ImageIcon(getClass().getResource(
-				"edit1.png")));
+		this.showCards = new JMenuItem();
+		this.showCards.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonEditBoxActionPerformed(evt);
+			}
+		});
 
+		// build menubar
+		menuBar.add(cardsMenu);
+		cardsMenu.add(createCards);
+		cardsMenu.add(showCards);
+		cardsMenu.add(moveAllCardsToFirstBox);
+		
+		
 		this.beatTheClockCheckBox = new JCheckBox("challengeMode");
 
 		this.topicname = new JTextPane();
@@ -156,88 +193,88 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.noCardsInBox = new String();
 
 		// button definition
-		boxButton1.setBounds(25, 225, 70, 70);
-		boxButton2.setBounds(120, 225, 70, 70);
-		boxButton3.setBounds(215, 225, 70, 70);
-		boxButton4.setBounds(310, 225, 70, 70);
-		boxButton5.setBounds(405, 225, 70, 70);
-		addCard.setBounds(425, 60, 31, 30);
-		editBox.setBounds(460, 60, 30, 30);
+		boxButton1.setBounds(25, 215, 70, 70);
+		boxButton2.setBounds(120, 215, 70, 70);
+		boxButton3.setBounds(215, 215, 70, 70);
+		boxButton4.setBounds(310, 215, 70, 70);
+		boxButton5.setBounds(405, 215, 70, 70);
+		//addCard.setBounds(425, 60, 31, 30);
+		//editBox.setBounds(460, 60, 30, 30);
 
-		// layout definition
+		// layout definition		
 		boxLabel1.setVisible(true);
 		boxLabel1.setFont(boxLabel1.getFont().deriveFont(20f));
-		boxLabel1.setBounds(30, 150, 70, 20);
+		boxLabel1.setBounds(30, 140, 70, 20);
 		boxLabel1.setBackground(Color.WHITE);
 
 		boxLabel2.setVisible(true);
 		boxLabel2.setFont(boxLabel2.getFont().deriveFont(20f));
-		boxLabel2.setBounds(125, 150, 70, 20);
+		boxLabel2.setBounds(125, 140, 70, 20);
 		boxLabel2.setBackground(Color.WHITE);
 
 		boxLabel3.setVisible(true);
 		boxLabel3.setFont(boxLabel3.getFont().deriveFont(20f));
-		boxLabel3.setBounds(220, 150, 70, 20);
+		boxLabel3.setBounds(220, 140, 70, 20);
 		boxLabel3.setBackground(Color.WHITE);
 
 		boxLabel4.setVisible(true);
 		boxLabel4.setFont(boxLabel4.getFont().deriveFont(20f));
-		boxLabel4.setBounds(315, 150, 70, 20);
+		boxLabel4.setBounds(315, 140, 70, 20);
 		boxLabel4.setBackground(Color.WHITE);
 
 		boxLabel5.setVisible(true);
 		boxLabel5.setFont(boxLabel5.getFont().deriveFont(20f));
-		boxLabel5.setBounds(410, 150, 70, 20);
+		boxLabel5.setBounds(410, 140, 70, 20);
 		boxLabel5.setBackground(Color.WHITE);
 
 		cardCount1.setVisible(true);
 		cardCount1.setFont(cardCount1.getFont().deriveFont(14));
-		cardCount1.setBounds(30, 175, 70, 20);
+		cardCount1.setBounds(30, 165, 70, 20);
 		cardCount1.setBackground(Color.WHITE);
 
 		cardCount2.setVisible(true);
 		cardCount2.setFont(cardCount2.getFont().deriveFont(14));
-		cardCount2.setBounds(125, 175, 70, 20);
+		cardCount2.setBounds(125, 165, 70, 20);
 		cardCount2.setBackground(Color.WHITE);
 
 		cardCount3.setVisible(true);
 		cardCount3.setFont(cardCount3.getFont().deriveFont(14));
-		cardCount3.setBounds(220, 175, 70, 20);
+		cardCount3.setBounds(220, 165, 70, 20);
 		cardCount3.setBackground(Color.WHITE);
 
 		cardCount4.setVisible(true);
 		cardCount4.setFont(cardCount4.getFont().deriveFont(14));
-		cardCount4.setBounds(315, 175, 70, 20);
+		cardCount4.setBounds(315, 165, 70, 20);
 		cardCount4.setBackground(Color.WHITE);
 
 		cardCount5.setVisible(true);
 		cardCount5.setFont(cardCount5.getFont().deriveFont(14));
-		cardCount5.setBounds(410, 175, 70, 20);
+		cardCount5.setBounds(410, 165, 70, 20);
 		cardCount5.setBackground(Color.WHITE);
 
 		cardnummber1.setVisible(true);
 		cardnummber1.setFont(cardnummber1.getFont().deriveFont(14));
-		cardnummber1.setBounds(45, 200, 70, 20);
+		cardnummber1.setBounds(45, 190, 70, 20);
 		cardnummber1.setBackground(Color.WHITE);
 
 		cardnummber2.setVisible(true);
 		cardnummber2.setFont(cardnummber2.getFont().deriveFont(14));
-		cardnummber2.setBounds(140, 200, 70, 20);
+		cardnummber2.setBounds(140, 190, 70, 20);
 		cardnummber2.setBackground(Color.WHITE);
 
 		cardnummber3.setVisible(true);
 		cardnummber3.setFont(cardnummber3.getFont().deriveFont(14));
-		cardnummber3.setBounds(235, 200, 70, 20);
+		cardnummber3.setBounds(235, 190, 70, 20);
 		cardnummber3.setBackground(Color.WHITE);
 
 		cardnummber4.setVisible(true);
 		cardnummber4.setFont(cardnummber4.getFont().deriveFont(14));
-		cardnummber4.setBounds(330, 200, 70, 20);
+		cardnummber4.setBounds(330, 190, 70, 20);
 		cardnummber4.setBackground(Color.WHITE);
 
 		cardnummber5.setVisible(true);
 		cardnummber5.setFont(cardnummber5.getFont().deriveFont(14));
-		cardnummber5.setBounds(425, 200, 70, 20);
+		cardnummber5.setBounds(425, 190, 70, 20);
 		cardnummber5.setBackground(Color.WHITE);
 
 		topicname.setEditable(false);
@@ -253,11 +290,16 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		topicname.setText("Topicname");
 
 		// checkbox
+		beatTheClockCheckBox.setVisible(true);
 		beatTheClockCheckBox.setBounds(0, 0, 200, 20);
-
+		beatTheClockCheckBox.setBackground(Color.WHITE);
+		
+		
+		
 		// add to JFrame
+		super.setJMenuBar(menuBar);
 		super.add(topicname);
-		super.add(addCard);
+		//super.add(addCard);
 		super.add(boxButton1);
 		super.add(boxButton2);
 		super.add(boxButton3);
@@ -278,7 +320,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		super.add(cardnummber3);
 		super.add(cardnummber4);
 		super.add(cardnummber5);
-		super.add(editBox);
+		//super.add(editBox);
 		super.add(beatTheClockCheckBox);
 
 	}
@@ -379,6 +421,14 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 
 		this.noCardsInBox = TranslationManager.getinstance().getText(
 				"noCardsInBox");
+		this.cardsMenu.setText(TranslationManager.getinstance().getText(
+				"cards"));
+		this.createCards.setText(TranslationManager.getinstance().getText(
+				"create"));
+		this.showCards.setText(TranslationManager.getinstance().getText(
+				"show"));
+		this.moveAllCardsToFirstBox.setText(TranslationManager.getinstance().getText(
+				"moveAllCardsToFirstBox"));
 	}
 
 	/**
@@ -408,5 +458,22 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private void jButtonCreateCardActionPerformed(java.awt.event.ActionEvent evt) {
 		getPresenter().createCard();
 	}
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jButtonEditBoxActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().editCards();
+	}
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void jMenuMoveAllCardsToFirstBoxActionPerformed(java.awt.event.ActionEvent evt) {
+		getPresenter().moveAllCardsToFirstBox();
+	}
+	
 
 }

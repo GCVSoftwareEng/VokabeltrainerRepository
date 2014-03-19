@@ -1,13 +1,8 @@
 package ch.gcv.vokabeltrainer.model;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
-import ch.gcv.vokabeltrainer.interfaces.Profile;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software

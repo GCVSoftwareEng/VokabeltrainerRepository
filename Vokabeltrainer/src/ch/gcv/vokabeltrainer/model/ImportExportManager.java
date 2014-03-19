@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import javax.swing.JTextPane;
-
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 
 /**

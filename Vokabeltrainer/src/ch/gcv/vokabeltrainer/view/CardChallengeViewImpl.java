@@ -8,12 +8,7 @@ import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.Timer;
@@ -22,14 +17,8 @@ import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.CardChallengePresenter;
 import ch.gcv.vokabeltrainer.interfaces.CardChallengeView;
-import ch.gcv.vokabeltrainer.interfaces.CardView;
-import ch.gcv.vokabeltrainer.interfaces.CardPresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
-import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
-import ch.gcv.vokabeltrainer.model.TopicImpl;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
-import ch.gcv.vokabeltrainer.presenter.TopicPresenterImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -317,6 +306,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 					presenter.nextCard();
 					answerField.setText("");
 					answerField.setEditable(true);
+					answerField.requestFocus();
 					timer.start();
 				}
 				count -=1;
