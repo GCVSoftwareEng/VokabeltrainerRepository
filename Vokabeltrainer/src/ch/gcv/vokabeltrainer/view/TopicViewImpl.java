@@ -439,6 +439,10 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 				"show"));
 		this.moveAllCardsToFirstBox.setText(TranslationManager.getinstance().getText(
 				"moveAllCardsToFirstBox"));
+		
+		this.statisticMenu.setText(TranslationManager.getinstance().getText("statistic"));
+		this.openStatistic.setText(TranslationManager.getinstance().getText("open"));
+		
 	}
 
 	/**

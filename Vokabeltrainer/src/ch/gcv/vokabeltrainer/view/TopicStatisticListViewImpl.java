@@ -17,6 +17,8 @@ import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
+import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 
@@ -27,18 +29,18 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
-		TopicCardListView, Translatable {
+public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
+		TopicStatisticListView, Translatable {
 
-	private TopicCardListPresenter presenter;
+	private TopicStatisticListPresenter presenter;
 
-	private JList liste;
 	private JTextPane topic;
 	private JScrollPane scrollPane;
 	private JButton delete;
+	private JTable table;
 
 	// private JPanel cardPanel;
-	public TopicStatistikListViewImpl() {
+	public TopicStatisticListViewImpl() {
 		super("CardStatistikListView");
 		this.initComponents();
 	}
@@ -51,8 +53,6 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
 
 		this.getContentPane().setBackground(Color.WHITE);
 		this.topic = new JTextPane();
-		this.liste = new JList();
-		liste.setBackground(Color.BLACK);
 		// this.liste.addMouseListener(new java.awt.event.MouseListener() {
 		// @Override
 		// public void mouseClicked(MouseEvent e) {
@@ -96,22 +96,8 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
 			}
 		});
 
-		Object[][] data = {
-				{ "Mary Teeeeeeeeeeeeeeeeeeeeeeeeest", "Campione", "Snowboarding", new Integer(5),
-						new Boolean(false) },
-				{ "Alison", "Huml", "Rowing", new Integer(3), new Boolean(true) },
-				{ "Kathy", "Walrath", "Chasing toddlers", new Integer(2),
-						new Boolean(false) },
-				{ "Mark", "Andrews", "Speed reading", new Integer(20),
-						new Boolean(true) },
-				{ "Angela", "Lih", "Teaching high school", new Integer(4),
-						new Boolean(false) } };
-		String[] columnNames = { "First Name", "Last Name", "Sport",
-				"# of Years", "Vegetarian" };
-
-		final TableModel model = new DefaultTableModel(data, columnNames);
-
-		JTable table = new JTable(model) {
+		
+		JTable table = new JTable() {
 			/**
 			 * 
 			 */
@@ -121,6 +107,7 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
 				return false;
 			}
 		};
+		
 
 		this.scrollPane = new JScrollPane(table);
 		table.setPreferredScrollableViewportSize(new Dimension(400, 0));
@@ -178,8 +165,8 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
 	public void updateViewFromModel() {
 
 		topic.setText(presenter.getModel().getName());
-
-		this.liste.setListData(presenter.getModel().getCards().toArray());
+		setTableContent();
+		
 	}
 
 	/**
@@ -214,25 +201,34 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
 
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
-		String name = liste.getSelectedValue().toString();
+		
 
 	}
 
 	@Override
-	public TopicCardListPresenter getPresenter() {
+	public TopicStatisticListPresenter getPresenter() {
 		return this.presenter;
 	}
 
 	@Override
-	public void setPresenter(TopicCardListPresenter presenter) {
+	public void setPresenter(TopicStatisticListPresenter presenter) {
 		this.presenter = presenter;
 
-	}
+	}	
+	
+	private void setTableContent(){
+		
+		Object[][] data = {
+				{ "Mary Teeeeeeeeeeeeeeeeeeeeeeeeest", "Campione", "Snowboarding", new Integer(5),
+						new Boolean(false) } };
+		
+		String[] columnNames = {"Box", "Question", "Answer", "Count Wrong",
+				"Count Right"};
 
-	public static void main(String args[]) {
-		TopicStatistikListViewImpl topic = new TopicStatistikListViewImpl();
-		topic.initComponents();
-
+		TableModel model = new DefaultTableModel(data, columnNames);
+		this.table.setModel(model);
+		
 	}
+	
 
 }

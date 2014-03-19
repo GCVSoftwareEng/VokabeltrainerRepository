@@ -9,7 +9,7 @@ import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
-import ch.gcv.vokabeltrainer.view.TopicStatistikListViewImpl;
+import ch.gcv.vokabeltrainer.view.TopicStatisticListViewImpl;
 
 /**
  * GCV Software Engineering Product: Vokabeltrainer Copyright: 2014 GCV Software
@@ -21,7 +21,7 @@ import ch.gcv.vokabeltrainer.view.TopicStatistikListViewImpl;
 public class TopicStatisticListPresenterImpl implements Presentable, TopicStatisticListPresenter {
 
 	private Presentable onConfirm;
-	private TopicCardListView view;
+	private TopicStatisticListView view;
 	private Presentable onCancel;
 	private Topic model;
 
@@ -30,7 +30,7 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = new TopicStatistikListViewImpl();
+		this.view = new TopicStatisticListViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
 
@@ -112,6 +112,11 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 	@Override
 	public void stop() {
 		this.view.close();
+	}
+
+	@Override
+	public void setOnConfirm(Presentable presenter) {
+		this.onConfirm = presenter;
 	}
 
 }

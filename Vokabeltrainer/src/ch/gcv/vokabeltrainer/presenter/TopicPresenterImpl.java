@@ -4,11 +4,13 @@ import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
+import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
-import ch.gcv.vokabeltrainer.view.TopicStatistikListViewImpl;
+import ch.gcv.vokabeltrainer.view.TopicStatisticListViewImpl;
 import ch.gcv.vokabeltrainer.view.TopicViewImpl;
 
 /**
@@ -208,9 +210,10 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 
 	@Override
 	public void openStatistic() {
-		TopicStatistikListView tslv = new TopicStatistikListViewImpl();
-		
-		
+		TopicStatisticListPresenterImpl tslp = new TopicStatisticListPresenterImpl();
+		tslp.setModel(this.model);
+		tslp.setOnConfirm(this);
+		tslp.run();
 	}
 
 }
