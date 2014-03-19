@@ -226,5 +226,5 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	public void fieldsNotSet() {
 		JOptionPane.showMessageDialog(null,TranslationManager.getinstance().getText("fieldsNotSet"));
 	}
-
+	
 }
