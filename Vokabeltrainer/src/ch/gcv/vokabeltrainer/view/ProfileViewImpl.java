@@ -293,42 +293,31 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		TranslationManager.getinstance().removeListener(this);
 	}
 
+	
 	/**
-	 * This method load .profile data.
-	 * 
-	 * @param evt
-	 *            need a action event.
-	 */
-	private void jMenuItemLoadProfileActionPerformed(
-			java.awt.event.ActionEvent evt) {
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(
-<<<<<<< HEAD
-		// Beschreibung der Datei Endung der Datei
-				"Vokabeltrainer profile", "profile");
-		// Filter wird dem JFileChooser hinzugefuegt.
-		chooser.setFileFilter(filter);
-		// Dialog zum Oeffnen von Dateien Anzeigen. // anstatt null parameter
-		// koennte man anzeige von pics implementieren.
-		int returnVal = chooser.showOpenDialog(null); // open gleich öffen sonst
-														// save = speichern
-		// Abfrage ob auf oeffen geklickt wurde
-		if (returnVal == JFileChooser.APPROVE_OPTION) { // bei "Abbrechen"
-														// CANCEL_OPTION
-			// Profil gem pfad laden.
-=======
-		"Vokabeltrainer profile", "profile");
+     * This method load .profile data.
+     *
+      * @param evt
+     *            need a action event.
+     */
+     private void jMenuItemLoadProfileActionPerformed(
+                  java.awt.event.ActionEvent evt) {
+           JFileChooser chooser = new JFileChooser();
+           FileNameExtensionFilter filter = new FileNameExtensionFilter(
+           "Vokabeltrainer profile", "profile");
 
-		chooser.setFileFilter(filter);
-		int returnVal = chooser.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
->>>>>>> FETCH_HEAD
-			String path = chooser.getSelectedFile().getAbsolutePath();
-			getPresenter().loadProfile(path);
-			updateViewFromModel();
-		}
-	}
-
+           chooser.setFileFilter(filter);
+           int returnVal = chooser.showOpenDialog(null);
+           if (returnVal == JFileChooser.APPROVE_OPTION) {
+                  String path = chooser.getSelectedFile().getAbsolutePath();
+                  getPresenter().loadProfile(path);
+                  updateViewFromModel();
+           }
+     }
+	
+	
+	
+	
 	/**
 	 * This method creates a new Profile
 	 * 
