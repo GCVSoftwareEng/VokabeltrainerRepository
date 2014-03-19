@@ -4,13 +4,10 @@ import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicPresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.interfaces.TopicView;
 import ch.gcv.vokabeltrainer.model.CardImpl;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.TopicImpl;
-import ch.gcv.vokabeltrainer.view.TopicStatisticListViewImpl;
 import ch.gcv.vokabeltrainer.view.TopicViewImpl;
 
 /**

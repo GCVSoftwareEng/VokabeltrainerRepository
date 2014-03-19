@@ -268,4 +268,10 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		}
 	}
 
+	@Override
+	public void fieldsNotSet() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
