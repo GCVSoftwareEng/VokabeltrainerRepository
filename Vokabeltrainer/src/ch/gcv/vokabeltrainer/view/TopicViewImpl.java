@@ -443,6 +443,8 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		this.statisticMenu.setText(TranslationManager.getinstance().getText("statistic"));
 		this.openStatistic.setText(TranslationManager.getinstance().getText("open"));
 		
+	
+		
 	}
 
 	/**

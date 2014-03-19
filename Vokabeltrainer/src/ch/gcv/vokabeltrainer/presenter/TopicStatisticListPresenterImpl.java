@@ -105,8 +105,7 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-		
+		this.view.updateViewFromModel();
 	}
 
 	@Override

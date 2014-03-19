@@ -3,6 +3,7 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
+import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
@@ -36,12 +38,21 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 
 	private JTextPane topic;
 	private JScrollPane scrollPane;
-	private JButton delete;
-	private JTable table;
+	private final JTable table = new JTable() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 12345L;
+
+		public boolean isCellEditable(int x, int y) {
+			return false;
+		}
+	};;
 
 	// private JPanel cardPanel;
 	public TopicStatisticListViewImpl() {
 		super("CardStatistikListView");
+		
 		this.initComponents();
 	}
 
@@ -87,26 +98,9 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 		//
 		// }
 		// });
-		this.delete = new JButton(new ImageIcon(getClass().getResource(
-				"delete.png")));
-
-		this.delete.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonDeleteTopicActionPerformed(evt);
-			}
-		});
-
+	
 		
-		JTable table = new JTable() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 12345L;
 
-			public boolean isCellEditable(int x, int y) {
-				return false;
-			}
-		};
 		
 
 		this.scrollPane = new JScrollPane(table);
@@ -121,8 +115,7 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 
 		scrollPane.setBounds(50, 80, 400, 350);
 
-		delete.setBounds(440, 20, 30, 30);
-
+		
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
 		StyleConstants.setAlignment(set, StyleConstants.ALIGN_LEFT);
@@ -144,8 +137,7 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 
 		super.add(scrollPane);
 		super.add(topic);
-		super.add(delete);
-
+	
 	}
 
 	/**
@@ -196,13 +188,7 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
-
-	}
-
-	private void jButtonDeleteTopicActionPerformed(
-			java.awt.event.ActionEvent evt) {
-		
-
+		updateViewFromModel();
 	}
 
 	@Override
@@ -218,15 +204,30 @@ public class TopicStatisticListViewImpl extends javax.swing.JFrame implements
 	
 	private void setTableContent(){
 		
-		Object[][] data = {
-				{ "Mary Teeeeeeeeeeeeeeeeeeeeeeeeest", "Campione", "Snowboarding", new Integer(5),
-						new Boolean(false) } };
+		Object[][] data = new Object[this.presenter.getModel().getCards().size()][5];
+	
+		int count = 0;
+		for (Card card : this.presenter.getModel().getCards()) {
+			data[count][0] = card.getBox();
+			data[count][1] = card.getQuestion();
+			data[count][2] = card.getAnswer();
+			data[count][3] = card.getStatisticCountWrong();
+			data[count][4] = card.getStatisticCountRight();
+			count ++;
+		}
+	
+		String box = TranslationManager.getinstance().getText("box");
+		String question = TranslationManager.getinstance().getText("question");
+		String answer = TranslationManager.getinstance().getText("answer");
+		String countWrong = TranslationManager.getinstance().getText("countWrong");
+		String countRight = TranslationManager.getinstance().getText("countRight");
 		
-		String[] columnNames = {"Box", "Question", "Answer", "Count Wrong",
-				"Count Right"};
+		String[] columnNames = {box, question, answer, countWrong,
+				countRight};
 
 		TableModel model = new DefaultTableModel(data, columnNames);
 		this.table.setModel(model);
+		
 		
 	}
 	

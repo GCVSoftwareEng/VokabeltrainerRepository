@@ -28,6 +28,7 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	private Presentable onCreateCard;
 	private TopicView view;
 	private Topic model;
+	private Presentable statisticPresenter;
 
 	public TopicPresenterImpl() {
 		super();
@@ -178,6 +179,9 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	public void refresh() {
 		// TODO Auto-generated method stub
 		view.updateViewFromModel();
+		if (this.statisticPresenter != null){
+			this.statisticPresenter.refresh();
+		}
 	}
 
 	@Override
@@ -214,6 +218,7 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 		tslp.setModel(this.model);
 		tslp.setOnConfirm(this);
 		tslp.run();
+		this.statisticPresenter = tslp;
 	}
 
 }
