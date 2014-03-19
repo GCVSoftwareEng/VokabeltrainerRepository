@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
@@ -23,7 +24,8 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView, Translatable {
+public class CardEditViewImpl extends javax.swing.JFrame implements
+		CardEditView, Translatable {
 
 	private CardEditPresenter presenter;
 
@@ -32,7 +34,6 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	private JTextPane boxname;
 
 	private JButton addCard;
-	
 
 	private JLabel question;
 	private JLabel answer;
@@ -40,10 +41,9 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	private JTextField answerField;
 	private JTextField questionWord;
 
-	
 	public CardEditViewImpl() {
 		super("CardEditView");
-		initComponents();		
+		initComponents();
 	}
 
 	/**
@@ -56,13 +56,11 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		this.addCard = new JButton(new ImageIcon(getClass().getResource(
 				"plus.png")));
 		this.addCard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jButtonAddCardActionPerformed(evt);
-            }
-        });
-		
-		
-		
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonAddCardActionPerformed(evt);
+			}
+		});
+
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.boxname = new JTextPane();
@@ -80,15 +78,15 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 		});
 
 		// JFrame defination
@@ -97,7 +95,6 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		super.setSize(800, 380);
 		super.setVisible(true);
 		super.setLayout(null);
-
 
 		// questionlabel
 		question.setVisible(true);
@@ -110,7 +107,6 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
 		answer.setBackground(Color.WHITE);
-		
 
 		// textfiel
 		answerField.setEditable(true);
@@ -124,9 +120,8 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
 		questionWord.setBackground(Color.WHITE);
-		
+
 		addCard.setBounds(755, 260, 31, 30);
-		
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -138,7 +133,6 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		topicname.setParagraphAttributes(set1, true);
 		topicname.setBackground(Color.WHITE);
 		topicname.setBounds(20, 20, 500, 40);
-		
 
 		boxnumber.setEditable(false);
 		SimpleAttributeSet set2 = new SimpleAttributeSet();
@@ -151,7 +145,7 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		boxnumber.setBackground(Color.WHITE);
 		boxnumber.setBounds(95, 75, 30, 40);
 		boxnumber.setText("1");
-		
+
 		boxname.setEditable(false);
 		SimpleAttributeSet set3 = new SimpleAttributeSet();
 		StyleConstants.setAlignment(set3, StyleConstants.ALIGN_LEFT);
@@ -212,9 +206,9 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 	 */
 	@Override
 	public void updateViewFromModel() {
-		 this.topicname.setText(this.presenter.getModel().getTopic().getName());
-		 this.questionWord.setText(this.presenter.getModel().getQuestion());
-		 this.answerField.setText(this.presenter.getModel().getAnswer());
+		this.topicname.setText(this.presenter.getModel().getTopic().getName());
+		this.questionWord.setText(this.presenter.getModel().getQuestion());
+		this.answerField.setText(this.presenter.getModel().getAnswer());
 	}
 
 	/**
@@ -237,41 +231,53 @@ public class CardEditViewImpl extends javax.swing.JFrame implements CardEditView
 		TranslationManager.getinstance().removeListener(this);
 		dispose();
 	}
-	
 
-    /** 
-     * languageChanged implements ILanguageChangedListener.languageChanged
-	 *
+	/**
+	 * languageChanged implements ILanguageChangedListener.languageChanged
+	 * 
 	 */
 	@Override
 	public void translate() {
 		// TODO should be implemented
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
-		this.answer.setText(TranslationManager.getinstance().getText(
-				"answer"));
-		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
-    }
-	
+		this.answer.setText(TranslationManager.getinstance().getText("answer"));
+		this.boxname.setText(TranslationManager.getinstance()
+				.getText("boxname"));
+	}
+
+	/**
+	 * This method update your view.
+	 * 
+	 * @param evt
+	 */
 	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
-        this.updateModelFromView();
-        this.presenter.confirm();
-        this.close();
-        
-    }
+		this.updateModelFromView();
+		this.presenter.confirm();
+		this.close();
+
+	}
+
+	/**
+	 * This method implements the Enter key.
+	 * 
+	 * @param e
+	 */
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER)
-		{
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			this.updateModelFromView();
-	        this.presenter.confirm();
-	        this.close();
+			this.presenter.confirm();
+			this.close();
 		}
 	}
 
+	/**
+	 * This method show you a Message Dialog.
+	 */
 	@Override
 	public void fieldsNotSet() {
-		// TODO Auto-generated method stub
-		
+		JOptionPane.showMessageDialog(null, TranslationManager.getinstance()
+				.getText("fieldsNotSet"));
 	}
 
 }

@@ -388,17 +388,33 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		// "lastLearn"));
 	}
 
+	/**
+	 * This method check the answerField text and stop the timer.
+	 * 
+	 * @param evt
+	 */
+	
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
 		timer.stop();
 		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
+	/**
+	 * This method implements the Enter key.
+	 * 
+	 * @param e
+	 */
+	
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			timer.stop();
 			getPresenter().checkAnswer(this.answerField.getText());
 		}
 	}
+	
+	/**
+	 * This method change the Card and start the timer.
+	 */
 
 	@Override
 	public void cardChanged() {
