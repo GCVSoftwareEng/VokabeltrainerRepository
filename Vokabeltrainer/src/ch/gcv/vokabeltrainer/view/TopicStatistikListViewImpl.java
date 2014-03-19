@@ -27,8 +27,8 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicStatistikListViewImpl extends javax.swing.JFrame implements TopicCardListView,
-		Translatable {
+public class TopicStatistikListViewImpl extends javax.swing.JFrame implements
+		TopicCardListView, Translatable {
 
 	private TopicCardListPresenter presenter;
 
@@ -53,75 +53,77 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 		this.topic = new JTextPane();
 		this.liste = new JList();
 		liste.setBackground(Color.BLACK);
-//		this.liste.addMouseListener(new java.awt.event.MouseListener() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				if(e.getClickCount() == 2){
-//					String name = liste.getSelectedValue().toString();
-//					
-//					
-//				}
-//			}
-//
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mousePressed(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mouseReleased(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//		});
-		this.delete = new JButton(new ImageIcon(getClass()
-				.getResource("delete.png")));
+		// this.liste.addMouseListener(new java.awt.event.MouseListener() {
+		// @Override
+		// public void mouseClicked(MouseEvent e) {
+		// if(e.getClickCount() == 2){
+		// String name = liste.getSelectedValue().toString();
+		//
+		//
+		// }
+		// }
+		//
+		// @Override
+		// public void mouseEntered(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mouseExited(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mousePressed(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		//
+		// @Override
+		// public void mouseReleased(MouseEvent e) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		// });
+		this.delete = new JButton(new ImageIcon(getClass().getResource(
+				"delete.png")));
 
 		this.delete.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonDeleteTopicActionPerformed(evt);
 			}
 		});
-		
-		
-		Object[][] data =
-			{
-			                {"Mary", "Campione", "Snowboarding", new Integer(5), new Boolean(false)},
-			                {"Alison", "Huml", "Rowing", new Integer(3), new Boolean(true) },
-			                {"Kathy", "Walrath", "Chasing toddlers", new Integer(2), new Boolean(false) },
-			                {"Mark", "Andrews", "Speed reading", new Integer(20), new Boolean(true) },
-			                {"Angela", "Lih", "Teaching high school", new Integer(4), new Boolean(false) }
-			};
-			String[] columnNames = { "First Name", "Last Name", "Sport", "# of Years", "Vegetarian" };
-			
-			final TableModel model = new DefaultTableModel(data, columnNames);
-			 
-	        JTable table = new JTable(model) {
-	            public boolean isCellEditable(int x, int y) {
-	                return false;
-	            }
-	        };
-			
-			
-			 
-		
-		
-		
+
+		Object[][] data = {
+				{ "Mary Teeeeeeeeeeeeeeeeeeeeeeeeest", "Campione", "Snowboarding", new Integer(5),
+						new Boolean(false) },
+				{ "Alison", "Huml", "Rowing", new Integer(3), new Boolean(true) },
+				{ "Kathy", "Walrath", "Chasing toddlers", new Integer(2),
+						new Boolean(false) },
+				{ "Mark", "Andrews", "Speed reading", new Integer(20),
+						new Boolean(true) },
+				{ "Angela", "Lih", "Teaching high school", new Integer(4),
+						new Boolean(false) } };
+		String[] columnNames = { "First Name", "Last Name", "Sport",
+				"# of Years", "Vegetarian" };
+
+		final TableModel model = new DefaultTableModel(data, columnNames);
+
+		JTable table = new JTable(model) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 12345L;
+
+			public boolean isCellEditable(int x, int y) {
+				return false;
+			}
+		};
+
 		this.scrollPane = new JScrollPane(table);
-		table.setPreferredScrollableViewportSize(new Dimension(400,0));
+		table.setPreferredScrollableViewportSize(new Dimension(400, 0));
 
 		// JFrame defination
 		super.setBackground(Color.WHITE);
@@ -130,14 +132,9 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 		super.setVisible(true);
 		super.setLayout(null);
 
-		
-
 		scrollPane.setBounds(50, 80, 400, 350);
-		
-		
-		delete.setBounds(440, 20, 30, 30);
 
-	
+		delete.setBounds(440, 20, 30, 30);
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -151,13 +148,18 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 		topic.setBounds(50, 20, 200, 50);
 		topic.setText("Topic");
 
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+		scrollPane
+				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane
+				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 		super.add(scrollPane);
 		super.add(topic);
 		super.add(delete);
 
 	}
-
-
 
 	/**
 	 * updateModelFromView implements ICardListView.updateModelFromView
@@ -165,7 +167,7 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 	 */
 	@Override
 	public void updateModelFromView() {
-	
+
 	}
 
 	/**
@@ -174,9 +176,9 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 	 */
 	@Override
 	public void updateViewFromModel() {
-	
+
 		topic.setText(presenter.getModel().getName());
-		
+
 		this.liste.setListData(presenter.getModel().getCards().toArray());
 	}
 
@@ -201,8 +203,6 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 		dispose();
 	}
 
-	
-
 	/**
 	 * languageChanged implements ILanguageChangedListener.languageChanged
 	 * 
@@ -215,8 +215,7 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 	private void jButtonDeleteTopicActionPerformed(
 			java.awt.event.ActionEvent evt) {
 		String name = liste.getSelectedValue().toString();
-		
-		
+
 	}
 
 	@Override
@@ -227,16 +226,13 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 	@Override
 	public void setPresenter(TopicCardListPresenter presenter) {
 		this.presenter = presenter;
-		
-	}
-	
-	
 
-	public static void main(String args[]){
+	}
+
+	public static void main(String args[]) {
 		TopicStatistikListViewImpl topic = new TopicStatistikListViewImpl();
 		topic.initComponents();
-		
+
 	}
 
-	
 }
