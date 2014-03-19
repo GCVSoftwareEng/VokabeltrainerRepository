@@ -37,12 +37,13 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	private ProfilePresenter presenter;
 
 	private JMenuBar menuBar;
-	private JMenu file;
+	private JMenu profileMenu;
 	private JMenu language;
 	private JMenu topics;
 	private JMenuItem newPro;
 	private JMenuItem loadPro;
 	private JMenuItem savePro;
+	private JMenuItem saveProAs;
 	private JMenuItem exportCards;
 	private JMenuItem importCards;
 	private JMenuItem createTopic;
@@ -67,7 +68,7 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 
 		this.getContentPane().setBackground(Color.WHITE);
 		this.menuBar = new JMenuBar();
-		this.file = new JMenu();
+		this.profileMenu = new JMenu();
 		this.language = new JMenu("Language", true);
 		this.topics = new JMenu("Topics", true);
 		this.newPro = new JMenuItem();
@@ -80,6 +81,12 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		this.savePro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItemSaveProfileActionPerformed(evt);
+			}
+		});
+		this.saveProAs = new JMenuItem();
+		this.saveProAs.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItemSaveProfileAsActionPerformed(evt);
 			}
 		});
 		this.loadPro = new JMenuItem();
@@ -171,14 +178,15 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		super.setLayout(null);
 
 		// build menubar
-		menuBar.add(file);
+		menuBar.add(profileMenu);
 		menuBar.add(topics);
 		menuBar.add(language);
 		
-		file.add(newPro);
-		file.add(loadPro);
-		file.add(savePro);
-		file.add(exit);
+		profileMenu.add(newPro);
+		profileMenu.add(loadPro);
+		profileMenu.add(savePro);
+		profileMenu.add(saveProAs);
+		profileMenu.add(exit);
 
 		topics.add(importCards);
 		topics.add(exportCards);
@@ -337,6 +345,22 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	private void jMenuItemSaveProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
 
+			if (getPresenter().saveProfile()== false){
+				this.jMenuItemSaveProfileAsActionPerformed(null);;
+			};
+
+	}
+	
+	/**
+	 * This method save local a profile. You must enter a name.
+	 * 
+	 * @param evt
+	 *            needs a action event.
+	 * 
+	 */
+	private void jMenuItemSaveProfileAsActionPerformed(
+			java.awt.event.ActionEvent evt) {
+
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"Vokabeltrainer profile", "profile");
@@ -440,13 +464,15 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		// TODO Auto-generated method stub
 		this.language.setText(TranslationManager.getinstance().getText(
 				"language"));
-		this.file.setText(TranslationManager.getinstance().getText("file"));
+		this.profileMenu.setText(TranslationManager.getinstance().getText("profile"));
 		this.topic.setText(TranslationManager.getinstance().getText("topics"));
-		this.newPro.setText(TranslationManager.getinstance().getText("newPro"));
+		this.newPro.setText(TranslationManager.getinstance().getText("new"));
 		this.loadPro.setText(TranslationManager.getinstance()
-				.getText("loadPro"));
+				.getText("load"));
 		this.savePro.setText(TranslationManager.getinstance()
-				.getText("savePro"));
+				.getText("save"));
+		this.saveProAs.setText(TranslationManager.getinstance()
+				.getText("saveAs"));
 		this.exit.setText(TranslationManager.getinstance().getText("exit"));
 		this.importCards.setText(TranslationManager.getinstance().getText(
 				"import"));

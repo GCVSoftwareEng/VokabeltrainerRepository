@@ -19,7 +19,8 @@ public interface ProfilePresenter {
 	public void setOnOpenTopic(Presentable onOpenTopic);
 	public void setOnDeleteTopic();
 	public void createTopic();
-	public void saveProfile(String path);
+	public boolean saveProfile(String path);
+	public boolean saveProfile();
 	public void loadProfile(String path);
 	public void exportTopic(String name, String path);
 	public void importTopic(String path);

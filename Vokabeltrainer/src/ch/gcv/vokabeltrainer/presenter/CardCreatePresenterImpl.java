@@ -15,7 +15,8 @@ import ch.gcv.vokabeltrainer.view.CardCreateViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class CardCreatePresenterImpl implements Presentable, CardCreatePresenter {
+public class CardCreatePresenterImpl implements Presentable,
+		CardCreatePresenter {
 
 	private Presentable onConfirm;
 	private CardCreateView view;
@@ -49,7 +50,7 @@ public class CardCreatePresenterImpl implements Presentable, CardCreatePresenter
 	 */
 	@Override
 	public Card getModel() {
-		
+
 		return this.model;
 	}
 
@@ -118,15 +119,19 @@ public class CardCreatePresenterImpl implements Presentable, CardCreatePresenter
 	 */
 	@Override
 	public void confirm() {
-		this.model.getTopic().addCard(this.model);
-		
-		Card card = new CardImpl();
-		card.setTopic(this.model.getTopic());
-		this.model = card;
-		this.view.updateViewFromModel();
-		
-		this.onConfirm.refresh();
-		
+
+		if (this.model.getAnswer().equals("")
+				|| this.model.getQuestion().equals("")) {
+			this.view.fieldsNotSet();
+		} else {
+			this.model.getTopic().addCard(this.model);
+			Card card = new CardImpl();
+			card.setTopic(this.model.getTopic());
+			this.model = card;
+			this.view.updateViewFromModel();
+			this.onConfirm.refresh();
+		}
+
 	}
 
 	/**
@@ -142,9 +147,9 @@ public class CardCreatePresenterImpl implements Presentable, CardCreatePresenter
 	@Override
 	public void refresh() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void stop() {
 		this.view.close();

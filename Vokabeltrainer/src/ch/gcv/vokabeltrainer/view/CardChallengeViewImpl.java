@@ -35,15 +35,15 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-	private JButton check;
+	//private JButton check;
 
 	private JLabel lastTime;
 	private JLabel curTime;
 	private JLabel question;
 	private JLabel answer;
 	private JLabel questionWord;
-	private JLabel lastLearn;
-	private JLabel date;
+	//private JLabel lastLearn;
+	//private JLabel date;
 
 	private JTextField answerField;
 	
@@ -64,10 +64,11 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	private void initComponents() {
 
 		// JFrame defination
-		this.getContentPane().setBackground(Color.WHITE);
-		super.setBackground(Color.WHITE);
+		Color backgroundColor = new Color(255,248,168);
+		this.getContentPane().setBackground(backgroundColor);
+		super.setBackground(backgroundColor);
 		super.setResizable(false);
-		super.setSize(800, 500);
+		super.setSize(800, 400);
 		super.setVisible(true);
 		super.setLayout(null);
 
@@ -95,14 +96,14 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 
 		// this.cardPanel = new JPanel();
 
-		this.check = new JButton(new ImageIcon(getClass().getResource(
-				"check.png")));
+		//this.check = new JButton(new ImageIcon(getClass().getResource(
+		//		"check.png")));
 
-		this.check.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonCheckActionPerformed(evt);
-			}
-		});
+		//this.check.addActionListener(new java.awt.event.ActionListener() {
+		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
+		//		jButtonCheckActionPerformed(evt);
+		//	}
+		//});
 
 		this.lastTime = new JLabel("lastTime");
 		this.curTime = new JLabel("curTime");
@@ -110,8 +111,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
 		this.answer = new JLabel();
-		this.lastLearn = new JLabel();
-		this.date = new JLabel();
+		//this.lastLearn = new JLabel();
+		//this.date = new JLabel();
 
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
@@ -126,32 +127,31 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		lastTime.setVisible(true);
 		lastTime.setFont(question.getFont().deriveFont(15f));
 		lastTime.setBounds(650, 20, 100, 20);
-		lastTime.setBackground(Color.WHITE);
+		lastTime.setBackground(backgroundColor);
 		
 		// curTimeLabel
 		curTime.setVisible(true);
 		curTime.setFont(question.getFont().deriveFont(20f));
 		curTime.setBounds(650, 40, 100, 20);
-		curTime.setBackground(Color.WHITE);
+		curTime.setBackground(backgroundColor);
 
 		// questionlabel
 		question.setVisible(true);
 		question.setFont(question.getFont().deriveFont(20f));
 		question.setBounds(15, 150, 150, 50);
-		question.setBackground(Color.WHITE);
+		question.setBackground(backgroundColor);
 
 		// question word
 		questionWord.setVisible(true);
-		questionWord.setEnabled(false);
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
-		questionWord.setBackground(Color.WHITE);
+		questionWord.setBackground(backgroundColor);
 
 		// answerlabel
 		answer.setVisible(true);
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
-		answer.setBackground(Color.WHITE);
+		answer.setBackground(backgroundColor);
 		
 		// textfiel
 		answerField.setEditable(true);
@@ -161,19 +161,19 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		answerField.setBackground(Color.WHITE);
 
 		// lastlearn label
-		lastLearn.setVisible(true);
-		lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-		lastLearn.setBounds(550, 320, 150, 20);
-		lastLearn.setBackground(Color.WHITE);
+		//lastLearn.setVisible(true);
+		//lastLearn.setFont(lastLearn.getFont().deriveFont(10));
+		//lastLearn.setBounds(550, 320, 150, 20);
+		//lastLearn.setBackground(Color.WHITE);
 
 		// date label
-		date.setVisible(true);
-		date.setFont(date.getFont().deriveFont(10));
-		date.setBounds(710, 320, 80, 20);
-		date.setBackground(Color.WHITE);
+		//date.setVisible(true);
+		//date.setFont(date.getFont().deriveFont(10));
+		//date.setBounds(710, 320, 80, 20);
+		//date.setBackground(Color.WHITE);
 
 		// buttons
-		check.setBounds(475, 380, 53, 53);
+		//check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -183,7 +183,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		StyleConstants.setItalic(set1, true);
 		StyleConstants.setBold(set1, true);
 		topicname.setParagraphAttributes(set1, true);
-		topicname.setBackground(Color.WHITE);
+		topicname.setBackground(backgroundColor);
 		topicname.setBounds(20, 20, 500, 40);
 
 		boxnumber.setEditable(false);
@@ -194,7 +194,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		StyleConstants.setItalic(set2, true);
 		StyleConstants.setBold(set2, true);
 		boxnumber.setParagraphAttributes(set2, true);
-		boxnumber.setBackground(Color.WHITE);
+		boxnumber.setBackground(backgroundColor);
 		boxnumber.setBounds(95, 75, 30, 40);
 
 		boxname.setEditable(false);
@@ -205,7 +205,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		StyleConstants.setItalic(set3, true);
 		StyleConstants.setBold(set3, true);
 		boxname.setParagraphAttributes(set3, true);
-		boxname.setBackground(Color.WHITE);
+		boxname.setBackground(backgroundColor);
 		boxname.setBounds(20, 75, 75, 40);
 
 		super.add(lastTime);
@@ -217,9 +217,9 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		super.add(check);
-		super.add(lastLearn);
-		super.add(date);
+		//super.add(check);
+		//super.add(lastLearn);
+		//super.add(date);
 
 		// timer
 		this.timer = new Timer(1, new ActionListener() {
@@ -276,9 +276,9 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
 
-		long temp = this.presenter.getModel().getStatisticDateLastLerned();
-		this.date.setText(Long.toString(this.presenter.getModel()
-				.getStatisticDateLastLerned()));
+		//long temp = this.presenter.getModel().getStatisticDateLastLerned();
+		//this.date.setText(Long.toString(this.presenter.getModel()
+		//		.getStatisticDateLastLerned()));
 		
 		this.lastTime.setText(Long.toString(this.presenter.getModel().getSpentTime()) + " ms");
 		this.curTime.setText(0 + " ms");
@@ -387,8 +387,8 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
 
-		this.lastLearn.setText(TranslationManager.getinstance().getText(
-				"lastLearn"));
+		//this.lastLearn.setText(TranslationManager.getinstance().getText(
+		//		"lastLearn"));
 	}
 
 	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {

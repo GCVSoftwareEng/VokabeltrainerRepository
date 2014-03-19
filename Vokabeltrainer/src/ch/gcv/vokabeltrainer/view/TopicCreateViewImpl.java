@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
@@ -177,6 +178,7 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		TranslationManager.getinstance().addListener(this);
 		translate();
 		setVisible(true);
+		topicnameField.requestFocus();
 		
 	}
 
@@ -212,8 +214,17 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		{
 			this.updateModelFromView();
 	        this.presenter.confirm();
-	        this.close();
 		}
+	}
+
+	@Override
+	public void duplicateTopic() {
+		JOptionPane.showMessageDialog(null,TranslationManager.getinstance().getText("duplicateTopic"));
+	}
+
+	@Override
+	public void fieldsNotSet() {
+		JOptionPane.showMessageDialog(null,TranslationManager.getinstance().getText("fieldsNotSet"));
 	}
 
 }

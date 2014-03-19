@@ -17,6 +17,8 @@ public interface TopicCreateView {
 	public void updateViewFromModel();
 	public void open();
 	public void close();
+	public void duplicateTopic();
+	public void fieldsNotSet();
   
 }
  

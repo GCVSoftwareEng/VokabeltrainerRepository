@@ -17,6 +17,7 @@ public interface CardCreateView {
 	public void updateViewFromModel();
 	public void open();
 	public void close();
+	public void fieldsNotSet();
   
 }
  

@@ -127,8 +127,13 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 * 
 	 */
 	@Override
-	public void saveProfile(String path) {
-		ProfileManager.getInstance().saveProfile(path);
+	public boolean saveProfile(String path) {
+		return ProfileManager.getInstance().saveProfile(path);
+	}
+	
+	@Override
+	public boolean saveProfile() {
+		return ProfileManager.getInstance().saveProfile();
 	}
 
 	/**
@@ -211,5 +216,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	public void stop() {
 		this.view.close();
 	}
+
+
 
 }

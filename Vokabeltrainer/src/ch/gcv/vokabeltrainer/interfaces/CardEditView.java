@@ -17,6 +17,7 @@ public interface CardEditView {
 	public void updateViewFromModel();
 	public void open();
 	public void close();
-  
+	public void fieldsNotSet();
+	
 }
  

@@ -18,10 +18,12 @@ public class ProfileManager {
 
 	private ProfileImpl profile;
 	private static ProfileManager instance;
+	private String profilePath;
 
 	public ProfileManager() {
 		super();
 		this.profile = new ProfileImpl(); // init with an empty profile
+		this.profilePath = "";
 	}
 
 	/**
@@ -37,6 +39,7 @@ public class ProfileManager {
 			ObjectInputStream is = new ObjectInputStream(fis);
 			this.profile = (ProfileImpl) is.readObject();
 			is.close();
+			this.profilePath = path;
 		} catch (Exception ex) {
 			System.out.println("Problem serializing: " + ex);
 		}
@@ -64,6 +67,17 @@ public class ProfileManager {
 			return false;
 		}
 	}
+	/**
+	 * saveProfile implements IProfileManager.saveProfile
+	 * 
+	 * @param path
+	 *            // TODO
+	 * @return boolean // TODO
+	 */
+	public boolean saveProfile() {
+		return this.saveProfile(this.profilePath);
+	}
+
 
 	/**
 	 * getInstance implements IProfileManager.getInstance
@@ -83,6 +97,7 @@ public class ProfileManager {
 	 * @return IProfile // TODO
 	 */
 	public Profile createProfile() {
+		this.profilePath = "";
 		return this.profile = new ProfileImpl();
 	}
 

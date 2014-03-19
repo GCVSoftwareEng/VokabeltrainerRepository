@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
@@ -265,6 +266,11 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 			this.updateModelFromView();
 	        this.presenter.confirm();
 		}
+	}
+
+	@Override
+	public void fieldsNotSet() {
+		JOptionPane.showMessageDialog(null,TranslationManager.getinstance().getText("fieldsNotSet"));
 	}
 
 }
