@@ -9,7 +9,7 @@ package ch.gcv.vokabeltrainer.interfaces;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public interface TopicEditView {
+public interface TopicCreateView {
  
 	public TopicCreatePresenter getPresenter();
 	public void setPresenter(TopicCreatePresenter presenter);

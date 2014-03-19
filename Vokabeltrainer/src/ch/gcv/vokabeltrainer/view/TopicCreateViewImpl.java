@@ -12,7 +12,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
+import ch.gcv.vokabeltrainer.interfaces.TopicCreateView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
 import ch.gcv.vokabeltrainer.model.TranslationManager;
 
@@ -23,7 +23,7 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditView, Translatable {
+public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCreateView, Translatable {
 
 	private TopicCreatePresenter presenter;
 
@@ -35,7 +35,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 
 	private JTextPane topic;
 
-	public TopicEditViewImpl() {
+	public TopicCreateViewImpl() {
 		super("TopicEditView");
 		this.initComponents();
 	}
@@ -204,7 +204,7 @@ public class TopicEditViewImpl extends javax.swing.JFrame implements TopicEditVi
 	 */
 	@Override
 	public void translate() {
-		this.topic.setText(TranslationManager.getinstance().getText("topic"));
+		this.topic.setText(TranslationManager.getinstance().getText("createTopic"));
     }
 	
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {

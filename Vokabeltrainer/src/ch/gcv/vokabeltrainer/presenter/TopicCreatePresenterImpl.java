@@ -5,10 +5,10 @@ import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Profile;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicCreatePresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicEditView;
+import ch.gcv.vokabeltrainer.interfaces.TopicCreateView;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
 import ch.gcv.vokabeltrainer.model.ProfileManager;
-import ch.gcv.vokabeltrainer.view.TopicEditViewImpl;
+import ch.gcv.vokabeltrainer.view.TopicCreateViewImpl;
 
 
 /**
@@ -24,7 +24,7 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
     private Presentable onConfirm;
     private Topic model;
     private Presentable onCancel;
-    private TopicEditView view;
+    private TopicCreateView view;
     
 
 	public TopicCreatePresenterImpl(){
@@ -32,7 +32,7 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
 		this.onConfirm = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
-		this.view = new TopicEditViewImpl();
+		this.view = new TopicCreateViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
  
@@ -62,7 +62,7 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
 	 * @return ITopicEditView  // TODO
 	 */
 	@Override
-	public TopicEditView getView() {
+	public TopicCreateView getView() {
 		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
     }
@@ -73,7 +73,7 @@ public class TopicCreatePresenterImpl  implements TopicCreatePresenter, Presenta
 	 *
 	 */
 	@Override
-	public void setView(TopicEditView view) {
+	public void setView(TopicCreateView view) {
 		this.view = view;
     }
 

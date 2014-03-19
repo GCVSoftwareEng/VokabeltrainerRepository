@@ -13,8 +13,8 @@ public interface TopicCreatePresenter {
  
 	public Topic getModel();
 	public void setModel(Topic topic);
-	public TopicEditView getView();
-	public void setView(TopicEditView view);
+	public TopicCreateView getView();
+	public void setView(TopicCreateView view);
 	public void setOnConfirm(Presentable onConfirm);
 	public void setOnCancel(Presentable onCancel);
 	public void confirm();

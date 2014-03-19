@@ -11,7 +11,6 @@ import javax.swing.JTextPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.Translatable;
