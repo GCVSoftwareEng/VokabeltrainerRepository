@@ -3,8 +3,6 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -29,8 +27,11 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class TopicCardListViewImpl extends javax.swing.JFrame implements
 		TopicCardListView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TopicCardListPresenter presenter;
-
 	private JMenuBar menuBar;
 	private JMenu cardsMenu;
 	private JMenuItem deleteCards;
@@ -56,34 +57,22 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 		this.liste.addMouseListener(new java.awt.event.MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2) {
-					String name = liste.getSelectedValue().toString();
-
-				}
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 		});
 

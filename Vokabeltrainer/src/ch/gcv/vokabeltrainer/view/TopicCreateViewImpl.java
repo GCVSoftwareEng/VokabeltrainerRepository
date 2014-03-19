@@ -3,8 +3,6 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,16 +24,15 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  */
 public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCreateView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TopicCreatePresenter presenter;
-
-
-	private JButton edit;
-
 	private JTextField topicnameField;
 	private JLabel topicname;
-
 	private JTextPane topic;
-
+	
 	public TopicCreateViewImpl() {
 		super("TopicEditView");
 		this.initComponents();
@@ -48,14 +45,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	private void initComponents() {
 
 		this.getContentPane().setBackground(Color.WHITE);
-		this.edit = new JButton(new ImageIcon(getClass()
-				.getResource("edit.png")));
-		
-		this.edit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jButtonEditTopicActionPerformed(evt);
-            }
-        });
 	
 		this.topic = new JTextPane();
 		this.topicname = new JLabel();
@@ -69,14 +58,10 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
+			public void keyTyped(KeyEvent arg0) {	
 			}
 			
 		});
@@ -100,8 +85,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		topicnameField.setFont(topicnameField.getFont().deriveFont(20f));
 		topicnameField.setBounds(20, 130, 490, 50);
 
-		
-		edit.setBounds(520, 130, 51, 50);
 
 		topic.setEditable(false);
 		SimpleAttributeSet set = new SimpleAttributeSet();
@@ -116,8 +99,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		topic.setText("Topic");
 		topic.setBackground(Color.WHITE);
 
-		
-		super.add(edit);
 		super.add(topic);
 		super.add(topicname);
 		super.add(topicnameField);
@@ -128,27 +109,22 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
 	 * 
-	 * @return TopicEditPresenter // TODO
+	 * @return TopicEditPresenter 
 	 */
 	@Override
 	public TopicCreatePresenter getPresenter() {
-		
-		throw new UnsupportedOperationException("Not implemented");
-		
+		return this.presenter;
 	}
 
 	/**
 	 * setPresenter implements ITopicEditView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
-	public void setPresenter(TopicCreatePresenter presenter) {
-		
+	public void setPresenter(TopicCreatePresenter presenter) {		
 		this.presenter = presenter;
-		
 	}
 
 	/**
@@ -192,12 +168,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		dispose();
 	}
 
-	
-	private void jButtonEditTopicActionPerformed(java.awt.event.ActionEvent evt) {
-        this.updateModelFromView();
-        this.presenter.confirm();
-        this.close();
-    }
 	
 
     /** 
