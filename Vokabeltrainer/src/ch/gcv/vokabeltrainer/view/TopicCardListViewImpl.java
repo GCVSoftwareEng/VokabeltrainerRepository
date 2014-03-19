@@ -92,7 +92,7 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 		this.deleteCards = new JMenuItem();
 		this.deleteCards.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonDeleteTopicActionPerformed(evt);
+				jMenuDeleteTopicActionPerformed(evt);
 			}
 		});
 		this.scrollPane = new JScrollPane(liste);
@@ -100,7 +100,6 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 		// build menubar
 		menuBar.add(cardsMenu);
 		cardsMenu.add(deleteCards);
-		
 
 		// JFrame defination
 		super.setJMenuBar(menuBar);
@@ -146,6 +145,7 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 
 		topic.setText(presenter.getModel().getName());
 
+		// update the topic list
 		this.liste.setListData(presenter.getModel().getCards().toArray());
 	}
 
@@ -177,14 +177,19 @@ public class TopicCardListViewImpl extends javax.swing.JFrame implements
 	@Override
 	public void translate() {
 
-		this.cardsMenu.setText(TranslationManager.getinstance().getText("cards"));
-		this.deleteCards.setText(TranslationManager.getinstance().getText("delete"));
-		
+		this.cardsMenu.setText(TranslationManager.getinstance()
+				.getText("cards"));
+		this.deleteCards.setText(TranslationManager.getinstance().getText(
+				"delete"));
+
 	}
 
-	private void jButtonDeleteTopicActionPerformed(
-			java.awt.event.ActionEvent evt) {
-		String name = liste.getSelectedValue().toString();
+	private void jMenuDeleteTopicActionPerformed(java.awt.event.ActionEvent evt) {
+		if (liste.getSelectedValue() != null) {
+			String question = liste.getSelectedValue().toString();
+			this.presenter.deleteCard(question);
+			this.updateViewFromModel();
+		}
 
 	}
 

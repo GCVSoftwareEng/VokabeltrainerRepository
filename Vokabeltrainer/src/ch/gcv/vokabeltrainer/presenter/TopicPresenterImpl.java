@@ -199,6 +199,7 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 		TopicCardListPresenterImpl tclp = new TopicCardListPresenterImpl();
 		tclp.setModel(this.model);
 		tclp.run();
+		tclp.setOnDeleteCard(this);
 
 	}
 

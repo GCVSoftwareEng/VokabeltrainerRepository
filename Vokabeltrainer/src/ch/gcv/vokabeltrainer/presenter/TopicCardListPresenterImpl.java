@@ -17,14 +17,14 @@ import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
  */
 public class TopicCardListPresenterImpl implements Presentable, TopicCardListPresenter {
 
-	private Presentable onConfirm;
+	private Presentable onDeleteCard;
 	private TopicCardListView view;
 	private Presentable onCancel;
 	private Topic model;
 
 	public TopicCardListPresenterImpl() {
 		super();
-		this.onConfirm = null; // TODO
+		this.onDeleteCard = null; // TODO
 		this.model = null; // TODO
 		this.onCancel = null; // TODO
 		this.view = new TopicCardListViewImpl();
@@ -87,19 +87,7 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	public void setView(TopicCardListView view) {
 		this.view = view;
 	}
-
-	@Override
-	public boolean deleteCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean editCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public void refresh() {
 		// TODO Auto-generated method stub
@@ -109,6 +97,17 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	@Override
 	public void stop() {
 		this.view.close();
+	}
+
+	@Override
+	public void deleteCard(String question) {
+		this.model.deleteCard(question);
+		this.onDeleteCard.refresh();
+	}
+
+	@Override
+	public void setOnDeleteCard(Presentable presenter) {
+		this.onDeleteCard = presenter;
 	}
 
 }

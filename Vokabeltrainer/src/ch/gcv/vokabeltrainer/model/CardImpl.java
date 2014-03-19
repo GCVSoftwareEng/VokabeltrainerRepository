@@ -245,4 +245,9 @@ public class CardImpl implements Card, Serializable{
 		return this.spentTime;
 	}
 	
+	@Override
+	public String toString() {
+		return this.question;
+	}
+	
 }

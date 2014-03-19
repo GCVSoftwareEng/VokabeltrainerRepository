@@ -3,6 +3,8 @@ package ch.gcv.vokabeltrainer.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -19,14 +21,14 @@ import ch.gcv.vokabeltrainer.interfaces.Topic;
 public class TopicImpl implements Topic, Serializable {
 
 	private static final long serialVersionUID = 1211L;
-	private ArrayList<CardImpl> cards;
+	private HashMap<String,CardImpl> cards;
 	private int statisticMinutesLearned;
 	private Date statisticDateCreated;
 	private String name;
 
 	public TopicImpl() {
 		super();
-		this.cards = new ArrayList<CardImpl>();
+		this.cards = new HashMap<String,CardImpl>();
 		this.statisticMinutesLearned = 0; // TODO
 		this.statisticDateCreated = null; // TODO
 		this.name = ""; // TODO
@@ -44,7 +46,7 @@ public class TopicImpl implements Topic, Serializable {
 	@Override
 	public boolean addCard(Card card) {
 		try {
-			cards.add((CardImpl) card); // Cast to card
+			cards.put(card.getQuestion(),(CardImpl) card); // Cast to card
 			System.out.println("Add card OK");
 			return true;
 
@@ -93,17 +95,8 @@ public class TopicImpl implements Topic, Serializable {
 	 * @return boolean true or false if it has deleted
 	 */
 	@Override
-	public boolean deleteCard(CardImpl card) {
-		Iterator<CardImpl> it = cards.iterator();
-		while (it.hasNext()) {
-			CardImpl theCard = it.next();
-			if (theCard == card) {
-				it.remove();
-				return true;
-			}
-			System.out.println("Card not found, next");
-		}
-		return false;
+	public Card deleteCard(String question) {
+		return this.cards.remove(question); // CHF
 	}
 	
 
@@ -139,7 +132,11 @@ public class TopicImpl implements Topic, Serializable {
 	 */
 	@Override
 	public ArrayList<CardImpl> getCards() {
-		return this.cards;
+		ArrayList<CardImpl> temp = new ArrayList<CardImpl>();
+		for (CardImpl cardImpl : this.cards.values()) {
+			temp.add(cardImpl);
+		}
+		return temp;
 	}
 
 	/**
@@ -152,7 +149,7 @@ public class TopicImpl implements Topic, Serializable {
 	@Override
 	public ArrayList<CardImpl> getCards(int box) {
 		ArrayList<CardImpl> tempCards = new ArrayList<CardImpl>();
-		for (CardImpl curCard : cards) {
+		for (CardImpl curCard : cards.values()) {
 			if (curCard.getBox() == box) {
 				tempCards.add(curCard);
 			}

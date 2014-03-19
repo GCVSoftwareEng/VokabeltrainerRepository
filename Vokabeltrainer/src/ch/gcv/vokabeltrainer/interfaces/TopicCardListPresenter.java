@@ -15,8 +15,9 @@ public interface TopicCardListPresenter {
 	public void setModel(Topic model);
 	public TopicCardListView getView();
 	public void setView(TopicCardListView view);
-	public boolean deleteCard(Card card);
-	public boolean editCard(Card card);
+	public void deleteCard(String question);
+	public void setOnDeleteCard(Presentable presenter);
+
 
 }
  
