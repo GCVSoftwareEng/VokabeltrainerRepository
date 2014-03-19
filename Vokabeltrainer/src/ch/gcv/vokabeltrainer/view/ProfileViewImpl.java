@@ -301,12 +301,9 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 	 */
 	private void jMenuItemLoadProfileActionPerformed(
 			java.awt.event.ActionEvent evt) {
-
-		// JFileChooser-Objekt erstellen
 		JFileChooser chooser = new JFileChooser();
-		// Filter um uns auf bestimmte Dateiendungen zu beschraenken.
-		// Zeigt dann auch nur diese Dateien an beim Oeffnen.
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+<<<<<<< HEAD
 		// Beschreibung der Datei Endung der Datei
 				"Vokabeltrainer profile", "profile");
 		// Filter wird dem JFileChooser hinzugefuegt.
@@ -319,10 +316,16 @@ public class ProfileViewImpl extends javax.swing.JFrame implements ProfileView,
 		if (returnVal == JFileChooser.APPROVE_OPTION) { // bei "Abbrechen"
 														// CANCEL_OPTION
 			// Profil gem pfad laden.
+=======
+		"Vokabeltrainer profile", "profile");
+
+		chooser.setFileFilter(filter);
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+>>>>>>> FETCH_HEAD
 			String path = chooser.getSelectedFile().getAbsolutePath();
 			getPresenter().loadProfile(path);
 			updateViewFromModel();
-
 		}
 	}
 
