@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -30,26 +28,21 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
 public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		CardChallengeView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private CardChallengePresenter presenter;
-
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-	// private JButton check;
-
 	private JLabel lastTime;
 	private JLabel curTime;
 	private JLabel question;
 	private JLabel answer;
 	private JLabel questionWord;
-	// private JLabel lastLearn;
-	// private JLabel date;
-
 	private JTextField answerField;
-
 	private Timer timer;
-
-	// private JPanel cardPanel;
 
 	public CardChallengeViewImpl() {
 		super("CardChallengeView");
@@ -81,28 +74,13 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-
 			}
 
 		});
-
-		// this.cardPanel = new JPanel();
-
-		// this.check = new JButton(new ImageIcon(getClass().getResource(
-		// "check.png")));
-
-		// this.check.addActionListener(new java.awt.event.ActionListener() {
-		// public void actionPerformed(java.awt.event.ActionEvent evt) {
-		// jButtonCheckActionPerformed(evt);
-		// }
-		// });
 
 		this.lastTime = new JLabel("lastTime");
 		this.curTime = new JLabel("curTime");
@@ -110,17 +88,10 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.question = new JLabel();
 		this.questionWord = new JLabel();
 		this.answer = new JLabel();
-		// this.lastLearn = new JLabel();
-		// this.date = new JLabel();
 
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
 		this.boxname = new JTextPane();
-
-		// cardPanel.setBackground(Color.LIGHT_GRAY);
-		// cardPanel.setBounds(25, 120, 750, 300);
-		// cardPanel.setVisible(true);
-		// cardPanel.setLayout(null);
 
 		// lastTimelabel
 		lastTime.setVisible(true);
@@ -158,21 +129,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		answerField.setFont(answerField.getFont().deriveFont(20f));
 		answerField.setBounds(170, 250, 575, 50);
 		answerField.setBackground(Color.WHITE);
-
-		// lastlearn label
-		// lastLearn.setVisible(true);
-		// lastLearn.setFont(lastLearn.getFont().deriveFont(10));
-		// lastLearn.setBounds(550, 320, 150, 20);
-		// lastLearn.setBackground(Color.WHITE);
-
-		// date label
-		// date.setVisible(true);
-		// date.setFont(date.getFont().deriveFont(10));
-		// date.setBounds(710, 320, 80, 20);
-		// date.setBackground(Color.WHITE);
-
-		// buttons
-		// check.setBounds(475, 380, 53, 53);
 
 		topicname.setEditable(false);
 		SimpleAttributeSet set1 = new SimpleAttributeSet();
@@ -216,9 +172,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		// super.add(check);
-		// super.add(lastLearn);
-		// super.add(date);
 
 		// timer
 		this.timer = new Timer(1, new ActionListener() {
@@ -235,7 +188,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	/**
 	 * getPresenter implements ICardView.getPresenter
 	 * 
-	 * @return ICardPresenter // TODO
+	 * @return ICardPresenter 
 	 */
 	@Override
 	public CardChallengePresenter getPresenter() {
@@ -246,7 +199,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 * setPresenter implements ICardView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -260,7 +212,6 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -274,11 +225,7 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 		this.boxnumber.setText(Integer.toString(this.presenter.getModel()
 				.getBox()));
 		this.questionWord.setText(this.presenter.getModel().getQuestion());
-
-		// long temp = this.presenter.getModel().getStatisticDateLastLerned();
-		// this.date.setText(Long.toString(this.presenter.getModel()
-		// .getStatisticDateLastLerned()));
-
+		
 		this.lastTime.setText(Long.toString(this.presenter.getModel()
 				.getSpentTime()) + " ms");
 		this.curTime.setText(0 + " ms");
@@ -378,19 +325,13 @@ public class CardChallengeViewImpl extends javax.swing.JFrame implements
 	 */
 	@Override
 	public void translate() {
+		this.setTitle(TranslationManager.getinstance().getText("card"));
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
 		this.answer.setText(TranslationManager.getinstance().getText("answer"));
 		this.boxname.setText(TranslationManager.getinstance()
 				.getText("boxname"));
 
-		// this.lastLearn.setText(TranslationManager.getinstance().getText(
-		// "lastLearn"));
-	}
-
-	private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {
-		timer.stop();
-		getPresenter().checkAnswer(this.answerField.getText());
 	}
 
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {

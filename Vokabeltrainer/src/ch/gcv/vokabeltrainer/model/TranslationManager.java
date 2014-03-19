@@ -21,7 +21,7 @@ public class TranslationManager {
 	private static TranslationManager instance;
 	private ArrayList<Translatable> languageChangedListeners;
 	private ArrayList<String> languages;
-	private ResourceBundle bundle; // CHF ADD
+	private ResourceBundle bundle;
 
 	public TranslationManager() {
 		super();

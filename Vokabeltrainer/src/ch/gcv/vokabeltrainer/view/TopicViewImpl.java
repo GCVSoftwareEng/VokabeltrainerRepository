@@ -29,8 +29,11 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  */
 public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TopicPresenter presenter;
-
 	private JTextPane topicname;
 	private JMenuBar menuBar;
 	private JMenu cardsMenu;
@@ -38,35 +41,28 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	private JMenuItem moveAllCardsToFirstBox;
 	private JMenuItem createCards;
 	private JMenuItem showCards;
-	private JMenuItem openStatistic;
-	
+	private JMenuItem openStatistic;	
 	private JButton boxButton1;
 	private JButton boxButton2;
 	private JButton boxButton3;
 	private JButton boxButton4;
 	private JButton boxButton5;
-	//private JButton addCard;
-	//private JButton editBox;
 	private JCheckBox beatTheClockCheckBox;
-
 	private JLabel boxLabel1;
 	private JLabel boxLabel2;
 	private JLabel boxLabel3;
 	private JLabel boxLabel4;
 	private JLabel boxLabel5;
-
 	private JLabel cardCount1;
 	private JLabel cardCount2;
 	private JLabel cardCount3;
 	private JLabel cardCount4;
 	private JLabel cardCount5;
-
 	private JLabel cardnummber1;
 	private JLabel cardnummber2;
 	private JLabel cardnummber3;
 	private JLabel cardnummber4;
 	private JLabel cardnummber5;
-
 	private String noCardsInBox;
 
 	public TopicViewImpl() {
@@ -134,20 +130,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 				jButtonBoxActionPerformed(evt);
 			}
 		});
-		//this.addCard = new JButton(new ImageIcon(getClass().getResource(
-		//		"plus.png")));
-		//this.addCard.addActionListener(new java.awt.event.ActionListener() {
-		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
-		//		
-		//	}
-		//});
-		//this.editBox = new JButton(new ImageIcon(getClass().getResource(
-		//		"edit1.png")));
-		//this.editBox.addActionListener(new java.awt.event.ActionListener() {
-		//	public void actionPerformed(java.awt.event.ActionEvent evt) {
-		//		
-		//	}
-		//});
+		
 		this.moveAllCardsToFirstBox = new JMenuItem();
 		this.moveAllCardsToFirstBox.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,8 +191,6 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		boxButton3.setBounds(215, 215, 70, 70);
 		boxButton4.setBounds(310, 215, 70, 70);
 		boxButton5.setBounds(405, 215, 70, 70);
-		//addCard.setBounds(425, 60, 31, 30);
-		//editBox.setBounds(460, 60, 30, 30);
 
 		// layout definition		
 		boxLabel1.setVisible(true);
@@ -304,12 +285,9 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		beatTheClockCheckBox.setBounds(0, 0, 200, 20);
 		beatTheClockCheckBox.setBackground(Color.WHITE);
 		
-		
-		
 		// add to JFrame
 		super.setJMenuBar(menuBar);
 		super.add(topicname);
-		//super.add(addCard);
 		super.add(boxButton1);
 		super.add(boxButton2);
 		super.add(boxButton3);
@@ -330,7 +308,6 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 		super.add(cardnummber3);
 		super.add(cardnummber4);
 		super.add(cardnummber5);
-		//super.add(editBox);
 		super.add(beatTheClockCheckBox);
 
 	}
@@ -338,7 +315,7 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	/**
 	 * getPresenter implements ITopicView.getPresenter
 	 * 
-	 * @return ITopicPresenter // TODO
+	 * @return ITopicPresenter 
 	 */
 	@Override
 	public TopicPresenter getPresenter() {
@@ -351,14 +328,11 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 * setPresenter implements ITopicView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setPresenter(TopicPresenter presenter) {
-
 		this.presenter = presenter;
-
 	}
 
 	/**
@@ -367,7 +341,6 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 */
 	@Override
 	public void updateModelFromView() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -414,7 +387,8 @@ public class TopicViewImpl extends JFrame implements TopicView, Translatable {
 	 */
 	@Override
 	public void translate() {
-		// TODO should be implemented
+		this.setTitle(TranslationManager.getinstance().getText("topic"));
+		
 		this.cardCount1.setText(TranslationManager.getinstance().getText(
 				"cards"));
 		this.cardCount2.setText(TranslationManager.getinstance().getText(

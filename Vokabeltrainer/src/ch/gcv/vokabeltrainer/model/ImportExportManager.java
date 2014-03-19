@@ -26,9 +26,7 @@ public class ImportExportManager {
 	 * exportTopic
 	 * 
 	 * @param topic2
-	 *            // TODO
 	 * @param path
-	 *            // TODO
 	 * 
 	 */
 	public boolean exportTopic(Topic topic, String path) {
@@ -48,8 +46,7 @@ public class ImportExportManager {
 	 * importTopic
 	 * 
 	 * @param path
-	 *            // TODO
-	 * @return boolean // TODO
+	 * @return boolean 
 	 */
 	public Topic importTopic(String path) {
 		Topic tmp = null;
@@ -68,7 +65,7 @@ public class ImportExportManager {
 	/**
 	 * getInstance
 	 * 
-	 * @return ImportExportManager // TODO
+	 * @return ImportExportManager
 	 */
 	public static ImportExportManager getInstance() {
 		if (ImportExportManager.instance == null) {

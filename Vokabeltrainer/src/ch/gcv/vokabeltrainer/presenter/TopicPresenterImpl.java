@@ -19,10 +19,6 @@ import ch.gcv.vokabeltrainer.view.TopicViewImpl;
  */
 public class TopicPresenterImpl implements TopicPresenter, Presentable {
 
-	private Presentable onDeleteCard;
-	private Presentable onOpenCard;
-	private Presentable onEditCards;
-	private Presentable onCreateCard;
 	private TopicView view;
 	private Topic model;
 	private Presentable statisticPresenter;
@@ -36,7 +32,7 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	/**
 	 * getModel implements ITopicPresenter.getModel
 	 * 
-	 * @return ITopic // TODO
+	 * @return ITopic 
 	 */
 	@Override
 	public Topic getModel() {
@@ -47,7 +43,6 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	 * setModel implements ITopicPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -58,65 +53,24 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	/**
 	 * getView implements ITopicPresenter.getView
 	 * 
-	 * @return ITopicView // TODO
+	 * @return ITopicView 
 	 */
 	@Override
 	public TopicView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**
 	 * setView implements ITopicPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setView(TopicView view) {
-
 		this.view = view;
 	}
 
-	/**
-	 * setOnCreateCard implements ITopicPresenter.setOnCreateCard
-	 * 
-	 * @param onCreateCard
-	 *            // TODO
-	 * 
-	 */
-	@Override
-	public void setOnCreateCard(Presentable onCreateCard) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-	}
-
-	/**
-	 * setOnOpenCard implements ITopicPresenter.setOnOpenCard
-	 * 
-	 * @param onOpenCard
-	 *            // TODO
-	 * 
-	 */
-	@Override
-	public void setOnOpenCard(Presentable onOpenCard) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-	}
-
-	/**
-	 * setOnDeleteCard implements ITopicPresenter.setOnDeleteCard
-	 * 
-	 * @param onDeleteCard
-	 *            // TODO
-	 * 
-	 */
-	@Override
-	public void setOnDeleteCard(Presentable onDeleteCard) {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-	}
 
 	/**
 	 * createCard implements ITopicPresenter.createCard
@@ -153,7 +107,6 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	 */
 	@Override
 	public void startChallenge(Card card) {
-
 		CardChallengePresenterImpl cp = new CardChallengePresenterImpl();
 		cp.setModel(card);
 		cp.setOnCheckCard(this);
@@ -166,7 +119,6 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	 */
 	@Override
 	public void run() {
-		// TODO should be implemented
 		view.setPresenter(this);
 		view.open();
 		view.updateViewFromModel();
@@ -174,18 +126,10 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
 		view.updateViewFromModel();
 		if (this.statisticPresenter != null){
 			this.statisticPresenter.refresh();
 		}
-		
-	}
-
-	@Override
-	public void deleteCard() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -195,12 +139,10 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 
 	@Override
 	public void editCards() {
-
 		TopicCardListPresenterImpl tclp = new TopicCardListPresenterImpl();
 		tclp.setModel(this.model);
 		tclp.run();
 		tclp.setOnDeleteCard(this);
-
 	}
 
 	@Override
@@ -215,7 +157,6 @@ public class TopicPresenterImpl implements TopicPresenter, Presentable {
 	public void openStatistic() {
 		TopicStatisticListPresenterImpl tslp = new TopicStatisticListPresenterImpl();
 		tslp.setModel(this.model);
-		tslp.setOnConfirm(this);
 		tslp.run();
 		this.statisticPresenter = tslp;
 	}

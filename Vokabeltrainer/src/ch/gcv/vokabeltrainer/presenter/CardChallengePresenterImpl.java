@@ -35,7 +35,7 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	/**
 	 * getModel implements ICardPresenter.getModel
 	 * 
-	 * @return ICard // TODO
+	 * @return ICard 
 	 */
 	@Override
 	public Card getModel() {
@@ -46,7 +46,6 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	 * setModel implements ICardPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -57,7 +56,7 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	/**
 	 * getView implements ICardPresenter.getView
 	 * 
-	 * @return ICardView // TODO
+	 * @return ICardView 
 	 */
 	@Override
 	public CardChallengeView getView() {
@@ -68,12 +67,10 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	 * setView implements ICardPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setView(CardChallengeView view) {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -115,14 +112,11 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
 		view.updateViewFromModel();
-		
 	}
 
 	@Override
 	public void setOnCheckCard(Presentable presenter) {
-		// TODO Auto-generated method stub
 		this.onCheckCard = presenter;
 	}
 
@@ -156,10 +150,6 @@ public class CardChallengePresenterImpl implements CardChallengePresenter, Prese
 	@Override
 	public long getCardShown() {
 		return this.cardShown;
-	}
-
-	
-
-	
+	}	
 
 }

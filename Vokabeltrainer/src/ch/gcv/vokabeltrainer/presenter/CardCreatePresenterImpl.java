@@ -20,14 +20,12 @@ public class CardCreatePresenterImpl implements Presentable,
 
 	private Presentable onConfirm;
 	private CardCreateView view;
-	private Presentable onCancel;
 	private Card model;
 
 	public CardCreatePresenterImpl() {
 		super();
-		this.onConfirm = null; // TODO
-		this.model = null; // TODO
-		this.onCancel = null; // TODO
+		this.onConfirm = null;
+		this.model = null;
 		this.view = new CardCreateViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
@@ -46,11 +44,10 @@ public class CardCreatePresenterImpl implements Presentable,
 	/**
 	 * getModel implements ICardEditPresenter.getModel
 	 * 
-	 * @return ICard // TODO
+	 * @return ICard
 	 */
 	@Override
 	public Card getModel() {
-
 		return this.model;
 	}
 
@@ -58,7 +55,6 @@ public class CardCreatePresenterImpl implements Presentable,
 	 * setModel implements ICardEditPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -69,11 +65,10 @@ public class CardCreatePresenterImpl implements Presentable,
 	/**
 	 * getView implements ICardEditPresenter.getView
 	 * 
-	 * @return ICardEditView // TODO
+	 * @return ICardEditView
 	 */
 	@Override
 	public CardCreateView getView() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -81,7 +76,6 @@ public class CardCreatePresenterImpl implements Presentable,
 	 * setView implements ICardEditPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -93,7 +87,6 @@ public class CardCreatePresenterImpl implements Presentable,
 	 * setOnConfirm implements ICardEditPresenter.setOnConfirm
 	 * 
 	 * @param onConfirm
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -105,12 +98,11 @@ public class CardCreatePresenterImpl implements Presentable,
 	 * setOnCancel implements ICardEditPresenter.setOnCancel
 	 * 
 	 * @param onCancel
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setOnCancel(Presentable onCancel) {
-		this.onCancel = onCancel;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	/**
@@ -140,14 +132,12 @@ public class CardCreatePresenterImpl implements Presentable,
 	 */
 	@Override
 	public void cancel() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-
+		this.view.updateViewFromModel();
 	}
 
 	@Override

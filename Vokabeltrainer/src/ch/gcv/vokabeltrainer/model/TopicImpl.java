@@ -2,10 +2,7 @@ package ch.gcv.vokabeltrainer.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Random;
 
 import ch.gcv.vokabeltrainer.interfaces.Card;
@@ -22,17 +19,12 @@ public class TopicImpl implements Topic, Serializable {
 
 	private static final long serialVersionUID = 1211L;
 	private HashMap<String,CardImpl> cards;
-	private int statisticMinutesLearned;
-	private Date statisticDateCreated;
 	private String name;
 
 	public TopicImpl() {
 		super();
 		this.cards = new HashMap<String,CardImpl>();
-		this.statisticMinutesLearned = 0; // TODO
-		this.statisticDateCreated = null; // TODO
-		this.name = ""; // TODO
-
+		this.name = ""; 
 	}
 
 	/**
@@ -61,8 +53,7 @@ public class TopicImpl implements Topic, Serializable {
 	 * getRandomCard implements ITopic.getRandomCard
 	 * 
 	 * @param box
-	 *            // TODO
-	 * @return Card // TODO
+	 * @return Card
 	 */
 	@Override
 	public CardImpl getRandomCard(int box) {
@@ -96,7 +87,7 @@ public class TopicImpl implements Topic, Serializable {
 	 */
 	@Override
 	public Card deleteCard(String question) {
-		return this.cards.remove(question); // CHF
+		return this.cards.remove(question); 
 	}
 	
 
@@ -128,7 +119,7 @@ public class TopicImpl implements Topic, Serializable {
 	/**
 	 * getCards implements ITopic.getCards
 	 * 
-	 * @return ArrayList<Card> // TODO
+	 * @return ArrayList<Card> 
 	 */
 	@Override
 	public ArrayList<CardImpl> getCards() {
@@ -143,8 +134,7 @@ public class TopicImpl implements Topic, Serializable {
 	 * getCards implements ITopic.getCards
 	 * 
 	 * @param box
-	 *            // TODO
-	 * @return ArrayList<Card> // TODO
+	 * @return ArrayList<Card> 
 	 */
 	@Override
 	public ArrayList<CardImpl> getCards(int box) {
@@ -159,32 +149,9 @@ public class TopicImpl implements Topic, Serializable {
 	}
 
 	/**
-	 * getStatisticMinutesLearned implements ITopic.getStatisticMinutesLearned
-	 * 
-	 * @return int // TODO
-	 */
-	@Override
-	public int getStatisticMinutesLearned() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-	}
-
-	/**
-	 * getStatisticDateCreated implements ITopic.getStatisticDateCreated
-	 * 
-	 * @return Date // TODO
-	 */
-	@Override
-	public Date getStatisticDateCreated() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
-	}
-
-	/**
 	 * setTopic implements ITopic.setTopic
 	 * 
 	 * @param name
-	 *            // TODO
 	 * 
 	 */
 	@Override

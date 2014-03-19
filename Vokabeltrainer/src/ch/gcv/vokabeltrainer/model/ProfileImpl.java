@@ -18,11 +18,11 @@ public class ProfileImpl implements Profile, Serializable{
 
 
 	private static final long serialVersionUID = 133L;
-	private HashMap<String, Topic> topics; // CHF
+	private HashMap<String, Topic> topics;
 
 	public ProfileImpl() {
 		super();
-		this.topics = new HashMap<String, Topic>(); // CHF
+		this.topics = new HashMap<String, Topic>(); 
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class ProfileImpl implements Profile, Serializable{
 	 */
 	@Override
 	public Topic addTopic(Topic topic) {
-		return topics.put(topic.getName(), topic); // CHF
+		return topics.put(topic.getName(), topic); 
 
 	}
 
@@ -42,13 +42,13 @@ public class ProfileImpl implements Profile, Serializable{
 	 * deleteTopic implements IProfile.deleteTopic
 	 * This method delete the topic
 	 * @param topic
-	 * @return topic .getName   //CHF
+	 * @return topic .getName   
 	 * 
 	 */
 
 	@Override
 	public Topic deleteTopic(Topic topic) {
-		return this.topics.remove(topic.getName()); // CHF
+		return this.topics.remove(topic.getName()); 
 
 	}
 
@@ -78,7 +78,7 @@ public class ProfileImpl implements Profile, Serializable{
 	 */
 	@Override
 	public Topic getTopic(String name) {
-		return this.topics.get(name);  // CHF
+		return this.topics.get(name); 
 		
 	}
 

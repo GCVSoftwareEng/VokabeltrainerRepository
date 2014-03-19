@@ -26,16 +26,16 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  */
 public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCreateView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TopicCreatePresenter presenter;
-
-
 	private JButton edit;
-
 	private JTextField topicnameField;
 	private JLabel topicname;
-
 	private JTextPane topic;
-
+	
 	public TopicCreateViewImpl() {
 		super("TopicEditView");
 		this.initComponents();
@@ -69,14 +69,10 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 		});
@@ -87,7 +83,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		super.setSize(600, 280);
 		super.setLayout(null);
 
-		
 		// topicnamelabel
 		topicname.setVisible(true);
 		topicname.setFont(topicname.getFont().deriveFont(20f));
@@ -128,27 +123,22 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	/**
 	 * getPresenter implements ITopicEditView.getPresenter
 	 * 
-	 * @return TopicEditPresenter // TODO
+	 * @return TopicEditPresenter 
 	 */
 	@Override
 	public TopicCreatePresenter getPresenter() {
-		
 		throw new UnsupportedOperationException("Not implemented");
-		
 	}
 
 	/**
 	 * setPresenter implements ITopicEditView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setPresenter(TopicCreatePresenter presenter) {
-		
-		this.presenter = presenter;
-		
+		this.presenter = presenter;		
 	}
 
 	/**
@@ -166,7 +156,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	 */
 	@Override
 	public void updateViewFromModel() {
-		
 	}
 
 	/**
@@ -179,7 +168,6 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 		translate();
 		setVisible(true);
 		topicnameField.requestFocus();
-		
 	}
 
 	/**
@@ -206,6 +194,7 @@ public class TopicCreateViewImpl extends javax.swing.JFrame implements TopicCrea
 	 */
 	@Override
 	public void translate() {
+		this.setTitle(TranslationManager.getinstance().getText("create"));
 		this.topic.setText(TranslationManager.getinstance().getText("createTopic"));
     }
 	

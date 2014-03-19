@@ -19,11 +19,8 @@ import ch.gcv.vokabeltrainer.model.TopicImpl;
  */
 public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 
-	private Presentable onOpenTopic;
 	private ProfileView view;
 	private Profile model;
-	private Presentable onCreateTopic;
-	private Presentable onDeleteTopic;
 
 	public ProfilePresenterImpl() {
 		super();
@@ -32,7 +29,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	/**
 	 * getModel implements IProfilePresenter.getModel
 	 * 
-	 * @return IProfile // TODO
+	 * @return IProfile
 	 */
 	@Override
 	public Profile getModel() {
@@ -43,7 +40,6 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 * setModel implements IProfilePresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -54,19 +50,17 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	/**
 	 * getView implements IProfilePresenter.getView
 	 * 
-	 * @return IProfileView // TODO
+	 * @return IProfileView
 	 */
 	@Override
 	public ProfileView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**
 	 * setView implements IProfilePresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -78,12 +72,10 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 * setOnCreateTopic implements IProfilePresenter.setOnCreateTopic
 	 * 
 	 * @param onCreateTopic
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setOnCreateTopic(Presentable onCreateTopic) {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -91,12 +83,10 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 * setOnOpenTopic implements IProfilePresenter.setOnOpenTopic
 	 * 
 	 * @param onOpenTopic
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setOnOpenTopic(Presentable onOpenTopic) {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -106,7 +96,6 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 */
 	@Override
 	public void setOnDeleteTopic() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -130,7 +119,7 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	public boolean saveProfile(String path) {
 		return ProfileManager.getInstance().saveProfile(path);
 	}
-	
+
 	@Override
 	public boolean saveProfile() {
 		return ProfileManager.getInstance().saveProfile();
@@ -145,13 +134,10 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 		this.model = ProfileManager.getInstance().loadProfile(path);
 	}
 
-
-
 	/**
 	 * openTopic implements IProfilePresenter.openTopic
 	 * 
 	 * @param topic
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -165,7 +151,6 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 	 * deleteTopic implements IProfilePresenter.deleteTopic
 	 * 
 	 * @param topic
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -192,31 +177,24 @@ public class ProfilePresenterImpl implements ProfilePresenter, Presentable {
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-
+		this.view.updateViewFromModel();
 	}
 
 	@Override
 	public void exportTopic(String name, String path) {
-		
 		Topic topic = this.model.getTopic(name);
 		ImportExportManager.getInstance().exportTopic(topic, path);
-		
 	}
 
 	@Override
 	public void importTopic(String path) {
-		
 		Topic topic = ImportExportManager.getInstance().importTopic(path);
 		this.model.addTopic(topic);
-		
 	}
-	
+
 	@Override
 	public void stop() {
 		this.view.close();
 	}
-
-
 
 }

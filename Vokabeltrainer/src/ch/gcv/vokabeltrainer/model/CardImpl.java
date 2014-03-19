@@ -27,23 +27,16 @@ public class CardImpl implements Card, Serializable{
 	private int box;
 	private String answer;
 	private TopicImpl topic;
-	private String name;
 	private long spentTime;
-
-	String myAnswer;
 
 	public CardImpl() {
 		super();
 		this.statisticDateCreated = new java.util.Date().getTime();
-
-		this.statisticCountWrong = 0; // TODO
-		this.question = ""; // TODO
-		// this.statisticDateLastLearned = null; // TODO
-		this.statisticCountRight = 0; // TODO
-		this.box = 1; // TODO
-		this.answer = ""; // TODOs
-		this.myAnswer = "";
-
+		this.statisticCountWrong = 0; 
+		this.question = ""; 
+		this.statisticCountRight = 0;
+		this.box = 1; 
+		this.answer = ""; 
 	}
 
 	/**
@@ -228,11 +221,6 @@ public class CardImpl implements Card, Serializable{
 	public void setTopic(TopicImpl topic) {
 		this.topic = topic;
 
-	}
-
-	@Override
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	@Override

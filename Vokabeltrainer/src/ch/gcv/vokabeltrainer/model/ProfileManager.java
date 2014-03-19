@@ -30,8 +30,7 @@ public class ProfileManager {
 	 * loadProfile implements IProfileManager.loadProfile
 	 * 
 	 * @param path
-	 *            // TODO
-	 * @return IProfile // TODO
+	 * @return IProfile
 	 */
 	public Profile loadProfile(String path) {
 		try {
@@ -46,14 +45,12 @@ public class ProfileManager {
 		return this.profile;
 	}
 
-	// TODO should be implemented
 
 	/**
 	 * saveProfile implements IProfileManager.saveProfile
 	 * 
 	 * @param path
-	 *            // TODO
-	 * @return boolean // TODO
+	 * @return boolean
 	 */
 	public boolean saveProfile(String path) {
 		try {
@@ -61,6 +58,7 @@ public class ProfileManager {
 			ObjectOutputStream oos = new ObjectOutputStream(out);
 			oos.writeObject(this.profile);
 			oos.flush();
+			this.profilePath = path;
 			return true;
 		} catch (Exception e) {
 			System.out.println("Problem serializing: " + e);
@@ -71,8 +69,7 @@ public class ProfileManager {
 	 * saveProfile implements IProfileManager.saveProfile
 	 * 
 	 * @param path
-	 *            // TODO
-	 * @return boolean // TODO
+	 * @return boolean
 	 */
 	public boolean saveProfile() {
 		return this.saveProfile(this.profilePath);
@@ -82,7 +79,7 @@ public class ProfileManager {
 	/**
 	 * getInstance implements IProfileManager.getInstance
 	 * 
-	 * @return IProfileManager // TODO
+	 * @return IProfileManager 
 	 */
 	public static ProfileManager getInstance() {
 		if (ProfileManager.instance == null) {
@@ -94,7 +91,7 @@ public class ProfileManager {
 	/**
 	 * createProfile implements IProfileManager.createProfile
 	 * 
-	 * @return IProfile // TODO
+	 * @return IProfile 
 	 */
 	public Profile createProfile() {
 		this.profilePath = "";
@@ -104,7 +101,7 @@ public class ProfileManager {
 	/**
 	 * getProfile implements IProfileManager.getProfile
 	 * 
-	 * @return IProfile // TODO
+	 * @return IProfile 
 	 */
 	public Profile getProfile() {
 		return this.profile;	

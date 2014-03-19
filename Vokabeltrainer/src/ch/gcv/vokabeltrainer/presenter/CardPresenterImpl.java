@@ -32,7 +32,7 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	/**
 	 * getModel implements ICardPresenter.getModel
 	 * 
-	 * @return ICard // TODO
+	 * @return ICard
 	 */
 	@Override
 	public Card getModel() {
@@ -43,7 +43,6 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	 * setModel implements ICardPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -54,7 +53,7 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	/**
 	 * getView implements ICardPresenter.getView
 	 * 
-	 * @return ICardView // TODO
+	 * @return ICardView
 	 */
 	@Override
 	public CardView getView() {
@@ -65,12 +64,10 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	 * setView implements ICardPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setView(CardView view) {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -102,14 +99,11 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
 		view.updateViewFromModel();
-		
 	}
 
 	@Override
 	public void setOnCheckCard(Presentable presenter) {
-		// TODO Auto-generated method stub
 		this.onCheckCard = presenter;
 	}
 
@@ -117,11 +111,17 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	public void nextCard(){
 		CardImpl nextCard = null;
 		int boxToCheck = this.curBox;
+		boolean firstLoop = true;
 		while (nextCard == null){
 			nextCard = this.model.getTopic().getRandomCard(boxToCheck);
-			boxToCheck +=1;
+			if (firstLoop){
+				boxToCheck = 0;
+				firstLoop = false;
+			} else {
+				boxToCheck +=1;
+			}
 			if (boxToCheck > Application.boxCount){
-				boxToCheck = 1;
+				break;//boxToCheck = 1;
 			}
 		}	
 		this.model = nextCard;	
@@ -132,6 +132,5 @@ public class CardPresenterImpl implements CardPresenter, Presentable{
 	public void stop() {
 		this.view.close();
 	}
-	
 
 }

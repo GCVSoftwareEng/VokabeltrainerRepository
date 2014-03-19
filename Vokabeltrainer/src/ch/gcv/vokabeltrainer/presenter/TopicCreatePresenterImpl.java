@@ -21,14 +21,12 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 
 	private Presentable onConfirm;
 	private Topic model;
-	private Presentable onCancel;
 	private TopicCreateView view;
 
 	public TopicCreatePresenterImpl() {
 		super();
-		this.onConfirm = null; // TODO
-		this.model = null; // TODO
-		this.onCancel = null; // TODO
+		this.onConfirm = null;
+		this.model = null;
 		this.view = new TopicCreateViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
@@ -36,7 +34,7 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	/**
 	 * getModel implements ITopicEditPresenter.getModel
 	 * 
-	 * @return ITopic // TODO
+	 * @return ITopic
 	 */
 	@Override
 	public Topic getModel() {
@@ -47,7 +45,6 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	 * setModel implements ITopicEditPresenter.setModel
 	 * 
 	 * @param topic
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -58,19 +55,17 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	/**
 	 * getView implements ITopicEditPresenter.getView
 	 * 
-	 * @return ITopicEditView // TODO
+	 * @return ITopicEditView
 	 */
 	@Override
 	public TopicCreateView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**
 	 * setView implements ITopicEditPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -82,7 +77,6 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	 * setOnConfirm implements ITopicEditPresenter.setOnConfirm
 	 * 
 	 * @param onConfirm
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -94,12 +88,11 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	 * setOnCancel implements ITopicEditPresenter.setOnCancel
 	 * 
 	 * @param onCancel
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setOnCancel(Presentable onCancel) {
-		this.onCancel = onCancel;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	/**
@@ -108,7 +101,6 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	 */
 	@Override
 	public void confirm() {
-		// TODO should be implemented
 		Profile profile = ProfileManager.getInstance().getProfile();
 
 		if (this.model.getName().equals("")) {
@@ -131,7 +123,6 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 	 */
 	@Override
 	public void cancel() {
-		// TODO should be implemented
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -148,8 +139,7 @@ public class TopicCreatePresenterImpl implements TopicCreatePresenter,
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-
+		this.view.updateViewFromModel();
 	}
 
 	@Override

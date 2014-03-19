@@ -1,7 +1,6 @@
 package ch.gcv.vokabeltrainer.interfaces;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import ch.gcv.vokabeltrainer.model.CardImpl;
 
@@ -21,11 +20,8 @@ public interface Topic {
 	public int getCardCount(int box); 
 	public ArrayList<CardImpl> getCards();
 	public ArrayList<CardImpl> getCards(int box);
-	public int getStatisticMinutesLearned();
-	public Date getStatisticDateCreated();
 	public void setName(String name);
 	public String getName();
-
-  
+ 
 }
  

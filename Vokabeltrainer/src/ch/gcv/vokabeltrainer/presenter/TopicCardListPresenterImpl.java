@@ -1,6 +1,5 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
 import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
@@ -15,18 +14,17 @@ import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
  * @author Vincenzo Urbisaglia
  * @version 1.0
  */
-public class TopicCardListPresenterImpl implements Presentable, TopicCardListPresenter {
+public class TopicCardListPresenterImpl implements Presentable,
+		TopicCardListPresenter {
 
 	private Presentable onDeleteCard;
 	private TopicCardListView view;
-	private Presentable onCancel;
 	private Topic model;
 
 	public TopicCardListPresenterImpl() {
 		super();
-		this.onDeleteCard = null; // TODO
-		this.model = null; // TODO
-		this.onCancel = null; // TODO
+		this.onDeleteCard = null;
+		this.model = null;
 		this.view = new TopicCardListViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
@@ -45,11 +43,10 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	/**
 	 * getModel implements ICardEditPresenter.getModel
 	 * 
-	 * @return ICard // TODO
+	 * @return ICard
 	 */
 	@Override
 	public Topic getModel() {
-		
 		return this.model;
 	}
 
@@ -57,7 +54,6 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	 * setModel implements ICardEditPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -68,30 +64,27 @@ public class TopicCardListPresenterImpl implements Presentable, TopicCardListPre
 	/**
 	 * getView implements ICardEditPresenter.getView
 	 * 
-	 * @return ICardEditView // TODO
+	 * @return ICardEditView
 	 */
 	@Override
 	public TopicCardListView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**
 	 * setView implements ICardEditPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setView(TopicCardListView view) {
 		this.view = view;
 	}
-	
+
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-		
+		this.view.updateViewFromModel();
 	}
 
 	@Override

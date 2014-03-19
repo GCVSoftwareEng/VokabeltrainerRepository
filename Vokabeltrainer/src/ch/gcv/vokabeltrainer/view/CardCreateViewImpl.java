@@ -3,8 +3,6 @@ package ch.gcv.vokabeltrainer.view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,21 +24,18 @@ import ch.gcv.vokabeltrainer.model.TranslationManager;
  */
 public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreateView, Translatable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private CardCreatePresenter presenter;
-
 	private JTextPane topicname;
 	private JTextPane boxnumber;
 	private JTextPane boxname;
-
-	private JButton addCard;
-	
-
 	private JLabel question;
 	private JLabel answer;
-
 	private JTextField answerField;
 	private JTextField questionWord;
-
 	
 	public CardCreateViewImpl() {
 		super("CardEditView");
@@ -54,15 +49,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 	private void initComponents() {
 
 		this.getContentPane().setBackground(Color.WHITE);
-		this.addCard = new JButton(new ImageIcon(getClass().getResource(
-				"plus.png")));
-		this.addCard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jButtonAddCardActionPerformed(evt);
-            }
-        });
-		
-		
 		
 		this.topicname = new JTextPane();
 		this.boxnumber = new JTextPane();
@@ -79,15 +65,11 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 			}
 
 			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
+			public void keyReleased(KeyEvent arg0) {				
 			}
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 		});
@@ -98,7 +80,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 		super.setSize(800, 380);
 		super.setVisible(true);
 		super.setLayout(null);
-
 
 		// questionlabel
 		question.setVisible(true);
@@ -111,7 +92,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 		answer.setFont(answer.getFont().deriveFont(20f));
 		answer.setBounds(15, 250, 150, 50);
 		answer.setBackground(Color.WHITE);
-		
 
 		// textfiel
 		answerField.setEditable(true);
@@ -125,8 +105,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 		questionWord.setFont(questionWord.getFont().deriveFont(20f));
 		questionWord.setBounds(170, 150, 575, 50);
 		questionWord.setBackground(Color.WHITE);
-		
-		addCard.setBounds(755, 260, 31, 30);
 		
 
 		topicname.setEditable(false);
@@ -171,14 +149,13 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 		super.add(questionWord);
 		super.add(answer);
 		super.add(answerField);
-		super.add(addCard);
 
 	}
 
 	/**
 	 * getPresenter implements ICardEditView.getPresenter
 	 * 
-	 * @return ICardEditPresenter // TODO
+	 * @return ICardEditPresenter
 	 */
 	@Override
 	public CardCreatePresenter getPresenter() {
@@ -189,7 +166,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 	 * setPresenter implements ICardEditView.setPresenter
 	 * 
 	 * @param presenter
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -248,7 +224,7 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 	 */
 	@Override
 	public void translate() {
-		// TODO should be implemented
+		this.setTitle(TranslationManager.getinstance().getText("create"));
 		this.question.setText(TranslationManager.getinstance().getText(
 				"question"));
 		this.answer.setText(TranslationManager.getinstance().getText(
@@ -256,10 +232,6 @@ public class CardCreateViewImpl extends javax.swing.JFrame implements CardCreate
 		this.boxname.setText(TranslationManager.getinstance().getText("boxname"));
     }
 	
-	private void jButtonAddCardActionPerformed(java.awt.event.ActionEvent evt) {
-        this.updateModelFromView();
-        this.presenter.confirm();       
-    }
 	private void jTextFieldCheckKeyPerformed(java.awt.event.KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER)
 		{

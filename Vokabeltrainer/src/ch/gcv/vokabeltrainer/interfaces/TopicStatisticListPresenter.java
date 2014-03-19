@@ -15,9 +15,6 @@ public interface TopicStatisticListPresenter {
 	public void setModel(Topic model);
 	public TopicStatisticListView getView();
 	public void setView(TopicStatisticListView view);
-	public boolean deleteCard(Card card);
-	public boolean editCard(Card card);
-	public void setOnConfirm(Presentable presenter);
-
+	
 }
  

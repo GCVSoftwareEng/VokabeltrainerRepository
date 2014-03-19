@@ -1,14 +1,10 @@
 package ch.gcv.vokabeltrainer.presenter;
 
-import ch.gcv.vokabeltrainer.interfaces.Card;
 import ch.gcv.vokabeltrainer.interfaces.Presentable;
 import ch.gcv.vokabeltrainer.interfaces.Topic;
-import ch.gcv.vokabeltrainer.interfaces.TopicCardListPresenter;
-import ch.gcv.vokabeltrainer.interfaces.TopicCardListView;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListPresenter;
 import ch.gcv.vokabeltrainer.interfaces.TopicStatisticListView;
 import ch.gcv.vokabeltrainer.model.PresenterManager;
-import ch.gcv.vokabeltrainer.view.TopicCardListViewImpl;
 import ch.gcv.vokabeltrainer.view.TopicStatisticListViewImpl;
 
 /**
@@ -20,16 +16,12 @@ import ch.gcv.vokabeltrainer.view.TopicStatisticListViewImpl;
  */
 public class TopicStatisticListPresenterImpl implements Presentable, TopicStatisticListPresenter {
 
-	private Presentable onConfirm;
 	private TopicStatisticListView view;
-	private Presentable onCancel;
 	private Topic model;
 
 	public TopicStatisticListPresenterImpl() {
 		super();
-		this.onConfirm = null; // TODO
-		this.model = null; // TODO
-		this.onCancel = null; // TODO
+		this.model = null;
 		this.view = new TopicStatisticListViewImpl();
 		PresenterManager.getInstance().add(this);
 	}
@@ -48,11 +40,10 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 	/**
 	 * getModel implements ICardEditPresenter.getModel
 	 * 
-	 * @return ICard // TODO
+	 * @return ICard 
 	 */
 	@Override
 	public Topic getModel() {
-		
 		return this.model;
 	}
 
@@ -60,7 +51,6 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 	 * setModel implements ICardEditPresenter.setModel
 	 * 
 	 * @param model
-	 *            // TODO
 	 * 
 	 */
 	@Override
@@ -71,36 +61,22 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 	/**
 	 * getView implements ICardEditPresenter.getView
 	 * 
-	 * @return ICardEditView // TODO
+	 * @return ICardEditView 
 	 */
 	@Override
 	public TopicStatisticListView getView() {
-		// TODO should be implemented
-		throw new UnsupportedOperationException("Not implemented");
+		return this.view;
 	}
 
 	/**
 	 * setView implements ICardEditPresenter.setView
 	 * 
 	 * @param view
-	 *            // TODO
 	 * 
 	 */
 	@Override
 	public void setView(TopicStatisticListView view) {
 		this.view = view;
-	}
-
-	@Override
-	public boolean deleteCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean editCard(Card card) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -111,11 +87,6 @@ public class TopicStatisticListPresenterImpl implements Presentable, TopicStatis
 	@Override
 	public void stop() {
 		this.view.close();
-	}
-
-	@Override
-	public void setOnConfirm(Presentable presenter) {
-		this.onConfirm = presenter;
 	}
 
 }
