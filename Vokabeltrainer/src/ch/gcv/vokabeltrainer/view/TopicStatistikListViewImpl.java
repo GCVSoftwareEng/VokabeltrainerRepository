@@ -10,6 +10,8 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -104,7 +106,17 @@ public class TopicStatistikListViewImpl extends javax.swing.JFrame implements To
 			                {"Angela", "Lih", "Teaching high school", new Integer(4), new Boolean(false) }
 			};
 			String[] columnNames = { "First Name", "Last Name", "Sport", "# of Years", "Vegetarian" };
-			final JTable table = new JTable(data, columnNames); 
+			
+			final TableModel model = new DefaultTableModel(data, columnNames);
+			 
+	        JTable table = new JTable(model) {
+	            public boolean isCellEditable(int x, int y) {
+	                return false;
+	            }
+	        };
+			
+			
+			 
 		
 		
 		
